@@ -54,6 +54,7 @@ function init() {
   renderSkills();
   renderSocial();
   bindProfile();
+  $("economicStatus").addEventListener("change", update);
   $("SYN").addEventListener("input", () => {
     state.SYN = Math.max(0, numberValue("SYN"));
     update();
@@ -154,6 +155,35 @@ function clampInt(n, min, max) {
   return Math.max(min, Math.min(max, Math.floor(n)));
 }
 
+function economicStatus() {
+  const el = $("economicStatus");
+  return el ? el.value : "self";
+}
+
+function isDependent() {
+  return economicStatus() === "dependent";
+}
+
+/* 月収・所持金は RNK+1 をベースラインにすることで、RNK0による事故的な0円化を防ぐ。
+   「扶養・無収入」はプレイヤーが意図的に選ぶ背景設定として別枠で0円にする。 */
+function incomeValue(jobSkill, RNK) {
+  if (isDependent()) return 0;
+  return jobSkill * (RNK + 1) * 1000;
+}
+
+function moneyValue(jobSkill, RNK) {
+  if (isDependent()) return 0;
+  return jobSkill * (RNK + 1) * 10000;
+}
+
+function incomeText(jobSkill, RNK) {
+  return isDependent() ? "0円（扶養・無収入）" : `${incomeValue(jobSkill, RNK).toLocaleString()}円`;
+}
+
+function moneyText(jobSkill, RNK) {
+  return isDependent() ? "0円（扶養・無収入）" : `${moneyValue(jobSkill, RNK).toLocaleString()}円`;
+}
+
 function rollDice() {
   state.diceTotal = Array.from({length:5}, () => Math.floor(Math.random()*4)+1)
     .reduce((a,b) => a+b, 0);
@@ -238,8 +268,8 @@ function update() {
   $("HP").textContent = CON * 2;
   $("SAN").textContent = POW * 10;
   $("AP").textContent = ceil(DEX / 2);
-  $("income").textContent = `${(jobSkill * RNK * 1000).toLocaleString()}円`;
-  $("money").textContent = `${(jobSkill * RNK * 10000).toLocaleString()}円`;
+  $("income").textContent = incomeText(jobSkill, RNK);
+  $("money").textContent = moneyText(jobSkill, RNK);
 
   const validAbility = state.diceTotal > 0 && abilityTotal() === state.diceTotal &&
     ABILITIES.every(([code]) => state.abilities[code] >= 1 && state.abilities[code] <= 20);
@@ -257,7 +287,8 @@ function profileData() {
   const ids = [
     "name","birthCountry","residenceCountry","profileJob","age","gender","height",
     "personality","appearance","clothing","hairstyle","likes","dislikes","hobbies",
-    "specialty","family","history","residence","dailyLife","speech","firstPerson","notes"
+    "specialty","family","history","residence","dailyLife","speech","firstPerson","notes",
+    "economicStatus"
   ];
   return Object.fromEntries(ids.map(id => [id, textValue(id)]));
 }
@@ -308,24 +339,10 @@ function buildPreview() {
     `HP：${$("HP").textContent}`,
     `SAN：${$("SAN").textContent}`,
     `AP：${$("AP").textContent}`,
-    `月収：${$("income").textContent}`,
-    `所持金：${$("money").textContent}`,
+    `経済状況：${isDependent() ? "扶養・無収入" : "自活"}`,
+    `月収：${incomeText(jobSkill, state.social.RNK)}`,
+    `所持金：${moneyText(jobSkill, state.social.RNK)}`,
     "",
-    "【人物】",
-    `容姿：${p.appearance}`,
-    `服装：${p.clothing}`,
-    `髪型：${p.hairstyle}`,
-    `好き：${p.likes}`,
-    `嫌い：${p.dislikes}`,
-    `趣味：${p.hobbies}`,
-    `特技：${p.specialty}`,
-    `家族：${p.family}`,
-    `経歴：${p.history}`,
-    `住居：${p.residence}`,
-    `普段の生活：${p.dailyLife}`,
-    `話し方：${p.speech}`,
-    `一人称：${p.firstPerson}`,
-    `備考：${p.notes}`
   ];
   return lines.join("\n");
 }
@@ -359,8 +376,9 @@ function buildCocofoliaMemo() {
     "",
     "【経済】",
     `職業技能値：${jobSkill}`,
-    `月収：${$("income").textContent}`,
-    `所持金：${$("money").textContent}`,
+    `経済状況：${isDependent() ? "扶養・無収入" : "自活"}`,
+    `月収：${incomeText(jobSkill, state.social.RNK)}`,
+    `所持金：${moneyText(jobSkill, state.social.RNK)}`,
     "",
     "【備考】",
     p.notes

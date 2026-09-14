@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未来世界 TRPG 会社シート</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="./mooncore.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="未来世界TRPG 会社シート">
+  <meta property="og:description" content="未来世界TRPGの会社を作成し、会社ステータスや企業タイプ、収入・支出を管理できる会社シート。">
+  <meta property="og:url" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/company.html">
+  <meta property="og:image" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="未来世界TRPG 会社シート">
+  <meta name="twitter:description" content="未来世界TRPGの会社を作成し、会社ステータスや企業タイプ、収入・支出を管理できる会社シート。">
+  <meta name="twitter:image" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/ogp.png">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <div class="system-label">FUTURE WORLD TRPG</div>
+      <h1>会社シート</h1>
+    </div>
+    <div class="header-status">COMPANY MANAGEMENT SYSTEM</div>
+  </header>
+
+<nav class="site-nav">
+  <a href="./index.html">キャラクターシート</a>
+  <a href="./company.html" class="active">会社シート</a>
+  <a href="./guide.html">値目安</a>
+  <a href="./Meaning.html">値の意味</a>
+</nav>
+
+
+  <main class="container">
+    <section class="panel">
+      <div class="panel-title">COMPANY PROFILE</div>
+      <div class="grid profile-grid">
+        <label>会社名
+          <input id="companyName" type="text" placeholder="会社名">
+        </label>
+        <label>社長
+          <input id="presidentName" type="text" placeholder="社長名">
+        </label>
+        <label>社長の職業技能値
+          <input id="presidentSkill" type="number" min="0" max="99" value="0">
+        </label>
+        <label>社長のCL
+          <input id="presidentCL" type="number" min="1" max="10" value="1">
+        </label>
+        <label>社長のRNK
+          <input id="presidentRNK" type="number" min="1" max="10" value="1">
+        </label>
+        <label>運営状況
+          <select id="operationStatus">
+            <option value="active">通常稼働</option>
+            <option value="suspended">休業中（収入0円）</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">ENTERPRISE TYPE</div>
+      <div class="job-grid" id="typeGrid"></div>
+      <p class="selected-job">選択中：<strong id="selectedType">未選択</strong></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">COMPANY STATUS</div>
+      <p class="hint">CL / INF / RNK / FUN はルールブックの式から自動算出されます。</p>
+      <div class="calculated-grid">
+        <div><span>CL 信用</span><strong id="companyCL">1</strong></div>
+        <div><span>INF 影響</span><strong id="companyINF">1</strong></div>
+        <div><span>RNK 権力</span><strong id="companyRNK">1</strong></div>
+        <div><span>FUN 資金力</span><strong id="companyFUN">1</strong></div>
+      </div>
+      <p id="ruleWarning" class="hint"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">BASE POINTS</div>
+      <div class="dice-row">
+        <button id="rollBase" class="primary">2D5を振る</button>
+        <div class="dice-result">2D5：<strong id="baseDice">未決定</strong></div>
+        <div class="allocation">基礎ポイント：<strong id="baseTotal">0</strong></div>
+        <div class="allocation">残り：<strong id="baseRemaining">0</strong></div>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-label"><strong>REP</strong><span>企業評価、貢献度</span></div>
+          <input id="REP" type="number" min="0" value="0">
+        </div>
+        <div class="skill-card">
+          <div class="skill-label"><strong>ETH</strong><span>企業倫理</span></div>
+          <input id="ETH" type="number" min="0" value="0">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">ENTERPRISE TYPE POINT</div>
+      <div class="calculated-grid">
+        <div><span>企業タイプ</span><strong id="typeCode">未選択</strong></div>
+        <div><span>社長技能 / 2</span><strong id="skillHalf">0</strong></div>
+        <div><span>FUN × 10</span><strong id="funBonus">0</strong></div>
+        <div><span>企業タイプポイント</span><strong id="typePoints">0</strong></div>
+        <div><span>進化状態</span><strong id="evolution">通常</strong></div>
+      </div>
+      <p class="hint">企業タイプポイントは選択した企業タイプにのみ適用されます。100到達時に進化します。</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">FINANCE</div>
+      <div class="calculated-grid">
+        <div><span>収入 D10</span><strong id="incomeDice">未決定</strong></div>
+        <div><span>収入</span><strong id="income">0</strong></div>
+        <div><span>支出 10D10</span><strong id="expenseDice">未決定</strong></div>
+        <div><span>支出</span><strong id="expense">0</strong></div>
+        <div><span>差額</span><strong id="balance">0</strong></div>
+      </div>
+      <div class="actions finance-actions">
+        <button id="rollFinance" class="primary">収入・支出を計算</button>
+      </div>
+      <p class="hint">収入・支出のダイス結果はボタンを押した時に決定します。収入は「(FUN×40+CL+1)」で計算し、FUNとCLが両方0でも最低限の収入が出るようにしています。「休業中」を選ぶと収入は意図的に0円になります。</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">PREVIEW</div>
+      <pre id="preview" class="preview">会社を作成すると、ここに完成した会社シートが表示されます。</pre>
+    </section>
+
+    <section class="actions">
+      <button id="save" class="secondary">ブラウザに保存</button>
+      <button id="load" class="secondary">保存データを読み込む</button>
+      <button id="copySheet" class="secondary">会社シートをコピー</button>
+      <button id="copyJson" class="secondary">ココフォリアJSONをコピー</button>
+      <button id="downloadJson" class="primary">ココフォリア駒JSONを出力</button>
+      <button id="reset" class="danger">新規作成</button>
+    </section>
+
+    <p id="statusMessage" class="status-message"></p>
+  </main>
+
+  <footer>FUTURE WORLD TRPG COMPANY SHEET</footer>
+  <script src="company.js"></script>
+</body>
+</html>

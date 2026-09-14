@@ -32,6 +32,12 @@
     </div>
     <div class="header-status">SYSTEM ONLINE</div>
   </header>
+<nav class="site-nav">
+  <a href="./index.html" class="active">キャラクターシート</a>
+  <a href="./company.html">会社シート</a>
+  <a href="./guide.html">値目安</a>
+  <a href="./Meaning.html">値の意味</a>
+</nav>
 
   <main class="container">
     <section class="panel">
@@ -52,6 +58,12 @@
         <label>嫌い<textarea id="dislikes"></textarea></label>
         <label>趣味<textarea id="hobbies"></textarea></label>
         <label>特技<textarea id="specialty"></textarea></label>
+        <label>経済状況
+          <select id="economicStatus">
+            <option value="self">自活（収入あり）</option>
+            <option value="dependent">扶養・無収入</option>
+          </select>
+        </label>
         <label>家族<textarea id="family"></textarea></label>
         <label>経歴<textarea id="history"></textarea></label>
         <label>住居<textarea id="residence"></textarea></label>
@@ -109,6 +121,7 @@
         <div><span>月収</span><strong id="income">0円</strong></div>
         <div><span>所持金</span><strong id="money">0円</strong></div>
       </div>
+      <p class="hint">月収・所持金は「職業技能値×(RNK+1)」で計算（RNK0でも技能があれば最低限稼げる）。経済状況で「扶養・無収入」を選んだ場合は0円になります。</p>
     </section>
 
     <section class="panel">
