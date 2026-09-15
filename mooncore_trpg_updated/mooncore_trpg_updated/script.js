@@ -36,7 +36,9 @@ let state = {
   job: "",
   skills: {RSH:0, TAC:0, ENG:0, MED:0, OPS:0, CWD:0},
   social: {CL:0, RNK:0, INF:0},
-  SYN: 0
+  SYN: 0,
+  CE: 3,
+  PE: 3
 };
 
 const $ = id => document.getElementById(id);
@@ -57,6 +59,16 @@ function init() {
   $("economicStatus").addEventListener("change", update);
   $("SYN").addEventListener("input", () => {
     state.SYN = Math.max(0, numberValue("SYN"));
+    update();
+  });
+  $("CE").addEventListener("input", () => {
+    state.CE = clampInt(numberValue("CE"), 0, 5);
+    $("CE").value = state.CE;
+    update();
+  });
+  $("PE").addEventListener("input", () => {
+    state.PE = clampInt(numberValue("PE"), 0, 5);
+    $("PE").value = state.PE;
     update();
   });
   $("rollDice").addEventListener("click", rollDice);
@@ -339,6 +351,8 @@ function buildPreview() {
     `HP：${$("HP").textContent}`,
     `SAN：${$("SAN").textContent}`,
     `AP：${$("AP").textContent}`,
+    `CE：${state.CE}`,
+    `PE：${state.PE}`,
     `経済状況：${isDependent() ? "扶養・無収入" : "自活"}`,
     `月収：${incomeText(jobSkill, state.social.RNK)}`,
     `所持金：${moneyText(jobSkill, state.social.RNK)}`,
@@ -405,7 +419,7 @@ function makeCocofolia() {
     kind: "character",
     data: {
       name: textValue("name") || "未設定",
-      initiative: numberValue("DEX"),
+      initiative: Number($("AP").textContent),
       memo: buildCocofoliaMemo(),
       externalUrl: "",
       iconUrl: "",
@@ -414,8 +428,8 @@ function makeCocofolia() {
         {label:"HP", value: Number($("HP").textContent), max: Number($("HP").textContent)},
         {label:"SAN", value: Number($("SAN").textContent), max: 100},
         {label:"汚染値", value: 0, max: 100},
-        {label:"CE", value: 3, max: 5},
-        {label:"PE", value: 3, max: 5}
+        {label:"CE", value: state.CE, max: 5},
+        {label:"PE", value: state.PE, max: 5}
       ],
       params
     }
@@ -483,6 +497,10 @@ function loadData() {
 
     ABILITIES.forEach(([code]) => $(code).value = state.abilities[code] ?? 0);
     $("SYN").value = state.SYN ?? 0;
+    state.CE = state.CE ?? 3;
+    state.PE = state.PE ?? 3;
+    $("CE").value = state.CE;
+    $("PE").value = state.PE;
     SKILLS.forEach(([code]) => $(`skill_${code}`).value = state.skills[code] ?? 0);
     SOCIALS.forEach(([code]) => $(`social_${code}`).value = state.social[code] ?? 0);
 

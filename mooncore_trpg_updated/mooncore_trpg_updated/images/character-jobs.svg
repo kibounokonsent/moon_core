@@ -1,7 +1,7 @@
-<svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP','Yu Gothic',sans-serif">
+<svg viewBox="0 0 590 200" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP','Yu Gothic',sans-serif">
   <g font-size="15" font-weight="800" text-anchor="middle">
     <!-- RSH: magnifier -->
-    <g transform="translate(50,20)">
+    <g transform="translate(30,20)">
       <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
       <circle cx="34" cy="42" r="12" fill="none" stroke="#3fcbd1" stroke-width="3"/>
       <line x1="43" y1="51" x2="53" y2="61" stroke="#3fcbd1" stroke-width="3" stroke-linecap="round"/>
@@ -10,7 +10,7 @@
     </g>
 
     <!-- TAC: shield -->
-    <g transform="translate(140,20)">
+    <g transform="translate(120,20)">
       <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
       <path d="M40,26 L58,33 V50 Q58,62 40,68 Q22,62 22,50 V33 Z" fill="none" stroke="#3fcbd1" stroke-width="3"/>
       <text x="40" y="112" fill="#14213d">TAC</text>
@@ -18,7 +18,7 @@
     </g>
 
     <!-- ENG: gear -->
-    <g transform="translate(230,20)">
+    <g transform="translate(210,20)">
       <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
       <circle cx="40" cy="44" r="10" fill="none" stroke="#3fcbd1" stroke-width="3"/>
       <g stroke="#3fcbd1" stroke-width="3">
@@ -36,7 +36,7 @@
     </g>
 
     <!-- MED: cross -->
-    <g transform="translate(320,20)">
+    <g transform="translate(300,20)">
       <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
       <rect x="34" y="26" width="12" height="36" rx="2" fill="#3fcbd1"/>
       <rect x="22" y="38" width="36" height="12" rx="2" fill="#3fcbd1"/>
@@ -45,7 +45,7 @@
     </g>
 
     <!-- OPS: signal -->
-    <g transform="translate(410,20)">
+    <g transform="translate(390,20)">
       <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
       <circle cx="40" cy="54" r="4" fill="#3fcbd1"/>
       <path d="M28,54 A17,17 0 0 1 52,54" fill="none" stroke="#3fcbd1" stroke-width="3"/>
@@ -55,7 +55,7 @@
     </g>
 
     <!-- CWD: flag -->
-    <g transform="translate(500,20)">
+    <g transform="translate(480,20)">
       <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
       <line x1="30" y1="24" x2="30" y2="64" stroke="#3fcbd1" stroke-width="3"/>
       <path d="M30,26 L54,32 L30,42 Z" fill="#3fcbd1"/>
