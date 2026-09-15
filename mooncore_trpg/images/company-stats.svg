@@ -1,0 +1,29 @@
+<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP','Yu Gothic',sans-serif">
+  <!-- background hex rings -->
+  <g fill="none" stroke="#c8d7e6" stroke-width="1">
+    <polygon points="200,30 340,90 340,180 200,240 60,180 60,90"/>
+    <polygon points="200,58 312,105 312,165 200,212 88,165 88,105"/>
+    <polygon points="200,86 284,120 284,150 200,184 116,150 116,120"/>
+  </g>
+  <!-- axes -->
+  <g stroke="#c8d7e6" stroke-width="1">
+    <line x1="200" y1="135" x2="200" y2="30"/>
+    <line x1="200" y1="135" x2="340" y2="90"/>
+    <line x1="200" y1="135" x2="340" y2="180"/>
+    <line x1="200" y1="135" x2="200" y2="240"/>
+    <line x1="200" y1="135" x2="60" y2="180"/>
+    <line x1="200" y1="135" x2="60" y2="90"/>
+  </g>
+  <!-- example data polygon -->
+  <polygon points="200,58 298,102 312,165 200,212 108,158 88,105"
+           fill="#3fcbd1" fill-opacity="0.35" stroke="#246bce" stroke-width="2.5"/>
+
+  <g font-size="14" font-weight="800" fill="#14213d" text-anchor="middle">
+    <text x="200" y="18">CL</text>
+    <text x="358" y="94">INF</text>
+    <text x="358" y="186">RNK</text>
+    <text x="200" y="254">FUN</text>
+    <text x="42" y="186">REP</text>
+    <text x="42" y="94">ETH</text>
+  </g>
+</svg>

@@ -14,6 +14,8 @@ const ICONS = {
   scale:'<path d="M12 3v18M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
 };
 
+let isAdmin = sessionStorage.getItem('moonCoreAdmin') === 'true';
+
 function catByKey(key){ return CATEGORIES.find(c => c.key === key); }
 
 function setBackgroundTheme(theme){
@@ -1029,9 +1031,15 @@ function renderArticlePage(id){
 
   const c = catByKey(a.cat);
 
-  const toc = a.sections.map(s => `<a href="#${s.id}">${s.title}</a>`).join('');
-  const miniCats = CATEGORIES.map(cc => `<a href="#/category/${cc.key}" class="${cc.key===a.cat?'active':''}">${cc.name}</a>`).join('');
-  const sectionsHtml = a.sections.map(s => `<h2 id="${s.id}">${s.title}</h2>${renderBlocks(s.blocks)}`).join('');
+const toc = a.sections.map(s => `<a href="#${s.id}">${s.title}</a>`).join('');
+const miniCats = CATEGORIES.map(cc => `<a href="#/category/${cc.key}" class="${cc.key===a.cat?'active':''}">${cc.name}</a>`).join('');
+const sectionsHtml = a.sections.map(s => `<h2 id="${s.id}">${s.title}</h2>${renderBlocks(s.blocks)}`).join('');
+
+const adminSectionsHtml = isAdmin && a.admin?.sections
+  ? a.admin.sections.map(s =>
+      `<h2 id="${s.id}">${s.title}</h2>${renderBlocks(s.blocks)}`
+    ).join('')
+  : '';
 
 const related = (a.related||[]).map(relatedChip).join('');
 
@@ -1074,12 +1082,13 @@ ${imageHtml}
         </div>
       </aside>
       <div class="article-content">
-        <div class="content-card">
+<div class="content-card">
   ${sectionsHtml}
-
+  ${adminSectionsHtml}
 
   ${a.related && a.related.length ? `<h2>関連項目</h2><div class="related-links">${related}</div>` : ''}
 </div>
+
         <a class="back-top-link" href="#/">← 資料集トップへ戻る</a>
       </div>
     </div>`;
@@ -1087,6 +1096,78 @@ ${imageHtml}
 }
 
 
+function renderAdminPage(){
+
+  document.getElementById('home-hero').style.display = 'none';
+
+  document.getElementById('app').innerHTML = `
+    <div class="article-page">
+      <div class="content-card">
+        <div class="admin-login">
+
+          <h1>MOON CORE ADMIN</h1>
+
+          <p>管理者認証</p>
+
+          <input
+            type="password"
+            id="admin-password"
+            placeholder="パスワード">
+
+          <button onclick="adminLogin()">
+            ログイン
+          </button>
+
+        </div>
+      </div>
+    </div>
+  `;
+
+}
+
+
+function adminLogin(){
+
+  const password = document.getElementById('admin-password').value;
+
+  if(password === 'M7!qR2#vL9@tK4'){
+
+    isAdmin = true;
+    sessionStorage.setItem('moonCoreAdmin', 'true');
+
+    document.getElementById('app').innerHTML = `
+      <div class="article-page">
+        <div class="content-card">
+
+          <h1>MOON CORE ADMIN</h1>
+
+          <p>認証に成功しました。</p>
+
+          <button onclick="adminLogout()">
+            ログアウト
+          </button>
+
+        </div>
+      </div>
+    `;
+
+  } else {
+
+    alert('パスワードが正しくありません。');
+
+  }
+
+}
+
+
+function adminLogout(){
+
+  sessionStorage.removeItem('moonCoreAdmin');
+  isAdmin = false;
+
+  renderAdminPage();
+
+}
 
 /* ---------------- ルーター ---------------- */
 function router(){
@@ -1119,20 +1200,24 @@ if(hash === '#/articles'){
 
     renderArticlePage(hash.replace('#/article/',''));
 
-  } else if(hash.startsWith('#/category/')){
+} else if(hash === '#/admin'){
+
+    renderAdminPage();
+
+} else if(hash.startsWith('#/category/')){
 
     renderCategoryPage(hash.replace('#/category/',''));
 
-  } else if(hash === '' || hash === '#/' || hash === '#'){
+} else if(hash === '' || hash === '#/' || hash === '#'){
 
     renderHome();
 
-  } else {
+} else {
 
     // ページ内アンカー（目次リンクなど）は無視
     return;
 
-  }
+}
 
   window.scrollTo({ top:0, behavior:'auto' });
 

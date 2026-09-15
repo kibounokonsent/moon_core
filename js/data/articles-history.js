@@ -749,5 +749,18 @@ ARTICLES.push({
       {t:'p', text:'楽園計画は、人々を豊かにするために作られた技術が、生活そのものをどこまで肩代わりできるのかを示した歴史的な事例として知られている。'},
     ]},
   ],
+
+    admin:{
+    sections:[
+      {
+        id:'admin-test',
+        title:'管理者用設定',
+        blocks:[
+          {t:'p', text:'これは管理者用データのテストです。'}
+        ]
+      }
+    ]
+  },
+
   related:['daily-life','education-system'],
 });
