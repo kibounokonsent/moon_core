@@ -1,0 +1,7529 @@
+{
+  "generatedAt": "2026-09-16T10:52:29.579Z",
+  "statusCounts": {
+    "正常": 138,
+    "関連記事不足": 11,
+    "関連記事不足（自動補完）": 4,
+    "自動修正済み": 2
+  },
+  "resolvedFixes": [
+    {
+      "ownerId": "running-through-the-forest",
+      "ownerTitle": "森を走る",
+      "ref": "larialfrus",
+      "target": "larliafrus",
+      "method": "id-typo"
+    }
+  ],
+  "removedRefs": [
+    {
+      "ownerId": "food-explorer",
+      "ownerTitle": "まだ食べたことのない味",
+      "ref": "food-culture",
+      "method": "unresolved-removed"
+    }
+  ],
+  "dupRefs": [],
+  "perArticle": {
+    "world-overview": {
+      "title": "「未来世界」とは",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "solar-core",
+        "anazanium"
+      ],
+      "after": [
+        "daily-life",
+        "solar-core",
+        "anazanium"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [],
+      "brokenCount": 0
+    },
+    "daily-life": {
+      "title": "人々の暮らし",
+      "status": "正常",
+      "before": [
+        "world-overview",
+        "medical-tech",
+        "neuro-sync"
+      ],
+      "after": [
+        "world-overview",
+        "medical-tech",
+        "neuro-sync"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "automation",
+          "title": "自動化技術",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "education-system": {
+      "title": "教育制度",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "ai-tech",
+        "medical-tech"
+      ],
+      "after": [
+        "daily-life",
+        "ai-tech",
+        "medical-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "age-perception",
+          "title": "年齢観",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 16,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "future-economy": {
+      "title": "未来世界の経済",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "neuro-sync",
+        "world-overview"
+      ],
+      "after": [
+        "daily-life",
+        "neuro-sync",
+        "world-overview"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 66,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "future-convenience-store",
+          "title": "未来世界のコンビニ",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "age-perception",
+          "title": "年齢観",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 40,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "age-perception": {
+      "title": "年齢観",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "education-system",
+        "medical-tech"
+      ],
+      "after": [
+        "daily-life",
+        "education-system",
+        "medical-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 45,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 36,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "death-and-funeral": {
+      "title": "死と葬儀",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "medical-tech"
+      ],
+      "after": [
+        "daily-life",
+        "medical-tech",
+        "alcohol-and-cigarette",
+        "birth-and-genetic-medicine"
+      ],
+      "autoAdded": [
+        "alcohol-and-cigarette",
+        "birth-and-genetic-medicine"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 45,
+          "confidence": "△"
+        },
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "age-perception",
+          "title": "年齢観",
+          "score": 34,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "silly-news": {
+      "title": "くだらないニュース",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "hubert",
+        "tasumenio",
+        "kyuma",
+        "yuretsuea"
+      ],
+      "after": [
+        "daily-life",
+        "hubert",
+        "tasumenio",
+        "kyuma",
+        "yuretsuea"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "belnea",
+          "title": "ベルネア",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 4,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "future-food-seasoning": {
+      "title": "未来世界の味付け",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "wonhead",
+        "medical-tech"
+      ],
+      "after": [
+        "daily-life",
+        "wonhead",
+        "medical-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "stimulating-food",
+          "title": "刺激系食品",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "future-convenience-store",
+          "title": "未来世界のコンビニ",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 28,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "giir-deficiency": {
+      "title": "GIIR欠乏症",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "giir-linktin",
+        "medical-tech"
+      ],
+      "after": [
+        "daily-life",
+        "giir-linktin",
+        "medical-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "modern-civilization",
+          "title": "近代文明",
+          "score": 4,
+          "confidence": "△"
+        },
+        {
+          "id": "evolution-disease",
+          "title": "進化病",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "birth-and-genetic-medicine": {
+      "title": "出産と遺伝子医療",
+      "status": "関連記事不足",
+      "before": [
+        "medical-tech"
+      ],
+      "after": [
+        "medical-tech",
+        "body-modification",
+        "daily-life",
+        "alcohol-and-cigarette"
+      ],
+      "autoAdded": [
+        "body-modification",
+        "daily-life",
+        "alcohol-and-cigarette"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 72,
+          "confidence": "△"
+        },
+        {
+          "id": "daily-life",
+          "title": "人々の暮らし",
+          "score": 63,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "death-and-funeral",
+          "title": "死と葬儀",
+          "score": 46,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "gaming-full-food": {
+      "title": "ゲーミングフルフード",
+      "status": "関連記事不足（自動補完）",
+      "before": [],
+      "after": [
+        "alcohol-and-cigarette",
+        "future-convenience-store",
+        "daily-life",
+        "giir-deficiency"
+      ],
+      "autoAdded": [
+        "alcohol-and-cigarette",
+        "future-convenience-store",
+        "daily-life",
+        "giir-deficiency"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "future-convenience-store",
+          "title": "未来世界のコンビニ",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "daily-life",
+          "title": "人々の暮らし",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "stimulating-food",
+          "title": "刺激系食品",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "alcohol-and-cigarette": {
+      "title": "酒とシガレット",
+      "status": "正常",
+      "before": [
+        "income-and-living",
+        "daily-life",
+        "stimulating-food"
+      ],
+      "after": [
+        "income-and-living",
+        "daily-life",
+        "stimulating-food"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "future-convenience-store",
+          "title": "未来世界のコンビニ",
+          "score": 63,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "death-and-funeral",
+          "title": "死と葬儀",
+          "score": 46,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "income-and-living": {
+      "title": "未来世界の収入と生活",
+      "status": "正常",
+      "before": [
+        "future-economy",
+        "daily-life",
+        "education-system"
+      ],
+      "after": [
+        "future-economy",
+        "daily-life",
+        "education-system"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "automation",
+          "title": "自動化技術",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "stimulating-food": {
+      "title": "刺激系食品",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "future-food-seasoning",
+        "gaming-full-food"
+      ],
+      "after": [
+        "daily-life",
+        "future-food-seasoning",
+        "gaming-full-food"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "future-convenience-store",
+          "title": "未来世界のコンビニ",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "body-modification",
+          "title": "身体改造",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "future-economy",
+          "title": "未来世界の経済",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "future-convenience-store": {
+      "title": "未来世界のコンビニ",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "stimulating-food",
+        "mars-development",
+        "analog-media"
+      ],
+      "after": [
+        "daily-life",
+        "stimulating-food",
+        "mars-development",
+        "analog-media"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "automation",
+          "title": "自動化技術",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "one-day-routine": {
+      "title": "ある仕事人の1DAYルーティン",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "education-system",
+        "future-economy",
+        "neuro-sync",
+        "transportation"
+      ],
+      "after": [
+        "daily-life",
+        "education-system",
+        "future-economy",
+        "neuro-sync",
+        "transportation"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "niporan",
+          "title": "ニポラン",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "svh-hero": {
+      "title": "警戒区域の向こう側",
+      "status": "正常",
+      "before": [
+        "svh",
+        "daily-life",
+        "variant"
+      ],
+      "after": [
+        "svh",
+        "daily-life",
+        "variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "captain-of-the-sea",
+          "title": "船長！",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "one-day-routine",
+          "title": "ある仕事人の1DAYルーティン",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "silly-news",
+          "title": "くだらないニュース",
+          "score": 16,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 15,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 14,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "running-through-the-forest": {
+      "title": "森を走る",
+      "status": "自動修正済み",
+      "before": [
+        "daily-life",
+        "larialfrus"
+      ],
+      "after": [
+        "daily-life",
+        "larliafrus",
+        "food-explorer",
+        "captain-of-the-sea"
+      ],
+      "autoAdded": [
+        "food-explorer",
+        "captain-of-the-sea"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "food-explorer",
+          "title": "まだ食べたことのない味",
+          "score": 8,
+          "confidence": "△"
+        },
+        {
+          "id": "captain-of-the-sea",
+          "title": "船長！",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "one-day-routine",
+          "title": "ある仕事人の1DAYルーティン",
+          "score": 4,
+          "confidence": "△"
+        },
+        {
+          "id": "silly-news",
+          "title": "くだらないニュース",
+          "score": 4,
+          "confidence": "△"
+        },
+        {
+          "id": "svh-hero",
+          "title": "警戒区域の向こう側",
+          "score": 3,
+          "confidence": "△"
+        },
+        {
+          "id": "age-perception",
+          "title": "年齢観",
+          "score": 3,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 1
+    },
+    "captain-of-the-sea": {
+      "title": "船長！",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "tasumenio",
+        "modern-civilization"
+      ],
+      "after": [
+        "daily-life",
+        "tasumenio",
+        "modern-civilization"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "svh-hero",
+          "title": "警戒区域の向こう側",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "one-day-routine",
+          "title": "ある仕事人の1DAYルーティン",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "food-explorer",
+          "title": "まだ食べたことのない味",
+          "score": 12,
+          "confidence": "△"
+        },
+        {
+          "id": "silly-news",
+          "title": "くだらないニュース",
+          "score": 11,
+          "confidence": "△"
+        },
+        {
+          "id": "income-and-living",
+          "title": "未来世界の収入と生活",
+          "score": 11,
+          "confidence": "△"
+        },
+        {
+          "id": "birth-and-genetic-medicine",
+          "title": "出産と遺伝子医療",
+          "score": 8,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "food-explorer": {
+      "title": "まだ食べたことのない味",
+      "status": "自動修正済み",
+      "before": [
+        "daily-life",
+        "wonhead",
+        "food-culture"
+      ],
+      "after": [
+        "daily-life",
+        "wonhead",
+        "silly-news",
+        "svh-hero"
+      ],
+      "autoAdded": [
+        "silly-news",
+        "svh-hero"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "silly-news",
+          "title": "くだらないニュース",
+          "score": 12,
+          "confidence": "△"
+        },
+        {
+          "id": "svh-hero",
+          "title": "警戒区域の向こう側",
+          "score": 12,
+          "confidence": "△"
+        },
+        {
+          "id": "captain-of-the-sea",
+          "title": "船長！",
+          "score": 12,
+          "confidence": "△"
+        },
+        {
+          "id": "one-day-routine",
+          "title": "ある仕事人の1DAYルーティン",
+          "score": 11,
+          "confidence": "△"
+        },
+        {
+          "id": "alcohol-and-cigarette",
+          "title": "酒とシガレット",
+          "score": 8,
+          "confidence": "△"
+        },
+        {
+          "id": "running-through-the-forest",
+          "title": "森を走る",
+          "score": 8,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 1
+    },
+    "gear-war": {
+      "title": "歯車戦争",
+      "status": "正常",
+      "before": [
+        "garhyura",
+        "hubert",
+        "world-overview"
+      ],
+      "after": [
+        "garhyura",
+        "hubert",
+        "world-overview"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-order",
+          "title": "世界秩序",
+          "score": 7,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "orgaron-figures": {
+      "title": "オルガロンを形作った人物",
+      "status": "正常",
+      "before": [
+        "orgaron",
+        "gear-war",
+        "hubert",
+        "garhyura"
+      ],
+      "after": [
+        "orgaron",
+        "gear-war",
+        "hubert",
+        "garhyura"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "ancient-civilization",
+          "title": "古代文明",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-civilization",
+          "title": "近代文明",
+          "score": 52,
+          "confidence": "△"
+        },
+        {
+          "id": "blood-altar",
+          "title": "血の祭壇",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "paradise-project",
+          "title": "楽園計画",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-cave",
+          "title": "ドラゴンの洞窟",
+          "score": 19,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "blood-altar": {
+      "title": "血の祭壇",
+      "status": "正常",
+      "before": [
+        "orgaron",
+        "gear-war"
+      ],
+      "after": [
+        "orgaron",
+        "gear-war",
+        "modern-civilization",
+        "ancient-civilization"
+      ],
+      "autoAdded": [
+        "modern-civilization",
+        "ancient-civilization"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "modern-civilization",
+          "title": "近代文明",
+          "score": 63,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-civilization",
+          "title": "古代文明",
+          "score": 61,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron-figures",
+          "title": "オルガロンを形作った人物",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-cave",
+          "title": "ドラゴンの洞窟",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "paradise-project",
+          "title": "楽園計画",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "ancient-civilization": {
+      "title": "古代文明",
+      "status": "正常",
+      "before": [
+        "kyuma",
+        "fumora-skypill"
+      ],
+      "after": [
+        "kyuma",
+        "fumora-skypill",
+        "modern-civilization",
+        "dragon-cave"
+      ],
+      "autoAdded": [
+        "modern-civilization",
+        "dragon-cave"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "modern-civilization",
+          "title": "近代文明",
+          "score": 160,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-cave",
+          "title": "ドラゴンの洞窟",
+          "score": 69,
+          "confidence": "△"
+        },
+        {
+          "id": "blood-altar",
+          "title": "血の祭壇",
+          "score": 61,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron-figures",
+          "title": "オルガロンを形作った人物",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "paradise-project",
+          "title": "楽園計画",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 47,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "modern-civilization": {
+      "title": "近代文明",
+      "status": "正常",
+      "before": [
+        "ancient-civilization",
+        "kyuma"
+      ],
+      "after": [
+        "ancient-civilization",
+        "kyuma",
+        "blood-altar",
+        "paradise-project"
+      ],
+      "autoAdded": [
+        "blood-altar",
+        "paradise-project"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "blood-altar",
+          "title": "血の祭壇",
+          "score": 63,
+          "confidence": "△"
+        },
+        {
+          "id": "paradise-project",
+          "title": "楽園計画",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-cave",
+          "title": "ドラゴンの洞窟",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron-figures",
+          "title": "オルガロンを形作った人物",
+          "score": 52,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "paradise-project": {
+      "title": "楽園計画",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "education-system"
+      ],
+      "after": [
+        "daily-life",
+        "education-system",
+        "modern-civilization",
+        "ancient-civilization"
+      ],
+      "autoAdded": [
+        "modern-civilization",
+        "ancient-civilization"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "modern-civilization",
+          "title": "近代文明",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-civilization",
+          "title": "古代文明",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "blood-altar",
+          "title": "血の祭壇",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron-figures",
+          "title": "オルガロンを形作った人物",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-cave",
+          "title": "ドラゴンの洞窟",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 21,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "dragon-cave": {
+      "title": "ドラゴンの洞窟",
+      "status": "関連記事不足（自動補完）",
+      "before": [],
+      "after": [
+        "ancient-civilization",
+        "modern-civilization",
+        "blood-altar",
+        "paradise-project"
+      ],
+      "autoAdded": [
+        "ancient-civilization",
+        "modern-civilization",
+        "blood-altar",
+        "paradise-project"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "ancient-civilization",
+          "title": "古代文明",
+          "score": 69,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-civilization",
+          "title": "近代文明",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "blood-altar",
+          "title": "血の祭壇",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "paradise-project",
+          "title": "楽園計画",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron-figures",
+          "title": "オルガロンを形作った人物",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 19,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "solar-core": {
+      "title": "子陽炉",
+      "status": "正常",
+      "before": [
+        "framanium",
+        "energy-tech",
+        "anazanium"
+      ],
+      "after": [
+        "framanium",
+        "energy-tech",
+        "anazanium"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "neuro-sync": {
+      "title": "ニューロシンク",
+      "status": "正常",
+      "before": [
+        "inventory",
+        "teleporter",
+        "ai-tech"
+      ],
+      "after": [
+        "inventory",
+        "teleporter",
+        "ai-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 62,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 45,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "teleporter": {
+      "title": "テレポーター",
+      "status": "正常",
+      "before": [
+        "neuro-sync",
+        "daily-life"
+      ],
+      "after": [
+        "neuro-sync",
+        "daily-life",
+        "inventory",
+        "telepass"
+      ],
+      "autoAdded": [
+        "inventory",
+        "telepass"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "inventory",
+          "title": "インベントリ",
+          "score": 7,
+          "confidence": "△"
+        },
+        {
+          "id": "telepass",
+          "title": "テレパス社",
+          "score": 5,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "ai-tech": {
+      "title": "AI技術",
+      "status": "正常",
+      "before": [
+        "automation",
+        "neuro-sync",
+        "android"
+      ],
+      "after": [
+        "automation",
+        "neuro-sync",
+        "android"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 16,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "android": {
+      "title": "アンドロイド",
+      "status": "関連記事不足",
+      "before": [
+        "ai-tech"
+      ],
+      "after": [
+        "ai-tech",
+        "neuro-sync",
+        "animal-body",
+        "space-development"
+      ],
+      "autoAdded": [
+        "neuro-sync",
+        "animal-body",
+        "space-development"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 20,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "medical-tech": {
+      "title": "医療技術",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "neuro-sync"
+      ],
+      "after": [
+        "daily-life",
+        "neuro-sync",
+        "nanomachine"
+      ],
+      "autoAdded": [
+        "nanomachine"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "automation": {
+      "title": "自動化技術",
+      "status": "正常",
+      "before": [
+        "ai-tech",
+        "android"
+      ],
+      "after": [
+        "ai-tech",
+        "android",
+        "space-development",
+        "neuro-sync"
+      ],
+      "autoAdded": [
+        "space-development",
+        "neuro-sync"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 25,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "energy-tech": {
+      "title": "エネルギー技術",
+      "status": "正常",
+      "before": [
+        "solar-core",
+        "anazanium"
+      ],
+      "after": [
+        "solar-core",
+        "anazanium",
+        "space-development",
+        "mars-development"
+      ],
+      "autoAdded": [
+        "space-development",
+        "mars-development"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 16,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 15,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 14,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 13,
+          "confidence": "△"
+        },
+        {
+          "id": "industrial-agriculture",
+          "title": "工業生産農業",
+          "score": 13,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "material-engineering": {
+      "title": "特殊素材工学",
+      "status": "正常",
+      "before": [
+        "anazanium",
+        "framanium",
+        "dulsnium"
+      ],
+      "after": [
+        "anazanium",
+        "framanium",
+        "dulsnium"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 16,
+          "confidence": "△"
+        },
+        {
+          "id": "utility-fog",
+          "title": "ユーティリティフォグ",
+          "score": 16,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 15,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 15,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "weather-control": {
+      "title": "気象管理",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "fumora-skypill"
+      ],
+      "after": [
+        "daily-life",
+        "fumora-skypill",
+        "neuro-sync",
+        "space-development"
+      ],
+      "autoAdded": [
+        "neuro-sync",
+        "space-development"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "industrial-agriculture",
+          "title": "工業生産農業",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 16,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "architecture": {
+      "title": "建築技術",
+      "status": "正常",
+      "before": [
+        "material-engineering",
+        "daily-life"
+      ],
+      "after": [
+        "material-engineering",
+        "daily-life",
+        "space-development",
+        "mars-development"
+      ],
+      "autoAdded": [
+        "space-development",
+        "mars-development"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "transportation": {
+      "title": "交通機関",
+      "status": "正常",
+      "before": [
+        "teleporter",
+        "daily-life"
+      ],
+      "after": [
+        "teleporter",
+        "daily-life",
+        "space-development",
+        "industrial-agriculture"
+      ],
+      "autoAdded": [
+        "space-development",
+        "industrial-agriculture"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "industrial-agriculture",
+          "title": "工業生産農業",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 18,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "inventory": {
+      "title": "インベントリ",
+      "status": "正常",
+      "before": [
+        "neuro-sync",
+        "teleporter"
+      ],
+      "after": [
+        "neuro-sync",
+        "teleporter",
+        "access-level",
+        "space-development"
+      ],
+      "autoAdded": [
+        "access-level",
+        "space-development"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 14,
+          "confidence": "△"
+        },
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 14,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 12,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 11,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 11,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 10,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "clone-tech": {
+      "title": "クローン技術",
+      "status": "関連記事不足",
+      "before": [
+        "medical-tech"
+      ],
+      "after": [
+        "medical-tech",
+        "nanomachine",
+        "ancient-life-restoration",
+        "analog-media"
+      ],
+      "autoAdded": [
+        "nanomachine",
+        "ancient-life-restoration",
+        "analog-media"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 20,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "food-delivery": {
+      "title": "食品配送",
+      "status": "正常",
+      "before": [
+        "teleporter",
+        "inventory",
+        "wonhead"
+      ],
+      "after": [
+        "teleporter",
+        "inventory",
+        "wonhead"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 16,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 15,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 15,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 15,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "snet": {
+      "title": "SNET",
+      "status": "正常",
+      "before": [
+        "neuro-sync",
+        "future-economy",
+        "sertcity"
+      ],
+      "after": [
+        "neuro-sync",
+        "future-economy",
+        "sertcity"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 32,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "utility-fog": {
+      "title": "ユーティリティフォグ",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "automation"
+      ],
+      "after": [
+        "hubert",
+        "automation",
+        "space-development",
+        "nanomachine"
+      ],
+      "autoAdded": [
+        "space-development",
+        "nanomachine"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "nanomachine",
+          "title": "ナノマシン",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "nanomachine": {
+      "title": "ナノマシン",
+      "status": "正常",
+      "before": [
+        "medical-tech",
+        "utility-fog"
+      ],
+      "after": [
+        "medical-tech",
+        "utility-fog",
+        "space-development",
+        "neuro-sync"
+      ],
+      "autoAdded": [
+        "space-development",
+        "neuro-sync"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 30,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "future-games": {
+      "title": "未来世界のゲーム",
+      "status": "正常",
+      "before": [
+        "neuro-sync",
+        "snet",
+        "ai-tech"
+      ],
+      "after": [
+        "neuro-sync",
+        "snet",
+        "ai-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "urban-simulation",
+          "title": "都市統合シミュレーションシステム",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "analog-media": {
+      "title": "アナログ媒体",
+      "status": "正常",
+      "before": [
+        "snet",
+        "ai-tech",
+        "architecture"
+      ],
+      "after": [
+        "snet",
+        "ai-tech",
+        "architecture"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 5,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "access-level": {
+      "title": "Access Level",
+      "status": "正常",
+      "before": [
+        "sertcity",
+        "neuro-sync",
+        "daily-life",
+        "code"
+      ],
+      "after": [
+        "sertcity",
+        "neuro-sync",
+        "daily-life",
+        "code"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "space-development": {
+      "title": "宇宙開発",
+      "status": "正常",
+      "before": [
+        "teleporter",
+        "daily-life",
+        "neuro-sync",
+        "sertcity",
+        "anazanium"
+      ],
+      "after": [
+        "teleporter",
+        "daily-life",
+        "neuro-sync",
+        "sertcity",
+        "anazanium"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 136,
+          "confidence": "△"
+        },
+        {
+          "id": "urban-simulation",
+          "title": "都市統合シミュレーションシステム",
+          "score": 62,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 53,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "mars-development": {
+      "title": "火星開発",
+      "status": "正常",
+      "before": [
+        "space-development",
+        "teleporter",
+        "daily-life"
+      ],
+      "after": [
+        "space-development",
+        "teleporter",
+        "daily-life"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "urban-simulation",
+          "title": "都市統合シミュレーションシステム",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 40,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "urban-simulation": {
+      "title": "都市統合シミュレーションシステム",
+      "status": "正常",
+      "before": [
+        "sertcity",
+        "ai-tech",
+        "snet"
+      ],
+      "after": [
+        "sertcity",
+        "ai-tech",
+        "snet"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 62,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "animal-body": {
+      "title": "アニマルボディ技術",
+      "status": "正常",
+      "before": [
+        "belnea",
+        "birth-and-genetic-medicine"
+      ],
+      "after": [
+        "belnea",
+        "birth-and-genetic-medicine",
+        "space-development",
+        "neuro-sync"
+      ],
+      "autoAdded": [
+        "space-development",
+        "neuro-sync"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "access-level",
+          "title": "Access Level",
+          "score": 40,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "body-modification": {
+      "title": "身体改造",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "birth-and-genetic-medicine",
+        "animal-body"
+      ],
+      "after": [
+        "daily-life",
+        "birth-and-genetic-medicine",
+        "animal-body"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "medical-tech",
+          "title": "医療技術",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "ancient-life-restoration": {
+      "title": "旧時代の生物復元技術",
+      "status": "正常",
+      "before": [
+        "belnea",
+        "animal-body"
+      ],
+      "after": [
+        "belnea",
+        "animal-body",
+        "space-development",
+        "neuro-sync"
+      ],
+      "autoAdded": [
+        "space-development",
+        "neuro-sync"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 45,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "urban-simulation",
+          "title": "都市統合シミュレーションシステム",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "industrial-agriculture",
+          "title": "工業生産農業",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "anazanium": {
+      "title": "アナザニウム",
+      "status": "正常",
+      "before": [
+        "dulsnium",
+        "framanium",
+        "solar-core"
+      ],
+      "after": [
+        "dulsnium",
+        "framanium",
+        "solar-core"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "dark-energy",
+          "title": "ダークエネルギー",
+          "score": 23,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "framanium": {
+      "title": "フラマニウム",
+      "status": "正常",
+      "before": [
+        "solar-core",
+        "anazanium",
+        "dulsnium"
+      ],
+      "after": [
+        "solar-core",
+        "anazanium",
+        "dulsnium"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "dark-energy",
+          "title": "ダークエネルギー",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "dulsnium": {
+      "title": "ドゥルスニウム",
+      "status": "正常",
+      "before": [
+        "anazanium",
+        "framanium"
+      ],
+      "after": [
+        "anazanium",
+        "framanium",
+        "dark-energy"
+      ],
+      "autoAdded": [
+        "dark-energy"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "dark-energy",
+          "title": "ダークエネルギー",
+          "score": 18,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "dark-energy": {
+      "title": "ダークエネルギー",
+      "status": "正常",
+      "before": [
+        "solar-core",
+        "space-development"
+      ],
+      "after": [
+        "solar-core",
+        "space-development",
+        "anazanium",
+        "dulsnium"
+      ],
+      "autoAdded": [
+        "anazanium",
+        "dulsnium"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "anazanium",
+          "title": "アナザニウム",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "dulsnium",
+          "title": "ドゥルスニウム",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "framanium",
+          "title": "フラマニウム",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "industrial-agriculture": {
+      "title": "工業生産農業",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "industrial-livestock"
+      ],
+      "after": [
+        "daily-life",
+        "industrial-livestock",
+        "space-development",
+        "neuro-sync"
+      ],
+      "autoAdded": [
+        "space-development",
+        "neuro-sync"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "ancient-life-restoration",
+          "title": "旧時代の生物復元技術",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "analog-media",
+          "title": "アナログ媒体",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "industrial-livestock": {
+      "title": "工業生産畜産",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "industrial-agriculture"
+      ],
+      "after": [
+        "daily-life",
+        "industrial-agriculture",
+        "space-development",
+        "mars-development"
+      ],
+      "autoAdded": [
+        "space-development",
+        "mars-development"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "space-development",
+          "title": "宇宙開発",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "mars-development",
+          "title": "火星開発",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "future-games",
+          "title": "未来世界のゲーム",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "snet",
+          "title": "SNET",
+          "score": 28,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "slime-grass": {
+      "title": "粘液草",
+      "status": "関連記事不足",
+      "before": [
+        "daily-life"
+      ],
+      "after": [
+        "daily-life",
+        "death-spice-grass",
+        "spice-bird",
+        "stone-moss"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "spice-bird",
+        "stone-moss"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "buyobuyo-grass",
+          "title": "ブヨブヨ草",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 28,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "buyobuyo-grass": {
+      "title": "ブヨブヨ草",
+      "status": "関連記事不足",
+      "before": [
+        "daily-life"
+      ],
+      "after": [
+        "daily-life",
+        "death-spice-grass",
+        "spice-bird",
+        "stone-moss"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "spice-bird",
+        "stone-moss"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "miracle-flower": {
+      "title": "奇跡花",
+      "status": "正常",
+      "before": [
+        "larliafrus",
+        "rifinesu-religion"
+      ],
+      "after": [
+        "larliafrus",
+        "rifinesu-religion",
+        "death-spice-grass",
+        "crystal-flower"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "crystal-flower"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "moon-vein-tree",
+          "title": "月脈樹",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "illusion-flower": {
+      "title": "幻覚花",
+      "status": "正常",
+      "before": [
+        "miracle-flower",
+        "medical-tech"
+      ],
+      "after": [
+        "miracle-flower",
+        "medical-tech",
+        "death-spice-grass",
+        "stone-moss"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "stone-moss"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "buyobuyo-grass",
+          "title": "ブヨブヨ草",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "moon-vein-tree",
+          "title": "月脈樹",
+          "score": 22,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "moon-vein-tree": {
+      "title": "月脈樹",
+      "status": "正常",
+      "before": [
+        "larliafrus",
+        "miracle-flower"
+      ],
+      "after": [
+        "larliafrus",
+        "miracle-flower",
+        "death-spice-grass",
+        "spice-bird"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "spice-bird"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "buyobuyo-grass",
+          "title": "ブヨブヨ草",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "red-black-vine",
+          "title": "赤黒蔓",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "fluffy-fruit": {
+      "title": "フサフサ実",
+      "status": "関連記事不足",
+      "before": [
+        "daily-life"
+      ],
+      "after": [
+        "daily-life",
+        "crystal-flower",
+        "spice-bird",
+        "death-spice-grass"
+      ],
+      "autoAdded": [
+        "crystal-flower",
+        "spice-bird",
+        "death-spice-grass"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "red-black-vine",
+          "title": "赤黒蔓",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "buyobuyo-grass",
+          "title": "ブヨブヨ草",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "crystal-flower": {
+      "title": "結晶花",
+      "status": "関連記事不足",
+      "before": [
+        "daily-life"
+      ],
+      "after": [
+        "daily-life",
+        "death-spice-grass",
+        "stone-moss",
+        "fluffy-fruit"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "stone-moss",
+        "fluffy-fruit"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "miracle-flower",
+          "title": "奇跡花",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "stone-moss": {
+      "title": "石苔",
+      "status": "関連記事不足（自動補完）",
+      "before": [],
+      "after": [
+        "death-spice-grass",
+        "spice-bird",
+        "red-black-vine",
+        "crystal-flower"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "spice-bird",
+        "red-black-vine",
+        "crystal-flower"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "red-black-vine",
+          "title": "赤黒蔓",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 37,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "hikari-mushroom": {
+      "title": "ヒカリタケ",
+      "status": "正常",
+      "before": [
+        "slime-grass",
+        "miracle-flower"
+      ],
+      "after": [
+        "slime-grass",
+        "miracle-flower",
+        "death-spice-grass",
+        "spice-bird"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "spice-bird"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 42,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "red-black-vine",
+          "title": "赤黒蔓",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "buyobuyo-grass",
+          "title": "ブヨブヨ草",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "death-spice-grass": {
+      "title": "死辛草",
+      "status": "関連記事不足",
+      "before": [
+        "spice-bird"
+      ],
+      "after": [
+        "spice-bird",
+        "red-black-vine",
+        "stone-moss",
+        "hikari-mushroom"
+      ],
+      "autoAdded": [
+        "red-black-vine",
+        "stone-moss",
+        "hikari-mushroom"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "red-black-vine",
+          "title": "赤黒蔓",
+          "score": 59,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "miracle-flower",
+          "title": "奇跡花",
+          "score": 39,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "spice-bird": {
+      "title": "辛味鳥",
+      "status": "関連記事不足",
+      "before": [
+        "death-spice-grass"
+      ],
+      "after": [
+        "death-spice-grass",
+        "red-black-vine",
+        "stone-moss",
+        "fluffy-fruit"
+      ],
+      "autoAdded": [
+        "red-black-vine",
+        "stone-moss",
+        "fluffy-fruit"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "red-black-vine",
+          "title": "赤黒蔓",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 42,
+          "confidence": "△"
+        },
+        {
+          "id": "miracle-flower",
+          "title": "奇跡花",
+          "score": 35,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "red-black-vine": {
+      "title": "赤黒蔓",
+      "status": "関連記事不足（自動補完）",
+      "before": [],
+      "after": [
+        "death-spice-grass",
+        "spice-bird",
+        "stone-moss",
+        "hikari-mushroom"
+      ],
+      "autoAdded": [
+        "death-spice-grass",
+        "spice-bird",
+        "stone-moss",
+        "hikari-mushroom"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "death-spice-grass",
+          "title": "死辛草",
+          "score": 59,
+          "confidence": "△"
+        },
+        {
+          "id": "spice-bird",
+          "title": "辛味鳥",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "stone-moss",
+          "title": "石苔",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "crystal-flower",
+          "title": "結晶花",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "fluffy-fruit",
+          "title": "フサフサ実",
+          "score": 32,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "kansai-disaster": {
+      "title": "関西変異災害",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "svh",
+        "mother-colony"
+      ],
+      "after": [
+        "niporan",
+        "svh",
+        "mother-colony"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "pure-variant",
+          "title": "純粋種（Pure Variant）",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-linktin",
+          "title": "GIIR（リンクチン）",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "aios-option",
+          "title": "AIOS（オプティオン）",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "variant",
+          "title": "変異体（Variants）",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "eio-evolion",
+          "title": "EIO（エヴォリオン）",
+          "score": 16,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "evolution-disease": {
+      "title": "進化病",
+      "status": "正常",
+      "before": [
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant",
+        "mother-colony"
+      ],
+      "after": [
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant",
+        "mother-colony"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "three-element-theory",
+          "title": "三要素理論（Three-Element Theory）",
+          "score": 42,
+          "confidence": "△"
+        },
+        {
+          "id": "pure-variant",
+          "title": "純粋種（Pure Variant）",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 13,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 9,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "three-element-theory": {
+      "title": "三要素理論（Three-Element Theory）",
+      "status": "正常",
+      "before": [
+        "evolution-disease",
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant",
+        "mother-colony"
+      ],
+      "after": [
+        "evolution-disease",
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant",
+        "mother-colony"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "pure-variant",
+          "title": "純粋種（Pure Variant）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 16,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "giir-linktin": {
+      "title": "GIIR（リンクチン）",
+      "status": "正常",
+      "before": [
+        "evolution-disease",
+        "three-element-theory",
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant"
+      ],
+      "after": [
+        "evolution-disease",
+        "three-element-theory",
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "giir-deficiency",
+          "title": "GIIR欠乏症",
+          "score": 5,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "eio-evolion": {
+      "title": "EIO（エヴォリオン）",
+      "status": "正常",
+      "before": [
+        "evolution-disease",
+        "three-element-theory",
+        "giir-linktin",
+        "aios-option",
+        "variant"
+      ],
+      "after": [
+        "evolution-disease",
+        "three-element-theory",
+        "giir-linktin",
+        "aios-option",
+        "variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "mother-colony",
+          "title": "マザー（Mother）とコロニー（Colony）",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "pure-variant",
+          "title": "純粋種（Pure Variant）",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 16,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "aios-option": {
+      "title": "AIOS（オプティオン）",
+      "status": "正常",
+      "before": [
+        "evolution-disease",
+        "three-element-theory",
+        "giir-linktin",
+        "eio-evolion",
+        "variant"
+      ],
+      "after": [
+        "evolution-disease",
+        "three-element-theory",
+        "giir-linktin",
+        "eio-evolion",
+        "variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "mother-colony",
+          "title": "マザー（Mother）とコロニー（Colony）",
+          "score": 61,
+          "confidence": "△"
+        },
+        {
+          "id": "pure-variant",
+          "title": "純粋種（Pure Variant）",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 20,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "variant": {
+      "title": "変異体（Variants）",
+      "status": "正常",
+      "before": [
+        "evolution-disease",
+        "aios-option",
+        "giir-linktin",
+        "eio-evolion",
+        "mother-colony",
+        "pure-variant"
+      ],
+      "after": [
+        "evolution-disease",
+        "aios-option",
+        "giir-linktin",
+        "eio-evolion",
+        "mother-colony",
+        "pure-variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "three-element-theory",
+          "title": "三要素理論（Three-Element Theory）",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "pure-variant": {
+      "title": "純粋種（Pure Variant）",
+      "status": "正常",
+      "before": [
+        "variant",
+        "aios-option",
+        "evolution-disease",
+        "eio-evolion",
+        "mother-colony"
+      ],
+      "after": [
+        "variant",
+        "aios-option",
+        "evolution-disease",
+        "eio-evolion",
+        "mother-colony"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "giir-linktin",
+          "title": "GIIR（リンクチン）",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "three-element-theory",
+          "title": "三要素理論（Three-Element Theory）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 24,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "mother-colony": {
+      "title": "マザー（Mother）とコロニー（Colony）",
+      "status": "正常",
+      "before": [
+        "aios-option",
+        "variant",
+        "pure-variant",
+        "evolution-disease",
+        "svh"
+      ],
+      "after": [
+        "aios-option",
+        "variant",
+        "pure-variant",
+        "evolution-disease",
+        "svh"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "eio-evolion",
+          "title": "EIO（エヴォリオン）",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "giir-linktin",
+          "title": "GIIR（リンクチン）",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "three-element-theory",
+          "title": "三要素理論（Three-Element Theory）",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "special-variant",
+          "title": "特異種（Special Variant）",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 22,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "special-variant": {
+      "title": "特異種（Special Variant）",
+      "status": "正常",
+      "before": [
+        "evolution-disease",
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant",
+        "pure-variant"
+      ],
+      "after": [
+        "evolution-disease",
+        "giir-linktin",
+        "eio-evolion",
+        "aios-option",
+        "variant",
+        "pure-variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "three-element-theory",
+          "title": "三要素理論（Three-Element Theory）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "mother-colony",
+          "title": "マザー（Mother）とコロニー（Colony）",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "kansai-disaster",
+          "title": "関西変異災害",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "future-philosophy": {
+      "title": "未来世界の哲学",
+      "status": "正常",
+      "before": [
+        "world-overview",
+        "daily-life",
+        "solar-core"
+      ],
+      "after": [
+        "world-overview",
+        "daily-life",
+        "solar-core"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "future-social-issues",
+          "title": "未来世界の社会問題",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "most-beautiful-music",
+          "title": "最も美しい音楽",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "god-and-the-world",
+          "title": "未来世界の神とは何か",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-retro-culture",
+          "title": "近代文化とレトロ文化",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-religion",
+          "title": "龍教",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 13,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "rifinesu-religion": {
+      "title": "リフィネス教",
+      "status": "正常",
+      "before": [
+        "larliafrus",
+        "rifinesu",
+        "naturalfriend",
+        "daily-life"
+      ],
+      "after": [
+        "larliafrus",
+        "rifinesu",
+        "naturalfriend",
+        "daily-life"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "dragon-religion",
+          "title": "龍教",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "god-and-the-world",
+          "title": "未来世界の神とは何か",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "most-beautiful-music",
+          "title": "最も美しい音楽",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-retro-culture",
+          "title": "近代文化とレトロ文化",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "future-social-issues",
+          "title": "未来世界の社会問題",
+          "score": 21,
+          "confidence": "△"
+        },
+        {
+          "id": "future-philosophy",
+          "title": "未来世界の哲学",
+          "score": 13,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "dragon-religion": {
+      "title": "龍教",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "daily-life",
+        "future-philosophy"
+      ],
+      "after": [
+        "niporan",
+        "daily-life",
+        "future-philosophy"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "god-and-the-world",
+          "title": "未来世界の神とは何か",
+          "score": 45,
+          "confidence": "△"
+        },
+        {
+          "id": "most-beautiful-music",
+          "title": "最も美しい音楽",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-retro-culture",
+          "title": "近代文化とレトロ文化",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "future-social-issues",
+          "title": "未来世界の社会問題",
+          "score": 25,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "future-social-issues": {
+      "title": "未来世界の社会問題",
+      "status": "正常",
+      "before": [
+        "future-philosophy",
+        "daily-life",
+        "world-overview"
+      ],
+      "after": [
+        "future-philosophy",
+        "daily-life",
+        "world-overview"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "god-and-the-world",
+          "title": "未来世界の神とは何か",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "most-beautiful-music",
+          "title": "最も美しい音楽",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-retro-culture",
+          "title": "近代文化とレトロ文化",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-religion",
+          "title": "龍教",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 21,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "god-and-the-world": {
+      "title": "未来世界の神とは何か",
+      "status": "正常",
+      "before": [
+        "rifinesu",
+        "future-philosophy",
+        "daily-life"
+      ],
+      "after": [
+        "rifinesu",
+        "future-philosophy",
+        "daily-life"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "most-beautiful-music",
+          "title": "最も美しい音楽",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "future-social-issues",
+          "title": "未来世界の社会問題",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-religion",
+          "title": "龍教",
+          "score": 45,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-retro-culture",
+          "title": "近代文化とレトロ文化",
+          "score": 44,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 30,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "most-beautiful-music": {
+      "title": "最も美しい音楽",
+      "status": "関連記事不足",
+      "before": [
+        "orgaron"
+      ],
+      "after": [
+        "orgaron",
+        "god-and-the-world",
+        "future-social-issues",
+        "modern-retro-culture"
+      ],
+      "autoAdded": [
+        "god-and-the-world",
+        "future-social-issues",
+        "modern-retro-culture"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "god-and-the-world",
+          "title": "未来世界の神とは何か",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "future-social-issues",
+          "title": "未来世界の社会問題",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "modern-retro-culture",
+          "title": "近代文化とレトロ文化",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "future-philosophy",
+          "title": "未来世界の哲学",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-religion",
+          "title": "龍教",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 23,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "modern-retro-culture": {
+      "title": "近代文化とレトロ文化",
+      "status": "正常",
+      "before": [
+        "modern-civilization",
+        "analog-media",
+        "daily-life",
+        "god-and-the-world"
+      ],
+      "after": [
+        "modern-civilization",
+        "analog-media",
+        "daily-life",
+        "god-and-the-world"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "most-beautiful-music",
+          "title": "最も美しい音楽",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "future-social-issues",
+          "title": "未来世界の社会問題",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "dragon-religion",
+          "title": "龍教",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "future-philosophy",
+          "title": "未来世界の哲学",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 22,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "galtanda-law": {
+      "title": "ガルタンダ法",
+      "status": "正常",
+      "before": [
+        "world-ethics-law",
+        "android-law",
+        "ai-tech"
+      ],
+      "after": [
+        "world-ethics-law",
+        "android-law",
+        "ai-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "android",
+          "title": "アンドロイド",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-ethics-law": {
+      "title": "世界倫理法",
+      "status": "正常",
+      "before": [
+        "world-ethics-revision-law",
+        "galtanda-law",
+        "android-law"
+      ],
+      "after": [
+        "world-ethics-revision-law",
+        "galtanda-law",
+        "android-law"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-order",
+          "title": "世界秩序",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "world-environment-agreement",
+          "title": "世界環境協定",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "world-unity-declaration",
+          "title": "世界団結宣言",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "world-reconstruction-agreement",
+          "title": "世界復興協定",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "crime-and-rehabilitation",
+          "title": "犯罪と更生",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "world-peace-treaty",
+          "title": "世界平和協定",
+          "score": 23,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-ethics-revision-law": {
+      "title": "世界倫理改正法",
+      "status": "正常",
+      "before": [
+        "world-ethics-law",
+        "galtanda-law",
+        "android-law",
+        "neuro-sync"
+      ],
+      "after": [
+        "world-ethics-law",
+        "galtanda-law",
+        "android-law",
+        "neuro-sync"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-order",
+          "title": "世界秩序",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "crime-and-rehabilitation",
+          "title": "犯罪と更生",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "world-environment-agreement",
+          "title": "世界環境協定",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "world-reconstruction-agreement",
+          "title": "世界復興協定",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "world-peace-treaty",
+          "title": "世界平和協定",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "world-unity-declaration",
+          "title": "世界団結宣言",
+          "score": 22,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "android-law": {
+      "title": "世界アンドロイド法",
+      "status": "正常",
+      "before": [
+        "world-ethics-law",
+        "world-ethics-revision-law",
+        "galtanda-law",
+        "ai-tech"
+      ],
+      "after": [
+        "world-ethics-law",
+        "world-ethics-revision-law",
+        "galtanda-law",
+        "ai-tech"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [],
+      "brokenCount": 0
+    },
+    "world-peace-treaty": {
+      "title": "世界平和協定",
+      "status": "正常",
+      "before": [
+        "world-reconstruction-agreement",
+        "world-ethics-law",
+        "svh"
+      ],
+      "after": [
+        "world-reconstruction-agreement",
+        "world-ethics-law",
+        "svh"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "garhyura",
+          "title": "ガルヒューラ",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-environment-agreement": {
+      "title": "世界環境協定",
+      "status": "正常",
+      "before": [
+        "world-reconstruction-agreement",
+        "rifinesu-religion",
+        "svh",
+        "international-organizations"
+      ],
+      "after": [
+        "world-reconstruction-agreement",
+        "rifinesu-religion",
+        "svh",
+        "international-organizations"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-reconstruction-agreement": {
+      "title": "世界復興協定",
+      "status": "正常",
+      "before": [
+        "world-unity-declaration",
+        "world-environment-agreement",
+        "gear-war"
+      ],
+      "after": [
+        "world-unity-declaration",
+        "world-environment-agreement",
+        "gear-war"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-order",
+          "title": "世界秩序",
+          "score": 45,
+          "confidence": "△"
+        },
+        {
+          "id": "world-peace-treaty",
+          "title": "世界平和協定",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "world-ethics-law",
+          "title": "世界倫理法",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "galtanda-law",
+          "title": "ガルタンダ法",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "world-ethics-revision-law",
+          "title": "世界倫理改正法",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "android-law",
+          "title": "世界アンドロイド法",
+          "score": 21,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-unity-declaration": {
+      "title": "世界団結宣言",
+      "status": "正常",
+      "before": [
+        "world-reconstruction-agreement",
+        "world-environment-agreement"
+      ],
+      "after": [
+        "world-reconstruction-agreement",
+        "world-environment-agreement",
+        "gear-war",
+        "world-order"
+      ],
+      "autoAdded": [
+        "gear-war",
+        "world-order"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "world-order",
+          "title": "世界秩序",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-order": {
+      "title": "世界秩序",
+      "status": "正常",
+      "before": [
+        "world-reconstruction-agreement",
+        "world-ethics-law",
+        "svh",
+        "worldcreditbank",
+        "world-peace-treaty"
+      ],
+      "after": [
+        "world-reconstruction-agreement",
+        "world-ethics-law",
+        "svh",
+        "worldcreditbank",
+        "world-peace-treaty"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-unity-declaration",
+          "title": "世界団結宣言",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "crime-and-rehabilitation": {
+      "title": "犯罪と更生",
+      "status": "正常",
+      "before": [
+        "neuro-sync",
+        "daily-life"
+      ],
+      "after": [
+        "neuro-sync",
+        "daily-life",
+        "world-order",
+        "android-law"
+      ],
+      "autoAdded": [
+        "world-order",
+        "android-law"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "world-order",
+          "title": "世界秩序",
+          "score": 60,
+          "confidence": "△"
+        },
+        {
+          "id": "android-law",
+          "title": "世界アンドロイド法",
+          "score": 41,
+          "confidence": "△"
+        },
+        {
+          "id": "galtanda-law",
+          "title": "ガルタンダ法",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "world-ethics-revision-law",
+          "title": "世界倫理改正法",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "world-environment-agreement",
+          "title": "世界環境協定",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "world-ethics-law",
+          "title": "世界倫理法",
+          "score": 25,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "world-famous-universities": {
+      "title": "世界的名門大学",
+      "status": "正常",
+      "before": [
+        "analog-media",
+        "harnens_university",
+        "education-system"
+      ],
+      "after": [
+        "analog-media",
+        "harnens_university",
+        "education-system"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "belnea": {
+      "title": "ベルネア",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "larliafrus",
+        "hubert",
+        "jungler",
+        "seyo",
+        "deoxycorp",
+        "dnar"
+      ],
+      "after": [
+        "daily-life",
+        "larliafrus",
+        "hubert",
+        "jungler",
+        "seyo",
+        "deoxycorp",
+        "dnar"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "animal-body",
+          "title": "アニマルボディ技術",
+          "score": 5,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "chiriludo-ailtsua": {
+      "title": "チリルド・アイルツア",
+      "status": "正常",
+      "before": [
+        "orgaron",
+        "larliafrus",
+        "hyokyo",
+        "noahsark",
+        "setsuhyo"
+      ],
+      "after": [
+        "orgaron",
+        "larliafrus",
+        "hyokyo",
+        "noahsark",
+        "setsuhyo"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "fumora-skypill",
+          "title": "フーモラ・スカイピル",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 51,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "fumora-skypill": {
+      "title": "フーモラ・スカイピル",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "tasumenio",
+        "daily-life",
+        "tensho",
+        "telepass"
+      ],
+      "after": [
+        "hubert",
+        "tasumenio",
+        "daily-life",
+        "tensho",
+        "telepass"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 68,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "chiriludo-ailtsua",
+          "title": "チリルド・アイルツア",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "garhyura",
+          "title": "ガルヒューラ",
+          "score": 50,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "garhyura": {
+      "title": "ガルヒューラ",
+      "status": "正常",
+      "before": [
+        "yuretsuea",
+        "niporan",
+        "deoxycorp",
+        "dnar",
+        "seyo",
+        "jungler"
+      ],
+      "after": [
+        "yuretsuea",
+        "niporan",
+        "deoxycorp",
+        "dnar",
+        "seyo",
+        "jungler"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 51,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "fumora-skypill",
+          "title": "フーモラ・スカイピル",
+          "score": 50,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 48,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "hubert": {
+      "title": "ヒューバート",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "sertcity",
+        "eio-evolion",
+        "harnest",
+        "harnens_institute",
+        "harnens_university",
+        "telepass"
+      ],
+      "after": [
+        "niporan",
+        "sertcity",
+        "eio-evolion",
+        "harnest",
+        "harnens_institute",
+        "harnens_university",
+        "telepass"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [],
+      "brokenCount": 0
+    },
+    "kyuma": {
+      "title": "キューマ",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "hagurumaunion",
+        "hatenkurenbu",
+        "kogamichurch",
+        "oldworldmuseum",
+        "ancient-civilization",
+        "fumora-skypill"
+      ],
+      "after": [
+        "hubert",
+        "hagurumaunion",
+        "hatenkurenbu",
+        "kogamichurch",
+        "oldworldmuseum",
+        "ancient-civilization",
+        "fumora-skypill"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "chiriludo-ailtsua",
+          "title": "チリルド・アイルツア",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 52,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "larliafrus": {
+      "title": "ラリアフルス",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "niporan",
+        "garhyura",
+        "rifinesu",
+        "naturalfriend"
+      ],
+      "after": [
+        "daily-life",
+        "niporan",
+        "garhyura",
+        "rifinesu",
+        "naturalfriend"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "rifinesu-religion",
+          "title": "リフィネス教",
+          "score": 7,
+          "confidence": "△"
+        },
+        {
+          "id": "wonhead",
+          "title": "ヲンヘード",
+          "score": 6,
+          "confidence": "△"
+        },
+        {
+          "id": "moon-vein-tree",
+          "title": "月脈樹",
+          "score": 5,
+          "confidence": "△"
+        },
+        {
+          "id": "hikari-mushroom",
+          "title": "ヒカリタケ",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "maimok": {
+      "title": "マイモック",
+      "status": "正常",
+      "before": [
+        "svh",
+        "yokubounosu",
+        "gear-war",
+        "variant"
+      ],
+      "after": [
+        "svh",
+        "yokubounosu",
+        "gear-war",
+        "variant"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "fumora-skypill",
+          "title": "フーモラ・スカイピル",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 42,
+          "confidence": "△"
+        },
+        {
+          "id": "chiriludo-ailtsua",
+          "title": "チリルド・アイルツア",
+          "score": 42,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "belnea",
+          "title": "ベルネア",
+          "score": 40,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "niporan": {
+      "title": "ニポラン",
+      "status": "正常",
+      "before": [
+        "sertcity",
+        "kansai-disaster",
+        "code",
+        "antioldrange",
+        "evolions",
+        "svh",
+        "dragon-religion"
+      ],
+      "after": [
+        "sertcity",
+        "kansai-disaster",
+        "code",
+        "antioldrange",
+        "evolions",
+        "svh",
+        "dragon-religion"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "hubert",
+          "title": "ヒューバート",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 46,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 44,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "orgaron": {
+      "title": "オルガロン",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "chiriludo-ailtsua",
+        "daily-life",
+        "garhyura",
+        "hitsritche",
+        "kachoufuugetsu",
+        "stralibady"
+      ],
+      "after": [
+        "hubert",
+        "chiriludo-ailtsua",
+        "daily-life",
+        "garhyura",
+        "hitsritche",
+        "kachoufuugetsu",
+        "stralibady"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 64,
+          "confidence": "△"
+        },
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 60,
+          "confidence": "△"
+        },
+        {
+          "id": "wonhead",
+          "title": "ヲンヘード",
+          "score": 60,
+          "confidence": "△"
+        },
+        {
+          "id": "fumora-skypill",
+          "title": "フーモラ・スカイピル",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 52,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "sanrudo": {
+      "title": "サンルド",
+      "status": "正常",
+      "before": [
+        "wonhead",
+        "hubert",
+        "daily-life",
+        "goldenspecialmenicompany",
+        "grk",
+        "worldcreditbank"
+      ],
+      "after": [
+        "wonhead",
+        "hubert",
+        "daily-life",
+        "goldenspecialmenicompany",
+        "grk",
+        "worldcreditbank"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 69,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 64,
+          "confidence": "△"
+        },
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "fumora-skypill",
+          "title": "フーモラ・スカイピル",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 55,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "sertcity": {
+      "title": "セルトシティ",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "hubert",
+        "neuro-sync",
+        "daily-life",
+        "code",
+        "happycaddy",
+        "worldtreec"
+      ],
+      "after": [
+        "niporan",
+        "hubert",
+        "neuro-sync",
+        "daily-life",
+        "code",
+        "happycaddy",
+        "worldtreec"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "android",
+          "title": "アンドロイド",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "tasumenio": {
+      "title": "タスメニオ",
+      "status": "正常",
+      "before": [
+        "wonhead",
+        "hubert",
+        "freshresh",
+        "shirasu",
+        "gekaisis",
+        "sanparallel-company"
+      ],
+      "after": [
+        "wonhead",
+        "hubert",
+        "freshresh",
+        "shirasu",
+        "gekaisis",
+        "sanparallel-company"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 68,
+          "confidence": "△"
+        },
+        {
+          "id": "chiriludo-ailtsua",
+          "title": "チリルド・アイルツア",
+          "score": 58,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "niporan",
+          "title": "ニポラン",
+          "score": 57,
+          "confidence": "△"
+        },
+        {
+          "id": "fumora-skypill",
+          "title": "フーモラ・スカイピル",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 53,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "wonhead": {
+      "title": "ヲンヘード",
+      "status": "正常",
+      "before": [
+        "daily-life",
+        "larliafrus",
+        "food-delivery",
+        "miretche",
+        "perfectfood",
+        "wishpolan"
+      ],
+      "after": [
+        "daily-life",
+        "larliafrus",
+        "food-delivery",
+        "miretche",
+        "perfectfood",
+        "wishpolan"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 60,
+          "confidence": "△"
+        },
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 49,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 48,
+          "confidence": "△"
+        },
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 47,
+          "confidence": "△"
+        },
+        {
+          "id": "belnea",
+          "title": "ベルネア",
+          "score": 47,
+          "confidence": "△"
+        },
+        {
+          "id": "yuretsuea",
+          "title": "ユーレツェア",
+          "score": 46,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "yuretsuea": {
+      "title": "ユーレツェア",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "hubert",
+        "daily-life",
+        "kounkoubou"
+      ],
+      "after": [
+        "niporan",
+        "hubert",
+        "daily-life",
+        "kounkoubou"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "sanrudo",
+          "title": "サンルド",
+          "score": 56,
+          "confidence": "△"
+        },
+        {
+          "id": "sertcity",
+          "title": "セルトシティ",
+          "score": 55,
+          "confidence": "△"
+        },
+        {
+          "id": "kyuma",
+          "title": "キューマ",
+          "score": 54,
+          "confidence": "△"
+        },
+        {
+          "id": "tasumenio",
+          "title": "タスメニオ",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "chiriludo-ailtsua",
+          "title": "チリルド・アイルツア",
+          "score": 53,
+          "confidence": "△"
+        },
+        {
+          "id": "orgaron",
+          "title": "オルガロン",
+          "score": 49,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "antioldrange": {
+      "title": "対オルドレンジ機関",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "svh",
+        "evolions"
+      ],
+      "after": [
+        "niporan",
+        "svh",
+        "evolions"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "harnens_institute",
+          "title": "ハーネンス研究所",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "gekaisis",
+          "title": "ゲカイシス",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "kachoufuugetsu",
+          "title": "花鳥風月美術館",
+          "score": 18,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "code": {
+      "title": "CODE",
+      "status": "正常",
+      "before": [
+        "sertcity",
+        "niporan"
+      ],
+      "after": [
+        "sertcity",
+        "niporan",
+        "neuro-sync"
+      ],
+      "autoAdded": [
+        "neuro-sync"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "neuro-sync",
+          "title": "ニューロシンク",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "international-organizations": {
+      "title": "国際機関",
+      "status": "正常",
+      "before": [
+        "svh",
+        "world-environment-agreement"
+      ],
+      "after": [
+        "svh",
+        "world-environment-agreement",
+        "hyokyo",
+        "code"
+      ],
+      "autoAdded": [
+        "hyokyo",
+        "code"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu",
+          "title": "リフィネス保護社",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 20,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 20,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "kounkoubou": {
+      "title": "鋼軟工房",
+      "status": "正常",
+      "before": [
+        "yuretsuea",
+        "sanparallel-company",
+        "harnest",
+        "tensho"
+      ],
+      "after": [
+        "yuretsuea",
+        "sanparallel-company",
+        "harnest",
+        "tensho"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "harnens_institute",
+          "title": "ハーネンス研究所",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "hagurumaunion",
+          "title": "歯車連合",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "hatenkurenbu",
+          "title": "覇天空輪舞連合",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "worldtreec",
+          "title": "world tree.c",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "deoxycorp": {
+      "title": "デオキシコーポ",
+      "status": "正常",
+      "before": [
+        "belnea",
+        "dnar"
+      ],
+      "after": [
+        "belnea",
+        "dnar",
+        "medical-tech"
+      ],
+      "autoAdded": [
+        "medical-tech"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "medical-tech",
+          "title": "医療技術",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "dnar": {
+      "title": "DNAR社",
+      "status": "正常",
+      "before": [
+        "belnea",
+        "deoxycorp"
+      ],
+      "after": [
+        "belnea",
+        "deoxycorp",
+        "jungler",
+        "seyo"
+      ],
+      "autoAdded": [
+        "jungler",
+        "seyo"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 47,
+          "confidence": "△"
+        },
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "telepass",
+          "title": "テレパス社",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "sanparallel-company",
+          "title": "サンパレレルラカンパニー",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "harnest",
+          "title": "ハーネスト",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 36,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "evolions": {
+      "title": "エヴォリオンズ研究所",
+      "status": "正常",
+      "before": [
+        "niporan",
+        "svh",
+        "antioldrange"
+      ],
+      "after": [
+        "niporan",
+        "svh",
+        "antioldrange"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 19,
+          "confidence": "△"
+        },
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 18,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "stralibady",
+          "title": "ストラリバディ展示館",
+          "score": 17,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 17,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "freshresh": {
+      "title": "フレッシュレッシュ社",
+      "status": "正常",
+      "before": [
+        "tasumenio",
+        "telepass",
+        "shirasu"
+      ],
+      "after": [
+        "tasumenio",
+        "telepass",
+        "shirasu"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "goldenspecialmenicompany",
+          "title": "ゴールデンスペシャルメニカンパニー",
+          "score": 29,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "gekaisis": {
+      "title": "ゲカイシス",
+      "status": "正常",
+      "before": [
+        "tasumenio",
+        "svh",
+        "eio-evolion"
+      ],
+      "after": [
+        "tasumenio",
+        "svh",
+        "eio-evolion"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "yokubounosu",
+          "title": "欲望の巣",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "sanparallel-company",
+          "title": "サンパレレルラカンパニー",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "telepass",
+          "title": "テレパス社",
+          "score": 24,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "goldenspecialmenicompany": {
+      "title": "ゴールデンスペシャルメニカンパニー",
+      "status": "正常",
+      "before": [
+        "sanrudo",
+        "worldcreditbank"
+      ],
+      "after": [
+        "sanrudo",
+        "worldcreditbank",
+        "freshresh",
+        "shirasu"
+      ],
+      "autoAdded": [
+        "freshresh",
+        "shirasu"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "freshresh",
+          "title": "フレッシュレッシュ社",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "shirasu",
+          "title": "しらす社",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "perfectfood",
+          "title": "パーフェクト食品会社",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "grk": {
+      "title": "GRK",
+      "status": "正常",
+      "before": [
+        "sanrudo",
+        "goldenspecialmenicompany",
+        "worldcreditbank"
+      ],
+      "after": [
+        "sanrudo",
+        "goldenspecialmenicompany",
+        "worldcreditbank"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "freshresh",
+          "title": "フレッシュレッシュ社",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 23,
+          "confidence": "△"
+        },
+        {
+          "id": "perfectfood",
+          "title": "パーフェクト食品会社",
+          "score": 22,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "hagurumaunion": {
+      "title": "歯車連合",
+      "status": "正常",
+      "before": [
+        "kyuma",
+        "oldworldmuseum",
+        "hatenkurenbu"
+      ],
+      "after": [
+        "kyuma",
+        "oldworldmuseum",
+        "hatenkurenbu"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "kounkoubou",
+          "title": "鋼軟工房",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "sanparallel-company",
+          "title": "サンパレレルラカンパニー",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu",
+          "title": "リフィネス保護社",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "kogamichurch",
+          "title": "古神教会",
+          "score": 28,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "happycaddy": {
+      "title": "ハッピーキャディー",
+      "status": "正常",
+      "before": [
+        "sertcity",
+        "code",
+        "worldtreec"
+      ],
+      "after": [
+        "sertcity",
+        "code",
+        "worldtreec"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "tensho",
+          "title": "天翔",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 25,
+          "confidence": "△"
+        },
+        {
+          "id": "sanparallel-company",
+          "title": "サンパレレルラカンパニー",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "shirasu",
+          "title": "しらす社",
+          "score": 24,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "harnens_university": {
+      "title": "ハーネンス大学",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "harnens_university"
+      ],
+      "after": [
+        "hubert",
+        "harnens_university",
+        "harnest"
+      ],
+      "autoAdded": [
+        "harnest"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "harnest",
+          "title": "ハーネスト",
+          "score": 5,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "harnest": {
+      "title": "ハーネスト",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "harnens_institute",
+        "harnens_university",
+        "eio-evolion",
+        "giir-deficiency"
+      ],
+      "after": [
+        "hubert",
+        "harnens_institute",
+        "harnens_university",
+        "eio-evolion",
+        "giir-deficiency"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "medical-tech",
+          "title": "医療技術",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "harnens_institute": {
+      "title": "ハーネンス研究所",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "harnens_university",
+        "telepass"
+      ],
+      "after": [
+        "hubert",
+        "harnens_university",
+        "telepass"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "harnest",
+          "title": "ハーネスト",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "kounkoubou",
+          "title": "鋼軟工房",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 30,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "hatenkurenbu": {
+      "title": "覇天空輪舞連合",
+      "status": "正常",
+      "before": [
+        "kyuma",
+        "oldworldmuseum",
+        "kogamichurch",
+        "hagurumaunion"
+      ],
+      "after": [
+        "kyuma",
+        "oldworldmuseum",
+        "kogamichurch",
+        "hagurumaunion"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [],
+      "brokenCount": 0
+    },
+    "hitsritche": {
+      "title": "ヒーツリッチェ演奏楽団",
+      "status": "正常",
+      "before": [
+        "orgaron",
+        "kachoufuugetsu",
+        "stralibady"
+      ],
+      "after": [
+        "orgaron",
+        "kachoufuugetsu",
+        "stralibady"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "wishpolan",
+          "title": "ウィッシュ・ポーラン",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "deoxycorp",
+          "title": "デオキシコーポ",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 26,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "hyokyo": {
+      "title": "氷共委員会",
+      "status": "正常",
+      "before": [
+        "chiriludo-ailtsua",
+        "noahsark",
+        "setsuhyo"
+      ],
+      "after": [
+        "chiriludo-ailtsua",
+        "noahsark",
+        "setsuhyo"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu",
+          "title": "リフィネス保護社",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "deoxycorp",
+          "title": "デオキシコーポ",
+          "score": 29,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "jungler": {
+      "title": "生物保護区ジャングラー",
+      "status": "正常",
+      "before": [
+        "belnea",
+        "deoxycorp",
+        "dnar"
+      ],
+      "after": [
+        "belnea",
+        "deoxycorp",
+        "dnar"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "rifinesu",
+          "title": "リフィネス保護社",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 40,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "worldcreditbank",
+          "title": "世界信用銀行",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 36,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "kachoufuugetsu": {
+      "title": "花鳥風月美術館",
+      "status": "正常",
+      "before": [
+        "orgaron",
+        "hitsritche",
+        "stralibady"
+      ],
+      "after": [
+        "orgaron",
+        "hitsritche",
+        "stralibady"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "oldworldmuseum",
+          "title": "旧世界博物館",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "hatenkurenbu",
+          "title": "覇天空輪舞連合",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "deoxycorp",
+          "title": "デオキシコーポ",
+          "score": 26,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "kogamichurch": {
+      "title": "古神教会",
+      "status": "正常",
+      "before": [
+        "kyuma",
+        "oldworldmuseum",
+        "hatenkurenbu",
+        "hagurumaunion"
+      ],
+      "after": [
+        "kyuma",
+        "oldworldmuseum",
+        "hatenkurenbu",
+        "hagurumaunion"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "ancient-civilization",
+          "title": "古代文明",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "miretche": {
+      "title": "ミレッチュ協会",
+      "status": "正常",
+      "before": [
+        "wonhead",
+        "perfectfood",
+        "wishpolan"
+      ],
+      "after": [
+        "wonhead",
+        "perfectfood",
+        "wishpolan"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "hatenkurenbu",
+          "title": "覇天空輪舞連合",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "stralibady",
+          "title": "ストラリバディ展示館",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "kogamichurch",
+          "title": "古神教会",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "kachoufuugetsu",
+          "title": "花鳥風月美術館",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu",
+          "title": "リフィネス保護社",
+          "score": 29,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "naturalfriend": {
+      "title": "ナチュラルフレンド社",
+      "status": "正常",
+      "before": [
+        "larliafrus",
+        "rifinesu"
+      ],
+      "after": [
+        "larliafrus",
+        "rifinesu",
+        "seyo",
+        "setsuhyo"
+      ],
+      "autoAdded": [
+        "seyo",
+        "setsuhyo"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "noahsark": {
+      "title": "ノアの箱舟協会",
+      "status": "正常",
+      "before": [
+        "chiriludo-ailtsua",
+        "jungler",
+        "deoxycorp",
+        "dnar"
+      ],
+      "after": [
+        "chiriludo-ailtsua",
+        "jungler",
+        "deoxycorp",
+        "dnar"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "harnest",
+          "title": "ハーネスト",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "hatenkurenbu",
+          "title": "覇天空輪舞連合",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "worldcreditbank",
+          "title": "世界信用銀行",
+          "score": 26,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "oldworldmuseum": {
+      "title": "旧世界博物館",
+      "status": "正常",
+      "before": [
+        "kyuma",
+        "hatenkurenbu",
+        "kogamichurch"
+      ],
+      "after": [
+        "kyuma",
+        "hatenkurenbu",
+        "kogamichurch"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "kachoufuugetsu",
+          "title": "花鳥風月美術館",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "stralibady",
+          "title": "ストラリバディ展示館",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 27,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 26,
+          "confidence": "△"
+        },
+        {
+          "id": "tensho",
+          "title": "天翔",
+          "score": 26,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "perfectfood": {
+      "title": "パーフェクト食品会社",
+      "status": "正常",
+      "before": [
+        "wonhead",
+        "hubert"
+      ],
+      "after": [
+        "wonhead",
+        "hubert",
+        "seyo",
+        "telepass"
+      ],
+      "autoAdded": [
+        "seyo",
+        "telepass"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "telepass",
+          "title": "テレパス社",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 28,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "rifinesu": {
+      "title": "リフィネス保護社",
+      "status": "正常",
+      "before": [
+        "larliafrus",
+        "naturalfriend"
+      ],
+      "after": [
+        "larliafrus",
+        "naturalfriend",
+        "jungler",
+        "svh"
+      ],
+      "autoAdded": [
+        "jungler",
+        "svh"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 43,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "hyokyo",
+          "title": "氷共委員会",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "yokubounosu",
+          "title": "欲望の巣",
+          "score": 32,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "sanparallel-company": {
+      "title": "サンパレレルラカンパニー",
+      "status": "正常",
+      "before": [
+        "tasumenio",
+        "gekaisis",
+        "yuretsuea"
+      ],
+      "after": [
+        "tasumenio",
+        "gekaisis",
+        "yuretsuea"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "deoxycorp",
+          "title": "デオキシコーポ",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "shirasu",
+          "title": "しらす社",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "setsuhyo": {
+      "title": "雪氷株式会社",
+      "status": "正常",
+      "before": [
+        "chiriludo-ailtsua",
+        "noahsark",
+        "hyokyo"
+      ],
+      "after": [
+        "chiriludo-ailtsua",
+        "noahsark",
+        "hyokyo"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "freshresh",
+          "title": "フレッシュレッシュ社",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "deoxycorp",
+          "title": "デオキシコーポ",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 33,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "seyo": {
+      "title": "セーヨ社",
+      "status": "正常",
+      "before": [
+        "belnea",
+        "deoxycorp",
+        "dnar"
+      ],
+      "after": [
+        "belnea",
+        "deoxycorp",
+        "dnar"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "medical-tech",
+          "title": "医療技術",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "shirasu": {
+      "title": "しらす社",
+      "status": "正常",
+      "before": [
+        "tasumenio",
+        "gekaisis"
+      ],
+      "after": [
+        "tasumenio",
+        "gekaisis",
+        "freshresh",
+        "tensho"
+      ],
+      "autoAdded": [
+        "freshresh",
+        "tensho"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "freshresh",
+          "title": "フレッシュレッシュ社",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "tensho",
+          "title": "天翔",
+          "score": 32,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "sanparallel-company",
+          "title": "サンパレレルラカンパニー",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "rifinesu",
+          "title": "リフィネス保護社",
+          "score": 31,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 30,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "stralibady": {
+      "title": "ストラリバディ展示館",
+      "status": "正常",
+      "before": [
+        "orgaron",
+        "kachoufuugetsu",
+        "oldworldmuseum"
+      ],
+      "after": [
+        "orgaron",
+        "kachoufuugetsu",
+        "oldworldmuseum"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 36,
+          "confidence": "△"
+        },
+        {
+          "id": "hitsritche",
+          "title": "ヒーツリッチェ演奏楽団",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 34,
+          "confidence": "△"
+        },
+        {
+          "id": "miretche",
+          "title": "ミレッチュ協会",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "hatenkurenbu",
+          "title": "覇天空輪舞連合",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 29,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "svh": {
+      "title": "世界変異体対策総本部（SVH）",
+      "status": "正常",
+      "before": [
+        "dulsnium",
+        "ai-tech",
+        "daily-life",
+        "niporan"
+      ],
+      "after": [
+        "dulsnium",
+        "ai-tech",
+        "daily-life",
+        "niporan"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "evolution-disease",
+          "title": "進化病",
+          "score": 6,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "telepass": {
+      "title": "テレパス社",
+      "status": "正常",
+      "before": [
+        "hubert",
+        "teleporter"
+      ],
+      "after": [
+        "hubert",
+        "teleporter",
+        "code",
+        "dnar"
+      ],
+      "autoAdded": [
+        "code",
+        "dnar"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 42,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "freshresh",
+          "title": "フレッシュレッシュ社",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "perfectfood",
+          "title": "パーフェクト食品会社",
+          "score": 32,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "tensho": {
+      "title": "天翔",
+      "status": "正常",
+      "before": [
+        "fumora-skypill",
+        "teleporter"
+      ],
+      "after": [
+        "fumora-skypill",
+        "teleporter",
+        "svh",
+        "code"
+      ],
+      "autoAdded": [
+        "svh",
+        "code"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "deoxycorp",
+          "title": "デオキシコーポ",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 35,
+          "confidence": "△"
+        },
+        {
+          "id": "yokubounosu",
+          "title": "欲望の巣",
+          "score": 35,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "wishpolan": {
+      "title": "ウィッシュ・ポーラン",
+      "status": "正常",
+      "before": [
+        "wonhead",
+        "perfectfood",
+        "miretche"
+      ],
+      "after": [
+        "wonhead",
+        "perfectfood",
+        "miretche"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "hitsritche",
+          "title": "ヒーツリッチェ演奏楽団",
+          "score": 29,
+          "confidence": "△"
+        },
+        {
+          "id": "stralibady",
+          "title": "ストラリバディ展示館",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 24,
+          "confidence": "△"
+        },
+        {
+          "id": "freshresh",
+          "title": "フレッシュレッシュ社",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "kachoufuugetsu",
+          "title": "花鳥風月美術館",
+          "score": 22,
+          "confidence": "△"
+        },
+        {
+          "id": "hagurumaunion",
+          "title": "歯車連合",
+          "score": 22,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "worldcreditbank": {
+      "title": "世界信用銀行",
+      "status": "正常",
+      "before": [
+        "sanrudo",
+        "goldenspecialmenicompany"
+      ],
+      "after": [
+        "sanrudo",
+        "goldenspecialmenicompany",
+        "svh",
+        "world-famous-universities"
+      ],
+      "autoAdded": [
+        "svh",
+        "world-famous-universities"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 39,
+          "confidence": "△"
+        },
+        {
+          "id": "world-famous-universities",
+          "title": "世界的名門大学",
+          "score": 38,
+          "confidence": "△"
+        },
+        {
+          "id": "jungler",
+          "title": "生物保護区ジャングラー",
+          "score": 37,
+          "confidence": "△"
+        },
+        {
+          "id": "code",
+          "title": "CODE",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "dnar",
+          "title": "DNAR社",
+          "score": 33,
+          "confidence": "△"
+        },
+        {
+          "id": "seyo",
+          "title": "セーヨ社",
+          "score": 31,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "worldtreec": {
+      "title": "world tree.c",
+      "status": "正常",
+      "before": [
+        "sertcity",
+        "code",
+        "happycaddy",
+        "telepass"
+      ],
+      "after": [
+        "sertcity",
+        "code",
+        "happycaddy",
+        "telepass"
+      ],
+      "autoAdded": [],
+      "mediumCandidates": [
+        {
+          "id": "worldcreditbank",
+          "title": "世界信用銀行",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "setsuhyo",
+          "title": "雪氷株式会社",
+          "score": 30,
+          "confidence": "△"
+        },
+        {
+          "id": "naturalfriend",
+          "title": "ナチュラルフレンド社",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "svh",
+          "title": "世界変異体対策総本部（SVH）",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "tensho",
+          "title": "天翔",
+          "score": 28,
+          "confidence": "△"
+        },
+        {
+          "id": "kounkoubou",
+          "title": "鋼軟工房",
+          "score": 27,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    },
+    "yokubounosu": {
+      "title": "欲望の巣",
+      "status": "関連記事不足",
+      "before": [
+        "maimok"
+      ],
+      "after": [
+        "maimok",
+        "gear-war"
+      ],
+      "autoAdded": [
+        "gear-war"
+      ],
+      "mediumCandidates": [
+        {
+          "id": "gear-war",
+          "title": "歯車戦争",
+          "score": 4,
+          "confidence": "△"
+        }
+      ],
+      "brokenCount": 0
+    }
+  }
+}

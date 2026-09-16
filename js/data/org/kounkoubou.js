@@ -83,5 +83,5 @@ ARTICLES.push({
       ]
     },
   ],
-  related:['yuretsua','sanparallel-company','harnest','tensho'],
+  related:['yuretsuea','sanparallel-company','harnest','tensho'],
 });

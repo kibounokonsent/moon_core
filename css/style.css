@@ -1814,3 +1814,138 @@ body.theme-glossary{
   border-color:#2FAE68;
   color:#fff;
 }
+
+.life-entry {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+/* ==========================================================
+   RELATED CHECK (管理者用)
+========================================================== */
+.related-check-row{
+  border: 1px solid rgba(120,90,160,0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: rgba(120,90,160,0.05);
+}
+.related-check-main{ margin-bottom: 8px; font-size: 14px; }
+.related-check-main code{
+  background: rgba(120,90,160,0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.related-check-actions{ display:flex; gap:16px; flex-wrap:wrap; font-size:13px; }
+.related-check-actions label{ display:flex; align-items:center; gap:4px; cursor:pointer; }
+.related-candidate-list{ display:flex; flex-wrap:wrap; gap:10px 18px; }
+.related-candidate-item{ display:flex; align-items:center; gap:6px; font-size:13px; cursor:pointer; }
+
+.related-summary{ display:flex; flex-wrap:wrap; gap:10px 20px; margin:10px 0 16px; }
+.related-summary-row{
+  display:flex; align-items:center; gap:6px;
+  background: rgba(120,90,160,0.08);
+  border: 1px solid rgba(120,90,160,0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+.related-summary-row strong{ font-size:15px; }
+
+
+/* ADMIN ARTICLE INDICATOR */
+.article-index-card.admin-article,
+.article-card.admin-article {
+    position: relative;
+    background: #15171b !important;
+    border: 1px solid rgba(201, 75, 75, 0.45);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.025), 0 3px 12px rgba(0,0,0,0.22);
+}
+
+.article-index-card.admin-article:hover,
+.article-card.admin-article:hover {
+    background: #1b1d22 !important;
+    border-color: rgba(201, 75, 75, 0.65);
+}
+
+.article-index-card.admin-article::before,
+.article-card.admin-article::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #c94b4b;
+    box-shadow: 0 0 7px rgba(201, 75, 75, 0.3);
+    z-index: 2;
+}
+
+.admin-article-label {
+    display: inline-block;
+    margin-right: 0.45em;
+    padding: 0.12em 0.42em;
+    border: 1px solid rgba(201, 75, 75, 0.48);
+    border-radius: 3px;
+    color: #c94b4b;
+    background: rgba(201, 75, 75, 0.08);
+    font-size: 0.68em;
+    font-family: "JetBrains Mono", monospace;
+    letter-spacing: 0.08em;
+    vertical-align: 0.08em;
+}
+
+/* ADMINカードは背景を明暗テーマに関わらず固定の暗色にしているため、
+   文字色もテーマに依存させず常に読める色を明示する（タイトル・概要は通常どおり潰さない） */
+.article-index-card.admin-article .article-index-title,
+.article-card.admin-article .article-card-title {
+    color: #E7ECF3;
+}
+.article-index-card.admin-article .article-index-lede,
+.article-card.admin-article .article-card-lede {
+    color: #9AA7BC;
+}
+.article-index-card.admin-article .article-index-meta,
+.article-index-card.admin-article .article-index-meta * {
+    color: #6C7891;
+}
+
+/* 記事ページ内の「管理者用設定」ブロック：本文全体ではなく、この部分だけ暗いカードにする */
+.admin-section-block {
+    background: #15171b;
+    border: 1px solid rgba(201, 75, 75, 0.35);
+    border-radius: var(--radius-md);
+    padding: 30px 32px;
+    margin-top: 40px;
+}
+.admin-section-block .admin-section-badge {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 0.2em 0.6em;
+    border: 1px solid rgba(201, 75, 75, 0.48);
+    border-radius: 4px;
+    color: #c94b4b;
+    background: rgba(201, 75, 75, 0.08);
+    font-size: 12px;
+    font-family: "JetBrains Mono", monospace;
+    letter-spacing: 0.1em;
+}
+.admin-section-block h2,
+.admin-section-block h3,
+.admin-section-block p,
+.admin-section-block li,
+.admin-section-block strong {
+    color: #E7ECF3;
+}
+.admin-section-block h2 {
+    border-top-color: rgba(255,255,255,0.08);
+}
+.admin-section-block h2:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}

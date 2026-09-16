@@ -97,5 +97,5 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['yuretsuea','niporan','フロスタン','deoxycorp','dnar','seyo','jungler'],
+  related:['yuretsuea','niporan','deoxycorp','dnar','seyo','jungler'],
 });

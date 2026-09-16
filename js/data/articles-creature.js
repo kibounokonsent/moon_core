@@ -56,7 +56,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['daily-life','食','自然'],
+  related:['daily-life'],
 });
 
 
@@ -114,7 +114,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['daily-life','食','自然'],
+  related:['daily-life'],
 });
 
 
@@ -173,7 +173,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['larliafrus','リフィネス','自然'],
+  related:['larliafrus','rifinesu-religion'],
 });
 
 
@@ -232,7 +232,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['miracle-flower','medical-tech','植物'],
+  related:['miracle-flower','medical-tech'],
 });
 
 
@@ -287,7 +287,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['larliafrus','miracle-flower','自然'],
+  related:['larliafrus','miracle-flower'],
 });
 
 
@@ -352,7 +352,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['daily-life','食','自然'],
+  related:['daily-life'],
 });
 
 ARTICLES.push({
@@ -414,7 +414,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['daily-life','食','自然'],
+  related:['daily-life'],
 });
 
 ARTICLES.push({
@@ -473,7 +473,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['自然','植物','歴史'],
+  related:[],
 });
 
 ARTICLES.push({
@@ -533,7 +533,7 @@ ARTICLES.push({
 
   ],
 
-  related:['slime-grass','miracle-flower','自然','食'],
+  related:['slime-grass','miracle-flower'],
 });
 
 ARTICLES.push({
@@ -613,7 +613,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['spice-bird','食','自然'],
+  related:['spice-bird'],
 });
 
 
@@ -699,7 +699,7 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['death-spice-grass','食','自然'],
+  related:['death-spice-grass'],
 });
 
 ARTICLES.push({
@@ -771,5 +771,5 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['自然','植物','生態系'],
+  related:[],
 });

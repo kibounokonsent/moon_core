@@ -91,5 +91,5 @@ ARTICLES.push({
       ]
     },
   ],
-  related:['tasumenio','ruverian','svh','eio-evolion'],
+  related:['tasumenio','svh','eio-evolion'],
 });

@@ -120,5 +120,5 @@ ARTICLES.push({
     },
   ],
 
-  related:['maimok','wolvptas_spinophen'],
+  related:['maimok'],
 });

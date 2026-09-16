@@ -137,5 +137,5 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['hubert','古代文明','天翼紋','hagurumaunion','hatenkurenbu','kogamichurch','oldworldmuseum'],
+  related:['hubert','hagurumaunion','hatenkurenbu','kogamichurch','oldworldmuseum','ancient-civilization','fumora-skypill'],
 });

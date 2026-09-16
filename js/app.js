@@ -42,6 +42,65 @@ function setBackgroundTheme(theme){
 }
 
 function articleById(id){ return ARTICLES.find(a => a.id === id); }
+
+/* ---------------- 関連記事の自動補完 ----------------
+   related が空・不足していても、記事ページには関連記事を表示する。
+   既存relatedを最優先し、本文中のタイトル参照→同一カテゴリの共通語→
+   最終フォールバックの順で補完する。 */
+function autoRelatedIds(article){
+  const existing = new Set((article.related || []).filter(id => !!articleById(id)));
+  const textOf = a => {
+    let text = `${a.title || ''} ${a.lede || ''}`;
+    (a.sections || []).forEach(s => {
+      text += ` ${s.title || ''}`;
+      (s.blocks || []).forEach(b => {
+        if(b.text) text += ` ${b.text}`;
+        if(b.items) b.items.forEach(it => {
+          text += ` ${[it.label,it.value,it.name,it.desc,it.role].filter(Boolean).join(' ')}`;
+        });
+      });
+    });
+    return text;
+  };
+
+  const text = textOf(article);
+  const scored = [];
+
+  ARTICLES.forEach(o => {
+    if(o.id === article.id || existing.has(o.id) || !o.title || o.title.length < 2) return;
+    const occ = text.split(o.title).length - 1;
+    if(occ > 0){
+      let score = occ * 2;
+      if(o.cat === article.cat) score += 1;
+      if(textOf(o).split(article.title).length - 1 > 0) score += 3;
+      scored.push({id:o.id, score});
+    }
+  });
+
+  let candidates = scored
+    .sort((a,b) => b.score - a.score)
+    .map(x => x.id);
+
+  // 明示的なタイトル参照が無い場合は、同一カテゴリ内の共通語で補完
+  if(candidates.length === 0){
+    const tokens = s => [...new Set(
+      (s || '').match(/[一-龯々〆ヵヶ]{2,}|[ぁ-んァ-ヶー]{3,}|[A-Za-z]{3,}/g) || []
+    )];
+    const aTokens = tokens(text);
+
+    candidates = ARTICLES
+      .filter(o => o.id !== article.id && !existing.has(o.id) && o.cat === article.cat)
+      .map(o => {
+        const oText = textOf(o);
+        const overlap = aTokens.filter(t => oText.includes(t)).length;
+        return {id:o.id, score:overlap};
+      })
+      .sort((a,b) => b.score - a.score || articleById(a.id).title.localeCompare(articleById(b.id).title,'ja'))
+      .map(x => x.id);
+  }
+
+  return [...existing, ...candidates].slice(0, 4);
+}
 function articlesInCat(key){ return ARTICLES.filter(a => a.cat === key); }
 function iconSvg(key, cls){ return `<svg class="${cls||''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[key]||''}</svg>`; }
 
@@ -286,10 +345,10 @@ function renderCategoryPage(key){
 
             ${arts.map(a=>`
 
-                <a class="article-card" href="#/article/${a.id}">
+                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
 
                     <div class="article-card-title">
-                        ${a.title}
+                        ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
                     </div>
 
                     <div class="article-card-lede">
@@ -321,10 +380,10 @@ function renderCategoryPage(key){
 
             ${arts.map(a=>`
 
-                <a class="article-card" href="#/article/${a.id}">
+                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
 
                     <div class="article-card-title">
-                        ${a.title}
+                        ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
                     </div>
 
                     <div class="article-card-lede">
@@ -346,19 +405,25 @@ function renderCategoryPage(key){
         ${note}
 
         <div class="category-actions life-entry">
-    <a class="btn btn-ghost calendar-button" href="#/calendar">
-        世界カレンダーを見る
-    </a>
+
+  <a class="btn btn-ghost calendar-button" href="#/calendar">
+    世界カレンダーを見る
+  </a>
+
+  <a class="btn btn-ghost" href="#/life/novels">
+    小説・短編
+  </a>
+
 </div>
 
         <div class="article-grid">
 
             ${arts.map(a=>`
 
-                <a class="article-card" href="#/article/${a.id}">
+                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
 
                     <div class="article-card-title">
-                        ${a.title}
+                        ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
                     </div>
 
                     <div class="article-card-lede">
@@ -433,11 +498,11 @@ function renderCategoryPage(key){
 
           ${arts.map(a=>`
 
-            <a class="article-card"
+            <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}"
                href="#/article/${a.id}">
 
               <div class="article-card-title">
-                ${a.title}
+                ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
               </div>
 
               <div class="article-card-lede">
@@ -476,11 +541,11 @@ function renderCategoryPage(key){
 
           ${arts.map(a=>`
 
-            <a class="article-card"
+            <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}"
                href="#/article/${a.id}">
 
               <div class="article-card-title">
-                ${a.title}
+                ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
               </div>
 
               <div class="article-card-lede">
@@ -592,11 +657,11 @@ function renderHistoryArticles(){
 
         ${arts.map(a=>`
 
-          <a class="article-card"
+          <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}"
              href="#/article/${a.id}">
 
             <div class="article-card-title">
-              ${a.title}
+              ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
             </div>
 
             <div class="article-card-lede">
@@ -616,6 +681,95 @@ function renderHistoryArticles(){
     body,
     "歴史記事"
   );
+
+}
+
+/* ---------------- 小説・短編一覧 ---------------- */
+
+function renderLifeNovels(){
+
+  setBackgroundTheme("life");
+  document.getElementById("home-hero").style.display = "none";
+
+  /*
+   * 小説・短編として登録した記事だけを表示
+   */
+  const novels = ARTICLES.filter(a => a.type === "novel");
+
+  const body = novels.length === 0
+    ? `
+      <div class="empty-state">
+        小説・短編はまだありません。
+      </div>
+    `
+    : `
+      <div class="article-grid">
+
+        ${novels.map(a=>`
+
+          <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}"
+             href="#/article/${a.id}">
+
+            <div class="article-card-title">
+              ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
+            </div>
+
+            <div class="article-card-lede">
+              ${a.lede}
+            </div>
+
+          </a>
+
+        `).join("")}
+
+      </div>
+    `;
+
+  document.getElementById("app").innerHTML = `
+
+    <div class="page-header">
+
+      <div class="breadcrumb">
+
+        <a href="#/">MOON CORE</a>
+
+        <span>/</span>
+
+        <a href="#/category/life">人々の暮らし</a>
+
+        <span>/</span>
+
+        <span style="color:var(--text-primary)">
+          小説・短編
+        </span>
+
+      </div>
+
+      <div class="title-block fade-seq">
+
+        <span class="cat-badge">
+          SHORT STORIES
+        </span>
+
+        <h1>
+          小説・短編
+        </h1>
+
+        <p class="lede">
+          未来世界に暮らす人々の、日常や小さな出来事を描いた短編小説。
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="wrap" style="padding-top:8px;padding-bottom:100px;">
+
+      ${body}
+
+    </div>
+
+  `;
 
 }
 
@@ -883,13 +1037,13 @@ if(articleIndexSort === 'updated'){
 
   const rows = list.map(a=>`
 
-    <a class="article-index-card theme-${a.cat}"
+    <a class="article-index-card theme-${a.cat}${isAdmin && a.admin ? ' admin-article' : ''}"
    href="#/article/${a.id}">
 
       <div class="article-index-main">
 
         <div class="article-index-title">
-          ${a.title}
+          ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
         </div>
 
         <div class="article-index-lede">
@@ -1036,12 +1190,17 @@ const miniCats = CATEGORIES.map(cc => `<a href="#/category/${cc.key}" class="${c
 const sectionsHtml = a.sections.map(s => `<h2 id="${s.id}">${s.title}</h2>${renderBlocks(s.blocks)}`).join('');
 
 const adminSectionsHtml = isAdmin && a.admin?.sections
-  ? a.admin.sections.map(s =>
-      `<h2 id="${s.id}">${s.title}</h2>${renderBlocks(s.blocks)}`
-    ).join('')
+  ? `<div class="admin-section-block">
+       <span class="admin-section-badge">ADMIN — 管理者用設定</span>
+       ${a.admin.sections.map(s =>
+         `<h2 id="${s.id}">${s.title}</h2>${renderBlocks(s.blocks)}`
+       ).join('')}
+     </div>`
   : '';
 
-const related = (a.related||[]).map(relatedChip).join('');
+// related が無い・不足している記事でも、自動補完して関連記事を表示する。
+const validRelated = autoRelatedIds(a);
+const related = validRelated.map(relatedChip).join('');
 
 
   const isNation = a.cat === 'nation';
@@ -1086,7 +1245,7 @@ ${imageHtml}
   ${sectionsHtml}
   ${adminSectionsHtml}
 
-  ${a.related && a.related.length ? `<h2>関連項目</h2><div class="related-links">${related}</div>` : ''}
+  ${validRelated.length ? `<h2>関連項目</h2><div class="related-links">${related}</div>` : ''}
 </div>
 
         <a class="back-top-link" href="#/">← 資料集トップへ戻る</a>
@@ -1100,9 +1259,16 @@ function renderAdminPage(){
 
   document.getElementById('home-hero').style.display = 'none';
 
+  if(isAdmin){
+    renderAdminDashboard();
+    return;
+  }
+
   document.getElementById('app').innerHTML = `
     <div class="article-page">
+
       <div class="content-card">
+
         <div class="admin-login">
 
           <h1>MOON CORE ADMIN</h1>
@@ -1112,14 +1278,42 @@ function renderAdminPage(){
           <input
             type="password"
             id="admin-password"
-            placeholder="パスワード">
+            placeholder="パスワード"
+          >
 
           <button onclick="adminLogin()">
             ログイン
           </button>
 
         </div>
+
       </div>
+
+    </div>
+  `;
+
+}
+
+
+function renderAdminDashboard(){
+
+  document.getElementById('app').innerHTML = `
+    <div class="article-page">
+
+      <div class="content-card">
+
+        <h1>MOON CORE ADMIN</h1>
+
+        <p>管理者としてログインしています。</p>
+
+        <a class="btn" href="#/admin/related">RELATED CHECK を開く</a>
+
+        <button onclick="adminLogout()">
+          ログアウト
+        </button>
+
+      </div>
+
     </div>
   `;
 
@@ -1128,28 +1322,19 @@ function renderAdminPage(){
 
 function adminLogin(){
 
-  const password = document.getElementById('admin-password').value;
+  const password =
+    document.getElementById('admin-password').value;
 
   if(password === 'M7!qR2#vL9@tK4'){
 
     isAdmin = true;
-    sessionStorage.setItem('moonCoreAdmin', 'true');
 
-    document.getElementById('app').innerHTML = `
-      <div class="article-page">
-        <div class="content-card">
+    sessionStorage.setItem(
+      'moonCoreAdmin',
+      'true'
+    );
 
-          <h1>MOON CORE ADMIN</h1>
-
-          <p>認証に成功しました。</p>
-
-          <button onclick="adminLogout()">
-            ログアウト
-          </button>
-
-        </div>
-      </div>
-    `;
+    renderAdminDashboard();
 
   } else {
 
@@ -1163,13 +1348,269 @@ function adminLogin(){
 function adminLogout(){
 
   sessionStorage.removeItem('moonCoreAdmin');
+
   isAdmin = false;
 
   renderAdminPage();
 
 }
 
-/* ---------------- ルーター ---------------- */
+/* ---------------- related管理（管理者用） ----------------
+   node analyze_related.js と同じロジックのブラウザ版。今後、新しい記事を
+   追加した際に「関連記事の設定忘れ」を見つけるための常設ツール。 */
+function levenshteinJS(a, b){
+  const m=a.length, n=b.length;
+  const dp=Array.from({length:m+1},()=>new Array(n+1).fill(0));
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++)
+    dp[i][j]=Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return dp[m][n];
+}
+
+function relatedLooksLikeTerm(ref){
+  const isJapanese = /[\u3040-\u30ff\u4e00-\u9fff]/.test(ref);
+  const hasHyphen = ref.includes('-');
+  return (isJapanese && !hasHyphen) || CATEGORIES.some(c=>c.key===ref);
+}
+
+function relatedIdTypoMatch(ref, ownerId, allIds){
+  if(/^[a-z]+$/.test(ref) && ref.length<=6) return null; // 短い英単語はIDの断片ではなく用語の残骸の可能性が高い
+  const refLower = ref.toLowerCase();
+  const exact = allIds.find(id=>id.toLowerCase()===refLower && id!==ownerId);
+  if(exact) return {id:exact, dist:0};
+  const selfPrefixHit = allIds.some(id=>id===ownerId && id.toLowerCase().split('-')[0]===refLower && refLower.length>=3);
+  if(selfPrefixHit) return null; // 本来別記事を指すはずが対象がまだ存在しない
+  const prefixHit = allIds.find(id=>{
+    if(id===ownerId) return false;
+    return id.toLowerCase().split('-')[0]===refLower && refLower.length>=3;
+  });
+  if(prefixHit) return {id:prefixHit, dist:1};
+  let best=null, bestDist=Infinity;
+  allIds.forEach(id=>{
+    if(id===ownerId) return;
+    const d=levenshteinJS(refLower, id.toLowerCase());
+    if(d<bestDist){bestDist=d; best=id;}
+  });
+  const threshold = ref.length<=6 ? 1 : Math.max(2, Math.floor(Math.max(ref.length, best?best.length:0)*0.3));
+  if(best && bestDist<=threshold) return {id:best, dist:bestDist};
+  return null;
+}
+
+function relatedArticleText(a){
+  let text=(a.title||'')+' '+(a.lede||'');
+  (a.sections||[]).forEach(s=>{
+    text+=' '+(s.title||'');
+    (s.blocks||[]).forEach(b=>{
+      if(b.text) text+=' '+b.text;
+      if(b.items) b.items.forEach(it=>{
+        text+=' '+[it.label,it.value,it.name,it.desc,it.role].filter(Boolean).join(' ');
+      });
+    });
+  });
+  return text;
+}
+
+function computeRelatedAnalysis(){
+  const idSet = new Set(ARTICLES.map(a=>a.id));
+  const allIds = [...idSet];
+  const titleToId = {}, sectionTitleToIds = {}, glossaryToId = {};
+  (typeof GLOSSARY!=='undefined'?GLOSSARY:[]).forEach(g=>{ if(g.articleId) glossaryToId[g.term]=g.articleId; });
+  ARTICLES.forEach(a=>{
+    titleToId[a.title]=a.id;
+    (a.sections||[]).forEach(s=>{
+      if(!s.title) return;
+      if(!sectionTitleToIds[s.title]) sectionTitleToIds[s.title]=[];
+      sectionTitleToIds[s.title].push(a.id);
+    });
+  });
+
+  function resolveBrokenRef(ref, ownerId){
+    if(glossaryToId[ref] && glossaryToId[ref]!==ownerId) return {id:glossaryToId[ref], method:'glossary'};
+    if(titleToId[ref] && titleToId[ref]!==ownerId) return {id:titleToId[ref], method:'title-exact'};
+    const owners = (sectionTitleToIds[ref]||[]).filter(id=>id!==ownerId);
+    if(owners.length===1) return {id:owners[0], method:'section-title'};
+    if(owners.length===2) return {multi:owners, method:'section-title-multi'};
+    if(relatedLooksLikeTerm(ref)) return null;
+    const typo = relatedIdTypoMatch(ref, ownerId, allIds);
+    if(typo) return {id:typo.id, method:'id-typo'};
+    return null;
+  }
+
+  const dupRefs=[], resolvedFixes=[], removedRefs=[];
+  ARTICLES.forEach(a=>{
+    const rel=a.related||[];
+    const seen=new Set();
+    rel.forEach(ref=>{
+      if(seen.has(ref)) dupRefs.push({id:a.id, title:a.title, ref});
+      seen.add(ref);
+      if(idSet.has(ref)) return;
+      const result = resolveBrokenRef(ref, a.id);
+      if(!result) removedRefs.push({ownerId:a.id, ownerTitle:a.title, ref, method:'unresolved'});
+      else if(result.multi) result.multi.forEach(id=>resolvedFixes.push({ownerId:a.id, ownerTitle:a.title, ref, target:id, method:result.method}));
+      else resolvedFixes.push({ownerId:a.id, ownerTitle:a.title, ref, target:result.id, method:result.method});
+    });
+  });
+
+  const textCache={};
+  ARTICLES.forEach(a=>{ textCache[a.id]=relatedArticleText(a); });
+  const titleIndex = ARTICLES.map(a=>({id:a.id, title:a.title, cat:a.cat}));
+
+  function candidatesFor(a, resolvedIds){
+    const text=textCache[a.id];
+    const existing=new Set(resolvedIds);
+    const hits=[];
+    titleIndex.forEach(o=>{
+      if(o.id===a.id || existing.has(o.id) || o.title.length<2) return;
+      const occAtoB = text.split(o.title).length-1;
+      if(occAtoB===0) return;
+      const occBtoA = textCache[o.id].split(a.title).length-1;
+      let score = occAtoB*2;
+      if(o.cat===a.cat) score+=1;
+      if(occBtoA>0) score+=3;
+      const confidence = score>=8 ? '✓' : (score>=4 ? '△' : null);
+      if(confidence) hits.push({id:o.id, title:o.title, score, confidence});
+    });
+    return hits.sort((x,y)=>y.score-x.score).slice(0,6);
+  }
+
+  const perArticle={};
+  ARTICLES.forEach(a=>{
+    const rel=a.related||[];
+    const kept=rel.filter(ref=>idSet.has(ref));
+    const fixedHere=resolvedFixes.filter(f=>f.ownerId===a.id).map(f=>f.target);
+    const resolvedIds=[...new Set([...kept, ...fixedHere])];
+    const candidates=candidatesFor(a, resolvedIds);
+    const highConf=candidates.filter(c=>c.confidence==='✓').map(c=>c.id);
+    const medConf=candidates.filter(c=>c.confidence==='△');
+    let autoAdded=[];
+    if(resolvedIds.length<3) autoAdded=highConf.slice(0,4-resolvedIds.length);
+    const finalIds=[...new Set([...resolvedIds, ...autoAdded])];
+    const brokenCount = rel.length - kept.length;
+    let status;
+    if(brokenCount>0) status='自動修正可能';
+    else if(finalIds.length===0) status='関連記事なし';
+    else if(rel.length===0 && autoAdded.length>0) status='関連記事不足（自動補完）';
+    else if(kept.length<2 && medConf.length>0) status='関連記事不足';
+    else status='正常';
+    perArticle[a.id]={title:a.title, status, before:rel, after:finalIds, autoAdded, mediumCandidates:medConf, brokenCount};
+  });
+
+  return {resolvedFixes, removedRefs, dupRefs, perArticle};
+}
+
+const relatedDecisions = { fixes:{}, addedCandidates:{} };
+
+function relatedDecisionKey(articleId, ref){ return articleId+'::'+ref; }
+
+function setRelatedFixDecision(articleId, ref, action, customValue){
+  const key = relatedDecisionKey(articleId, ref);
+  if(action==='ignore'){ delete relatedDecisions.fixes[key]; return; }
+  relatedDecisions.fixes[key] = {articleId, ref, action, value: customValue};
+}
+
+function toggleRelatedCandidate(articleId, candidateId, checked){
+  if(!relatedDecisions.addedCandidates[articleId]) relatedDecisions.addedCandidates[articleId]=[];
+  const arr = relatedDecisions.addedCandidates[articleId];
+  const idx = arr.indexOf(candidateId);
+  if(checked && idx===-1) arr.push(candidateId);
+  if(!checked && idx!==-1) arr.splice(idx,1);
+}
+
+function exportRelatedDecisions(){
+  const data = JSON.stringify(relatedDecisions, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'related_decisions.json';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  toastMsg('related_decisions.json をダウンロードしました');
+}
+
+function renderRelatedAdminPage(){
+  document.getElementById('home-hero').style.display = 'none';
+
+  if(!isAdmin){ renderAdminPage(); return; }
+
+  const {resolvedFixes, removedRefs, perArticle} = computeRelatedAnalysis();
+
+  const statusCounts = {};
+  Object.values(perArticle).forEach(p => { statusCounts[p.status] = (statusCounts[p.status]||0)+1; });
+  const statusOrder = ['正常','自動修正可能','関連記事不足（自動補完）','関連記事不足','関連記事なし'];
+  const summaryRows = statusOrder
+    .filter(s => statusCounts[s])
+    .map(s => `<div class="related-summary-row"><span>${s}</span><strong>${statusCounts[s]}</strong></div>`)
+    .join('');
+
+  const fixRows = resolvedFixes.map(f => `
+    <div class="related-check-row">
+      <div class="related-check-main">
+        <strong>${f.ownerTitle}</strong>（${f.ownerId}）: <code>${f.ref}</code> → <code>${f.target}</code>（${f.method}）
+      </div>
+      <div class="related-check-actions">
+        <label><input type="radio" name="fix-${f.ownerId}-${f.ref}-${f.target}" checked onchange="setRelatedFixDecision('${f.ownerId}','${f.ref}','apply','${f.target}')"> 適用する</label>
+        <label><input type="radio" name="fix-${f.ownerId}-${f.ref}-${f.target}" onchange="setRelatedFixDecision('${f.ownerId}','${f.ref}','keep')"> 見送る</label>
+      </div>
+    </div>`).join('');
+
+  const removeRows = removedRefs.map(r => `
+    <div class="related-check-row">
+      <div class="related-check-main"><strong>${r.ownerTitle}</strong>（${r.ownerId}）: <code>${r.ref}</code> — 対応する記事が見つからないため削除候補</div>
+      <div class="related-check-actions">
+        <label><input type="radio" name="remove-${r.ownerId}-${r.ref}" checked onchange="setRelatedFixDecision('${r.ownerId}','${r.ref}','remove')"> 削除する</label>
+        <label><input type="radio" name="remove-${r.ownerId}-${r.ref}" onchange="setRelatedFixDecision('${r.ownerId}','${r.ref}','keep')"> そのまま残す</label>
+      </div>
+    </div>`).join('');
+
+  const shortageBlocks = Object.entries(perArticle)
+    .filter(([, p]) => p.status !== '正常' && p.brokenCount === 0)
+    .map(([id, p]) => {
+      const items = [...p.autoAdded.map(cid=>({id:cid, mark:'✓', auto:true})),
+                     ...p.mediumCandidates.map(c=>({id:c.id, mark:'△', title:c.title, auto:false}))];
+      const rows = items.map(it => `
+        <label class="related-candidate-item">
+          <input type="checkbox" ${it.auto?'checked':''} onchange="toggleRelatedCandidate('${id}','${it.id}',this.checked)">
+          ${it.mark} ${it.title || articleById(it.id)?.title || it.id}（${it.id}）
+        </label>`).join('');
+      return `<div class="related-check-row">
+        <div class="related-check-main"><strong>${p.title}</strong>（${id}）｜${p.status}｜現在: ${(p.before||[]).join(', ')||'(なし)'}</div>
+        <div class="related-candidate-list">${rows || '<span>候補なし</span>'}</div>
+      </div>`;
+    }).join('');
+
+  document.getElementById('app').innerHTML = `
+    <div class="article-page">
+      <div class="content-card">
+        <h1>RELATED AUTO CHECK</h1>
+        <p>全記事 ${ARTICLES.length}</p>
+        <div class="related-summary">${summaryRows}</div>
+        <p>各項目を確認し、下部の「変更をエクスポート」でJSONを書き出せます。実データへの反映は <code>apply_related_decisions.js</code> で行います。</p>
+        <button class="btn" onclick="exportRelatedDecisions()">変更をエクスポート</button>
+        <a class="btn btn-ghost" href="#/admin">管理画面トップへ</a>
+      </div>
+
+      <div class="content-card">
+        <h2>① 自動修正できる壊れた参照（${resolvedFixes.length}件）</h2>
+        ${fixRows || '<p>該当なし</p>'}
+      </div>
+
+      <div class="content-card">
+        <h2>② 対応する記事が見つからない参照（${removedRefs.length}件）</h2>
+        ${removeRows || '<p>該当なし</p>'}
+      </div>
+
+      <div class="content-card">
+        <h2>③ 関連記事が不足／未設定の記事（✓＝自動追加候補・△＝要検討）</h2>
+        ${shortageBlocks || '<p>該当なし</p>'}
+      </div>
+    </div>`;
+}
+
+
 function router(){
 
   const hash = location.hash;
@@ -1183,6 +1624,10 @@ if(hash === '#/articles'){
   setBackgroundTheme(null);
   document.getElementById('home-hero').style.display = 'none';
   renderCalendarPage(document.getElementById('app'));
+
+} else if(hash === '#/life/novels'){
+
+  renderLifeNovels();
 
 } else if(hash === '#/world-map'){
 
@@ -1203,6 +1648,10 @@ if(hash === '#/articles'){
 } else if(hash === '#/admin'){
 
     renderAdminPage();
+
+} else if(hash === '#/admin/related'){
+
+    renderRelatedAdminPage();
 
 } else if(hash.startsWith('#/category/')){
 

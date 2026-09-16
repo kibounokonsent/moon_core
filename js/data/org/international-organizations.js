@@ -53,5 +53,5 @@ ARTICLES.push({
     ]},
 
   ],
-  related:['science-league','svh','who','weo','lsa'],
+  related:['svh','world-environment-agreement'],
 });

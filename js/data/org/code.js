@@ -109,5 +109,5 @@ ARTICLES.push({
       ]
     },
   ],
-  related:['sertcity','niporan','name1000']
+  related:['sertcity','niporan']
 });

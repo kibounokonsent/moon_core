@@ -94,5 +94,5 @@ ARTICLES.push({
     ]}
   ],
 
-  related:['sertcity','S.V.H.','龍教','kansai-disaster','code','antioldrange','evolions']
+  related:['sertcity','kansai-disaster','code','antioldrange','evolions','svh','dragon-religion']
 });

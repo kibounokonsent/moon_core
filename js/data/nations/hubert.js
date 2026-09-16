@@ -107,5 +107,5 @@ ARTICLES.push({
 
   ],
 
-  related:['niporan','sertcity','EIO','harnest','harnens_institute','harnens_university','ハーネンス','telepass'],
+  related:['niporan','sertcity','eio-evolion','harnest','harnens_institute','harnens_university','telepass'],
 });

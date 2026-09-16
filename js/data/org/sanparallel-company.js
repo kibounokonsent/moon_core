@@ -86,5 +86,5 @@ ARTICLES.push({
       ]
     },
   ],
-  related:['tasumenio','gekaisis','人体改造','変異'],
+  related:['tasumenio','gekaisis','yuretsuea'],
 });

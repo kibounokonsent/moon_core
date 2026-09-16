@@ -77,11 +77,5 @@ ARTICLES.push({
       ]
     },
   ],
-  related:[
-    'hubert',
-    'harnens_institute',
-    'harnens_university',
-    'eio',
-    'giir'
-  ],
+  related:['hubert','harnens_institute','harnens_university','eio-evolion','giir-deficiency'],
 });

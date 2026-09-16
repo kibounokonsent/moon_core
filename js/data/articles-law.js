@@ -64,7 +64,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-ethics-law','android-law','ai','life-science'],
+  related:['world-ethics-law','android-law','ai-tech'],
 });
 
 ARTICLES.push({
@@ -135,7 +135,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-ethics-revision','galtanda-law','android-law','life-science'],
+  related:['world-ethics-revision-law','galtanda-law','android-law'],
 });
 
 ARTICLES.push({
@@ -200,7 +200,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-ethics-law','galtanda-law','android-law','neurosync'],
+  related:['world-ethics-law','galtanda-law','android-law','neuro-sync'],
 });
 
 ARTICLES.push({
@@ -268,7 +268,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-ethics-law','world-ethics-revision-law','galtanda-law','ai'],
+  related:['world-ethics-law','world-ethics-revision-law','galtanda-law','ai-tech'],
 });
 
 ARTICLES.push({
@@ -426,7 +426,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-reconstruction-agreement','weo','rifinesu-religion','svh'],
+  related:['world-reconstruction-agreement','rifinesu-religion','svh','international-organizations'],
 });
 
 ARTICLES.push({
@@ -498,7 +498,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-unity-declaration','world-environment-agreement','world-science-alliance'],
+  related:['world-unity-declaration','world-environment-agreement','gear-war'],
 });
 
 ARTICLES.push({
@@ -558,7 +558,7 @@ ARTICLES.push({
       },
     ]},
   ],
-  related:['world-reconstruction-agreement','world-science-alliance','world-environment-agreement'],
+  related:['world-reconstruction-agreement','world-environment-agreement'],
 });
 
 ARTICLES.push({
@@ -660,14 +660,7 @@ ARTICLES.push({
       {t:'p', text:'つまり世界秩序とは、世界を完全に統一するための仕組みではなく、「違う国々が同じ世界で生き続けるための仕組み」である。'},
     ]},
   ],
-  related:[
-    'world-peace-agreement',
-    'world-reconstruction-agreement',
-    'world-ethics-law',
-    'world-science-alliance',
-    'svh',
-    'world-credit-bank'
-  ],
+  related:['world-reconstruction-agreement','world-ethics-law','svh','worldcreditbank','world-peace-treaty'],
 });
 
 ARTICLES.push({
@@ -844,5 +837,5 @@ ARTICLES.push({
 
   ],
 
-  related:['analog-media','harnens-university','education','science-and-technology'],
+  related:['analog-media','harnens_university','education-system'],
 });
