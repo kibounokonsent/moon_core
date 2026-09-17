@@ -399,7 +399,9 @@ function renderCategoryPage(key){
 
 }else if(c.renderMode==="life"){
 
-    const arts = ARTICLES.filter(a => a.cat === "life");
+    const arts = ARTICLES.filter(
+        a => a.cat === "life" && a.type !== "novel"
+    );
 
     body = `
         ${note}
@@ -408,6 +410,10 @@ function renderCategoryPage(key){
 
   <a class="btn btn-ghost calendar-button" href="#/calendar">
     世界カレンダーを見る
+  </a>
+
+  <a class="btn btn-ghost calendar-button" href="#/news">
+    世界ニュースを見る
   </a>
 
   <a class="btn btn-ghost" href="#/life/novels">
@@ -693,6 +699,8 @@ function renderLifeNovels(){
 
   /*
    * 小説・短編として登録した記事だけを表示
+   * form:'novel' / form:'short' で「小説」「短編」を視覚的に区別する
+   * （未指定のものは短編として扱う）
    */
   const novels = ARTICLES.filter(a => a.type === "novel");
 
@@ -703,24 +711,35 @@ function renderLifeNovels(){
       </div>
     `
     : `
-      <div class="article-grid">
+      <div class="story-grid">
 
-        ${novels.map(a=>`
+        ${novels.map(a=>{
+          const form = a.form === "novel" ? "novel" : "short";
+          const formLabel = form === "novel" ? "小説" : "短編";
+          return `
 
-          <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}"
+          <a class="story-card story-card--${form}${isAdmin && a.admin ? ' admin-article' : ''}"
              href="#/article/${a.id}">
 
-            <div class="article-card-title">
-              ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
+            <span class="story-card__badge">
+              ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${formLabel}
+            </span>
+
+            <div class="story-card__title">
+              ${a.title}
             </div>
 
-            <div class="article-card-lede">
+            <div class="story-card__lede">
               ${a.lede}
+            </div>
+
+            <div class="story-card__meta">
+              更新：${a.updated}
             </div>
 
           </a>
 
-        `).join("")}
+        `;}).join("")}
 
       </div>
     `;
@@ -1005,13 +1024,42 @@ function setCreatureFilter(subcat){
 
 let articleIndexSort = 'updated';
 
+/* ---------------- 全記事一覧 データ統合 ---------------- */
+// ARTICLES と NEWS_ITEMS を統合し、全記事一覧で扱える共通の形に正規化する
+function buildArticleIndexList(){
+
+  const fromArticles = ARTICLES.map(a => ({
+    id: a.id,
+    title: a.title,
+    lede: a.lede || "詳細情報は資料ページを参照してください。",
+    updated: a.updated,
+    href: `#/article/${a.id}`,
+    themeKey: a.cat,
+    catLabel: catByKey(a.cat).name,
+    admin: !!a.admin,
+  }));
+
+  const fromNews = (typeof NEWS_ITEMS !== 'undefined' ? NEWS_ITEMS : []).map(n => ({
+    id: n.id,
+    title: n.title,
+    lede: n.text,
+    updated: n.updated,
+    href: `#/news/${n.id}`,
+    themeKey: 'news',
+    catLabel: 'ニュース',
+    admin: false,
+  }));
+
+  return fromArticles.concat(fromNews);
+}
+
 function renderAllArticles(){
 
   setBackgroundTheme(null);
   document.getElementById("home-hero").style.display = "none";
 
 
-let list = [...ARTICLES];
+let list = buildArticleIndexList();
 
 
 if(articleIndexSort === 'updated'){
@@ -1029,7 +1077,7 @@ if(articleIndexSort === 'updated'){
 }else if(articleIndexSort === 'category'){
 
   list.sort((a,b)=>
-    catByKey(a.cat).name.localeCompare(catByKey(b.cat).name,"ja")
+    a.catLabel.localeCompare(b.catLabel,"ja")
   );
 
 }
@@ -1037,8 +1085,8 @@ if(articleIndexSort === 'updated'){
 
   const rows = list.map(a=>`
 
-    <a class="article-index-card theme-${a.cat}${isAdmin && a.admin ? ' admin-article' : ''}"
-   href="#/article/${a.id}">
+    <a class="article-index-card theme-${a.themeKey}${isAdmin && a.admin ? ' admin-article' : ''}"
+   href="${a.href}">
 
       <div class="article-index-main">
 
@@ -1047,7 +1095,7 @@ if(articleIndexSort === 'updated'){
         </div>
 
         <div class="article-index-lede">
-          ${a.lede || "詳細情報は資料ページを参照してください。"}
+          ${a.lede}
         </div>
 
       </div>
@@ -1056,7 +1104,7 @@ if(articleIndexSort === 'updated'){
       <div class="article-index-meta">
 
         <span class="article-index-cat">
-          ${catByKey(a.cat).name}
+          ${a.catLabel}
         </span>
 
         <span class="article-index-date">
@@ -1106,7 +1154,7 @@ if(articleIndexSort === 'updated'){
   すべての記事一覧です。<br>
 
   現在登録資料：
-  <strong>${ARTICLES.length}項目</strong>
+  <strong>${list.length}項目</strong>
 
 </p>
 
@@ -1619,11 +1667,25 @@ if(hash === '#/articles'){
 
   renderAllArticles();
 
+} else if(hash.startsWith('#/calendar/')){
+
+  setBackgroundTheme(null);
+  document.getElementById('home-hero').style.display = 'none';
+  renderCalendarPage(document.getElementById('app'), hash.replace('#/calendar/',''));
+
 } else if(hash === '#/calendar'){
 
   setBackgroundTheme(null);
   document.getElementById('home-hero').style.display = 'none';
   renderCalendarPage(document.getElementById('app'));
+
+} else if(hash.startsWith('#/news/')){
+
+  renderNewsPage(hash.replace('#/news/',''));
+
+} else if(hash === '#/news'){
+
+  renderNewsPage();
 
 } else if(hash === '#/life/novels'){
 
@@ -1686,9 +1748,12 @@ function toastMsg(msg){
 
 /* ---------------- 検索 ---------------- */
 function buildSearchIndex(){
-  const fromArticles = ARTICLES.map(a => ({name:a.title, cat:catByKey(a.cat).name, articleId:a.id}));
-  const fromGlossary = GLOSSARY.filter(g => !ARTICLES.find(a=>a.id===g.articleId)).map(g => ({name:g.term, cat:'用語集', articleId:null}));
-  return fromArticles.concat(fromGlossary);
+  const fromArticles = ARTICLES.map(a => ({name:a.title, cat:catByKey(a.cat).name, href:`#/article/${a.id}`}));
+  const fromGlossary = GLOSSARY.filter(g => !ARTICLES.find(a=>a.id===g.articleId)).map(g => ({name:g.term, cat:'用語集', href:null}));
+  const fromNews = (typeof NEWS_ITEMS !== 'undefined' ? NEWS_ITEMS : []).map(n => ({name:n.title, cat:'ニュース', href:`#/news/${n.id}`}));
+  const fromCalendar = (typeof CALENDAR_EVENTS !== 'undefined' ? CALENDAR_EVENTS : []).map(ev => ({name:ev.name, cat:'カレンダー', href:`#/calendar/${ev.id}`}));
+  const fromWorldMap = [{name:'世界地図', cat:'地図', href:'#/world-map'}];
+  return fromArticles.concat(fromGlossary, fromNews, fromCalendar, fromWorldMap);
 }
 const SEARCH_INDEX = buildSearchIndex();
 
@@ -1707,7 +1772,7 @@ function runSearch(q){
     return;
   }
   results.innerHTML = filtered.map(i => `
-    <div class="search-result-item" onclick="${i.articleId ? `closeSearch(); location.hash='#/article/${i.articleId}';` : `closeSearch(); toastMsg('「${i.name}」— 詳細ページは準備中です')`}">
+    <div class="search-result-item" onclick="${i.href ? `closeSearch(); location.hash='${i.href}';` : `closeSearch(); toastMsg('「${i.name}」— 詳細ページは準備中です')`}">
       <span class="sr-name">${i.name}</span><span class="sr-cat">${i.cat}</span>
     </div>`).join('');
 }

@@ -281,7 +281,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'silly-news', cat:'life',  type:'novel', title:'くだらないニュース', updated:'2026.08.13',
+  id:'silly-news', cat:'life',  type:'novel', form:'short', title:'くだらないニュース', updated:'2026.08.13',
   lede:'高度な科学技術と文明を持つ未来世界でも、日々の暮らしの中では、思わず笑ってしまうようなくだらない出来事がニュースとして報じられている。',
   sections:[
     {id:'sec-overview', title:'概要', blocks:[
@@ -825,7 +825,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'one-day-routine',
+  id:'one-day-routine', form:'short',
   cat:'life',
     type:'novel',
   title:'ある仕事人の1DAYルーティン',
@@ -912,7 +912,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'svh-hero',
+  id:'svh-hero', form:'short',
   cat:'life',
     type:'novel',
   title:'警戒区域の向こう側',
@@ -1031,7 +1031,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'running-through-the-forest',
+  id:'running-through-the-forest', form:'short',
   cat:'life',
   type:'novel',
   title:'森を走る',
@@ -1124,7 +1124,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'captain-of-the-sea',
+  id:'captain-of-the-sea', form:'short',
   cat:'life',
   type:'novel',
   title:'船長！',
@@ -1258,7 +1258,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'food-explorer',
+  id:'food-explorer', form:'short',
   cat:'life',
   type:'novel',
   title:'まだ食べたことのない味',
@@ -1357,4 +1357,149 @@ ARTICLES.push({
     ]},
   ],
   related:['daily-life','wonhead','food-culture']
+});
+
+ARTICLES.push({
+  id:'rainy-day', form:'short',
+  cat:'life',
+  type:'novel',
+  title:'雨の日',
+  updated:'2026.09.17',
+  lede:'雨が好きな私は、雨の空気や音、匂いを楽しみながら街を歩く。思わぬ出来事をきっかけに、傘を置いて雨をそのまま浴びる一日。',
+  sections:[
+    {id:'sec-rain', title:'雨', blocks:[
+      {t:'p', text:'私は、雨が好きだ。'},
+      {t:'p', text:'雨の日の空気が好きだ。'},
+      {t:'p', text:'少し湿った空気。'},
+      {t:'p', text:'雨が地面を濡らしていく匂い。'},
+      {t:'p', text:'屋根や窓に当たる雨の音。'},
+      {t:'p', text:'晴れた日とは少し違う、静かな街の雰囲気。'},
+      {t:'p', text:'だから、朝から雨が降っていると、少し嬉しくなる。'},
+      {t:'p', text:'今日は休日だった。'},
+      {t:'p', text:'特に予定はない。'},
+      {t:'p', text:'窓の外を見る。'},
+      {t:'p', text:'雨が降っている。'},
+      {t:'p', text:'気象情報を確認すれば、雨がいつまで続くのかも分かる。'},
+      {t:'p', text:'けれど、今日は見なかった。'},
+      {t:'p', text:'ただ、雨を見ていたかった。'},
+    ]},
+
+    {id:'sec-walk', title:'雨の街', blocks:[
+      {t:'p', text:'しばらくして、外へ出ることにした。'},
+      {t:'p', text:'傘を持って家を出る。'},
+      {t:'p', text:'外へ出た瞬間、雨の音が少し大きくなる。'},
+      {t:'p', text:'傘に当たる雨粒の音。'},
+      {t:'p', text:'ぱらぱら、ぱらぱらと、一定のリズムで続いている。'},
+      {t:'p', text:'歩道を歩く。'},
+      {t:'p', text:'いつもなら気にも留めない道なのに、今日は少し違って見える。'},
+      {t:'p', text:'道路は濡れていて、建物の明かりが水面に映っている。'},
+      {t:'p', text:'車が通るたび、水が跳ねる。'},
+      {t:'p', text:'雨の匂いがする。'},
+      {t:'p', text:'私はゆっくり歩いた。'},
+      {t:'p', text:'急ぐ必要はない。'},
+      {t:'p', text:'雨の日は、こうして歩くだけでも楽しい。'},
+    ]},
+
+    {id:'sec-puddle', title:'水たまり', blocks:[
+      {t:'p', text:'しばらく歩いていると、前に大きな水たまりがあった。'},
+      {t:'p', text:'避けようとした。'},
+      {t:'p', text:'けれど、足を滑らせた。'},
+      {t:'p', text:'「うわっ」'},
+      {t:'p', text:'ばしゃん。'},
+      {t:'p', text:'見事に転んだ。'},
+      {t:'p', text:'服も靴も、一気に濡れる。'},
+      {t:'p', text:'傘まで手から離れてしまった。'},
+      {t:'p', text:'「……最悪」'},
+      {t:'p', text:'そう言いながら立ち上がる。'},
+      {t:'p', text:'傘を拾う。'},
+      {t:'p', text:'けれど、もう十分濡れてしまった。'},
+      {t:'p', text:'私は少しだけ考えた。'},
+      {t:'p', text:'そして、傘を閉じた。'},
+    ]},
+
+    {id:'sec-rain-bath', title:'雨を浴びる', blocks:[
+      {t:'p', text:'空を見上げる。'},
+      {t:'p', text:'雨が降っている。'},
+      {t:'p', text:'頬に雨粒が当たる。'},
+      {t:'p', text:'髪が濡れる。'},
+      {t:'p', text:'服がさらに重くなっていく。'},
+      {t:'p', text:'でも、不思議と嫌じゃなかった。'},
+      {t:'p', text:'むしろ、少し楽しかった。'},
+      {t:'p', text:'傘を差しているときには聞こえなかった音がする。'},
+      {t:'p', text:'雨が直接、身体に当たる音。'},
+      {t:'p', text:'遠くで車が走る音。'},
+      {t:'p', text:'水たまりを踏む音。'},
+      {t:'p', text:'街全体が、雨の音に包まれている。'},
+      {t:'p', text:'私はそのまま歩いた。'},
+      {t:'p', text:'もう、濡れることを気にしなかった。'},
+      {t:'p', text:'水たまりを避けずに歩く。'},
+      {t:'p', text:'雨をそのまま浴びる。'},
+      {t:'p', text:'冷たい。'},
+      {t:'p', text:'でも、気持ちいい。'},
+    ]},
+
+    {id:'sec-fumora', title:'雨上がり', blocks:[
+      {t:'p', text:'しばらくして、私は立ち止まった。'},
+      {t:'p', text:'空を見上げる。'},
+      {t:'p', text:'厚い雲が、空を覆っている。'},
+      {t:'p', text:'その雲の奥に、何かが見えた。'},
+      {t:'p', text:'大きな影。'},
+      {t:'p', text:'雲の切れ間から、巨大な構造物の輪郭がわずかに浮かんでいる。'},
+      {t:'p', text:'「……フーモラ」'},
+      {t:'p', text:'いつもなら、空を見上げても気にしない。'},
+      {t:'p', text:'そこにあることが当たり前だからだ。'},
+      {t:'p', text:'けれど今日は、雨雲の向こうに見えるその姿が、妙に綺麗だった。'},
+      {t:'p', text:'しばらく眺めていると、雨が少しずつ弱くなっていく。'},
+      {t:'p', text:'音が小さくなる。'},
+      {t:'p', text:'道路を流れていた水も、少しずつ勢いを失っていく。'},
+      {t:'p', text:'雲の向こうから、光が差した。'},
+      {t:'p', text:'私は空を見上げたまま、その光を浴びる。'},
+      {t:'p', text:'雲がゆっくりと開いていく。'},
+      {t:'p', text:'その向こうに、フーモラがはっきりと見えた。'},
+      {t:'p', text:'雨上がりの空に浮かぶ巨大な都市。'},
+      {t:'p', text:'濡れた身体に、日の光が当たる。'},
+      {t:'p', text:'さっきまで冷たかった服が、少しずつ温かくなっていく。'},
+      {t:'p', text:'私は傘を持ったまま、しばらく立っていた。'},
+      {t:'p', text:'雨の匂いが残っている。'},
+      {t:'p', text:'濡れた地面が光っている。'},
+      {t:'p', text:'空には雲が残っている。'},
+      {t:'p', text:'その向こうには、フーモラが浮かんでいる。'},
+      {t:'p', text:'「……いいな」'},
+      {t:'p', text:'そう呟く。'},
+    ]},
+
+    {id:'sec-bath', title:'余韻', blocks:[
+      {t:'p', text:'しばらくして、ようやく帰ることにした。'},
+      {t:'p', text:'家に着く頃には、すっかりびしょ濡れだった。'},
+      {t:'p', text:'すぐに風呂へ入る。'},
+      {t:'p', text:'温かい湯に浸かる。'},
+      {t:'p', text:'冷えていた身体が、ゆっくり温まっていく。'},
+      {t:'p', text:'目を閉じる。'},
+      {t:'p', text:'すると、さっきまでの雨を思い出す。'},
+      {t:'p', text:'傘に当たる音。'},
+      {t:'p', text:'濡れた道路。'},
+      {t:'p', text:'雨の匂い。'},
+      {t:'p', text:'水たまりで転んだこと。'},
+      {t:'p', text:'傘を置いて、雨をそのまま浴びたこと。'},
+      {t:'p', text:'雲の向こうに見えたフーモラ。'},
+      {t:'p', text:'そして、雨上がりの日の光。'},
+      {t:'p', text:'全部思い出すと、また少し笑ってしまう。'},
+      {t:'p', text:'今日は、何も特別な予定はなかった。'},
+      {t:'p', text:'ただ雨が降っていて。'},
+      {t:'p', text:'外へ出て。'},
+      {t:'p', text:'歩いて。'},
+      {t:'p', text:'転んで。'},
+      {t:'p', text:'濡れて。'},
+      {t:'p', text:'空を見上げただけだった。'},
+      {t:'p', text:'でも。'},
+      {t:'quote', text:'「……今日はよかった」'},
+      {t:'p', text:'そう呟く。'},
+      {t:'p', text:'風呂の湯に浸かりながら、今日の雨の余韻を味わう。'},
+      {t:'p', text:'外では、雨上がりの街が少しずつ乾いていく。'},
+      {t:'p', text:'私は目を閉じる。'},
+      {t:'p', text:'明日は、晴れるらしい。'},
+      {t:'p', text:'それでも、また雨が降ったらいいなと思った。'},
+    ]},
+  ],
+  related:['daily-life','fumora','weather-technology']
 });

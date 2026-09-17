@@ -71,7 +71,8 @@ function getEventById(id) {
    -------------------------------------------------------------------------- */
 
 // app.js から #/calendar に遷移した際にこの関数が呼ばれる想定
-function renderCalendarPage(container) {
+// openId を渡すと（#/calendar/{id} からの遷移など）該当行事の月へ移動し、モーダルを自動で開く
+function renderCalendarPage(container, openId) {
     container.innerHTML = `
         <section class="calendar-page">
             <header class="calendar-page__header">
@@ -114,6 +115,16 @@ function renderCalendarPage(container) {
     renderCountryFilter();
     renderCalendar();
     renderEventsList();
+
+    if (openId) {
+        const ev = getEventById(openId);
+        if (ev) {
+            calendarState.month = ev.month;
+            renderCalendar();
+            renderEventsList();
+            openEventModal(ev);
+        }
+    }
 }
 
 /* --------------------------------------------------------------------------
