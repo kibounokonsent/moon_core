@@ -6,7 +6,7 @@ ARTICLES.push({
   id:'orgaron', cat:'nation', title:'オルガロン', updated:'2026.07.30',
   lede:'芸術と創造を国家理念に掲げ、人々の思考や表現を未来へ繋ぎ続ける芸術国家。スローガンは「創造」。',
   accentColor:'#e3462e',
-  flagUrl:'assets/images/nation/flags/オルガロン.svg',
+  flagUrl:'assets/images/nation/flags/orgaron.svg',
 
   sections:[
     {

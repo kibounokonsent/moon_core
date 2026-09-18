@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'chiriludo-ailtsua', cat:'nation', title:'チリルド・アイルツア', updated:'2026.07.30',
   lede:'雪が降り続ける氷雪国家。雪を氷へ変える技術と氷彫刻文化によって、数百年分の白景を残し続ける悠然国家。',
-  accentColor:'#E8F6FF', flagUrl:'assets/images/nation/flags/チリルド・アイルツア.svg',
+  accentColor:'#E8F6FF', flagUrl:'assets/images/nation/flags/chiriludo-ailtsua.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

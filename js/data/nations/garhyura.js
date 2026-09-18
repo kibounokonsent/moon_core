@@ -10,7 +10,7 @@ ARTICLES.push({
 
   lede:'極寒の大地で生き抜くため「強さこそ正義」を掲げる軍事国家。戦争と競争によって独自の文化を形成した崩壊寸前の国家。',
   accentColor:'#690000',
-  flagUrl:'assets/images/nation/flags/ガルヒューラ.svg',
+  flagUrl:'assets/images/nation/flags/garhyura.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

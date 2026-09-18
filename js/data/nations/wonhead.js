@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'wonhead', cat:'nation', title:'ヲンヘード', updated:'2026.07.30',
   lede:'食を「生きる文化」として発展させた世界最大級の食文化国家。スローガンは「共に暖かく」。',
-  accentColor:'#D96C2F', flagUrl:'assets/images/nation/flags/ヲンヘード.svg',
+  accentColor:'#D96C2F', flagUrl:'assets/images/nation/flags/wonhead.svg',
   sections:[
     {id:'sec-overview', title:'概要', blocks:[
       {t:'p', text:'ヲンヘードは、食べるという行為を生存手段ではなく「文化体験」として発展させた国家である。完全栄養食を基礎技術として持ちながらも、味・香り・温度・食感・共有体験を含めた「食そのものの価値」を追求し続けている。'},

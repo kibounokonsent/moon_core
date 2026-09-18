@@ -5,7 +5,7 @@
 ARTICLES.push({
     id:'larliafrus', cat:'nation', title:'ラリアフルス', updated:'2026.07.30',
     lede:'リフィネスの森を中心に、自然と共に循環を保ちながら生きる国家。スローガンは「自然と共存」。',
-    accentColor:'#3F8F5E', flagUrl: 'assets/images/nation/flags/ラリアフルス.svg',
+    accentColor:'#3F8F5E', flagUrl: 'assets/images/nation/flags/larliafrus.svg',
     sections:[
       {id:'sec-overview', title:'概要', blocks:[
         {t:'p', text:'ラリアフルスは、自然を守るだけでなく、手を入れて循環を保つ国である。森は神聖だが、放置してよい存在ではない。伐採は罪ではないが、理由なき伐採は罪である。人間の手入れは、自然への介入ではなく、循環の一部と考えられている。'},

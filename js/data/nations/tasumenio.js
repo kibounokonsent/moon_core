@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'tasumenio', cat:'nation', title:'タスメニオ', updated:'2026.07.30',
   lede:'巨大隕石島を中心に発展した海洋国家。世界最大級のテレポート中継網によって、世界中の人と物流を繋ぐ接続国家。',
-  accentColor:'#1E9FD1', flagUrl:'assets/images/nation/flags/タスメニオ.svg',
+  accentColor:'#1E9FD1', flagUrl:'assets/images/nation/flags/tasumenio.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

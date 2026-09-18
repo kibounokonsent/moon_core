@@ -11,7 +11,7 @@ ARTICLES.push({
   lede:'ウォルプタススピノフェン製造施設から放出され続ける霧によって環境そのものが変質した崩壊領域。国家機能は消失しているが、依存的な循環構造によって人間活動のみが維持されている。',
 
   accentColor:'#FF66CC',
-  flagUrl:'assets/images/nation/flags/マイモック.svg',
+  flagUrl:'assets/images/nation/flags/maimok.svg',
 
   sections:[
 

@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'belnea', cat:'nation', title:'ベルネア', updated:'2026.07.30',
   lede:'巨大環境ドームによって生命を観察・研究する国家。スローガンは「生命を知り、共に生きる」。',
-  accentColor:'#4FA7A2', flagUrl:'assets/images/nation/flags/ベルネア.svg',
+  accentColor:'#4FA7A2', flagUrl:'assets/images/nation/flags/belnea.svg',
   sections:[
     {id:'sec-overview', title:'概要', blocks:[
       {t:'p', text:'ベルネアは、生物に関する研究・観察・教育へ特化した国家である。巨大環境ドームによって世界各地の環境を再現し、多様な生命を観察・維持・研究している。'},

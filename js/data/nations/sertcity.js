@@ -9,7 +9,7 @@ ARTICLES.push({
   updated:'2026.09.11',
   lede:'世界最大の情報インフラを担う研究国家。巨大な閉鎖型都市施設の内部に現実世界とサイバー世界が共存し、世界中のネットワークを支える情報都市。',
   accentColor:'#0004ff',
-  flagUrl:'assets/images/nation/flags/セルトシティ.svg',
+  flagUrl:'assets/images/nation/flags/sertcity.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

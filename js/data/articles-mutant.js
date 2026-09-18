@@ -183,7 +183,7 @@ ARTICLES.push({
   title:'三要素理論（Three-Element Theory）',
   updated:'2026.07.31',
   lede:'進化病の発症・進行・安定化を説明するために確立された理論体系。GIIR・EIO・AIOSの三要素の相互作用によって進化病は成立する。',
-  image: 'assets/images/mutant/三要素.svg',
+  image: 'assets/images/mutant/three-element-theory.svg',
 
   sections:[
 

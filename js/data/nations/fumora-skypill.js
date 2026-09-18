@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'fumora-skypill', cat:'nation', title:'フーモラ・スカイピル', updated:'2026.07.30',
   lede:'成層圏に浮かぶ回転型空中都市国家。世界規模の気象安定システムの一部として機能し、多文化が混ざり合う自由国家。',
-  accentColor:'#ffe600', flagUrl:'assets/images/nation/flags/フーモラ・スカイピル.svg',
+  accentColor:'#ffe600', flagUrl:'assets/images/nation/flags/fumora-skypill.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

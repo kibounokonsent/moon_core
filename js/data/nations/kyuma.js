@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'kyuma', cat:'nation', title:'キューマ', updated:'2026.07.30',
   lede:'古代文明研究・考古学・復元技術を極め、過去を保存するのではなく再現し体験する探求国家。',
-  accentColor:'#B87333', flagUrl:'assets/images/nation/flags/キューマ.svg',
+  accentColor:'#B87333', flagUrl:'assets/images/nation/flags/kyuma.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

@@ -47,8 +47,8 @@ NEWS_ITEMS.push({
   updated: '2026.09.17',
   category: 'science',
   text: 'フーモラ・スカイピル各地で、未知の紋様「天翼紋」の確認例が相次いでいる。建築物の表面や空路構造物、空間投影など様々な場所で観測されているが、現在もその意味や起源、目的は明らかになっていない。',
-  relatedArticleIds: ['fumora-sky...'],
-  relatedNationIds: ['fumora'],
+  relatedArticleIds: ['fumora-skypill'],
+  relatedNationIds: ['fumora-skypill'],
   relatedHistoryIds: []
 });
 
@@ -59,7 +59,7 @@ NEWS_ITEMS.push({
   category: 'nation',
   text: 'チリルド・アイルツアで、建国以来続いていた雪が突如として止まる異常事態が発生している。現在のところ原因は明らかになっていない。大規模な混乱には至っていないものの、長く続いてきた白景の変化を受け、国民の間では不安が広がっている。',
   relatedArticleIds: [],
-  relatedNationIds: ['chiriludo'],
+  relatedNationIds: ['chiriludo-ailtsua'],
   relatedHistoryIds: []
 });
 

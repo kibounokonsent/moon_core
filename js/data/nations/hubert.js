@@ -11,7 +11,7 @@ ARTICLES.push({
   lede:'世界を理解し、未来を構築する。生命科学・情報技術・再生医療を中心とした超技術国家。',
 
   accentColor:'#27a8ff',
-  flagUrl:'assets/images/nation/flags/ヒューバート.svg',
+  flagUrl:'assets/images/nation/flags/hubert.svg',
   sections:[
     {id:'sec-overview', title:'概要', blocks:[
       {t:'p', text:'ヒューバートは、生命科学・情報技術・再生医療を中心とした超技術国家である。EIO、リンクチン解析、人工生命研究などにおいて世界最高峰の技術力を持つ。'},

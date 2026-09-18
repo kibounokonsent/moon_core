@@ -5,7 +5,7 @@
 ARTICLES.push({
   id:'sanrudo', cat:'nation', title:'サンルド', updated:'2026.07.30',
   lede:'黄金と白金を象徴に、信用・契約・投資・幻想産業を通じて「価値そのもの」を流動させ続ける幻想国家。',
-  accentColor:'#D4AF37', flagUrl:'assets/images/nation/flags/サンルド.svg',
+  accentColor:'#D4AF37', flagUrl:'assets/images/nation/flags/sanrudo.svg',
 
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

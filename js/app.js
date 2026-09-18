@@ -102,6 +102,7 @@ function autoRelatedIds(article){
   return [...existing, ...candidates].slice(0, 4);
 }
 function articlesInCat(key){ return ARTICLES.filter(a => a.cat === key); }
+function articlesInCollection(name){ return ARTICLES.filter(a => Array.isArray(a.collection) && a.collection.includes(name)); }
 function iconSvg(key, cls){ return `<svg class="${cls||''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[key]||''}</svg>`; }
 
 function navLinkFor(c){
@@ -524,6 +525,71 @@ function renderCategoryPage(key){
 
     }
 
+  }else if(key === "culture"){
+
+    /*
+     * collection配列に 'recipe' を持つ記事（料理そのものを扱う記事）は、
+     * 小説・短編が「人々の暮らし」の一覧から除外され #/life/novels 専用ページに
+     * まとめられているのと同じ扱いで、この一般一覧には出さず #/culture/food
+     * 専用ページにのみ表示する。
+     */
+    const arts = articlesInCat(key).filter(
+      a => !(Array.isArray(a.collection) && a.collection.includes("recipe"))
+    );
+
+    const cultureActions = `
+      <div class="category-actions culture-entry">
+
+        <a class="btn btn-ghost" href="#/culture/food">
+          料理記事を見る
+        </a>
+
+      </div>
+    `;
+
+    if(arts.length===0){
+
+      body = `
+        ${note}
+
+        ${cultureActions}
+
+        <div class="empty-state">
+          この分類にはまだ記事がありません。<br>
+          設定は今後追加される予定です。
+        </div>
+      `;
+
+    }else{
+
+      body = `
+        ${note}
+
+        ${cultureActions}
+
+        <div class="article-grid">
+
+            ${arts.map(a=>`
+
+                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
+
+                    <div class="article-card-title">
+                        ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
+                    </div>
+
+                    <div class="article-card-lede">
+                        ${a.lede}
+                    </div>
+
+                </a>
+
+            `).join("")}
+
+        </div>
+      `;
+
+    }
+
   }else{
 
     const arts = articlesInCat(key);
@@ -776,6 +842,98 @@ function renderLifeNovels(){
 
         <p class="lede">
           未来世界に暮らす人々の、日常や小さな出来事を描いた短編小説。
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="wrap" style="padding-top:8px;padding-bottom:100px;">
+
+      ${body}
+
+    </div>
+
+  `;
+
+}
+
+/* ---------------- 文化：料理記事一覧 ---------------- */
+
+function renderCultureFood(){
+
+  setBackgroundTheme("culture");
+  document.getElementById("home-hero").style.display = "none";
+
+  /*
+   * collection配列に 'recipe'（料理そのもの）を持つ記事だけを表示する。
+   * 「料理に関係する記事」全般（企業・食材・食文化トレンド・小説など）は含めない。
+   * cat（宗教・文化 / 科学技術 / 組織・企業など）を横断しつつ、
+   * 「実際の料理記事」だけに絞り込むための専用コレクション。
+   */
+  const foodArticles = articlesInCollection('recipe');
+
+  const body = foodArticles.length === 0
+    ? `
+      <div class="empty-state">
+        料理そのものを扱った記事はまだありません。<br>
+        記事データに <code>collection:['recipe']</code> を追加すると、ここに表示されます。
+      </div>
+    `
+    : `
+      <div class="article-grid">
+
+        ${foodArticles.map(a=>`
+
+          <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
+
+            <div class="article-card-title">
+              ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
+            </div>
+
+            <div class="article-card-lede">
+              ${a.lede}
+            </div>
+
+          </a>
+
+        `).join("")}
+
+      </div>
+    `;
+
+  document.getElementById("app").innerHTML = `
+
+    <div class="page-header">
+
+      <div class="breadcrumb">
+
+        <a href="#/">MOON CORE</a>
+
+        <span>/</span>
+
+        <a href="#/category/culture">宗教・文化</a>
+
+        <span>/</span>
+
+        <span style="color:var(--text-primary)">
+          料理記事
+        </span>
+
+      </div>
+
+      <div class="title-block fade-seq">
+
+        <span class="cat-badge">
+          FOOD CULTURE
+        </span>
+
+        <h1>
+          料理記事
+        </h1>
+
+        <p class="lede">
+          未来世界に登場する料理・食材・食文化に関わる記事をまとめて読める、食文化の入り口。
         </p>
 
       </div>
@@ -1691,6 +1849,10 @@ if(hash === '#/articles'){
 
   renderLifeNovels();
 
+} else if(hash === '#/culture/food'){
+
+  renderCultureFood();
+
 } else if(hash === '#/world-map'){
 
   renderWorldMap();
@@ -1748,11 +1910,20 @@ function toastMsg(msg){
 
 /* ---------------- 検索 ---------------- */
 function buildSearchIndex(){
-  const fromArticles = ARTICLES.map(a => ({name:a.title, cat:catByKey(a.cat).name, href:`#/article/${a.id}`}));
-  const fromGlossary = GLOSSARY.filter(g => !ARTICLES.find(a=>a.id===g.articleId)).map(g => ({name:g.term, cat:'用語集', href:null}));
-  const fromNews = (typeof NEWS_ITEMS !== 'undefined' ? NEWS_ITEMS : []).map(n => ({name:n.title, cat:'ニュース', href:`#/news/${n.id}`}));
-  const fromCalendar = (typeof CALENDAR_EVENTS !== 'undefined' ? CALENDAR_EVENTS : []).map(ev => ({name:ev.name, cat:'カレンダー', href:`#/calendar/${ev.id}`}));
-  const fromWorldMap = [{name:'世界地図', cat:'地図', href:'#/world-map'}];
+  // 記事名・関連記事のタイトル・（あれば）明示的なkeywordsを検索対象に含める。
+  // これにより「SNET」で検索しても、関連する「セルトシティ」で引っかかるようになる。
+  const titleById = {};
+  ARTICLES.forEach(a => { titleById[a.id] = a.title; });
+
+  const fromArticles = ARTICLES.map(a => {
+    const relatedTitles = (a.related || []).map(id => titleById[id]).filter(Boolean);
+    const keywords = [...new Set([...(a.keywords || []), ...relatedTitles])];
+    return {name:a.title, cat:catByKey(a.cat).name, href:`#/article/${a.id}`, keywords};
+  });
+  const fromGlossary = GLOSSARY.filter(g => !ARTICLES.find(a=>a.id===g.articleId)).map(g => ({name:g.term, cat:'用語集', href:null, keywords:[]}));
+  const fromNews = (typeof NEWS_ITEMS !== 'undefined' ? NEWS_ITEMS : []).map(n => ({name:n.title, cat:'ニュース', href:`#/news/${n.id}`, keywords:[]}));
+  const fromCalendar = (typeof CALENDAR_EVENTS !== 'undefined' ? CALENDAR_EVENTS : []).map(ev => ({name:ev.name, cat:'カレンダー', href:`#/calendar/${ev.id}`, keywords:[]}));
+  const fromWorldMap = [{name:'世界地図', cat:'地図', href:'#/world-map', keywords:[]}];
   return fromArticles.concat(fromGlossary, fromNews, fromCalendar, fromWorldMap);
 }
 const SEARCH_INDEX = buildSearchIndex();
@@ -1766,14 +1937,23 @@ function openSearch(){
 function closeSearch(){ document.getElementById('search-overlay').classList.remove('open'); }
 function runSearch(q){
   const results = document.getElementById('search-results');
-  const filtered = q.trim()==='' ? SEARCH_INDEX : SEARCH_INDEX.filter(i => i.name.includes(q) || i.cat.includes(q));
+  const query = q.trim();
+  const filtered = query === '' ? SEARCH_INDEX : SEARCH_INDEX
+    .map(i => {
+      const nameHit = i.name.includes(query);
+      const catHit = i.cat.includes(query);
+      const keywordHit = (i.keywords || []).find(k => k.includes(query) && k !== i.name);
+      if(!nameHit && !catHit && !keywordHit) return null;
+      return {...i, via: (!nameHit && !catHit && keywordHit) ? keywordHit : null};
+    })
+    .filter(Boolean);
   if(filtered.length === 0){
     results.innerHTML = `<div class="search-empty">「${q}」に一致する項目が見つかりませんでした</div>`;
     return;
   }
   results.innerHTML = filtered.map(i => `
     <div class="search-result-item" onclick="${i.href ? `closeSearch(); location.hash='${i.href}';` : `closeSearch(); toastMsg('「${i.name}」— 詳細ページは準備中です')`}">
-      <span class="sr-name">${i.name}</span><span class="sr-cat">${i.cat}</span>
+      <span class="sr-name">${i.name}${i.via ? `<span class="sr-via">「${i.via}」から</span>` : ''}</span><span class="sr-cat">${i.cat}</span>
     </div>`).join('');
 }
 document.addEventListener('keydown', (e) => {

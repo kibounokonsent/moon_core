@@ -569,6 +569,7 @@ ARTICLES.push({
 
 ARTICLES.push({
   id:'snet', cat:'tech', title:'SNET', updated:'2026.08.13',
+  keywords:['通信', 'Sert Network', 'ネットワーク'],
   lede:'セルトシティによって構築され、未来世界の通信基盤として広く普及している次世代ネットワーク。',
   sections:[
     {id:'sec-overview', title:'概要', blocks:[

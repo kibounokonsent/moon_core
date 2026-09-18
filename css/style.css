@@ -204,6 +204,7 @@ nav.main-nav a:hover::after{transform:scaleX(1);}
 .search-result-item{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border-radius:var(--radius-sm); cursor:pointer; transition:background 0.2s ease;}
 .search-result-item:hover{background:var(--surface-alt);}
 .sr-name{font-weight:500; font-size:14.5px;}
+.sr-via{font-size:12px; color:var(--text-tertiary); font-weight:400; margin-left:8px;}
 .sr-cat{font-size:12px; color:var(--text-tertiary); font-family:'JetBrains Mono', monospace;}
 .search-empty{padding:28px 22px; text-align:center; color:var(--text-tertiary); font-size:13.5px;}
 
@@ -1510,6 +1511,24 @@ body.theme-glossary{
 .life-entry .btn:hover{
     background:#3F8F6A;
     border-color:#3F8F6A;
+}
+
+.culture-entry{
+    margin-bottom:50px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.culture-entry .btn{
+    background:#B08D3E;
+    color:#fff;
+    border-color:#B08D3E;
+}
+
+.culture-entry .btn:hover{
+    background:#8F7130;
+    border-color:#8F7130;
 }
 
 /* ---------- 小説・短編：作品カード ---------- */
