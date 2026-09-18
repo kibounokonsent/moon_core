@@ -2033,7 +2033,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'white-out', form:'short',
+  id:'white-out', form:'novel',
   cat:'life',
   type:'novel',
   title:'WHITE OUT',
@@ -2183,7 +2183,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'unselected', form:'short',
+  id:'unselected', form:'novel',
   cat:'life',
   type:'novel',
   title:'選べない',
