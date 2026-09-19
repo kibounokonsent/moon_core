@@ -230,6 +230,9 @@ function expenseValue(){
 }
 
 function update(){
+  // 会社名・社長名も入力欄からstateへ読み込む（保存・プレビュー・ココフォリア出力に使うため）
+  state.companyName = text("companyName");
+  state.presidentName = text("presidentName");
   state.presidentSkill = Math.max(0, Math.min(99, Math.floor(num("presidentSkill"))));
   state.presidentCL = Math.max(1, Math.min(10, Math.floor(num("presidentCL"))));
   state.presidentRNK = Math.max(1, Math.min(10, Math.floor(num("presidentRNK"))));
