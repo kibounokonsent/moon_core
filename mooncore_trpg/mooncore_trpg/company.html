@@ -104,12 +104,12 @@
       <div class="panel-title">ENTERPRISE TYPE POINT</div>
       <div class="calculated-grid">
         <div><span>企業タイプ</span><strong id="typeCode">未選択</strong></div>
-        <div><span>社長技能 / 2</span><strong id="skillHalf">0</strong></div>
-        <div><span>FUN × 10</span><strong id="funBonus">0</strong></div>
+        <div><span>社長技能 / 5</span><strong id="skillHalf">0</strong></div>
+        <div><span>FUN</span><strong id="funBonus">0</strong></div>
         <div><span>企業タイプポイント</span><strong id="typePoints">0</strong></div>
         <div><span>進化状態</span><strong id="evolution">通常</strong></div>
       </div>
-      <p class="hint">企業タイプポイントは選択した企業タイプにのみ適用されます。100到達時に進化します。</p>
+      <p class="hint">企業タイプポイントは選択した企業タイプにのみ適用されます。設立直後は0〜24程度（職業技能が高い社長は30前後）から始まり、ゲーム中に加算して100到達時に進化します。</p>
     </section>
 
     <section class="panel">
@@ -117,6 +117,7 @@
       <div class="calculated-grid">
         <div><span>収入 D10</span><strong id="incomeDice">未決定</strong></div>
         <div><span>収入</span><strong id="income">0</strong></div>
+        <div><span>不祥事判定 1D10</span><strong id="scandal">未判定</strong></div>
         <div><span>支出 10D10</span><strong id="expenseDice">未決定</strong></div>
         <div><span>支出</span><strong id="expense">0</strong></div>
         <div><span>差額</span><strong id="balance">0</strong></div>
@@ -124,7 +125,7 @@
       <div class="actions finance-actions">
         <button id="rollFinance" class="primary">収入・支出を計算</button>
       </div>
-      <p class="hint">収入・支出のダイス結果はボタンを押した時に決定します。収入は「(FUN×40+CL+1)」で計算し、FUNとCLが両方0でも最低限の収入が出るようにしています。「休業中」を選ぶと収入は意図的に0円になります。</p>
+      <p class="hint">収入・支出のダイス結果はボタンを押した時に決定します。収入は「(FUN×40+CL×10+1)」で計算し、FUNとCLが両方0でも最低限の収入が出るようにしています。ETHが低い会社は不祥事判定（1D10が「4−ETH」以下で発生、ETH4以上は発生しません）が起きると、さらに1D10×10%だけ収入が減ります。「休業中」を選ぶと収入は意図的に0円になります。</p>
     </section>
 
     <section class="panel">

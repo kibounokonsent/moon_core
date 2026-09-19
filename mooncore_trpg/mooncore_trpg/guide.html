@@ -197,8 +197,8 @@
   <div class="panel-title">COMPANY — REP 企業評価 と ETH 企業倫理のバランス</div>
   <div class="guide-section">
     <table class="value-table">
-      <tr><th>REP高・ETH低</th><td>実績や知名度は高いが、企業活動には問題もある。「儲かるが危ない企業」として見られることがある</td></tr>
-      <tr><th>REP低・ETH高</th><td>倫理性は高いが、まだ知名度や実績は少ない。堅実な企業として評価される</td></tr>
+      <tr><th>REP高・ETH低</th><td>実績や知名度は高いが、企業活動には問題もある。「儲かるが危ない企業」として見られることがある。資金力は高いが、不祥事が起きやすい</td></tr>
+      <tr><th>REP低・ETH高</th><td>倫理性は高いが、まだ知名度や実績は少ない。堅実な企業として評価される。資金は少なめだが、社員と信用に恵まれ、不祥事の心配もない</td></tr>
       <tr><th>両方低い</th><td>創業間もないなど、実績も企業としての評価もまだ確立していない</td></tr>
       <tr><th>両方高い</th><td>高い実績と倫理性を両立している。業界内でも模範的な企業として評価される</td></tr>
     </table>
@@ -208,6 +208,9 @@
 <section class="panel">
   <div class="panel-title">COMPANY — 企業タイプポイント（0〜100＋）</div>
   <div class="guide-section">
+    <p class="guide-note" style="margin:0 0 14px;">
+      設立直後は0〜24程度（職業技能が高い社長は30前後）が目安です。ゲーム中の活動で加算され、100に到達すると進化します。
+    </p>
     <table class="value-table">
       <tr><th>0〜24</th><td>黎明期。企業としての専門性はまだ明確ではない</td></tr>
       <tr><th>25〜49</th><td>成長期。企業としての専門色が出始める</td></tr>
@@ -222,7 +225,8 @@
   <div class="panel-title">COMPANY — 収入・運営状況</div>
   <div class="guide-section">
     <p class="guide-note" style="margin:0 0 14px;">
-      収入＝（収入D10×10）×（FUN×40＋CL＋1）×100。FUNとCLの両方が0でも「＋1」により事故的な0円は避けられます。
+      収入＝（収入D10×10）×（FUN×40＋CL×10＋1）×100。FUNとCLの両方が0でも「＋1」により事故的な0円は避けられます。
+      ETHが低い会社は、1D10が「4−ETH」以下のとき不祥事が発生し、さらに1D10×10%だけ収入が減ります（ETH4以上は発生しません）。
       「休業中」だけがダイス運とは無関係に、意図的に収入を0円にする選択肢です。
     </p>
   </div>

@@ -19,6 +19,8 @@ let state = {
   ETH:0,
   financeIncomeDice:0,
   financeExpenseDice:0,
+  financeScandalDice:0,
+  financeScandalLossDice:0,
   operationStatus:"active"
 };
 
@@ -133,11 +135,13 @@ function normalizeBasePoints(){
 
 /* ルールブックの計算式 */
 function FUN(){
-  return ceil((5 - state.ETH) + (state.REP / 2));
+  // REPで上昇、ETHで低下（ブラック企業ほど資金力が高く、ホワイト企業ほど低い）
+  return ceil(5 + ((state.REP - state.ETH) / 2));
 }
 
 function typePoints(){
-  return ceil(state.presidentSkill / 2) + (FUN() * 10);
+  // 設立直後の目安は0〜24程度（職業技能が高い社長のみ30前後まで）。0未満にはならない
+  return Math.max(0, ceil(state.presidentSkill / 5) + FUN());
 }
 
 function INF(){
@@ -170,10 +174,14 @@ function isSuspended(){
 }
 
 function rollFinance(){
+  // rollD() は {rolls, total} を返すので、合計値(total)だけを保存する
   const income = rollD(10, Math.max(0, FUN()));
   const expense = rollD(10, 10);
-  state.financeIncomeDice = income;
-  state.financeExpenseDice = expense;
+  state.financeIncomeDice = income.total;
+  state.financeExpenseDice = expense.total;
+  // 不祥事判定（1D10）と、発生時の規模（1D10）。発生の有無は現在のETHで判定する
+  state.financeScandalDice = rollD(10, 1).total;
+  state.financeScandalLossDice = rollD(10, 1).total;
   update();
 }
 
@@ -182,7 +190,37 @@ function rollFinance(){
 function incomeValue(){
   if(!state.financeIncomeDice) return 0;
   if(isSuspended()) return 0;
-  return ((state.financeIncomeDice * 10) * ((FUN() * 4 * 10) + CL() + 1)) * 100;
+  const base = ((state.financeIncomeDice * 10) * ((FUN() * 4 * 10) + (CL() * 10) + 1)) * 100;
+  return Math.floor(base * (100 - scandalRate()) / 100);
+}
+
+/* 不祥事判定：ETHが低いほど不祥事が起きやすい。
+   1D10 ≦ (4 − ETH) で発生（ETH4以上は発生しない）。
+   発生した場合、さらに1D10 × 10% だけ収入が減る（出目10で収入0円）。 */
+function scandalThreshold(){
+  return Math.max(0, 4 - state.ETH);
+}
+
+function scandalOccurred(){
+  return state.financeScandalDice > 0 && state.financeScandalDice <= scandalThreshold();
+}
+
+function scandalRate(){
+  return scandalOccurred() ? Math.min(100, state.financeScandalLossDice * 10) : 0;
+}
+
+function scandalText(){
+  if(!state.financeScandalDice) return "未判定";
+  return scandalOccurred() ? `発生 −${scandalRate()}%` : "なし";
+}
+
+function scandalDetail(){
+  if(!state.financeScandalDice) return "未判定";
+  const th = scandalThreshold();
+  if(th === 0) return "なし（ETH4以上のため不祥事は発生しない）";
+  return scandalOccurred()
+    ? `発生（1D10=${state.financeScandalDice} ≦ ${th}／規模1D10=${state.financeScandalLossDice} → 収入−${scandalRate()}%）`
+    : `なし（1D10=${state.financeScandalDice} > ${th}）`;
 }
 
 function expenseValue(){
@@ -212,8 +250,8 @@ function update(){
 
   $("selectedType").textContent = state.type ? `${state.type} ${data.name}` : "未選択";
   $("typeCode").textContent = state.type || "未選択";
-  $("skillHalf").textContent = ceil(state.presidentSkill/2);
-  $("funBonus").textContent = FUN()*10;
+  $("skillHalf").textContent = ceil(state.presidentSkill/5);
+  $("funBonus").textContent = FUN();
   $("typePoints").textContent = tp;
   $("evolution").textContent = data && tp >= 100
     ? `${data.evolution} ${data.evolutionName}`
@@ -225,6 +263,7 @@ function update(){
   $("companyFUN").textContent = FUN();
 
   $("incomeDice").textContent = state.financeIncomeDice ? state.financeIncomeDice : "未決定";
+  $("scandal").textContent = scandalText();
   $("expenseDice").textContent = state.financeExpenseDice ? state.financeExpenseDice : "未決定";
   $("income").textContent = !state.financeIncomeDice ? "0円" : isSuspended() ? "0円（休業中）" : `${incomeValue().toLocaleString()}円`;
   $("expense").textContent = state.financeExpenseDice ? `${expenseValue().toLocaleString()}円` : "0円";
@@ -282,6 +321,7 @@ function buildPreview(){
     `運営状況：${isSuspended() ? "休業中" : "通常稼働"}`,
     `収入ダイス：${state.financeIncomeDice || "未決定"}`,
     `収入：${$("income").textContent}`,
+    `不祥事判定：${scandalDetail()}`,
     `支出ダイス：${state.financeExpenseDice || "未決定"}`,
     `支出：${state.financeExpenseDice ? expenseValue().toLocaleString()+"円" : "0円"}`,
     `差額：${state.financeIncomeDice && state.financeExpenseDice ? (incomeValue()-expenseValue()).toLocaleString()+"円" : "0円"}`,
@@ -302,9 +342,15 @@ function loadData(){
   try{
     state = Object.assign({
       companyName:"",presidentName:"",presidentSkill:0,presidentCL:1,presidentRNK:1,
-      type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,
+      type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,financeScandalDice:0,financeScandalLossDice:0,
       operationStatus:"active"
     },JSON.parse(raw));
+
+    // 旧バグで {rolls,total} のまま保存されたデータを数値に直す
+    ["financeIncomeDice","financeExpenseDice","financeScandalDice","financeScandalLossDice"].forEach(k => {
+      const v = state[k];
+      state[k] = (v && typeof v === "object") ? (Number(v.total) || 0) : (Number(v) || 0);
+    });
 
     $("companyName").value = state.companyName || "";
     $("presidentName").value = state.presidentName || "";
@@ -349,6 +395,7 @@ function buildCocofoliaMemo(){
     "【財務】",
     `運営状況：${isSuspended() ? "休業中" : "通常稼働"}`,
     `収入：${state.financeIncomeDice ? (isSuspended() ? "0円（休業中）" : incomeValue().toLocaleString()+"円") : "未計算"}`,
+    `不祥事判定：${scandalDetail()}`,
     `支出：${state.financeExpenseDice ? expenseValue().toLocaleString()+"円" : "未計算"}`,
     `差額：${state.financeIncomeDice && state.financeExpenseDice ? (incomeValue()-expenseValue()).toLocaleString()+"円" : "未計算"}`,
     "",
@@ -439,7 +486,7 @@ function resetAll(){
   if(!confirm("会社シートを新規作成しますか？")) return;
   state={
     companyName:"",presidentName:"",presidentSkill:0,presidentCL:1,presidentRNK:1,
-    type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,
+    type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,financeScandalDice:0,financeScandalLossDice:0,
     operationStatus:"active"
   };
   $("companyName").value="";
