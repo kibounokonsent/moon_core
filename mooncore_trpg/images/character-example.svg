@@ -1,0 +1,31 @@
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP','Yu Gothic',sans-serif">
+  <rect x="20" y="16" width="440" height="188" rx="4" fill="#ffffff" stroke="#c8d7e6" stroke-width="1.5"/>
+  <rect x="20" y="16" width="440" height="34" fill="#14213d"/>
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#fff">CHARACTER EXAMPLE — MED</text>
+  <text x="440" y="38" font-size="12" font-weight="700" fill="#3fcbd1" text-anchor="end">職業技能 20</text>
+
+  <g font-size="12" font-weight="700" fill="#6b7b8d" text-anchor="middle">
+    <text x="70" y="76">HP</text>
+    <text x="150" y="76">SAN</text>
+    <text x="220" y="76">AP</text>
+    <text x="305" y="76">月収</text>
+    <text x="410" y="76">所持金</text>
+  </g>
+  <g font-size="22" font-weight="800" fill="#14213d" text-anchor="middle">
+    <text x="70" y="106">6</text>
+    <text x="150" y="106">20</text>
+    <text x="220" y="106">3</text>
+  </g>
+  <g font-size="15" font-weight="800" fill="#14213d" text-anchor="middle">
+    <text x="305" y="103">40,000</text>
+    <text x="410" y="103">400,000</text>
+  </g>
+
+  <line x1="40" y1="126" x2="440" y2="126" stroke="#edf5fb" stroke-width="2"/>
+
+  <g font-size="12" fill="#1c2b3a">
+    <text x="40" y="150">STR 4　DEX 5　CON 3　INT 2　POW 2</text>
+    <text x="40" y="172">RSH 5　TAC 5　ENG 5　MED 20　OPS 3　CWD 2</text>
+    <text x="40" y="194">CL 0　RNK 1　INF 1</text>
+  </g>
+</svg>

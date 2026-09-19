@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未来世界 TRPG キャラクター作成・判定ルール</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="./mooncore.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="未来世界TRPG キャラクター作成・判定ルール">
+  <meta property="og:description" content="未来世界TRPGのキャラクター作成手順と技能判定ルール。">
+  <meta property="og:url" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/rules-character.html">
+  <meta property="og:image" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="未来世界TRPG キャラクター作成・判定ルール">
+  <meta name="twitter:description" content="未来世界TRPGのキャラクター作成手順と技能判定ルール。">
+  <meta name="twitter:image" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/ogp.png">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="system-label">FUTURE WORLD TRPG — RULEBOOK</p>
+      <h1>キャラクター作成・判定ルール</h1>
+    </div>
+    <div class="header-status">RULEBOOK 01 / 04</div>
+  </header>
+
+  <nav class="site-nav">
+    <a href="./index.html">キャラクターシート</a>
+    <a href="./company.html">会社シート</a>
+    <a href="./guide.html">値目安</a>
+    <a href="./Meaning.html">値の意味</a>
+    <a href="./rules.html">ルールブック</a>
+  </nav>
+
+  <main class="container">
+
+    <div class="rulebook-tabs">
+      <a href="./rules-character.html" class="active">キャラクター作成・判定</a>
+      <a href="./rules-company.html">会社ルールブック</a>
+      <a href="./rules-combat.html">戦闘ルール</a>
+      <a href="./rules-scenario.html">長期シナリオ進行</a>
+    </div>
+
+    <figure class="illustration-slot">
+      <div class="illustration-frame filled">
+        <img src="images/character-hero.svg" alt="5つの能力値とダイス、技能上限を表すキャラクター作成のイメージ図">
+      </div>
+      <figcaption class="illustration-caption">STR / DEX / CON / INT / POW と 5D4・技能上限のイメージ</figcaption>
+    </figure>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">1</span>キャラクター作成</div>
+      <div class="rule-body">
+        <p>プレイヤーキャラクターは、以下の手順で作成する。</p>
+        <ol class="rule-list">
+          <li>基本能力値を決定する</li>
+          <li>職業を決定する</li>
+          <li>技能ポイントを計算する</li>
+          <li>技能ポイントを各技能へ振り分ける</li>
+          <li>社会ポイントを計算する</li>
+          <li>CL、RNK、INFへ社会ポイントを振り分ける</li>
+          <li>HP、SAN、APなどを計算する</li>
+          <li>月収と所持金を計算する</li>
+          <li>必要に応じて武器やデッキを決定する</li>
+        </ol>
+        <p>キャラクターの名前、年齢、性格、経歴などのプロフィールは、別途作成するキャラクターシートで管理する。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">2</span>基本能力値</div>
+      <div class="rule-body">
+        <p>キャラクター作成時に5D4を振り、出た合計値をSTR、DEX、CON、INT、POWの5つへ自由に振り分ける。</p>
+        <p>各能力値には最低1を割り振る。能力値の最大値は20。小数点が発生する計算は、すべて切り上げる。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">3</span>基本能力値の種類</div>
+      <div class="rule-body">
+        <table class="value-table">
+          <tr><th>STR</th><td>パワーを表す能力値。近接攻撃の補正や受身などに関係する。</td></tr>
+          <tr><th>DEX</th><td>スピードを表す能力値。行動順や回避、APなどに関係する。</td></tr>
+          <tr><th>CON</th><td>耐久力を表す能力値。HPに関係する。</td></tr>
+          <tr><th>INT</th><td>知性を表す能力値。技能ポイントの計算に関係する。</td></tr>
+          <tr><th>POW</th><td>意志の強さを表す能力値。技能ポイントやSANの計算に関係する。</td></tr>
+          <tr><th>SYN</th><td>同期率を表す特殊ステータス。キャラクター作成時に割り振るものではなく、ゲーム中の出来事などによって後から変動する。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">4</span>技能</div>
+      <div class="rule-body">
+        <p>技能は、キャラクターが持つ専門的な能力や知識を表す。技能値の初期値は0。技能値の最大値は99。</p>
+        <p>技能判定では、基本的にCCBを使用する。判定結果が技能値以下なら成功となる。</p>
+        <div class="formula">CCB&lt;={技能値}</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">5</span>技能の種類</div>
+      <div class="rule-body">
+        <table class="value-table">
+          <tr><th>RSH 研究</th><td>研究、分析などに使用する。<br><span class="rule-num" style="margin:6px 0 0;display:inline-block;">例</span> <code>CCB&lt;={RSH} 【研究】</code></td></tr>
+          <tr><th>TAC 戦闘</th><td>戦闘に関する知識や技術などに使用する。<br><code>CCB&lt;={TAC} 【戦闘】</code></td></tr>
+          <tr><th>ENG 技術</th><td>機械や設備など、技術に関する行動に使用する。<br><code>CCB&lt;={ENG} 【技術】</code></td></tr>
+          <tr><th>MED 医療</th><td>治療や医療知識などに使用する。<br><code>CCB&lt;={MED} 【医療】</code></td></tr>
+          <tr><th>OPS 情報</th><td>情報収集や情報分析などに使用する。<br><code>CCB&lt;={OPS} 【情報】</code></td></tr>
+          <tr><th>CWD 指導</th><td>指導、教育、指揮などに使用する。<br><code>CCB&lt;={CWD} 【指導】</code></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">6</span>技能判定の補正</div>
+      <div class="rule-body">
+        <p>技能判定では、状況に応じて技能値そのものに補正が加わる場合がある。</p>
+        <div class="formula">CCB&lt;={RSH}+20 【研究】
+CCB&lt;={MED}-10 【医療】</div>
+        <p>補正後の技能値が99を超える場合でも、判定上の技能値は99を上限とする。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">7</span>クリティカルとファンブル</div>
+      <div class="rule-body">
+        <table class="value-table">
+          <tr><th>01〜05</th><td>クリティカル。通常の成功よりも優れた結果となる。</td></tr>
+          <tr><th>95〜100</th><td>ファンブル。通常の失敗よりも悪い結果となる。具体的な効果は、状況に応じてKPが決定する。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <figure class="illustration-slot">
+      <div class="illustration-frame filled">
+        <img src="images/character-jobs.svg" alt="RSH・TAC・ENG・MED・OPS・CWD の6職業アイコン">
+      </div>
+      <figcaption class="illustration-caption">6つの職業（RSH / TAC / ENG / MED / OPS / CWD）</figcaption>
+    </figure>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">8</span>能力値判定</div>
+      <div class="rule-body">
+        <p>STR、DEX、CON、INT、POWなどの能力値そのものを使用する判定も行う。能力値判定は、クトゥルフ神話TRPGと同様に、能力値を5倍した値を判定値とする。</p>
+        <div class="formula">CCB&lt;={能力値}×5
+
+<span class="comment">例：STRが12の場合</span>
+CCB&lt;={STR}×5 → 判定値は60</div>
+        <p>能力値判定でもクリティカルとファンブルのルールを適用する。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">9</span>職業</div>
+      <div class="rule-body">
+        <p>キャラクターは以下の6種類から職業を1つ選択する。選択した職業に対応する技能を職業技能とする。</p>
+        <table class="value-table">
+          <tr><th>RSH</th><td>研究職</td></tr>
+          <tr><th>TAC</th><td>戦闘員</td></tr>
+          <tr><th>ENG</th><td>技術者</td></tr>
+          <tr><th>MED</th><td>医療職</td></tr>
+          <tr><th>OPS</th><td>情報員</td></tr>
+          <tr><th>CWD</th><td>指導者</td></tr>
+        </table>
+        <p>例：MEDを選択した場合、職業技能はMEDとなる。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">10</span>技能ポイント</div>
+      <div class="rule-body">
+        <p>技能ポイントは、INTとPOWを使用して決定する。</p>
+        <div class="formula">技能ポイント = (INT + POW) × 10</div>
+        <p>得られた技能ポイントを、RSH、TAC、ENG、MED、OPS、CWDの6技能へ自由に振り分ける。職業技能に多くのポイントを振ることで、その職業に適したキャラクターを作成できる。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">11</span>社会ポイント</div>
+      <div class="rule-body">
+        <p>技能ポイントを振り分けた後、職業技能の値を使用して社会ポイントを決定する。</p>
+        <div class="formula">社会ポイント = c(職業技能 ÷ 10)
+
+<span class="comment">c は小数点以下切り上げを表す</span></div>
+        <p>得られた社会ポイントを、以下の3項目へ自由に振り分ける。CL、RNK、INFは0にすることも可能。</p>
+        <table class="value-table">
+          <tr><th>CL</th><td>社会信用度</td></tr>
+          <tr><th>RNK</th><td>権限</td></tr>
+          <tr><th>INF</th><td>影響力</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">12</span>HP</div>
+      <div class="rule-body">
+        <p>HPはCONによって決定する。</p>
+        <div class="formula">HP = CON × 2</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">13</span>SAN</div>
+      <div class="rule-body">
+        <p>SANはPOWによって決定する。</p>
+        <div class="formula">SAN = POW × 10</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">14</span>AP</div>
+      <div class="rule-body">
+        <p>APはDEXによって決定する。小数点が発生した場合は切り上げる。</p>
+        <div class="formula">AP = c(DEX ÷ 2)</div>
+        <p>APの具体的な使用方法については、戦闘ルールを参照する。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">15</span>月収</div>
+      <div class="rule-body">
+        <p>キャラクターの月収は、職業技能とRNKによって決定する。RNKが0の場合でも、RNK+1によって最低限の月収が発生する。</p>
+        <div class="formula">月収 = 職業技能 × (RNK + 1) × 1000</div>
+        <p>ただし、設定上の理由によって扶養されているなど、意図的に無収入とすることもできる。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">16</span>所持金</div>
+      <div class="rule-body">
+        <p>キャラクターの初期所持金は、職業技能とRNKによって決定する。RNKが0の場合でも、RNK+1によって初期所持金が発生する。</p>
+        <div class="formula">所持金 = 職業技能 × (RNK + 1) × 10000</div>
+        <p>ただし、キャラクター設定や状況によって所持金を0とすることもできる。</p>
+      </div>
+    </section>
+
+    <figure class="illustration-slot">
+      <div class="illustration-frame filled">
+        <img src="images/character-example.svg" alt="作成例キャラクターのHP・SAN・AP・月収・所持金まとめ">
+      </div>
+      <figcaption class="illustration-caption">作成例キャラクターのステータスまとめ</figcaption>
+    </figure>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">17</span>キャラクター作成例</div>
+      <div class="rule-body">
+        <p>例として、以下の能力値を持つキャラクターを作成する。</p>
+        <div class="formula">STR 4 / DEX 5 / CON 3 / INT 2 / POW 2　<span class="comment">（合計16）</span></div>
+        <p>職業としてMEDを選択した場合、MEDが職業技能となる。技能ポイントは、</p>
+        <div class="formula">(2 + 2) × 10 = 40</div>
+        <p>この40ポイントを6つの技能へ自由に振り分ける。例えば、</p>
+        <div class="formula">RSH 5 / TAC 5 / ENG 5 / MED 20 / OPS 3 / CWD 2</div>
+        <p>とした場合、職業技能はMEDの20となる。社会ポイントは、</p>
+        <div class="formula">c(20 ÷ 10) = 2</div>
+        <p>この2ポイントをCL、RNK、INFへ自由に振り分ける。例えば、CL 0 / RNK 1 / INF 1 とする。</p>
+        <div class="formula">HP = 3 × 2 = 6
+SAN = 2 × 10 = 20
+AP = c(5 ÷ 2) = 3
+月収 = 20 × (1 + 1) × 1000 = 40000円
+所持金 = 20 × (1 + 1) × 10000 = 400000円</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">18</span>キャラクター作成時の注意</div>
+      <div class="rule-body">
+        <ul class="rule-list">
+          <li>能力値の初期値は5D4の結果を使用する。</li>
+          <li>能力値の上限は20。能力値には最低1を割り振る。</li>
+          <li>技能値の初期値は0。技能値の上限は99。</li>
+          <li>小数点が発生する計算は切り上げる。</li>
+          <li>CL、RNK、INFは0でもよい。</li>
+          <li>RNKが0の場合でも、月収と所持金はRNK+1によって計算される。</li>
+          <li>設定上の理由によって、意図的に無収入・所持金0とすることもできる。</li>
+          <li>SYNはキャラクター作成時に割り振らず、ゲーム中に変動する特殊ステータスとして扱う。</li>
+          <li>戦闘に関する詳細なルールは、別途戦闘ルールを参照する。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="rulebook-tabs">
+      <a href="./rules-character.html" class="active">キャラクター作成・判定</a>
+      <a href="./rules-company.html">会社ルールブック</a>
+      <a href="./rules-combat.html">戦闘ルール</a>
+      <a href="./rules-scenario.html">長期シナリオ進行</a>
+    </div>
+
+  </main>
+
+  <footer>FUTURE WORLD TRPG — CHARACTER RULEBOOK</footer>
+</body>
+</html>

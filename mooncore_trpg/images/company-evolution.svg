@@ -1,0 +1,62 @@
+<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP','Yu Gothic',sans-serif">
+  <g font-size="13" font-weight="800" text-anchor="middle">
+    <!-- row template repeated -->
+    <g transform="translate(0,0)">
+      <rect x="30" y="14" width="70" height="30" rx="4" fill="#edf5fb" stroke="#c8d7e6"/>
+      <text x="65" y="34" fill="#14213d">RSH</text>
+      <path d="M104,29 h34" stroke="#3fcbd1" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <rect x="142" y="12" width="80" height="34" rx="4" fill="#14213d"/>
+      <text x="182" y="34" fill="#3fcbd1">ARC 知恵</text>
+    </g>
+    <g transform="translate(0,42)">
+      <rect x="30" y="14" width="70" height="30" rx="4" fill="#edf5fb" stroke="#c8d7e6"/>
+      <text x="65" y="34" fill="#14213d">TAC</text>
+      <path d="M104,29 h34" stroke="#3fcbd1" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <rect x="142" y="12" width="80" height="34" rx="4" fill="#14213d"/>
+      <text x="182" y="34" fill="#3fcbd1">WAR 軍事</text>
+    </g>
+    <g transform="translate(0,84)">
+      <rect x="30" y="14" width="70" height="30" rx="4" fill="#edf5fb" stroke="#c8d7e6"/>
+      <text x="65" y="34" fill="#14213d">ENG</text>
+      <path d="M104,29 h34" stroke="#3fcbd1" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <rect x="142" y="12" width="80" height="34" rx="4" fill="#14213d"/>
+      <text x="182" y="34" fill="#3fcbd1">SYS 文明</text>
+    </g>
+    <g transform="translate(0,126)">
+      <rect x="30" y="14" width="70" height="30" rx="4" fill="#edf5fb" stroke="#c8d7e6"/>
+      <text x="65" y="34" fill="#14213d">MED</text>
+      <path d="M104,29 h34" stroke="#3fcbd1" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <rect x="142" y="12" width="80" height="34" rx="4" fill="#14213d"/>
+      <text x="182" y="34" fill="#3fcbd1">LIF 生命</text>
+    </g>
+
+    <!-- second column -->
+    <g transform="translate(240,0)">
+      <rect x="30" y="14" width="70" height="30" rx="4" fill="#edf5fb" stroke="#c8d7e6"/>
+      <text x="65" y="34" fill="#14213d">OPS</text>
+      <path d="M104,29 h34" stroke="#3fcbd1" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <rect x="142" y="12" width="80" height="34" rx="4" fill="#14213d"/>
+      <text x="182" y="34" fill="#3fcbd1">NEX 情報</text>
+    </g>
+    <g transform="translate(240,42)">
+      <rect x="30" y="14" width="70" height="30" rx="4" fill="#edf5fb" stroke="#c8d7e6"/>
+      <text x="65" y="34" fill="#14213d">COM</text>
+      <path d="M104,29 h34" stroke="#3fcbd1" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <rect x="142" y="12" width="80" height="34" rx="4" fill="#14213d"/>
+      <text x="182" y="34" fill="#3fcbd1">ECO 経済</text>
+    </g>
+
+    <g transform="translate(240,110)" font-size="12" font-weight="500" text-anchor="start">
+      <text x="10" y="20" fill="#6b7b8d">企業タイプポイントが</text>
+      <text x="10" y="40" fill="#6b7b8d">100に到達すると進化。</text>
+      <text x="10" y="60" fill="#6b7b8d">ポイントはリセットされず</text>
+      <text x="10" y="80" fill="#6b7b8d">固有デメリットが発生する。</text>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#3fcbd1"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,66 @@
+<svg viewBox="0 0 590 200" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP','Yu Gothic',sans-serif">
+  <g font-size="15" font-weight="800" text-anchor="middle">
+    <!-- RSH: magnifier -->
+    <g transform="translate(30,20)">
+      <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
+      <circle cx="34" cy="42" r="12" fill="none" stroke="#3fcbd1" stroke-width="3"/>
+      <line x1="43" y1="51" x2="53" y2="61" stroke="#3fcbd1" stroke-width="3" stroke-linecap="round"/>
+      <text x="40" y="112" fill="#14213d">RSH</text>
+      <text x="40" y="130" font-size="11" font-weight="500" fill="#6b7b8d">研究職</text>
+    </g>
+
+    <!-- TAC: shield -->
+    <g transform="translate(120,20)">
+      <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
+      <path d="M40,26 L58,33 V50 Q58,62 40,68 Q22,62 22,50 V33 Z" fill="none" stroke="#3fcbd1" stroke-width="3"/>
+      <text x="40" y="112" fill="#14213d">TAC</text>
+      <text x="40" y="130" font-size="11" font-weight="500" fill="#6b7b8d">戦闘員</text>
+    </g>
+
+    <!-- ENG: gear -->
+    <g transform="translate(210,20)">
+      <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
+      <circle cx="40" cy="44" r="10" fill="none" stroke="#3fcbd1" stroke-width="3"/>
+      <g stroke="#3fcbd1" stroke-width="3">
+        <line x1="40" y1="28" x2="40" y2="22"/>
+        <line x1="40" y1="60" x2="40" y2="66"/>
+        <line x1="24" y1="44" x2="18" y2="44"/>
+        <line x1="56" y1="44" x2="62" y2="44"/>
+        <line x1="29" y1="33" x2="25" y2="29"/>
+        <line x1="51" y1="55" x2="55" y2="59"/>
+        <line x1="51" y1="33" x2="55" y2="29"/>
+        <line x1="29" y1="55" x2="25" y2="59"/>
+      </g>
+      <text x="40" y="112" fill="#14213d">ENG</text>
+      <text x="40" y="130" font-size="11" font-weight="500" fill="#6b7b8d">技術者</text>
+    </g>
+
+    <!-- MED: cross -->
+    <g transform="translate(300,20)">
+      <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
+      <rect x="34" y="26" width="12" height="36" rx="2" fill="#3fcbd1"/>
+      <rect x="22" y="38" width="36" height="12" rx="2" fill="#3fcbd1"/>
+      <text x="40" y="112" fill="#14213d">MED</text>
+      <text x="40" y="130" font-size="11" font-weight="500" fill="#6b7b8d">医療職</text>
+    </g>
+
+    <!-- OPS: signal -->
+    <g transform="translate(390,20)">
+      <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
+      <circle cx="40" cy="54" r="4" fill="#3fcbd1"/>
+      <path d="M28,54 A17,17 0 0 1 52,54" fill="none" stroke="#3fcbd1" stroke-width="3"/>
+      <path d="M20,54 A28,28 0 0 1 60,54" fill="none" stroke="#3fcbd1" stroke-width="3" opacity="0.6"/>
+      <text x="40" y="112" fill="#14213d">OPS</text>
+      <text x="40" y="130" font-size="11" font-weight="500" fill="#6b7b8d">情報員</text>
+    </g>
+
+    <!-- CWD: flag -->
+    <g transform="translate(480,20)">
+      <polygon points="40,4 76,24 76,64 40,84 4,64 4,24" fill="#14213d"/>
+      <line x1="30" y1="24" x2="30" y2="64" stroke="#3fcbd1" stroke-width="3"/>
+      <path d="M30,26 L54,32 L30,42 Z" fill="#3fcbd1"/>
+      <text x="40" y="112" fill="#14213d">CWD</text>
+      <text x="40" y="130" font-size="11" font-weight="500" fill="#6b7b8d">指導者</text>
+    </g>
+  </g>
+</svg>
