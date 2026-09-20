@@ -409,8 +409,16 @@ function makeCocofolia() {
     ...SOCIALS.map(([code]) => ({label:code, value:String(state.social[code])}))
   ];
 
+  // 回避値 = DEX × 10（上限90%）。BCDiceに min() が無いため、上限に達する場合は 90 を直接指定する。
+  const dodgeCommand = state.abilities.DEX * 10 >= 90
+    ? `1d100<=90 【回避判定（回避率上限90%）】`
+    : `1d100<={DEX}*10 【回避判定（DEX × 10）】`;
+
   const commands = [
     `1d100<={SAN} 【正気度ロール】`,
+    dodgeCommand,
+    `C({STR}/2U) 【近接攻撃補正（STR ÷ 2・切り上げ）】`,
+    `C({STR}/2U) 【受身の軽減値（ダメージ − この値／回避とは併用不可）】`,
     ...SKILLS.map(([code,name]) => `CCB<={${code}} 【${name}】`),
     ...ABILITIES.map(([code]) => `CCB<={${code}}*5 【${code} × 5】`)
   ];
