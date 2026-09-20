@@ -62,6 +62,7 @@
           <li>CL、RNK、INFへ社会ポイントを振り分ける</li>
           <li>HP、SAN、APなどを計算する</li>
           <li>月収と所持金を計算する</li>
+          <li>KPと相談してパッシブを決定する</li>
           <li>必要に応じて武器やデッキを決定する</li>
         </ol>
         <p>キャラクターの名前、年齢、性格、経歴などのプロフィールは、別途作成するキャラクターシートで管理する。</p>
@@ -236,6 +237,23 @@ CCB&lt;={STR}×5 → 判定値は60</div>
       </div>
     </section>
 
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">17</span>パッシブ</div>
+      <div class="rule-body">
+        <p>パッシブは、キャラクターそれぞれに与えられる固有スキル。能力値や技能とは別に、そのキャラクターだけの特徴や強みを表す。</p>
+        <ul class="rule-list">
+          <li>パッシブは、1人のキャラクターにつき1つ持つ。</li>
+          <li>パッシブの内容は、ダイスなどでは決めず、プレイヤーとKPが話し合って決定する。</li>
+          <li>効果はパッシブごとに異なり、判定への数値補正などが含まれる場合もある。</li>
+          <li>パッシブの効果が発動するタイミングは、内容によって「常時」と「条件」のどちらかとなる。</li>
+        </ul>
+        <table class="value-table">
+          <tr><th>常時</th><td>特に条件なく、常に効果を発揮するパッシブ。</td></tr>
+          <tr><th>条件</th><td>あらかじめ決められた条件を満たしたときにだけ、効果を発揮するパッシブ。</td></tr>
+        </table>
+      </div>
+    </section>
+
     <figure class="illustration-slot">
       <div class="illustration-frame filled">
         <img src="images/character-example.svg" alt="作成例キャラクターのHP・SAN・AP・月収・所持金まとめ">
@@ -244,7 +262,7 @@ CCB&lt;={STR}×5 → 判定値は60</div>
     </figure>
 
     <section class="panel">
-      <div class="panel-title"><span class="rule-num">17</span>キャラクター作成例</div>
+      <div class="panel-title"><span class="rule-num">18</span>キャラクター作成例</div>
       <div class="rule-body">
         <p>例として、以下の能力値を持つキャラクターを作成する。</p>
         <div class="formula">STR 4 / DEX 5 / CON 3 / INT 2 / POW 2　<span class="comment">（合計16）</span></div>
@@ -264,7 +282,7 @@ AP = c(5 ÷ 2) = 3
     </section>
 
     <section class="panel">
-      <div class="panel-title"><span class="rule-num">18</span>キャラクター作成時の注意</div>
+      <div class="panel-title"><span class="rule-num">19</span>キャラクター作成時の注意</div>
       <div class="rule-body">
         <ul class="rule-list">
           <li>能力値の初期値は5D4の結果を使用する。</li>
@@ -275,6 +293,7 @@ AP = c(5 ÷ 2) = 3
           <li>RNKが0の場合でも、月収と所持金はRNK+1によって計算される。</li>
           <li>設定上の理由によって、意図的に無収入・所持金0とすることもできる。</li>
           <li>SYNはキャラクター作成時に割り振らず、ゲーム中に変動する特殊ステータスとして扱う。</li>
+          <li>パッシブは1人につき1つ。内容はプレイヤーとKPが話し合って決める。</li>
           <li>戦闘に関する詳細なルールは、別途戦闘ルールを参照する。</li>
         </ul>
       </div>
