@@ -209,7 +209,40 @@
       <p>これはプレイヤーの成長値が増えるという意味ではなく、そのキャラクターに記録されている使用成長量を調整する処理である。</p>
     </div></section>
 
-    <section class="panel"><div class="panel-title"><span class="rule-num">15</span>シナリオ終了後の処理</div><div class="rule-body">
+<section class="panel"><div class="panel-title"><span class="rule-num">15</span>医療判定</div><div class="rule-body">
+  <p><strong>MEDによる治療</strong></p>
+  <ol class="rule-list">
+    <li>負傷したキャラクターを治療する場合、MED判定を行う。</li>
+    <li>MED判定に成功した場合、対象のHPを1D2回復する。</li>
+    <li>回復量が対象の最大HPを超える場合、最大HPまで回復する。</li>
+    <li>同じ負傷に対して繰り返しMED判定を行えるかどうかは、状況に応じてKPが決定する。</li>
+  </ol>
+
+  <p><strong>医療施設での治療</strong></p>
+  <ol class="rule-list">
+    <li>医療施設では、通常のMED判定による応急処置よりも高度な治療を受けることができる。</li>
+    <li>医療施設での治療によるHP回復量や必要な時間は、治療内容に応じてKPが決定する。</li>
+    <li>治療費はキャラクターの年齢、教育状況、職業、医療保険などによって異なる。</li>
+  </ol>
+
+<section class="panel"><div class="panel-title"><span class="rule-num">16</span>医療費と保険</div><div class="rule-body">
+  <p><strong>医療費</strong></p>
+  <ol class="rule-list">
+    <li>未来世界では基本的な医療保障が整備されている。</li>
+    <li>30歳頃までの教育期間中は、医療費が原則として発生しない。</li>
+    <li>一般のキャラクターは、加入している医療保険に応じて自己負担額が決まる。</li>
+    <li>SVHなどの危険職では、職務中の負傷に対する医療費が原則として全額保障される。</li>
+  </ol>
+
+  <p><strong>蘇生</strong></p>
+  <ol class="rule-list">
+    <li>蘇生処置には通常100万円程度の費用が発生する。</li>
+    <li>医療保険に加入している場合、自己負担額は軽減される。</li>
+    <li>教育期間中や職務中の事故など、全額保障の対象となる場合は自己負担が発生しない。</li>
+  </ol>
+</div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">17</span>シナリオ終了後の処理</div><div class="rule-body">
       <p><strong>シナリオ終了時</strong></p>
       <ol class="rule-list"><li>シナリオクリアを確認する。</li><li>成長報酬をプレイヤーの成長値へ加算する。</li><li>汚染値をSYNに換算する。</li><li>ロスト・継続使用を確認する。</li><li>成長させたいキャラクターへ成長を適用する。</li></ol>
       <p><strong>次のシナリオ開始時</strong></p>
