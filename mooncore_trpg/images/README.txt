@@ -5,7 +5,7 @@ card-tile-map.svg    タイルマップ
 token-player.png     駒アイコン
 card-move.svg        移動カード
 card-melee.svg       近接カード
-card-projectile.svg  投射カード（拳銃 CE1 1D5）
+card-projectile.svg  投射カード（拳銃 PE1 1D5）
 card-incinerate.svg  焼却カード（CE3 1D3）
 card-bleed.svg       出血カード（裂傷 CE1 1D2）
 card-infection.svg   感染カード

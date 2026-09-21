@@ -59,12 +59,6 @@
         <label>嫌い<textarea id="dislikes"></textarea></label>
         <label>趣味<textarea id="hobbies"></textarea></label>
         <label>特技<textarea id="specialty"></textarea></label>
-        <label>経済状況
-          <select id="economicStatus">
-            <option value="self">自活（収入あり）</option>
-            <option value="dependent">扶養・無収入</option>
-          </select>
-        </label>
         <label>家族<textarea id="family"></textarea></label>
         <label>経歴<textarea id="history"></textarea></label>
         <label>住居<textarea id="residence"></textarea></label>
@@ -76,21 +70,29 @@
     </section>
 
     <section class="panel">
-      <div class="panel-title">BASIC ABILITIES</div>
-      <div class="dice-row">
-        <button id="rollDice" class="primary">5D4を振る</button>
-        <div class="dice-result">合計 <strong id="diceTotal">未決定</strong></div>
-        <div class="allocation">割り振り <strong id="abilityUsed">0</strong> / <strong id="abilityTotal">0</strong></div>
+      <div class="panel-title">ABILITY</div>
+      <details class="creation-note" open>
+        <summary>作成時：5D4を振り、合計値を5つの能力値へ割り振る</summary>
+        <div class="dice-row">
+          <button id="rollDice" class="primary">5D4を振る</button>
+          <div class="dice-result">合計 <strong id="diceTotal">未決定</strong></div>
+          <div class="allocation">割り振り <strong id="abilityUsed">0</strong> / <strong id="abilityTotal">0</strong></div>
+        </div>
+        <p id="abilityMessage" class="message">5D4を振って能力値の合計を決定してください。</p>
+      </details>
+      <div class="table-wrap">
+        <table class="sheet-table">
+          <thead><tr><th></th><th>元の値</th><th>成長値</th><th>現在値</th></tr></thead>
+          <tbody id="abilityGrid"></tbody>
+        </table>
       </div>
-      <p id="abilityMessage" class="message">5D4を振って能力値の合計を決定してください。</p>
-      <div class="stat-grid" id="abilityGrid"></div>
       <div class="special-stat">
         <div>
           <span class="stat-code">SYN</span>
           <span class="stat-name">同期率</span>
         </div>
-        <input id="SYN" type="number" min="0" value="0">
-        <span class="hint">ゲーム中に変動</span>
+        <input id="SYN" type="number" min="0" max="20" value="0">
+        <span class="hint">0～20。シナリオ終了時に「汚染値÷5（切り上げ）」の値を入力。次のシナリオ開始時の汚染値：<strong id="nextContamination">0</strong></span>
       </div>
     </section>
 
@@ -103,28 +105,121 @@
     <section class="panel">
       <div class="panel-title">SKILLS</div>
       <div class="point-bar">技能ポイント <strong id="skillTotal">0</strong>　残り <strong id="skillRemaining">0</strong></div>
-      <div class="skill-grid" id="skillGrid"></div>
+      <div class="table-wrap">
+        <table class="sheet-table">
+          <thead><tr><th></th><th>元の値</th><th>成長値</th><th>現在値</th></tr></thead>
+          <tbody id="skillGrid"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">STATUS</div>
+      <div class="table-wrap">
+        <table class="sheet-table">
+          <thead><tr><th></th><th>元の値</th><th>成長値</th><th>現在値</th><th>最大値</th></tr></thead>
+          <tbody>
+            <tr>
+              <th class="row-label"><strong>HP</strong><span>最大HP（上限40）</span></th>
+              <td><strong id="base_HP">0</strong></td>
+              <td><input id="growthHP" type="number" min="0" value="0"></td>
+              <td><strong id="current_HP">0</strong></td>
+              <td><strong id="HP">0</strong></td>
+            </tr>
+            <tr>
+              <th class="row-label"><strong>SAN</strong><span>最大SAN（上限100）</span></th>
+              <td><strong id="base_SAN">0</strong></td>
+              <td><input id="growthSAN" type="number" min="0" max="100" value="0"></td>
+              <td><strong id="current_SAN">0</strong></td>
+              <td><strong id="SAN">0</strong></td>
+            </tr>
+            <tr>
+              <th class="row-label"><strong>AP</strong></th>
+              <td>－</td><td>－</td>
+              <td><strong id="current_AP">0</strong></td>
+              <td><strong id="AP">0</strong></td>
+            </tr>
+            <tr>
+              <th class="row-label"><strong>CE</strong><span>近接エネルギー</span></th>
+              <td>－</td><td>－</td>
+              <td><input class="calc-input" id="CE" type="number" min="0" max="5" value="3"></td>
+              <td><strong>5</strong></td>
+            </tr>
+            <tr>
+              <th class="row-label"><strong>PE</strong></th>
+              <td>－</td><td>－</td>
+              <td><input class="calc-input" id="PE" type="number" min="0" max="5" value="3"></td>
+              <td><strong>5</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint">最大値＝元の値＋成長値。HP・SANの現在値は、次のシナリオ開始時の最大値と同じ値を表示します。<br>CE・PEはいずれも初期値3・最大値5。戦闘開始時の値として使用し、ゲーム中に変動した場合は現在値を直接書き換えてください。</p>
     </section>
 
     <section class="panel">
       <div class="panel-title">SOCIAL</div>
       <div class="point-bar">社会ポイント <strong id="socialTotal">0</strong>　残り <strong id="socialRemaining">0</strong></div>
-      <div class="social-grid" id="socialGrid"></div>
-      <p class="hint">CL 社会信用度　RNK 権限　INF 影響力</p>
+      <div class="table-wrap">
+        <table class="sheet-table">
+          <thead><tr><th></th><th>値</th></tr></thead>
+          <tbody id="socialGrid"></tbody>
+        </table>
+      </div>
     </section>
 
     <section class="panel">
-      <div class="panel-title">CALCULATED STATUS</div>
-      <div class="calculated-grid">
-        <div><span>HP</span><strong id="HP">0</strong></div>
-        <div><span>SAN</span><strong id="SAN">0</strong></div>
-        <div><span>AP</span><strong id="AP">0</strong></div>
-        <div><span>CE</span><input class="calc-input" id="CE" type="number" min="0" max="5" value="3"></div>
-        <div><span>PE</span><input class="calc-input" id="PE" type="number" min="0" max="5" value="3"></div>
-        <div><span>月収</span><strong id="income">0円</strong></div>
-        <div><span>所持金</span><strong id="money">0円</strong></div>
+      <div class="panel-title">PASSIVE</div>
+      <div class="grid profile-grid">
+        <label>パッシブ名<input id="passiveName" placeholder="例：最後の力"></label>
+        <label class="wide">効果<textarea id="passiveEffect" placeholder="パッシブの効果"></textarea></label>
       </div>
-      <p class="hint">月収・所持金は「職業技能値×(RNK+1)」で計算（RNK0でも技能があれば最低限稼げる）。経済状況で「扶養・無収入」を選んだ場合は0円になります。<br>CE（近接エネルギー）・PEはいずれも初期値3・最大値5。戦闘開始時の値として使用し、ゲーム中に変動した場合はここを直接書き換えてください。</p>
+      <p class="hint">パッシブは1キャラクターにつき1つ。</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">RELATION</div>
+      <div class="relation-block">
+        <div class="relation-row relation-head"><span>対象</span><span>関係値</span><span></span></div>
+        <div id="relationList"></div>
+        <button id="addRelation" class="secondary" type="button">＋ 関係を追加</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">ECONOMY</div>
+      <div class="grid profile-grid">
+        <label>経済状況
+          <select id="economicStatus">
+            <option value="self">自活（収入あり）</option>
+            <option value="dependent">扶養・無収入</option>
+          </select>
+        </label>
+        <div class="econ-cell"><span>月収</span><strong id="income">0円</strong></div>
+        <div class="econ-cell"><span>所持金</span><strong id="money">0円</strong></div>
+      </div>
+      <p class="hint">月収・所持金は「職業技能値×(RNK+1)」で計算（RNK0でも技能があれば最低限稼げる）。経済状況で「扶養・無収入」を選んだ場合は0円になります。</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">GROWTH</div>
+      <div class="growth-summary">
+        <label>プレイヤーの成長値<input id="growthPoints" type="number" min="0" value="0"></label>
+        <div>このキャラクターで使用した成長値<strong id="growthUsed">0</strong></div>
+        <div>使用可能な成長値<strong id="growthRemaining">0</strong></div>
+      </div>
+      <p class="hint">プレイヤーの成長値はシナリオ後に獲得し、複数のキャラクターで共有されます（新規作成しても保持）。キャラクターに使用しても減りません。成長値は、上の能力値・技能・STATUSの「成長値」欄に入力します。成長値は元の値に加える追加分で、能力値・技能値の初期値に関する作成時の制限は成長値には適用しません。</p>
+      <div class="table-wrap">
+        <table class="sheet-table cost-table">
+          <thead><tr><th>成長対象</th><th>必要成長値</th><th>効果</th><th>上限</th></tr></thead>
+          <tbody>
+            <tr><td>能力値</td><td>3</td><td>+1</td><td>20</td></tr>
+            <tr><td>技能</td><td>1</td><td>+1</td><td>99</td></tr>
+            <tr><td>最大HP</td><td>1</td><td>+1</td><td>40</td></tr>
+            <tr><td>最大SAN</td><td>1</td><td>+1</td><td>100</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="panel">
@@ -136,8 +231,11 @@
       <button id="save" class="secondary">ブラウザに保存</button>
       <button id="load" class="secondary">保存データを読み込む</button>
       <button id="copySheet" class="secondary">キャラクターシートをコピー</button>
-      <button id="copyJson" class="secondary">JSONをコピー</button>
-      <button id="downloadJson" class="primary">ココフォリア用JSONを出力</button>
+      <button id="copyJson" class="primary">ココフォリア用JSONをコピー</button>
+      <button id="downloadJson" class="secondary">ココフォリア用JSONを出力</button>
+      <button id="exportSave" class="secondary">保存用JSONを出力</button>
+      <button id="importSave" class="secondary">保存用JSONを読み込む</button>
+      <input id="importFile" type="file" accept="application/json,.json" hidden>
       <button id="reset" class="danger">新規作成</button>
     </section>
 

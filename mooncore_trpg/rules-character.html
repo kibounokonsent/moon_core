@@ -22,7 +22,7 @@
       <p class="system-label">FUTURE WORLD TRPG — RULEBOOK</p>
       <h1>キャラクター作成・判定ルール</h1>
     </div>
-    <div class="header-status">RULEBOOK 01 / 04</div>
+    <div class="header-status">RULEBOOK 01 / 05</div>
   </header>
 
   <nav class="site-nav">
@@ -40,6 +40,7 @@
       <a href="./rules-company.html">会社ルールブック</a>
       <a href="./rules-combat.html">戦闘ルール</a>
       <a href="./rules-scenario.html">長期シナリオ進行</a>
+      <a href="./rules-growth.html">ゲーム進行</a>
     </div>
 
     <figure class="illustration-slot">
@@ -63,7 +64,7 @@
           <li>HP、SAN、APなどを計算する</li>
           <li>月収と所持金を計算する</li>
           <li>KPと相談してパッシブを決定する</li>
-          <li>必要に応じて武器やデッキを決定する</li>
+          <li>必要に応じて武器やデッキ（共通カード3枚＋キャラクターごとのカード3枚）を決定する（切り札カードは戦闘の前に選ぶ）</li>
         </ol>
         <p>キャラクターの名前、年齢、性格、経歴などのプロフィールは、別途作成するキャラクターシートで管理する。</p>
       </div>
@@ -86,7 +87,7 @@
           <tr><th>CON</th><td>耐久力を表す能力値。HPに関係する。</td></tr>
           <tr><th>INT</th><td>知性を表す能力値。技能ポイントの計算に関係する。</td></tr>
           <tr><th>POW</th><td>意志の強さを表す能力値。技能ポイントやSANの計算に関係する。</td></tr>
-          <tr><th>SYN</th><td>同期率を表す特殊ステータス。キャラクター作成時に割り振るものではなく、ゲーム中の出来事などによって後から変動する。</td></tr>
+          <tr><th>SYN</th><td>同期率を表す特殊ステータス。キャラクター作成時に割り振るものではなく、汚染値から決まる（SYN = 汚染値 ÷ 5（小数点以下切り上げ）、0～20）。詳細はRULEBOOK 05を参照。</td></tr>
         </table>
       </div>
     </section>
@@ -129,7 +130,7 @@ CCB&lt;={MED}-10 【医療】</div>
       <div class="rule-body">
         <table class="value-table">
           <tr><th>01〜05</th><td>クリティカル。通常の成功よりも優れた結果となる。</td></tr>
-          <tr><th>95〜100</th><td>ファンブル。通常の失敗よりも悪い結果となる。具体的な効果は、状況に応じてKPが決定する。</td></tr>
+          <tr><th>96〜100</th><td>ファンブル。通常の失敗よりも悪い結果となる。具体的な効果は、状況に応じてKPが決定する。</td></tr>
         </table>
       </div>
     </section>
@@ -199,14 +200,15 @@ CCB&lt;={STR}×5 → 判定値は60</div>
       <div class="rule-body">
         <p>HPはCONによって決定する。</p>
         <div class="formula">HP = CON × 2</div>
+        <p>最大HPは40。成長によって増加できるが、40を超えない。</p>
       </div>
     </section>
 
     <section class="panel">
       <div class="panel-title"><span class="rule-num">13</span>SAN</div>
       <div class="rule-body">
-        <p>SANはPOWによって決定する。</p>
-        <div class="formula">SAN = POW × 10</div>
+        <p>SANはPOWによって決定する。最大値は100とする。</p>
+        <div class="formula">SAN = min(POW × 10, 100)</div>
       </div>
     </section>
 
@@ -215,7 +217,7 @@ CCB&lt;={STR}×5 → 判定値は60</div>
       <div class="rule-body">
         <p>APはDEXによって決定する。小数点が発生した場合は切り上げる。</p>
         <div class="formula">AP = c(DEX ÷ 2)</div>
-        <p>APの具体的な使用方法については、戦闘ルールを参照する。</p>
+        <p>APは戦闘での行動順（大きい順）に使用する。詳細は戦闘ルールを参照する。</p>
       </div>
     </section>
 
@@ -244,7 +246,7 @@ CCB&lt;={STR}×5 → 判定値は60</div>
         <ul class="rule-list">
           <li>パッシブは、1人のキャラクターにつき1つ持つ。</li>
           <li>パッシブの内容は、ダイスなどでは決めず、プレイヤーとKPが話し合って決定する。</li>
-          <li>効果はパッシブごとに異なり、判定への数値補正などが含まれる場合もある。</li>
+          <li>効果はパッシブごとに異なる。技能値の代わりや補助ではなく、技能値だけでは表現できないキャラクター固有の能力とすることを基本とする（技能値は成長値で伸ばせるため）。</li>
           <li>パッシブの効果が発動するタイミングは、内容によって「常時」と「条件」のどちらかとなる。</li>
         </ul>
 
@@ -261,7 +263,7 @@ CCB&lt;={STR}×5 → 判定値は60</div>
   </tr>
   <tr>
     <th>最後まで立つ</th>
-    <td>HPが0になった際、1シナリオにつき1回だけ、HP1で踏みとどまる。</td>
+    <td>HPが0になって行動不能になる直前に、1シナリオにつき1回だけ、HP1で踏みとどまる。</td>
   </tr>
   <tr>
     <th>目ざとい</th>
@@ -273,7 +275,7 @@ CCB&lt;={STR}×5 → 判定値は60</div>
   </tr>
   <tr>
     <th>生還者</th>
-    <td>その国のシナリオ中、1回だけ死亡する結果を回避する。</td>
+    <td>その国のシナリオ中、1回だけ行動不能になる結果を回避する。ロストは回避できない。</td>
   </tr>
   <tr>
     <th>即席改造</th>
@@ -286,6 +288,10 @@ CCB&lt;={STR}×5 → 判定値は60</div>
   <tr>
     <th>人の縁</th>
     <td>NPCとの関係が悪化する場面でも、好感度が通常より減少しにくい。また、一度築いた関係が失われにくい。</td>
+  </tr>
+  <tr>
+    <th>最後の力</th>
+    <td>ロストすることが決まった際、最後に一度だけ、他のキャラクターへ遺言やメッセージを残すことができる。ロストそのものは回避できない。</td>
   </tr>
   <tr>
     <th>空気を読む</th>
@@ -333,7 +339,7 @@ AP = c(5 ÷ 2) = 3
           <li>CL、RNK、INFは0でもよい。</li>
           <li>RNKが0の場合でも、月収と所持金はRNK+1によって計算される。</li>
           <li>設定上の理由によって、意図的に無収入・所持金0とすることもできる。</li>
-          <li>SYNはキャラクター作成時に割り振らず、ゲーム中に変動する特殊ステータスとして扱う。</li>
+          <li>SYNはキャラクター作成時に割り振らず、汚染値から決まる特殊ステータスとして扱う。</li>
           <li>パッシブは1人につき1つ。内容はプレイヤーとKPが話し合って決める。</li>
           <li>戦闘に関する詳細なルールは、別途戦闘ルールを参照する。</li>
         </ul>
@@ -345,6 +351,7 @@ AP = c(5 ÷ 2) = 3
       <a href="./rules-company.html">会社ルールブック</a>
       <a href="./rules-combat.html">戦闘ルール</a>
       <a href="./rules-scenario.html">長期シナリオ進行</a>
+      <a href="./rules-growth.html">ゲーム進行</a>
     </div>
 
   </main>

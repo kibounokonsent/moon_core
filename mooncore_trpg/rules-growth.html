@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未来世界 TRPG ゲーム進行ルール</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="./mooncore.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="未来世界TRPG ゲーム進行ルール">
+  <meta property="og:description" content="未来世界TRPGの判定、SAN、HP0、ロスト、汚染値、プレイヤー単位の成長値、シナリオ終了後の処理に関するルール。">
+  <meta property="og:url" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/rules-growth.html">
+  <meta property="og:image" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="未来世界TRPG ゲーム進行ルール">
+  <meta name="twitter:description" content="未来世界TRPGの判定、SAN、HP0、ロスト、汚染値、プレイヤー単位の成長値、シナリオ終了後の処理に関するルール。">
+  <meta name="twitter:image" content="https://kibounokonsent.github.io/moon_core/mooncore_trpg/ogp.png">
+</head>
+<body>
+  <header class="site-header">
+    <div><p class="system-label">FUTURE WORLD TRPG — RULEBOOK</p><h1>ゲーム進行ルール</h1></div>
+    <div class="header-status">RULEBOOK 05 / 05</div>
+  </header>
+  <nav class="site-nav">
+    <a href="./index.html">キャラクターシート</a><a href="./company.html">会社シート</a><a href="./guide.html">値目安</a><a href="./Meaning.html">値の意味</a><a href="./rules.html">ルールブック</a>
+  </nav>
+  <main class="container">
+    <div class="rulebook-tabs">
+      <a href="./rules-character.html">キャラクター作成・判定</a><a href="./rules-company.html">会社ルールブック</a><a href="./rules-combat.html">戦闘ルール</a><a href="./rules-scenario.html">長期シナリオ進行</a><a href="./rules-growth.html" class="active">ゲーム進行</a>
+    </div>
+    <p class="guide-note">判定、SAN、HPが0になった場合、ロスト、汚染値、プレイヤー単位の成長値、シナリオ終了後の処理など、ゲーム中に共通して使うルール。</p>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">1</span>基本判定</div><div class="rule-body">
+      <p>通常の判定は <code>CCB&lt;=</code> を使用する。判定値以下の結果が出れば成功となる。</p>
+      <table class="value-table"><tr><th>技能</th><td>RSHが65の場合 → <code>CCB&lt;=65</code></td></tr><tr><th>能力値</th><td>能力値を5倍した値を判定値とする。DEXが12の場合 → <code>CCB&lt;=60</code></td></tr></table>
+      <p>判定には、技能値や能力値そのものではなく、最終的に決定した判定値を使用する。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">2</span>クリティカルとファンブル</div><div class="rule-body">
+      <table class="value-table"><tr><th>1～5</th><td>クリティカル。5を含む。</td></tr><tr><th>96～100</th><td>ファンブル。96を含む。</td></tr></table>
+      <p><code>CCB&lt;=</code> の判定結果が上記の範囲に入った場合に適用する。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">3</span>判定補正・再判定・協力</div><div class="rule-body">
+      <p>状況によってKPが判定値に補正を与える。補正は固定の表を必須とせず、KPとプレイヤーが状況を相談して決定する。</p>
+      <table class="value-table"><tr><th>有利な状況</th><td>判定値にプラスの補正を加える。</td></tr><tr><th>不利な状況</th><td>判定値にマイナスの補正を加える。</td></tr></table>
+      <p>同じ状況・同じ方法での連続した再判定はできない。時間を空ける、方法を変える、状況が変化する、新しい情報を得る、別のアプローチを取るなど、再度判定する理由が生じた場合は再判定できる。具体的な時間はKPが判断する。</p>
+      <p>複数のキャラクターが協力する場合は代表者1人が <code>CCB&lt;=</code> を行い、協力による補正をKPが状況に応じて設定する。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">4</span>SANチェック</div><div class="rule-body">
+      <p>精神的負荷を受けた場合、KPが必要と判断したとき、またはシナリオで指定されているときにSANチェックを行う。</p>
+      <div class="formula">CCB&lt;={現在SAN} 【正気度ロール】</div>
+      <p>判定に成功すれば、指定された成功時のSAN減少量を適用する。失敗すれば、指定された失敗時のSAN減少量を適用する。</p>
+      <table class="value-table">
+        <thead>
+          <tr>
+            <th>精神的負荷</th>
+            <th class="num">成功時</th>
+            <th class="num">失敗時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>小さな恐怖・不安</th>
+            <td class="num">0</td>
+            <td class="num">1</td>
+          </tr>
+          <tr>
+            <th>不気味なもの・嫌な出来事</th>
+            <td class="num">1</td>
+            <td class="num">1D3</td>
+          </tr>
+          <tr>
+            <th>明確な恐怖・強いショック</th>
+            <td class="num">1</td>
+            <td class="num">1D6</td>
+          </tr>
+          <tr>
+            <th>非常に恐ろしい出来事</th>
+            <td class="num">1D3</td>
+            <td class="num">1D8</td>
+          </tr>
+          <tr>
+            <th>強烈な恐怖・精神的衝撃</th>
+            <td class="num">1D4</td>
+            <td class="num">1D10</td>
+          </tr>
+          <tr>
+            <th>極めて重大な精神的衝撃</th>
+            <td class="num">1D6</td>
+            <td class="num">1D20</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>上表は基本的な目安であり、シナリオ側で変更できる。SANは0未満にはならない。</p>
+    </div></section>
+
+<section class="panel"><div class="panel-title"><span class="rule-num">5</span>SANの状態</div><div class="rule-body">
+  <table class="value-table">
+    <tr><th>41～100</th><td><strong>通常</strong><br>精神状態は安定している。通常どおり行動でき、恐怖や不安を感じても状況に応じて対応できる。</td></tr>
+    <tr><th>21～40</th><td><strong>不安定</strong><br>強い不安や緊張を感じやすい状態。会話や判断は通常どおり行えるが、恐怖の対象を前にすると動揺したり、慎重になったりすることがある。</td></tr>
+    <tr><th>11～20</th><td><strong>深刻</strong><br>精神的な負担が大きい状態。恐怖や混乱が行動に表れやすく、状況によっては立ち止まる、逃げる、判断に迷うなどの反応が起こり得る。</td></tr>
+    <tr><th>1～10</th><td><strong>極度</strong><br>精神状態が限界に近い状態。強い恐怖や混乱によって、冷静な判断や通常の行動が難しくなることがある。KPは状況に応じて、行動の制限や一時的な反応を描写してよい。</td></tr>
+    <tr><th>0</th><td><strong>行動不能</strong><br>そのシナリオ中は行動不能となる。SAN0はロストではない。</td></tr>
+  </table>
+
+  <p>SANの状態区分は、キャラクターの精神状態を判断するための目安であり、固定された技能値ペナルティを与えるものではない。</p>
+
+  <p>また、1回のSAN減少量が大きいほど、その場で強い精神的反応が起こりやすい。</p>
+
+  <table class="value-table">
+    <tr><th>1～4</th><td><strong>通常の動揺</strong><br>驚く、不安になる、警戒するなどの反応。</td></tr>
+    <tr><th>5～9</th><td><strong>強い動揺</strong><br>恐怖、混乱、動揺が明確に表れる。行動を一度止めたり、周囲を確認したりすることがある。</td></tr>
+    <tr><th>10～14</th><td><strong>深刻な動揺</strong><br>強い恐怖や混乱により、その場で判断に迷ったり、行動を変えたりする可能性がある。</td></tr>
+    <tr><th>15以上</th><td><strong>極度の動揺</strong><br>非常に強い精神的衝撃。冷静な判断が難しくなり、状況によっては一時的に行動できなくなるほどの反応が起こり得る。</td></tr>
+  </table>
+
+  <p>これらはあくまで反応の目安であり、必ず同じ反応になるわけではない。キャラクターの性格、経験、現在の状況などを踏まえ、KPとプレイヤーがその場の反応を決定する。</p>
+</div></section>
+
+
+<section class="panel"><div class="panel-title"><span class="rule-num">6</span>SAN0・SAN回復・SAN最大値</div><div class="rule-body">
+  <p>SANが0になった場合、そのシナリオでは行動不能となる。SAN0はロストではない。</p>
+  <p>SANはシナリオ中には自然回復しない。休息・睡眠などでは回復せず、ルールまたはシナリオで回復が指定された場合のみ回復する。</p>
+  <p>次のシナリオ開始時には、現在SANが最大SANまで回復する。SAN0だったキャラクターも同じである。</p>
+  <p>SANの最大値は100。成長によって最大SANを増加させることができる。</p>
+  <div class="formula">例：最大SAN70 / 現在SAN40 → SAN成長+5 → 最大SAN75 / 現在SAN40</div>
+  <p>SANと汚染値は別々に管理する。SANが減少しても汚染値は変化せず、汚染値が増加してもSANは変化しない。</p>
+</div></section>
+    <section class="panel"><div class="panel-title"><span class="rule-num">7</span>HP</div><div class="rule-body">
+      <p>HPはキャラクター作成時にCONから算出する。</p><div class="formula">HP = CON × 2</div>
+      <p>最大HPは40。成長によって最大HPを増加できるが、40を超えない。</p>
+      <p>HPが0になった場合、そのキャラクターは行動不能となる。救助・搬送の対象となり、そのシナリオには復帰できない。次のシナリオから通常どおり使用できる。</p>
+      <p>HP0はロストではない。次のシナリオ開始時には、現在HPが最大HPまで回復する。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">8</span>ロスト</div><div class="rule-body">
+      <p>ロストはHP0とは別の概念。物語上の理由などによって、そのキャラクターが以後のシナリオに参加できなくなった場合、ロストとなる。</p>
+      <ul class="rule-list"><li>ロスト後は使用できない。</li><li>パッシブでロストそのものを防ぐことはできない。</li><li>ロスト後は新しいキャラクターを作成できる。</li></ul>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">9</span>汚染値</div><div class="rule-body">
+      <ul class="rule-list"><li>初期値は0。</li><li>最大値は100。</li><li>シナリオ中の行動やイベントなどによって増加する。</li><li>原則として減少しない。</li><li>シナリオ終了後は、SYNに換算して引き継ぐ。</li><li>KPが管理する。</li><li>SANとは別に管理する。</li></ul>
+      <p>SYN（同期率）は、汚染値を5で割った値（端数は切り上げ、0～20）である。汚染値とSYNは同じ値を別の単位で表したもので、汚染値は次のシナリオ開始時に SYN × 5 となる。</p>
+      <div class="formula">SYN = 汚染値 ÷ 5（小数点以下切り上げ）
+次のシナリオ開始時の汚染値 = SYN × 5
+例：汚染値73 → SYN 15 → 次のシナリオ開始時の汚染値75</div>
+      <p>汚染値は回復しない。SYNを直接増減させることはない。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">10</span>成長値</div><div class="rule-body">
+      <table class="value-table"><tr><th>通常のサブストーリー</th><td>+3</td></tr><tr><th>メインシナリオ</th><td>+6</td></tr><tr><th>隠しシナリオ</th><td>+9</td></tr></table>
+      <p>シナリオクリア後、獲得した成長値をプレイヤーの成長値に加算する。成長値はプレイヤー単位で管理し、複数のキャラクターで共有する。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">11</span>成長値の使用</div><div class="rule-body">
+      <table class="value-table">
+        <thead>
+          <tr>
+            <th>成長対象</th>
+            <th class="num">必要成長値</th>
+            <th class="num">効果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>最大HP</th>
+            <td class="num">1</td>
+            <td class="num">+1</td>
+          </tr>
+          <tr>
+            <th>最大SAN</th>
+            <td class="num">1</td>
+            <td class="num">+1</td>
+          </tr>
+          <tr>
+            <th>技能</th>
+            <td class="num">1</td>
+            <td class="num">+1</td>
+          </tr>
+          <tr>
+            <th>能力値</th>
+            <td class="num">3</td>
+            <td class="num">+1</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>上限は、HP40、SAN100、能力値20、技能99。</p>
+      <p>プレイヤーの成長値そのものは、キャラクターに使用しても減少しない。各キャラクターについて「使用した成長値」を記録し、そのキャラクターではプレイヤーの成長値から使用済み分を除いた量まで追加成長できる。</p>
+      <p>例：プレイヤーの成長値が10で、キャラクターAに5使用した場合、プレイヤーの成長値は10のまま。キャラクターAはあと5まで成長できる。</p>
+      <p>新しいキャラクターを作成した場合、プレイヤーの成長値はそのまま使用できる。新キャラクターの「使用した成長値」は0から開始する。以前のキャラクターの関係値・汚染値・SYNなどは引き継がない。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">12</span>能力値成長</div><div class="rule-body">
+      <p>能力値を成長させても、キャラクター作成時に算出した派生値は再計算しない。</p>
+      <div class="formula">例：POW 10 → 11になっても、作成時に算出したSANや技能ポイントは変化しない。</div>
+      <p>成長による能力値の上昇は、その能力値を使用する判定などに反映する。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">13</span>5D4振り直し</div><div class="rule-body">
+      <p>5D4振り直しは、そのキャラクターを作成し直す扱いとする。</p>
+      <ul class="rule-list"><li>能力値を初期状態へ戻す。</li><li>技能成長を初期状態へ戻す。</li><li>最大HPの成長を初期状態へ戻す。</li><li>最大SANの成長を初期状態へ戻す。</li><li>そのキャラクターの「使用した成長値」を0にする。</li></ul>
+      <p>プレイヤーの成長値は変化しない。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">14</span>成長上限を超えた場合</div><div class="rule-body">
+      <p>作成時の能力値・技能値などが変更された結果、既に使用している成長分が上限を超えた場合は、超過分の成長を取り消し、そのキャラクターの「使用した成長値」を減らす。</p>
+      <p>これはプレイヤーの成長値が増えるという意味ではなく、そのキャラクターに記録されている使用成長量を調整する処理である。</p>
+    </div></section>
+
+    <section class="panel"><div class="panel-title"><span class="rule-num">15</span>シナリオ終了後の処理</div><div class="rule-body">
+      <p><strong>シナリオ終了時</strong></p>
+      <ol class="rule-list"><li>シナリオクリアを確認する。</li><li>成長報酬をプレイヤーの成長値へ加算する。</li><li>汚染値をSYNに換算する。</li><li>ロスト・継続使用を確認する。</li><li>成長させたいキャラクターへ成長を適用する。</li></ol>
+      <p><strong>次のシナリオ開始時</strong></p>
+      <ol class="rule-list"><li>HP・SANの現在値を最大値まで回復する。</li><li>汚染値は回復せず、SYN × 5 として始める。</li></ol>
+    </div></section>
+
+    <div class="rulebook-tabs"><a href="./rules-character.html">キャラクター作成・判定</a><a href="./rules-company.html">会社ルールブック</a><a href="./rules-combat.html">戦闘ルール</a><a href="./rules-scenario.html">長期シナリオ進行</a><a href="./rules-growth.html" class="active">ゲーム進行</a></div>
+  </main>
+  <footer>FUTURE WORLD TRPG — GAME PROGRESSION RULEBOOK</footer>
+</body></html>

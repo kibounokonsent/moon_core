@@ -1,10 +1,12 @@
+const COMPANY_SAVE_FORMAT = "MOON_CORE_COMPANY";
+
 const COMPANY_TYPES = {
-  RSH: {name:"研究", evolution:"ARC", evolutionName:"知恵", effect:"全研究が可能になる。SYNの増加。"},
-  TAC: {name:"戦闘、防衛", evolution:"WAR", evolutionName:"軍事", effect:"国家級武装企業となる。支出増加。"},
-  ENG: {name:"技術", evolution:"SYS", evolutionName:"文明", effect:"大体のことが可能になる。ファンブル域2増加。"},
-  MED: {name:"医療", evolution:"LIF", evolutionName:"生命", effect:"生命関連の活動が可能になる。ETHの低下によるステータス低下増加。"},
-  OPS: {name:"情報", evolution:"NEX", evolutionName:"情報", effect:"情報管理が可能になる。CI減少増加。"},
-  COM: {name:"商業", evolution:"ECO", evolutionName:"経済", effect:"資金力が大幅に増加する。POWにデバフ。"}
+  RSH: {name:"研究", evolution:"ARC", evolutionName:"知恵", effect:"全研究が可能になる。デメリット：所属社員の汚染値の増加量が1.5倍になる（増加量を1.5倍して端数は切り上げ。例：5増加する場合は7.5→8）。"},
+  TAC: {name:"戦闘、防衛", evolution:"WAR", evolutionName:"軍事", effect:"国家級武装企業となる。デメリット：会社の支出が1.5倍になる（端数は切り上げ）。"},
+  ENG: {name:"技術", evolution:"SYS", evolutionName:"文明", effect:"大体のことが可能になる。デメリット：所属社員が行うCCB判定のファンブル域が2増える（96～100 → 94～100）。"},
+  MED: {name:"医療", evolution:"LIF", evolutionName:"生命", effect:"生命関連の活動が可能になる。デメリット：会社のETHが3以下のとき、所属社員の最大HPが(4 − ETH)下がる（ETH0で−4、ETH3で−1）。最大HPは1未満にならない。"},
+  OPS: {name:"情報", evolution:"NEX", evolutionName:"情報", effect:"情報管理が可能になる。デメリット：所属社員がSANチェックに失敗したとき、SANの減少量が1増える。"},
+  COM: {name:"商業", evolution:"ECO", evolutionName:"経済", effect:"資金力が大幅に増加する。デメリット：所属社員のPOWを使う能力値判定（CCB<={POW}×5）の判定値が10下がる。作成時に算出したSANなどの値は変わらない。"}
 };
 
 let state = {
@@ -47,6 +49,9 @@ function init(){
   $("copySheet").addEventListener("click", copySheet);
   $("copyJson").addEventListener("click", copyCocofoliaJson);
   $("downloadJson").addEventListener("click", downloadCocofolia);
+  $("exportSave").addEventListener("click", exportSaveJson);
+  $("importSave").addEventListener("click", () => $("importFile").click());
+  $("importFile").addEventListener("change", importSaveJson);
   $("reset").addEventListener("click", resetAll);
   update();
 }
@@ -136,7 +141,7 @@ function normalizeBasePoints(){
 /* ルールブックの計算式 */
 function FUN(){
   // REPで上昇、ETHで低下（ブラック企業ほど資金力が高く、ホワイト企業ほど低い）
-  return ceil(5 + ((state.REP - state.ETH) / 2));
+  return Math.max(1, Math.min(10, ceil(5 + ((state.REP - state.ETH) / 2))));
 }
 
 function typePoints(){
@@ -145,15 +150,15 @@ function typePoints(){
 }
 
 function INF(){
-  return ceil(typePoints() / 10) + ceil(state.REP / 2);
+  return Math.max(1, Math.min(10, ceil(typePoints() / 10) + ceil(state.REP / 2)));
 }
 
 function CL(){
-  return ceil(state.presidentCL / 2) + ceil(state.ETH / 2);
+  return Math.max(1, Math.min(10, ceil(state.presidentCL / 2) + ceil(state.ETH / 2)));
 }
 
 function RNK(){
-  return ceil(state.presidentRNK / 2) + ceil(CL() / 2);
+  return Math.max(1, Math.min(10, ceil(state.presidentRNK / 2) + ceil(CL() / 2)));
 }
 
 function statusWarning(){
@@ -483,6 +488,68 @@ function fallbackCopy(value,message){
   try{ document.execCommand("copy"); showStatus(message); }
   catch{ showStatus("コピーに失敗しました。"); }
   area.remove();
+}
+
+function buildSaveData(){
+  return {
+    format: COMPANY_SAVE_FORMAT,
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    company: state
+  };
+}
+
+function exportSaveJson(){
+  const json = JSON.stringify(buildSaveData(), null, 2);
+  const blob = new Blob([json], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${state.companyName || "moon-core-company"}_save.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus("保存用JSONを出力しました。");
+}
+
+function applyCompanyData(data){
+  const base = {
+    companyName:"",presidentName:"",presidentSkill:0,presidentCL:1,presidentRNK:1,
+    type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,financeScandalDice:0,financeScandalLossDice:0,
+    operationStatus:"active"
+  };
+  state = {...base, ...(data || {})};
+  $("companyName").value = state.companyName || "";
+  $("presidentName").value = state.presidentName || "";
+  $("presidentSkill").value = state.presidentSkill ?? 0;
+  $("presidentCL").value = state.presidentCL ?? 1;
+  $("presidentRNK").value = state.presidentRNK ?? 1;
+  $("REP").value = state.REP ?? 0;
+  $("ETH").value = state.ETH ?? 0;
+  $("operationStatus").value = state.operationStatus || "active";
+  document.querySelectorAll(".job-card").forEach(c => c.classList.toggle("selected", c.dataset.type === state.type));
+  update();
+}
+
+function importSaveJson(event){
+  const input = event.target;
+  const file = input.files && input.files[0];
+  input.value = "";
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let data;
+    try { data = JSON.parse(reader.result); }
+    catch { showStatus("保存用JSONの読み込みに失敗しました。"); return; }
+    if(!data || data.format !== COMPANY_SAVE_FORMAT || !data.company || typeof data.company !== "object") {
+      showStatus("MOON COREの会社シートの保存用JSONではありません。");
+      return;
+    }
+    if(!confirm("現在入力中の会社シートは、保存用JSONの内容で置き換えられます。よろしいですか？")) return;
+    try { applyCompanyData(data.company); showStatus("保存用JSONから会社シートを復元しました。"); }
+    catch { showStatus("保存用JSONの読み込みに失敗しました。"); }
+  };
+  reader.onerror = () => showStatus("保存用JSONの読み込みに失敗しました。");
+  reader.readAsText(file);
 }
 
 function resetAll(){

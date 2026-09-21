@@ -22,7 +22,7 @@
       <p class="system-label">FUTURE WORLD TRPG — RULEBOOK</p>
       <h1>戦闘ルール</h1>
     </div>
-    <div class="header-status">RULEBOOK 03 / 04</div>
+    <div class="header-status">RULEBOOK 03 / 05</div>
   </header>
 
   <nav class="site-nav">
@@ -40,6 +40,7 @@
       <a href="./rules-company.html">会社ルールブック</a>
       <a href="./rules-combat.html" class="active">戦闘ルール</a>
       <a href="./rules-scenario.html">長期シナリオ進行</a>
+      <a href="./rules-growth.html">ゲーム進行</a>
     </div>
 
     <p class="guide-note">この戦闘ルールは未確定部分を含みます。今後の改訂で内容が変わる可能性があります。</p>
@@ -92,9 +93,11 @@
     <section class="panel">
       <div class="panel-title"><span class="rule-num">4</span>DEX</div>
       <div class="rule-body">
-        <p>DEXは行動順と回避に関係する。回避判定は以下の式で行う。</p>
-        <div class="formula">回避値 = DEX × 10</div>
+        <p>DEXは行動順と回避に関係する。回避は素早さで攻撃を避ける行動で、遠距離攻撃に強く、近距離攻撃には避けにくい。回避値は、受ける攻撃の種類によって変わる。</p>
+        <div class="formula">遠距離攻撃（投射カード）に対する回避値 = DEX × 10
+近距離攻撃（近接カード）に対する回避値 = DEX × 5</div>
         <p>この数値以下が出れば回避成功となる。ただし、回避率は最大90％までとする。回避を選択した場合、受身は行えない。</p>
+        <p>攻撃の種類は、使用されたカードによって決まる（近接カード＝近距離攻撃、投射カード＝遠距離攻撃）。焼却などの特殊カードは、カードに記載された種類に従う。</p>
       </div>
     </section>
 
@@ -109,10 +112,12 @@
 <span class="comment">小数点が発生した場合は切り上げる</span></div>
 
         <h4>受身</h4>
-        <p>受身を行うと、受けるダメージを軽減できる。</p>
-        <div class="formula">軽減後ダメージ = ダメージ − STR ÷ 2
+        <p>受身を行うと、受けるダメージを軽減できる。受身は体で攻撃を受け止める行動で、近距離攻撃に強く、遠距離攻撃には効果が小さい。軽減する値は、受ける攻撃の種類によって変わる。</p>
+        <div class="formula">近距離攻撃（近接カード）に対する軽減後ダメージ = ダメージ − STR ÷ 2
+遠距離攻撃（投射カード）に対する軽減後ダメージ = ダメージ − STR ÷ 4
 
 <span class="comment">小数点が発生した場合は切り上げる</span></div>
+        <p>受身を行った場合でも、軽減後のダメージは最低1とする。</p>
         <p>受身を選択した場合、回避はできない。</p>
       </div>
     </section>
@@ -127,14 +132,15 @@
     <section class="panel">
       <div class="panel-title"><span class="rule-num">6</span>移動</div>
       <div class="rule-body">
-        <p>キャラクターは1ターンにつき1マス移動できる。さらに移動カードを使用することで、追加の移動が可能になる。</p>
+        <p>キャラクターは1ターンにつき1マス移動できる。さらに移動カードを使用することで、追加の移動が可能になる。ただし、移動カードの使用は1回の行動として扱うため、使用したターンは攻撃などほかのカードを使用できない。</p>
       </div>
     </section>
 
     <section class="panel">
       <div class="panel-title"><span class="rule-num">7</span>行動</div>
       <div class="rule-body">
-        <p>基本的にキャラクターは1ターンに1回行動できる。</p>
+        <p>基本的にキャラクターは1ターンに1回行動できる。カードの使用は、移動カードも含めて1回の行動として扱う。</p>
+        <p>行動する順番は、AP（行動値）が大きいキャラクターから順に行動する。APが同じ場合は、DEXが高いキャラクターが先に行動する。それでも同じ場合は、KPが順番を決める。</p>
       </div>
     </section>
 
@@ -159,7 +165,7 @@
     <section class="panel">
       <div class="panel-title"><span class="rule-num">10</span>CE</div>
       <div class="rule-body">
-        <p>CEは近接行動に使用するエネルギー。戦闘開始時のCEは3。</p>
+        <p>CEは近接行動に使用するエネルギー。戦闘開始時のCEは3。最大値は5。</p>
         <p>回復条件：敵から4マス以内にいる場合、毎ラウンド1回復する。</p>
       </div>
     </section>
@@ -167,15 +173,15 @@
     <section class="panel">
       <div class="panel-title"><span class="rule-num">11</span>PE</div>
       <div class="rule-body">
-        <p>PEは遠距離行動に使用するエネルギー。戦闘開始時のPEは3。</p>
-        <p>回復条件：敵から4マス以上離れている場合、毎ラウンド1回復する。</p>
+        <p>PEは遠距離行動に使用するエネルギー。戦闘開始時のPEは3。最大値は5。</p>
+        <p>回復条件：敵から4マス以上離れている場合、毎ラウンドごとに1回復する（戦闘開始から数えて偶数ラウンド）。</p>
       </div>
     </section>
 
     <section class="panel">
       <div class="panel-title"><span class="rule-num">12</span>カードシステム</div>
       <div class="rule-body">
-<p>プレイヤーはカードデッキを使用して戦う。戦闘開始時に、自分と敵のカードはすべて公開される。そのため、プレイヤーは相手の行動や攻撃を予測しながら行動する必要がある。</p>
+<p>プレイヤーはカードデッキを使用して戦う。デッキは6枚のカードで構成する。全員共通の共通カード3枚（移動・近接・投射）と、キャラクターごとのカード3枚からなる。これとは別に、切り札カードを1枚選んで持ち込める（「切り札カード」を参照）。戦闘開始時に、自分と敵のカードはすべて公開される。そのため、プレイヤーは相手の行動や攻撃を予測しながら行動する必要がある。</p>
 <p>なお、実際の戦闘では、キャラクターによって特殊な効果を持つカードを所持している場合がある。これらのカードは通常のカードとは異なる効果を持ち、使用することで戦闘を有利に進めたり、特定の状況に対応したりすることができる。</p>
 
       </div>
@@ -183,7 +189,8 @@
 
     <section class="panel">
       <div class="panel-title"><span class="rule-num">13</span>カードの再使用</div>      <div   class="rule-body">
-        <p>カードは使用すると、次のラウンドでは使用できない。その次のラウンドから再使用できる。</p>
+        <p>共通カード（移動・近接・投射）は、使用したラウンドの次のラウンドでも続けて使用できる。ただし、カードに必要なエネルギーがある場合は、使用のたびに消費する。</p>
+        <p>キャラクターごとのカードは、使用すると次のラウンドでは使用できない。その次のラウンドから再使用できる。</p>
       </div>
     </section>
 
@@ -194,11 +201,11 @@
           <figcaption>移動</figcaption>
         </figure>
         <figure>
-          <img src="images/card-projectile.svg" alt="投射カードの例（拳銃 CE1 1D5）">
+          <img src="images/card-projectile.svg" alt="投射カードの例（拳銃 PE1 1D5）">
           <figcaption>投射</figcaption>
         </figure>
         <figure>
-          <img src="images/card-incinerate.svg" alt="焼却カードの例（CE3 1D3）">
+          <img src="images/card-incinerate.svg" alt="焼却カードの例（軽度焼却処理 CE3 1D3・切り札）">
           <figcaption>焼却</figcaption>
         </figure>
         <figure>
@@ -206,7 +213,7 @@
           <figcaption>出血</figcaption>
         </figure>
         <figure>
-          <img src="images/card-infection.svg" alt="感染カードの例">
+          <img src="images/card-infection.svg" alt="感染カードの例（浸食 PE2）">
           <figcaption>感染</figcaption>
         </figure>
       </div>
@@ -217,11 +224,26 @@
       <div class="panel-title"><span class="rule-num">14</span>カードの種類</div>
       <div class="rule-body">
         <table class="value-table">
-          <tr><th>移動</th><td>移動のみを行うカード。使用することで追加の移動が可能になる。</td></tr>
-          <tr><th>近接</th><td>近距離戦闘用のカード。STR補正が適用される。3マス以内で使用可能。<br><span class="comment">例：ナイフ、打撃、格闘</span></td></tr>
-          <tr><th>投射</th><td>遠距離攻撃用のカード。3マス以上で使用可能。<br><span class="comment">例：銃、投擲武器</span></td></tr>
-          <tr><th>焼却</th><td>変異体討伐用の特殊攻撃。使用条件：敵のHPが5以下。必要EP：EP3以上。変異体は通常の攻撃では完全に倒すことができない。焼却によってのみ完全に討伐できる。</td></tr>
+          <tr><th>移動</th><td>移動のみを行うカード。使用することで追加の移動が可能になる。使用したターンは、ほかのカードを使用できない。</td></tr>
+          <tr><th>近接</th><td>近距離戦闘用のカード。STR補正が適用される。2マス以内で使用可能。<br><span class="comment">例：ナイフ、打撃、格闘</span></td></tr>
+          <tr><th>投射</th><td>遠距離攻撃用のカード。2マス以上で使用可能。PEを消費する。<br><span class="comment">例：銃、投擲武器</span></td></tr>
+          <tr><th>焼却</th><td>変異体討伐用の特殊攻撃。切り札カードとして扱い、SVH所属のキャラクターが使用できる。<br><span class="comment">例：軽度焼却処理</span><br>使用条件：敵のHPが5以下。必要エネルギー：CE3以上。変異体は通常の攻撃では完全に倒すことができない。焼却によってのみ完全に討伐できる。</td></tr>
         </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="rule-num">15</span>切り札カード</div>
+      <div class="rule-body">
+        <p>切り札カードは、通常のデッキ（共通カード3枚＋キャラクターごとのカード3枚）とは別枠のカードである。</p>
+        <ul class="rule-list">
+          <li>戦闘の前に、敵や状況に合わせて、使用する切り札カードを1枚だけ選ぶ。戦闘中に変更することはできない。</li>
+          <li>切り札カードは、所属や職などの条件に対応するキャラクターだけが使用できる。各キャラクターが選べる切り札は、その所属や職に対応するものに限られる。</li>
+          <li>切り札カードは、使用すると次のラウンドでは使用できない。その次のラウンドから再使用できる。</li>
+          <li>切り札カードに必要なエネルギーがある場合は、使用のたびに消費する。</li>
+        </ul>
+        <p>例：変異体との戦闘では、SVH所属のキャラクターは切り札として焼却カード「軽度焼却処理」（CE3、1D3）を選ぶ。SVHは必ずシナリオに同行するため、変異体が登場する戦闘では焼却を使用できる。</p>
+        <p>焼却以外の切り札カードは、SVH以外の所属や職にも用意される。その内容は今後追加する。</p>
       </div>
     </section>
 
@@ -230,6 +252,7 @@
       <a href="./rules-company.html">会社ルールブック</a>
       <a href="./rules-combat.html" class="active">戦闘ルール</a>
       <a href="./rules-scenario.html">長期シナリオ進行</a>
+      <a href="./rules-growth.html">ゲーム進行</a>
     </div>
 
   </main>

@@ -78,6 +78,7 @@ body {
   width: 22%;
 }
 .value-table td { color: var(--text); }
+.value-table .num { text-align: right; }
 .value-table + .value-table { margin-top: 0; }
 .guide-section { padding: 0 18px 18px; }
 .guide-section:first-of-type { padding-top: 4px; }
@@ -468,4 +469,112 @@ figcaption.illustration-caption {
 @media (max-width: 500px) {
   .rulebook-tabs { gap: 6px; }
   .rulebook-tabs a { padding: 8px 12px; font-size: 12px; }
+}
+.growth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 18px 12px;
+}
+.growth-card {
+  border: 1px solid var(--line);
+  background: #fbfdff;
+  padding: 12px;
+}
+.growth-label strong { display: block; color: var(--navy); }
+.growth-label span { font-size: 12px; color: var(--muted); }
+.relation-block { padding: 0 18px 18px; }
+.relation-title { font-size: 13px; font-weight: 700; color: var(--navy); margin: 4px 0 8px; }
+.relation-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin-bottom: 8px; }
+@media (max-width: 700px) { .relation-row { grid-template-columns: 1fr; } }
+.growth-base {
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.growth-base strong { color: var(--navy); }
+.growth-row {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.growth-row input { text-align: center; }
+.growth-current {
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.growth-current strong { color: var(--navy); }
+.growth-special {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 0 18px 18px;
+}
+@media (max-width: 700px) {
+  .growth-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .growth-grid, .growth-special { grid-template-columns: 1fr; }
+}
+
+/* ===== キャラクターシート：表形式（元の値／成長値／現在値） ===== */
+.table-wrap { overflow-x: auto; padding: 0 18px 14px; }
+.sheet-table { width: 100%; border-collapse: collapse; min-width: 320px; }
+.sheet-table th, .sheet-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 14px;
+}
+.sheet-table thead th {
+  background: var(--pale);
+  color: var(--navy);
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+.sheet-table .row-label { text-align: left; white-space: nowrap; }
+.sheet-table .row-label strong { color: var(--navy); margin-right: 8px; }
+.sheet-table .row-label span { font-size: 12px; color: var(--muted); font-weight: 400; }
+.sheet-table td input { width: 84px; text-align: center; }
+.sheet-table td strong { color: var(--navy); font-size: 16px; }
+.cost-table td:first-child { text-align: left; }
+.creation-note { padding: 0 18px; }
+.creation-note summary {
+  cursor: pointer;
+  padding: 14px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.creation-note .dice-row { padding-left: 0; padding-right: 0; }
+.creation-note .message { padding-left: 0; padding-right: 0; }
+.growth-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 17px 18px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.growth-summary strong { display: block; margin-top: 6px; font-size: 22px; color: var(--navy); }
+.growth-summary input { margin-top: 6px; text-align: center; font-size: 18px; }
+.econ-cell { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+.econ-cell strong { font-size: 18px; color: var(--navy); }
+.relation-head { font-size: 12px; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+@media (max-width: 700px) {
+  .growth-summary { grid-template-columns: 1fr; }
+  .relation-head { display: none; }
+}
+.relation-block { padding-top: 14px; }
+.growth-summary { padding-bottom: 10px; }
+@media (max-width: 700px) {
+  .sheet-table .row-label span { display: none; }
+  .sheet-table td input { width: 58px; padding-left: 4px; padding-right: 4px; }
+  .sheet-table th, .sheet-table td { padding: 8px 5px; }
+  .sheet-table thead th { white-space: nowrap; }
+  .sheet-table { min-width: 0; }
 }

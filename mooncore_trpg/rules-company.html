@@ -22,7 +22,7 @@
       <p class="system-label">FUTURE WORLD TRPG — RULEBOOK</p>
       <h1>会社ルールブック</h1>
     </div>
-    <div class="header-status">RULEBOOK 02 / 04</div>
+    <div class="header-status">RULEBOOK 02 / 05</div>
   </header>
 
   <nav class="site-nav">
@@ -40,6 +40,7 @@
       <a href="./rules-company.html" class="active">会社ルールブック</a>
       <a href="./rules-combat.html">戦闘ルール</a>
       <a href="./rules-scenario.html">長期シナリオ進行</a>
+      <a href="./rules-growth.html">ゲーム進行</a>
     </div>
 
     <figure class="illustration-slot">
@@ -61,7 +62,7 @@
     <section class="panel">
       <div class="panel-title"><span class="rule-num">2</span>会社ステータス</div>
       <div class="rule-body">
-        <p>会社には以下のステータスが存在する。会社ステータスは1から10の範囲で管理する。</p>
+        <p>会社には以下のステータスが存在する。CL、INF、RNK、FUNは1から10の範囲で管理する。REPとETHはこれらとは異なる評価値として扱う。</p>
         <table class="value-table">
           <tr><th>CL</th><td>信用</td></tr>
           <tr><th>INF</th><td>影響</td></tr>
@@ -70,7 +71,7 @@
           <tr><th>REP</th><td>企業評価、貢献度</td></tr>
           <tr><th>ETH</th><td>企業倫理</td></tr>
         </table>
-        <p>REPとETHは、会社設立時の基礎ポイントから決定する。CL、INF、RNK、FUNは、会社設立時に各種の値から算出する。</p>
+        <p>REPとETHは、会社設立時の基礎ポイントから決定する。CL、INF、RNK、FUNは、会社設立時に各種の値から算出し、1～10に収める。</p>
       </div>
     </section>
 
@@ -113,7 +114,7 @@ ETH 3</div>
     <section class="panel">
       <div class="panel-title"><span class="rule-num">5</span>会社ステータスの決定</div>
       <div class="rule-body">
-        <p>REPとETHを決定した後、会社のCL、INF、RNK、FUNを算出する。会社ステータスは1から10の範囲で管理する。</p>
+        <p>REPとETHを決定した後、会社のCL、INF、RNK、FUNを算出する。CL、INF、RNK、FUNは1から10の範囲で管理する。REPとETHは別の評価値である。</p>
 
         <h4>FUN（資金力）</h4>
         <div class="formula">FUN = c(5 + ((REP - ETH) ÷ 2))</div>
@@ -152,6 +153,7 @@ ETH 3</div>
         <div class="formula"><span class="comment">例：RSHの会社で研究を行う場合</span>
 CCB&lt;={RSH}+企業タイプポイント 【研究】</div>
         <p>会社外で同じ活動を行う場合は、企業タイプポイントの10分の1の補正を受ける。会社内では会社が持つ専門設備を利用できるため、会社外よりも大きな補正を受ける。</p>
+        <p>企業タイプに対応する技能は、RSH・TAC・ENG・MED・OPSは同名の技能、COMはCWD（指導）とする。</p>
       </div>
     </section>
 
@@ -173,13 +175,14 @@ CCB&lt;={RSH}+企業タイプポイント 【研究】</div>
     <section class="panel">
       <div class="panel-title"><span class="rule-num">9</span>企業タイプ一覧</div>
       <div class="rule-body">
+        <p>進化のデメリットは、原則としてその会社に所属する社員（社員として所属するキャラクター・NPC）に対して適用される。会社そのものに適用されるものは、その旨を明記する。</p>
         <table class="value-table">
-          <tr><th>RSH 研究</th><td>進化先 <strong>ARC 知恵</strong> — 全研究が可能になる。SYNの増加。</td></tr>
-          <tr><th>TAC 戦闘、防衛</th><td>進化先 <strong>WAR 軍事</strong> — 国家級武装企業となる。支出増加。</td></tr>
-          <tr><th>ENG 技術</th><td>進化先 <strong>SYS 文明</strong> — 大体のことが可能になる。ファンブル域2増加。</td></tr>
-          <tr><th>MED 医療</th><td>進化先 <strong>LIF 生命</strong> — 生命関連の活動が可能になる。ETHの低下によるステータス低下増加。</td></tr>
-          <tr><th>OPS 情報</th><td>進化先 <strong>NEX 情報</strong> — 情報管理が可能になる。CI減少増加。</td></tr>
-          <tr><th>COM 商業</th><td>進化先 <strong>ECO 経済</strong> — 資金力が大幅に増加する。POWにデバフ。</td></tr>
+          <tr><th>RSH 研究</th><td>進化先 <strong>ARC 知恵</strong> — 全研究が可能になる。<br><span class="comment">デメリット：所属社員の汚染値の増加量が1.5倍になる（増加量を1.5倍して端数は切り上げ。例：5増加する場合は7.5→8）。</span></td></tr>
+          <tr><th>TAC 戦闘、防衛</th><td>進化先 <strong>WAR 軍事</strong> — 国家級武装企業となる。<br><span class="comment">デメリット：会社の支出が1.5倍になる（端数は切り上げ）。</span></td></tr>
+          <tr><th>ENG 技術</th><td>進化先 <strong>SYS 文明</strong> — 大体のことが可能になる。<br><span class="comment">デメリット：所属社員が行うCCB判定のファンブル域が2増える（96～100 → 94～100）。</span></td></tr>
+          <tr><th>MED 医療</th><td>進化先 <strong>LIF 生命</strong> — 生命関連の活動が可能になる。<br><span class="comment">デメリット：会社のETHが3以下のとき、所属社員の最大HPが(4 − ETH)下がる（ETH0で−4、ETH3で−1）。最大HPは1未満にならない。</span></td></tr>
+          <tr><th>OPS 情報</th><td>進化先 <strong>NEX 情報</strong> — 情報管理が可能になる。<br><span class="comment">デメリット：所属社員がSANチェックに失敗したとき、SANの減少量が1増える。</span></td></tr>
+          <tr><th>COM 商業</th><td>進化先 <strong>ECO 経済</strong> — 資金力が大幅に増加する。<br><span class="comment">デメリット：所属社員のPOWを使う能力値判定（CCB&lt;={POW}×5）の判定値が10下がる。作成時に算出したSANなどの値は変わらない。</span></td></tr>
         </table>
       </div>
     </section>
@@ -237,9 +240,8 @@ CCB&lt;={RNK} 【会社権力】</div>
           <li>企業タイプを1種類選択する。</li>
           <li>基礎ポイントを算出する（c(社長の職業技能 ÷ 10) + 2D5）。</li>
           <li>基礎ポイントをREPとETHに自由に分配する。</li>
-          <li>企業タイプポイントを仮算出する（c(社長の職業技能 ÷ 5) + FUN）。</li>
           <li>REPとETHを使用してFUNを算出する。</li>
-          <li>FUNを使用して企業タイプポイントを確定する。</li>
+          <li>FUNを使用して企業タイプポイントを算出する（c(社長の職業技能 ÷ 5) + FUN）。</li>
           <li>企業タイプポイントとREPからINFを算出する。</li>
           <li>社長のCLとETHから会社のCLを算出する。</li>
           <li>社長のRNKと会社のCLから会社のRNKを算出する。</li>
@@ -258,7 +260,7 @@ CCB&lt;={RNK} 【会社権力】</div>
           <li>企業タイプポイントは選択した企業タイプにのみ適用される。</li>
           <li>REPとETHは基礎ポイントを自由に分配して決定する。</li>
           <li>CL、INF、RNK、FUNは会社設立時の計算式によって決定する。</li>
-          <li>会社ステータスは1から10の範囲で管理する。</li>
+          <li>CL、INF、RNK、FUNは1から10の範囲で管理する。REPとETHは別の評価値である。</li>
           <li>企業タイプポイントは100に到達すると企業タイプが進化する。</li>
           <li>企業タイプポイントは進化後もリセットされない。</li>
           <li>会社のCL、INF、RNKは、キャラクター自身のCL、INF、RNKとは別のステータスとして扱う。</li>
@@ -274,6 +276,7 @@ CCB&lt;={RNK} 【会社権力】</div>
       <a href="./rules-company.html" class="active">会社ルールブック</a>
       <a href="./rules-combat.html">戦闘ルール</a>
       <a href="./rules-scenario.html">長期シナリオ進行</a>
+      <a href="./rules-growth.html">ゲーム進行</a>
     </div>
 
   </main>
