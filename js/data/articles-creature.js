@@ -1244,7 +1244,6 @@ ARTICLES.push({
   related:['ラリアフルス','味覚崩壊クッキー','食','健康'],
 });
 
-```js
 ARTICLES.push({
   id:'delicious-root',
   cat:'creature',
@@ -1417,4 +1416,3 @@ ARTICLES.push({
 
   related:['ラリアフルス','食','農業','キャベッサ'],
 });
-```
