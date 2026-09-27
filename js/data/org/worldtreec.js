@@ -10,14 +10,14 @@ ARTICLES.push({
       id:'sec-overview',
       title:'概要',
       blocks:[
-        {t:'p', text:'world tree.cは、セルトを代表するソフトウェア開発企業である。'},
+        {t:'p', text:'world tree.cは、セルトシティを代表するソフトウェア開発企業である。'},
         {t:'p', text:'世界規模の情報通信網「World Tree」の設計・開発・保守を担当しており、未来世界の通信インフラを支える存在として知られている。'},
         {t:'p', text:'個人向けサービスよりも社会インフラ向けのシステム開発を得意とし、その技術は行政機関や企業、研究施設など幅広い分野で利用されている。'},
         {t:'info', items:[
-          {label:'本社', value:'セルト'},
+          {label:'本社', value:'セルトシティ'},
           {label:'分野', value:'ソフトウェア・情報インフラ'},
           {label:'代表システム', value:'World Tree'},
-          {label:'関係国家', value:'セルト'}
+          {label:'関係国家', value:'セルトシティ'}
         ]},
       ]
     },

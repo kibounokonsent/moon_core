@@ -93,5 +93,5 @@ ARTICLES.push({
       ]
     },
   ],
-  related:['hubert','harnens_university'],
+  related:['hubert','harnest'],
 });

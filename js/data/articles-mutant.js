@@ -858,7 +858,7 @@ ARTICLES.push({
   ]
 },
 
-  related:['evolution-disease','three-element-theory','giir-linktin','eio-evolion','aios-option','variant']
+  related:['evolution-disease','three-element-theory','eio-evolion','aios-option','variant']
 });
 
 ARTICLES.push({

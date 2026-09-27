@@ -1372,7 +1372,7 @@ ARTICLES.push({
       {t:'p', text:'今日もその人は、市場へ向かって歩いていった。'},
     ]},
   ],
-  related:['daily-life','wonhead','food-culture']
+  related:['daily-life','wonhead','silly-news','svh-hero']
 });
 
 ARTICLES.push({
@@ -1972,7 +1972,7 @@ sections:[
 ]},
 
 ],
-related:['daily-life','future-economy','income-and-life','education-system','automation','ai-tech','neuro-sync'],
+related:['daily-life','future-economy','income-and-living','education-system','automation','ai-tech','neuro-sync'],
 });
 
 ARTICLES.push({
@@ -2042,7 +2042,7 @@ ARTICLES.push({
       {t:'p', text:'AIや自動化技術を利用することも、自分の手で生活することも選択できる。技術の発展によって、人々の暮らし方そのものが一つに決められているわけではない。'},
     ]},
   ],
-  related:['daily-life','architecture-tech','automation','neuro-sync','inventory'],
+  related:['daily-life','architecture','automation','neuro-sync','inventory'],
 });
 
 ARTICLES.push({
@@ -2191,7 +2191,6 @@ ARTICLES.push({
 
   related:[
     'garhyura',
-    'winter',
   ],
 });
 
@@ -2399,7 +2398,7 @@ ARTICLES.push({
 
   related:[
     'education-system',
-    'future-social-problems',
+    'future-social-issues',
     'future-philosophy',
   ],
 });
@@ -2652,7 +2651,7 @@ ARTICLES.push({
 
   ],
 
-  related:['medical-technology','giir','mutants'],
+  related:['medical-tech','giir-deficiency','variant'],
 });
 
 ARTICLES.push({

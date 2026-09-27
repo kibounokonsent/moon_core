@@ -449,9 +449,10 @@ function renderCategoryPage(key){
     const activeSubcat = creatureFilter;
 
     const subcats = [
-      { key:"plant",  name:"植物" },
-      { key:"animal", name:"動物" },
-      { key:"marine", name:"海洋生物" }
+      { key:"plant",   name:"植物" },
+      { key:"land",    name:"陸上生物" },
+      { key:"aquatic", name:"水生生物" },
+      { key:"fungus",  name:"菌類・微生物" }
     ];
 
     const filterButtons = `
