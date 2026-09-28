@@ -2225,6 +2225,19 @@ ARTICLES.push({
 
   ],
 
+  admin:{
+    sections:[
+      {
+        id:'admin-myth',
+        title:'神話との重なり',
+        blocks:[
+          {t:'p', text:'原初の母神が自らの子である怪物たちを生み、軍勢として率いる神話（ティアマト）は、マザーとコロニーの構図と重なる。地域全体が一つの巨大な生命圏になる点は、大地そのものを母神とみる見方（ガイア）にも通じる。'},
+          {t:'p', text:'最終段階のDominion（ドミニオン）は、天使の階級の一つである主天使（Dominions）と響きが重なる。'}
+        ]
+      }
+    ]
+  },
+
   related:['aios-option','variant','pure-variant','evolution-disease','svh']
 });
 

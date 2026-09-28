@@ -73,5 +73,17 @@ ARTICLES.push({
       ]
     },
   ],
+  admin:{
+    sections:[
+      {
+        id:'admin-myth',
+        title:'神話との重なり',
+        blocks:[
+          {t:'p', text:'World Treeという名は、世界樹（北欧神話）を想起させる。世界中の情報を枝のように結び、世界を支える基盤という役割が、世界を支える樹の姿と重なる。'}
+        ]
+      }
+    ]
+  },
+
   related:['sertcity','code','happycaddy','telepass'],
 });
