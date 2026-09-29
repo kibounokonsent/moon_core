@@ -5,7 +5,7 @@
 
 const GLOSSARY = [
   {term:'子陽炉', def:'人工的な恒星反応により莫大な電力を生み出す、未来世界最高峰の発電設備。', articleId:'solar-core'},
-  {term:'ニューロシンク', def:'人間と情報機器を神経レベルで接続する、指輪型の標準情報端末。', articleId:'neuro-sync'},
+  {term:'ニューロシンク', def:'人間と情報機器を神経レベルで接続する、頭部・耳装着型の標準情報端末。', articleId:'neuro-sync'},
   {term:'テレポーター', def:'人や物資を瞬時に遠隔地へ輸送する交通設備。', articleId:'teleporter'},
   {term:'アナザニウム', def:'電気を内部へ蓄える特殊鉱物。色の変化で充電状態を示す。', articleId:'anazanium'},
   {term:'フラマニウム', def:'極めて高い耐熱性能を持つ特殊鉱物。子陽炉などに利用される。', articleId:'framanium'},
@@ -13,11 +13,37 @@ const GLOSSARY = [
   {term:'変異体', def:'文明の発展とともに出現するようになった、未知の災害的存在。', articleId:'variant'},
   {term:'進化', def:'文明の進歩とともに人類にもたらされる、新たな課題の一因とされる現象。', articleId:null},
   {term:'火', def:'未来世界において禁忌として扱われる存在。「すべてを焼き尽くすもの」の象徴。', articleId:'daily-life'},
-  {term:'フーモラ・スカイピル', def:'広範囲の気象を制御・安定化する大型気象管理設備。各国に設置されている。', articleId:'weather-control'},
+  {term:'フーモラ・スカイピル', def:'成層圏に存在する空中都市国家。気象安定システムを保有し、各国へ気象安定サービスを提供している。', articleId:'fumora-skypill'},
+  {term:'気象安定システム', def:'広範囲の気象を観測・制御し、異常気象を抑制する大型気象管理システム。フーモラ・スカイピルが保有し、各国へサービスとして提供している。', articleId:'weather-control'},
   {term:'インベントリ', def:'遠隔地に保管した荷物をどこからでも呼び出せる保管・物流システム。', articleId:'inventory'},
   {term:'ガルタンダ倫理法', def:'人間などの完全な個体を複製するクローンの作製を禁止する、生命倫理のための国際的な法律。', articleId:'clone-tech'},
   {term:'リフィネス教', def:'ラリアフルスで信仰される、統一教義を持たない宗教。森と共に生きることへの感謝を中心とする。', articleId:'larliafrus'},
   {term:'森守', def:'ラリアフルスの志願制組織。治安維持、巡回、採集の監視、変異体対応を担当する。', articleId:'larliafrus'},
+  // --- 記事に多く出る用語（2026.09.29 追加） ---
+  {term:'統合暦', def:'コールドスリープから目覚めた人類が文明を再建した「文明統合暦000年」を起点とする、未来世界の暦。', articleId:'human-civilization-restart'},
+  {term:'歯車戦争', def:'統合暦412年から463年にかけて続いた世界規模の戦争。ラロネイアの侵略によって始まり、後のガルヒューラ成立の原因となった。', articleId:'gear-war'},
+  {term:'古代文明', def:'約30万年前に存在したとされる超高度文明。世界各地に巨大な都市や未知の技術を残している。', articleId:'ancient-civilization'},
+  {term:'近代文明', def:'およそ一万年前に存在していたとされる人類文明。現在の人類文明へ直接つながる時代。', articleId:'modern-civilization'},
+  {term:'進化病', def:'生物の遺伝情報の「意味づけ」が外来情報因子によって置き換えられる、未来世界最大級の情報災害。', articleId:'evolution-disease'},
+  {term:'EIO（エヴォリオン）', def:'進化病の原因となる外来情報因子。物質ではなく情報として存在し、GIIRへ作用する。', articleId:'eio-evolion'},
+  {term:'GIIR（リンクチン）', def:'遺伝情報をどのような意味として解釈するかを決定する情報制御因子。進化病ではEIOの主要標的となる。', articleId:'giir-linktin'},
+  {term:'AIOS（オプティオン）', def:'GIIRがEIO由来の情報体系を受容して成立する、異常な情報最適化状態。変異体が成立する条件となる。', articleId:'aios-option'},
+  {term:'マザー', def:'地域規模に巨大化したAIOS領域。周囲の環境や生物を一つの情報体系へ組み込む中枢となる。', articleId:'mother-colony'},
+  {term:'純粋種', def:'マザーによる地域規模のAIOS環境下で安定化した変異体群。', articleId:'pure-variant'},
+  {term:'SVH', def:'進化病によって発生する変異体へ対処する、国家直属・世界規模の変異体対策機関（世界変異体対策総本部）。', articleId:'svh'},
+  {term:'SNET', def:'セルトシティによって構築された、未来世界の通信基盤として広く普及している次世代ネットワーク。', articleId:'snet'},
+  {term:'クレジット', def:'未来世界で広く使われる仮想通貨。ニューロシンクや携帯型情報端末で送受信し、日常の決済に利用される。', articleId:'future-economy'},
+  {term:'ナノマシン', def:'分子や細胞に近い極小の領域で動作する、医療から製造、環境まで幅広く利用される基礎技術。', articleId:'nanomachine'},
+  {term:'アンドロイド', def:'人間に近い身体を持ち、社会の様々な分野で活動する人工生命体。', articleId:'android'},
+  {term:'ウォルプタススピノフェン', def:'歯車戦争後の復興期にマイモックで開発された神経作用性物質。精神的負荷の軽減を目的としたが、長期の曝露で神経系に変化を与える。', articleId:'wolputas-spinophen'},
+  {term:'医療技術', def:'遺伝子治療・再生医療・ナノ医療の発展により、多くの病気や外傷を克服した未来の医療。', articleId:'medical-tech'},
+  {term:'自動化技術', def:'ロボットと自律システムによって、人々の生活と産業を支える技術。', articleId:'automation'},
+  {term:'培養肉', def:'細胞培養によって作られる食肉。動物を殺すことなく大量生産でき、現在では一般的な食肉として流通している。', articleId:'industrial-livestock'},
 
+  {term:'関西変異災害', def:'ニポラン旧首都圏で発生した、人類史上最大級の変異体災害。12年が経過した現在も終息しておらず、封鎖区として管理されている。', articleId:'kansai-disaster'},
+
+  {term:'フルダイブ', def:'ニューロシンクによって神経系と仮想環境を接続し、仮想空間の中に存在するような感覚で遊ぶ技術。痛覚は与えず、微弱なしびれなどで感覚を表現する。', articleId:'future-games'},
+  {term:'ヒューマノイド', def:'頭・胴体・腕・脚など、人間に近い身体構造を持つ機械。人間そっくりである必要はなく、人間そっくりの存在はアンドロイドと呼ばれる。', articleId:'android'},
+  {term:'人工尻尾', def:'腰に取り付ける身体拡張機器。バランス補助や第三の腕としての利用など、様々なタイプがある。生体の尾を持つアニマルボディとは別のもの。', articleId:'cyborg'},
   /* ▲▲▲ 新しい用語はこの上に追加してください ▲▲▲ */
 ];

@@ -919,7 +919,7 @@ const CALENDAR_EVENTS = [
     name: '世界食の日',
     type: '国際行事',
     countries: ['全世界'],
-    established: 1237,
+    established: 1310,
     relatedHistory: '世界食の日制定',
     description: '食文化の保存と発展を目的とした国際的な記念日。各国の料理や食文化が世界規模で交流する。'
 },
