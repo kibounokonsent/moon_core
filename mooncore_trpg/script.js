@@ -272,7 +272,7 @@ function bindProfile() {
   [
     "name","birthCountry","residenceCountry","profileJob","age","gender","height",
     "personality","appearance","clothing","hairstyle","likes","dislikes","hobbies",
-    "specialty","family","history","residence","dailyLife","speech","firstPerson","notes"
+    "specialty","family","history","residence","dailyLife","speech","firstPerson","belongings","notes"
   ].forEach(id => $(id).addEventListener("input", update));
 }
 
@@ -444,7 +444,7 @@ function profileData() {
   const ids = [
     "name","birthCountry","residenceCountry","profileJob","age","gender","height",
     "personality","appearance","clothing","hairstyle","likes","dislikes","hobbies",
-    "specialty","family","history","residence","dailyLife","speech","firstPerson","notes",
+    "specialty","family","history","residence","dailyLife","speech","firstPerson","belongings","notes",
     "economicStatus"
   ];
   return Object.fromEntries(ids.map(id => [id, textValue(id)]));
@@ -537,6 +537,7 @@ function buildPreview() {
     `普段の生活：${p.dailyLife}`,
     `話し方：${p.speech}`,
     `一人称：${p.firstPerson}`,
+    `所持品：${p.belongings}`,
     "",
     "【能力値】",
     ...ABILITIES.map(([code]) => `${code}：${state.abilities[code] + (state.growth.abilities[code] || 0)}（元の値 ${state.abilities[code]} ＋ 成長値 ${state.growth.abilities[code] || 0}）`),
@@ -594,6 +595,7 @@ function buildCocofoliaMemo() {
     `普段の生活：${p.dailyLife}`,
     `話し方：${p.speech}`,
     `一人称：${p.firstPerson}`,
+    `所持品：${p.belongings}`,
     "",
     "【経済】",
     `作成時の職業技能値：${jobSkill}`,
@@ -612,12 +614,14 @@ function buildCocofoliaMemo() {
 }
 
 function makeCocofolia() {
-  // Cocofolia has 15 parameter slots. Profile/economic information goes into memo.
+  // 能力値・SYN・技能・社会値に加えて、所持金もパラメータとして出力する（数値のみ。ココフォリア上で増減できる）。
+  const jobSkill = state.job ? state.skills[state.job] : 0;
   const params = [
     ...ABILITIES.map(([code]) => ({label: code, value: String(state.abilities[code] + (state.growth.abilities[code] || 0))})),
     {label:"SYN", value:String(state.SYN)},
     ...SKILLS.map(([code]) => ({label:code, value:String(state.skills[code] + (state.growth.skills[code] || 0))})),
-    ...SOCIALS.map(([code]) => ({label:code, value:String(state.social[code])}))
+    ...SOCIALS.map(([code]) => ({label:code, value:String(state.social[code])})),
+    {label:"所持金", value:String(moneyValue(jobSkill, state.social.RNK))}
   ];
 
   // 回避値：遠距離攻撃 = DEX × 10、近距離攻撃 = DEX × 5（いずれも上限90%）。
