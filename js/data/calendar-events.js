@@ -467,7 +467,7 @@ const CALENDAR_EVENTS = [
     name: '天翼紋の日',
     type: '文化行事',
     countries: ['フーモラ・スカイピル'],
-    description: 'フーモラ・スカイピルに残る正体不明の「天翼紋」にまつわる行事。都市各地に紋様が掲げられ、その意味について自由に語り合う日。'
+    description: 'フーモラ・スカイピルで正体不明の「天翼紋」が見つかった日を記念する行事。都市各地に紋様が掲げられ、その意味について自由に語り合う日。'
 },
 
 {
@@ -581,16 +581,6 @@ const CALENDAR_EVENTS = [
 },
 
 {
-    id: 'wonhead-rice-bread-day',
-    month: 9,
-    day: 5,
-    name: '米とパンの日',
-    type: '食文化記念日',
-    countries: ['ヲンヘード'],
-    description: '米とパンという二つの代表的な主食を楽しむ日。様々な米料理やパン料理が食卓に並ぶ。'
-},
-
-{
     id: 'wonhead-potato-day',
     month: 9,
     day: 3,
@@ -638,16 +628,6 @@ const CALENDAR_EVENTS = [
     type: '祭り',
     countries: ['ラリアフルス'],
     description: 'リフィネスの森から得られた恵みに感謝する年に一度の祭り。収穫を祝うとともに、地域によっては成人の儀式も行われる。'
-},
-
-{
-    id: 'wonhead-rice-day-autumn',
-    month: 9,
-    day: 8,
-    name: '米の日',
-    type: '食文化記念日',
-    countries: ['ヲンヘード'],
-    description: '米を使った様々な料理を楽しむ日。新しい料理から昔ながらの料理まで、多様な米食文化が紹介される。'
 },
 
 {

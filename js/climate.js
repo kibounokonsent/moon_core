@@ -18,8 +18,8 @@ const CLIMATE_DATA = {
     stability: '比較的安定',
     climateStability: '安定化している',
     fourSeasons: '四季がはっきりしている',
-    averageTemperature: '15.4℃',
-    annualRainfall: '1,600mm程度',
+    averageTemperature: '17.0℃',
+    annualRainfall: '1,360mm程度',
 
     /* 地理 */
     geography:
@@ -181,7 +181,7 @@ months: [
     climateStability: '安定化している',
     fourSeasons: '四季の寒暖差がニポランより大きい',
     averageTemperature: '12.5℃',
-    annualRainfall: '900mm程度',
+    annualRainfall: '810mm程度',
 
     /* 地理 */
     geography:
@@ -262,8 +262,8 @@ months: [
     stability: '不安定（未安定化）',
     climateStability: '安定化されていない',
     fourSeasons: '冬が非常に長く厳しい。夏は短く涼しい',
-    averageTemperature: '-2.5℃',
-    annualRainfall: '550mm程度',
+    averageTemperature: '-0.4℃',
+    annualRainfall: '510mm程度',
 
     /* 地理 */
     geography:
@@ -344,8 +344,8 @@ months: [
     stability: '非常に安定',
     climateStability: '安定化している',
     fourSeasons: '四季は穏やかで寒暖差が小さい',
-    averageTemperature: '10.8℃',
-    annualRainfall: '750mm程度',
+    averageTemperature: '10.3℃',
+    annualRainfall: '700mm程度',
 
     /* 地理 */
     geography:
@@ -424,8 +424,8 @@ months: [
     stability: '安定',
     climateStability: '安定化している',
     fourSeasons: '温暖で過ごしやすい四季',
-    averageTemperature: '15.8℃',
-    annualRainfall: '650mm程度',
+    averageTemperature: '16.5℃',
+    annualRainfall: '600mm程度',
 
     /* 地理 */
     geography:
@@ -504,8 +504,8 @@ months: [
     stability: '安定',
     climateStability: '安定化している（極端な酷暑は抑制）',
     fourSeasons: '昼夜・季節の寒暖差が大きい',
-    averageTemperature: '21.5℃',
-    annualRainfall: '150mm程度',
+    averageTemperature: '22.2℃',
+    annualRainfall: '120mm程度',
 
     /* 地理 */
     geography:
@@ -585,7 +585,7 @@ months: [
     stability: '安定',
     climateStability: '安定化している',
     fourSeasons: '地域による気候差が大きい',
-    averageTemperature: '19.5℃',
+    averageTemperature: '17.7℃',
     annualRainfall: '350mm程度',
 
     /* 地理 */
@@ -663,8 +663,8 @@ months: [
     stability: '完全に管理・安定',
     climateStability: '環境ドームによる完全管理',
     fourSeasons: 'ドーム内の区画ごとに異なる環境が再現されている',
-    averageTemperature: '28.5℃（ドーム外郭基準）',
-    annualRainfall: '80mm程度（ドーム外郭基準）',
+    averageTemperature: '26.7℃（ドーム外郭基準）',
+    annualRainfall: '40mm程度（ドーム外郭基準）',
 
     /* 地理 */
     geography:
@@ -743,7 +743,7 @@ months: [
     climateStability: '安定化している',
     fourSeasons: '北部は寒暖差が大きく、南部は温暖',
     averageTemperature: '11.2℃',
-    annualRainfall: '950mm程度',
+    annualRainfall: '850mm程度',
 
     /* 地理 */
     geography:
@@ -823,7 +823,7 @@ months: [
     stability: '不安定（未安定化・環境変質あり）',
     climateStability: '安定化されていない',
     fourSeasons: '冬が支配的で、夏はごく短い',
-    averageTemperature: '-6.5℃',
+    averageTemperature: '-4.6℃',
     annualRainfall: '400mm程度（霧を含む湿潤現象が多い）',
 
     /* 地理 */
@@ -901,12 +901,12 @@ months: [
 
     /* 基本気候 */
     climateZone: '寒帯',
-    climateType: 'ケッペン気候分類 EF／ET（氷雪気候・ツンドラ気候）',
+    climateType: 'ケッペン気候分類 ET／EF（ツンドラ気候・氷雪気候）',
     stability: '寒さは維持されるが安定',
     climateStability: '安定化している（寒冷環境そのものは維持されている）',
     fourSeasons: '一年の大半が氷雪に覆われる',
-    averageTemperature: '-12.5℃',
-    annualRainfall: '250mm程度（大半が降雪）',
+    averageTemperature: '-6.4℃',
+    annualRainfall: '300mm程度（大半が降雪）',
 
     /* 地理 */
     geography:
@@ -1067,7 +1067,7 @@ months: [
     climateStability: '独自の環境制御下にある',
     fourSeasons: '季節の概念は人工的に設計されている',
     averageTemperature: '18.0℃（内部制御温度）',
-    annualRainfall: '該当なし（人工的な水循環管理）',
+    annualRainfall: '120mm程度（人工的な水循環管理による）',
 
     /* 地理 */
     geography:
@@ -1143,8 +1143,8 @@ months: [
     stability: '極めて安定',
     climateStability: 'ニポランよりさらに安定化されている',
     fourSeasons: '四季は保たれるが、寒暖差・降水変動はニポランより小さい',
-    averageTemperature: '16.0℃',
-    annualRainfall: '1,400mm程度',
+    averageTemperature: '17.4℃',
+    annualRainfall: '1,140mm程度',
 
     /* 地理 */
     geography:

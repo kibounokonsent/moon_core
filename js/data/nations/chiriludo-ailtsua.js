@@ -112,5 +112,5 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['orgaron','larliafrus','hyokyo','noahsark','setsuhyo'],
+  related:['orgaron','larliafrus','hyokyo','noahsark','setsuhyo','yuki-bana','noppokki','kashira-kaba','fuyu-no-mi','tou-bana'],
 });
