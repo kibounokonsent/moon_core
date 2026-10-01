@@ -21,8 +21,14 @@
 <meta name="twitter:image" content="https://kibounokonsent.github.io/moon_core/assets/ogp.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* 読み込み完了前に飾りのSVGが黒く巨大に表示されないための最小CSS */
+svg.orbit,.bg-canvas canvas{visibility:hidden}
+.orbit circle,.boot-ring circle,.hero-rings circle{fill:none}
+</style>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/future.css">
 <link rel="icon" href="./assets/mooncore.svg" type="image/svg+xml">
 </head>
 <body>
@@ -165,6 +171,23 @@
             <circle cx="200" cy="200" r="150"/>
             <circle cx="200" cy="200" r="110"/>
             <circle cx="200" cy="200" r="70"/>
+        </svg>
+
+        <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
+
+        <svg class="orbit" viewBox="0 0 600 600" aria-hidden="true">
+            <circle cx="300" cy="300" r="290"/>
+            <circle class="ticks" cx="300" cy="300" r="262"/>
+            <circle cx="300" cy="300" r="230"/>
+            <g class="spin-a">
+                <circle cx="300" cy="300" r="196"/>
+                <circle class="arc" cx="300" cy="300" r="196"/>
+            </g>
+            <g class="spin-b">
+                <circle cx="300" cy="300" r="150"/>
+                <circle class="sat" cx="450" cy="300" r="4"/>
+            </g>
+            <circle cx="300" cy="300" r="104"/>
         </svg>
 
         <div class="hero-inner fade-seq">
@@ -310,6 +333,8 @@
 <script src="js/data/org/yokubounosu.js"></script>
 <script src="js/data/glossary.js"></script>
 <script src="js/app.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/explore.js"></script>
 
 </body>
 </html>

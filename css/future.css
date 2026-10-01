@@ -1,0 +1,363 @@
+/* =====================================================================
+   MOON CORE ARCHIVE — 未来世界デザイン（第3版）
+   白と黒を地に、青・シアンを細い線で使う。光るのはカーソルを合わせた時だけ。
+   カテゴリー・国家の色は --theme で切り替わる（theme.js）。
+   ===================================================================== */
+
+@property --theme   { syntax:'<color>'; inherits:true; initial-value:#1F6BFF; }
+@property --theme-2 { syntax:'<color>'; inherits:true; initial-value:#22E4FF; }
+
+:root{
+  --theme:#1F6BFF;
+  --theme-2:#22E4FF;
+  transition:--theme .5s ease, --theme-2 .5s ease;
+
+  --an-gray:#8793A5;
+  --font-head:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;
+  --font-body:'IBM Plex Sans JP','Noto Sans JP',sans-serif;
+
+  --radius-sm:3px; --radius-md:5px; --radius-lg:6px;
+  --charge:0;
+}
+
+/* ---------- ライト：白・氷 ---------- */
+html[data-theme="light"]{
+  --bg:#F4F7FB;
+  --bg-soft:#EAF0F7;
+  --surface:#FFFFFF;
+  --surface-alt:#EFF3F9;
+  --border:#D3DCE9;
+  --text-primary:#07101F;
+  --text-secondary:#43536B;
+  --text-tertiary:#74839A;
+  --accent:#07101F;
+  --accent-signal:color-mix(in oklab, var(--theme) 62%, #05101F);
+  --shadow-sm:none;
+  --shadow-md:0 1px 2px rgba(7,16,31,.05);
+  --shadow-lift:0 14px 30px -18px rgba(7,16,31,.30);
+  --glow-strength:.05;
+}
+
+/* ---------- ダーク：黒 ---------- */
+html[data-theme="dark"]{
+  --bg:#04070E;
+  --bg-soft:#080D18;
+  --surface:#0A1120;
+  --surface-alt:#0E182C;
+  --border:#1C2842;
+  --text-primary:#EAF1FF;
+  --text-secondary:#9DAAC4;
+  --text-tertiary:#66748F;
+  --accent:#EAF1FF;
+  --accent-signal:color-mix(in oklab, var(--theme) 55%, white);
+  --shadow-sm:none;
+  --shadow-md:none;
+  --shadow-lift:0 14px 30px -18px rgba(0,0,0,.9);
+  --glow-strength:.10;
+}
+
+html[data-theme="light"] body[class]{ --accent-signal:color-mix(in oklab, var(--theme) 62%, #05101F); }
+html[data-theme="dark"]  body[class]{ --accent-signal:color-mix(in oklab, var(--theme) 55%, white); }
+
+body{font-family:var(--font-body);font-feature-settings:"palt";background:var(--bg);}
+
+/* ---------- 背景：ごく薄い色の滲みだけ。線は置かない ---------- */
+html[data-theme] body .bg-color-layer{
+  opacity:1 !important;
+  background:radial-gradient(1000px 520px at 85% -10%, color-mix(in oklab, var(--theme) calc(var(--glow-strength) * 100%), transparent), transparent 72%) !important;
+}
+.bg-grid,.bg-rings{display:none !important;}
+.bg-icon{color:var(--theme) !important;}
+
+/* ---------- 見出し ---------- */
+.title-block h1,.section-title,.content-card h2,.brand-title,.cat-name,.featured-name{
+  font-family:var(--font-head);font-weight:900;letter-spacing:.01em;
+}
+.title-block h1{font-size:clamp(34px,5.2vw,58px);line-height:1.16;letter-spacing:-.005em;}
+blockquote{font-family:var(--font-body);}
+.info-card-label,.info-card-value,.meta-row,.section-sub,.cat-count,.update-date,
+.update-cat,.cat-badge,.brand-eyebrow,.hero-eyebrow,.side-block-title,footer,
+.sr-cat,.search-input-row .esc{font-family:var(--font-body);font-variant-numeric:tabular-nums;}
+
+/* ---------- ヘッダー ---------- */
+header.site-header{
+  background:color-mix(in oklab, var(--surface) 80%, transparent);
+  backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);
+  border-bottom:1px solid var(--border);
+}
+header.site-header::after{
+  content:'';position:absolute;left:0;bottom:-1px;height:2px;width:100%;
+  background:linear-gradient(90deg,var(--theme),var(--theme-2));
+  transform:scaleX(var(--charge));transform-origin:left;transition:transform .12s linear;
+}
+header.site-header::before{
+  content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:var(--an-gray);opacity:0;
+}
+body.is-reading header.site-header::before{opacity:.3;}
+.brand-eyebrow{letter-spacing:.18em;}
+nav.main-nav a{letter-spacing:.04em;}
+nav.main-nav a::after{height:2px;background:var(--theme);}
+.icon-btn{border-radius:4px;background:transparent;}
+.icon-btn:hover{border-color:var(--theme);color:var(--accent-signal);box-shadow:0 0 14px -4px var(--theme);}
+
+/* ---------- ボタン ---------- */
+.btn{border-radius:3px;padding:13px 24px;letter-spacing:.05em;font-weight:700;}
+.btn-primary,html[data-theme="dark"] .btn-primary{background:var(--theme);color:#fff;box-shadow:none;}
+.btn-primary:hover{box-shadow:0 0 22px -4px var(--theme);}
+.btn-ghost{background:transparent;border-color:var(--border);}
+.btn-ghost:hover{border-color:var(--theme);color:var(--accent-signal);box-shadow:0 0 16px -6px var(--theme);}
+
+/* ---------- ヒーロー：細い軌道線（ヒーロー内だけ） ---------- */
+.hero{padding:calc(var(--header-h) + 64px) 32px 76px;border-bottom:1px solid var(--border);}
+.hero-rings{display:none;}
+.orbit{
+  visibility:visible;
+  position:absolute;top:47%;left:50%;width:min(1100px,150vw);aspect-ratio:1;
+  transform:translate(-50%,-50%);pointer-events:none;color:var(--theme);opacity:.32;
+}
+.orbit circle{fill:none;stroke:currentColor;stroke-width:.6;opacity:.45;}
+.orbit .ticks{stroke-dasharray:1.2 7.6;stroke-width:4;opacity:.5;}
+.orbit .arc{stroke-width:1.4;opacity:1;stroke-dasharray:130 1100;stroke-linecap:round;}
+.orbit .spin-a{transform-origin:300px 300px;animation:orbit-turn 90s linear infinite;}
+.orbit .spin-b{transform-origin:300px 300px;animation:orbit-turn 140s linear infinite reverse;}
+.orbit .sat{fill:var(--theme);stroke:none;opacity:1;}
+@keyframes orbit-turn{to{transform:rotate(360deg);}}
+
+.hero-logo,html[data-theme="dark"] .hero-logo{width:clamp(300px,38vw,440px);filter:none;}
+.hero-eyebrow{color:var(--text-secondary);letter-spacing:.1em;}
+.hero-eyebrow .dot{background:var(--theme);box-shadow:none;}
+.hero-quote{
+  position:relative;border:none !important;background:transparent !important;border-radius:0 !important;
+  box-shadow:none !important;font-family:var(--font-head);font-weight:500;color:var(--text-primary);
+  padding:6px 0 6px 24px;text-align:left;max-width:560px;letter-spacing:.03em;
+}
+.hero-quote::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(var(--an-gray) 0 33%,var(--theme) 33% 66%,var(--theme-2) 66% 100%);
+}
+.hero-desc{color:var(--text-secondary);}
+
+/* ---------- セクション見出し ---------- */
+.section-head .section-title{position:relative;padding-left:16px;}
+.section-head .section-title::before{
+  content:'';position:absolute;left:0;top:.18em;bottom:.18em;width:3px;background:var(--theme);
+}
+.section-sub{padding-left:16px;}
+
+/* ---------- カテゴリーカード：普段は白と細い線、ホバーでカテゴリー色 ---------- */
+.cat-card{
+  position:relative;overflow:hidden;border-radius:var(--radius-md);padding:22px 22px 30px;
+  background:var(--surface);border:1px solid var(--border);box-shadow:none;
+  display:flex;flex-direction:column;
+}
+.cat-card::after{
+  content:'';position:absolute;left:0;bottom:0;height:3px;width:100%;
+  background:
+    linear-gradient(90deg,var(--theme),var(--theme-2)) 0 0 / calc(var(--fill,0) * 100%) 100% no-repeat,
+    color-mix(in oklab, var(--an-gray) 22%, transparent);
+  transition:background .3s ease;
+}
+.cat-card:hover{
+  transform:translateY(-3px);border-color:var(--cat-color);
+  box-shadow:0 0 0 1px var(--cat-color), 0 16px 34px -16px color-mix(in oklab, var(--cat-color) 65%, transparent);
+}
+.cat-card:hover::after{
+  background:
+    linear-gradient(90deg,var(--cat-color),var(--cat-color)) 0 0 / calc(var(--fill,0) * 100%) 100% no-repeat,
+    color-mix(in oklab, var(--an-gray) 22%, transparent);
+}
+.cat-icon{border-radius:3px;background:transparent;border:1px solid var(--border);color:var(--accent-signal);margin-bottom:16px;}
+.cat-card:hover .cat-icon{background:var(--cat-color);border-color:var(--cat-color);color:#04070E;}
+.cat-name{font-size:17px;}
+.cat-peek{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:5px;}
+.cat-peek li{font-size:12.5px;color:var(--text-secondary);line-height:1.5;padding-left:12px;position:relative;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cat-peek li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--text-tertiary);}
+.cat-card:hover .cat-peek li::before{background:var(--cat-color);}
+.cat-count{margin-top:auto;padding-top:14px;}
+
+/* ---------- 読みどころ（カテゴリーページ上部） ---------- */
+.featured{max-width:var(--content-max);margin:0 0 40px;}
+.featured-title{font-family:var(--font-head);font-weight:900;font-size:15px;color:var(--text-secondary);margin-bottom:12px;padding-left:12px;border-left:3px solid var(--theme);}
+.featured-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media (max-width:760px){.featured-row{grid-template-columns:1fr;}}
+.featured-card{
+  display:flex;flex-direction:column;gap:8px;padding:18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-md);min-width:0;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.featured-name{font-size:16px;line-height:1.4;}
+.featured-lede{font-size:12.5px;line-height:1.7;color:var(--text-tertiary);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.featured-card:hover{border-color:var(--theme);transform:translateY(-2px);box-shadow:0 14px 30px -16px color-mix(in oklab, var(--theme) 60%, transparent);}
+
+/* ---------- 国家カード（国家カテゴリーのみ） ---------- */
+.article-card.nation-card{--nc:#1F6BFF;position:relative;padding-left:24px;overflow:hidden;}
+.article-card.nation-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--nc);}
+.article-card.nation-card:hover{border-color:var(--nc);box-shadow:0 0 0 1px var(--nc), 0 14px 30px -16px var(--nc);}
+
+/* ---------- 最近更新・一覧 ---------- */
+.update-row{padding:18px 12px;border-left:2px solid transparent;transition:background .2s ease,border-color .2s ease;}
+.update-row:hover{border-left-color:var(--theme);background:color-mix(in oklab, var(--theme) 6%, transparent);}
+.update-cat{border-radius:2px;}
+.article-card{border-radius:var(--radius-md);position:relative;box-shadow:none;}
+.article-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px -16px color-mix(in oklab, var(--theme) 60%, transparent);border-color:var(--theme);}
+
+/* ---------- 記事ページ ---------- */
+.cat-badge,.nation-page .cat-badge{
+  border-radius:2px;letter-spacing:.08em;font-weight:700;padding:4px 12px;
+  background:transparent;border:1px solid var(--theme);color:var(--accent-signal);
+}
+.title-block{border-bottom:1px solid var(--border);}
+.page-header.nation-page,.body-wrap.nation-page{background:transparent !important;}
+.content-card{
+  border-radius:var(--radius-md);box-shadow:none;border:1px solid var(--border);
+  border-top:2px solid var(--theme);background:var(--surface);
+}
+.content-card h2{border-top:1px solid var(--border);}
+.content-card h2::before{
+  content:'';display:inline-block;width:8px;height:8px;margin-right:12px;
+  background:var(--theme);transform:translateY(-1px) rotate(45deg);
+}
+.content-card h3{padding-left:12px;border-left:3px solid var(--theme);}
+blockquote{border-left-color:var(--theme);border-radius:0;background:var(--surface-alt);}
+blockquote.warn{border-left-color:#E5484D;}
+.info-card{border-radius:0;border:none;border-top:2px solid var(--theme);background:var(--surface-alt);}
+.info-card-value{font-weight:700;color:var(--text-primary);font-size:15.5px;}
+.toc-list{border-left:1px solid var(--border);}
+.toc-list a.active,.nation-page .toc-list a.active{color:var(--accent-signal);border-left-color:var(--theme);}
+.related-chip{border-radius:2px;}
+.related-chip:hover{transform:none;border-color:var(--theme);color:var(--accent-signal);box-shadow:0 0 14px -6px var(--theme);}
+.flag-box{border-radius:3px;box-shadow:none;border:1px solid var(--border);}
+
+.search-panel{border-radius:var(--radius-md);box-shadow:var(--shadow-lift);}
+
+/* ---------- フォーカスと低モーション ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--theme);outline-offset:3px;}
+@media (prefers-reduced-motion:reduce){
+  :root{transition:none;}
+  .orbit .spin-a,.orbit .spin-b{animation:none;}
+  header.site-header::after{transition:none;}
+}
+@media (max-width:640px){
+  .hero{padding-top:calc(var(--header-h) + 44px);}
+  .hero-quote{padding-left:16px;font-size:13.5px;letter-spacing:0;}
+  .orbit{opacity:.25;}
+}
+
+/* ---------- 背景アイコン：内容と重ならないよう右端へ寄せ、広い画面だけ表示 ---------- */
+html body .bg-icon{justify-content:flex-end;padding-right:3vw;}
+html body .bg-icon svg{width:380px;height:380px;opacity:.06;}
+@media (max-width:1280px){html body .bg-icon{display:none;}}
+
+/* =====================================================================
+   探索演出（explore.js）
+   ===================================================================== */
+
+/* ---- ほどよい光：普段は柔らかく、ホバーで少し強く ---- */
+.hero-logo,html[data-theme="dark"] .hero-logo{filter:drop-shadow(0 0 14px color-mix(in oklab, var(--theme) 32%, transparent));}
+.orbit .sat{filter:drop-shadow(0 0 4px var(--theme-2));fill:var(--theme-2);}
+header.site-header::after{box-shadow:0 0 8px color-mix(in oklab, var(--theme-2) 70%, transparent);}
+.btn-primary{box-shadow:0 8px 20px -10px var(--theme);}
+.section-head .section-title::before{box-shadow:0 0 8px color-mix(in oklab, var(--theme) 60%, transparent);}
+.cat-card:hover,.featured-card:hover,.article-card:hover{
+  box-shadow:0 0 0 1px var(--cat-color, var(--theme)), 0 0 22px -4px color-mix(in oklab, var(--cat-color, var(--theme)) 55%, transparent);
+}
+
+/* ---- ヒーロー：粒子とマウス視差 ---- */
+.hero{--mx:0;--my:0;}
+.hero-particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.orbit{transform:translate(calc(-50% + var(--mx) * 18px), calc(-50% + var(--my) * 18px));transition:transform .4s ease-out;}
+.hero-logo{transform:translate(calc(var(--mx) * -6px), calc(var(--my) * -6px));transition:transform .4s ease-out;}
+
+/* ---- ホバーで四隅の照準マーク ---- */
+.cat-card::before,.featured-card::before,.article-card::before{
+  content:'';position:absolute;inset:7px;pointer-events:none;opacity:0;transition:opacity .25s ease, inset .25s ease;
+  --c:var(--cat-color, var(--theme));
+  background:
+    linear-gradient(var(--c),var(--c)) 0 0/12px 1px no-repeat, linear-gradient(var(--c),var(--c)) 0 0/1px 12px no-repeat,
+    linear-gradient(var(--c),var(--c)) 100% 0/12px 1px no-repeat, linear-gradient(var(--c),var(--c)) 100% 0/1px 12px no-repeat,
+    linear-gradient(var(--c),var(--c)) 0 100%/12px 1px no-repeat, linear-gradient(var(--c),var(--c)) 0 100%/1px 12px no-repeat,
+    linear-gradient(var(--c),var(--c)) 100% 100%/12px 1px no-repeat, linear-gradient(var(--c),var(--c)) 100% 100%/1px 12px no-repeat;
+}
+.featured-card{position:relative;}
+.cat-card:hover::before,.featured-card:hover::before,.article-card:hover::before{opacity:.9;inset:5px;}
+.article-card.nation-card::before{inset:0;opacity:1;width:4px;right:auto;background:var(--nc);}
+.article-card.nation-card:hover::before{inset:0;width:4px;}
+
+/* ---- 探索済みの印 ---- */
+.article-card.is-explored::after,.featured-card.is-explored::after{
+  content:'探索済み';position:absolute;top:10px;right:12px;font-size:10.5px;letter-spacing:.06em;
+  color:var(--accent-signal);border:1px solid color-mix(in oklab, var(--theme) 45%, transparent);
+  padding:1px 7px;border-radius:2px;background:var(--surface);
+}
+.update-row.is-explored .update-name::after{content:'探索済み';margin-left:10px;font-size:10.5px;color:var(--accent-signal);border:1px solid color-mix(in oklab, var(--theme) 45%, transparent);padding:1px 6px;border-radius:2px;}
+
+/* ---- HUD：現在地と探索率（広い画面のみ） ---- */
+.hud{
+  position:fixed;right:18px;bottom:16px;z-index:90;display:flex;align-items:center;gap:8px;
+  padding:7px 12px;font-size:11.5px;color:var(--text-secondary);font-variant-numeric:tabular-nums;
+  background:color-mix(in oklab, var(--surface) 86%, transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--border);border-radius:3px;max-width:min(460px,46vw);pointer-events:none;
+}
+.hud-label{color:var(--text-tertiary);}
+.hud-loc{color:var(--text-primary);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.hud-sep{width:1px;height:12px;background:var(--border);flex:none;}
+.hud-rate{color:var(--accent-signal);font-weight:700;flex:none;}
+.hud-bar{width:52px;height:3px;background:color-mix(in oklab, var(--an-gray) 28%, transparent);flex:none;}
+.hud-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--theme),var(--theme-2));transition:width .5s ease;}
+@media (max-width:1100px){.hud{display:none;}}
+
+/* ---- ページ移動のスキャン ---- */
+.scan{
+  position:fixed;left:0;right:0;top:0;height:2px;z-index:500;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--theme-2),transparent);
+  box-shadow:0 0 18px var(--theme-2), 0 -40px 60px 6px color-mix(in oklab, var(--theme) 12%, transparent);
+  animation:scan-down .7s ease-in forwards;
+}
+@keyframes scan-down{from{transform:translateY(0);opacity:1;}to{transform:translateY(100vh);opacity:0;}}
+
+/* ---- 起動シーケンス ---- */
+#boot{
+  position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  background:var(--bg);cursor:pointer;transition:opacity .55s ease, transform .55s ease;
+}
+#boot.out{opacity:0;transform:scale(1.04);pointer-events:none;}
+.boot-ring{width:min(240px,56vw);height:auto;color:var(--theme);overflow:visible;}
+.boot-ring circle{fill:none;stroke:currentColor;stroke-width:.8;stroke-dasharray:600;stroke-dashoffset:600;animation:boot-draw 1.1s ease-out forwards;}
+.boot-ring .b2{animation-delay:.2s;opacity:.7;} .boot-ring .b3{animation-delay:.4s;opacity:.5;}
+.boot-ring .bsat{fill:var(--theme-2);stroke:none;stroke-dasharray:none;stroke-dashoffset:0;animation:none;transform-origin:100px 100px;animation:boot-orbit 1.9s linear infinite;}
+@keyframes boot-draw{to{stroke-dashoffset:0;}}
+@keyframes boot-orbit{to{transform:rotate(360deg);}}
+.boot-text{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.boot-title{font-family:var(--font-head);font-weight:900;font-size:20px;letter-spacing:.14em;color:var(--text-primary);}
+.boot-line{font-size:12.5px;color:var(--text-secondary);letter-spacing:.08em;min-height:1.4em;}
+.boot-bar{width:200px;height:2px;background:color-mix(in oklab, var(--an-gray) 30%, transparent);overflow:hidden;}
+.boot-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--theme),var(--theme-2));transform:scaleX(0);transform-origin:left;animation:boot-fill 1.8s ease-out forwards;}
+@keyframes boot-fill{to{transform:scaleX(1);}}
+.boot-skip{font-size:11px;color:var(--text-tertiary);margin-top:6px;}
+
+@media (prefers-reduced-motion:reduce){
+  .orbit,.hero-logo{transition:none;transform:translate(-50%,-50%);}
+  .hero-logo{transform:none;}
+  .scan,#boot{display:none;}
+}
+
+
+/* 読み込み後に表示（index.html の最小CSSで一旦隠している飾り） */
+svg.orbit,.bg-canvas canvas{visibility:visible;}
+
+/* ---- 背景を流れるデータ ---- */
+.data-stream{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.75;
+  -webkit-mask-image:linear-gradient(90deg,#000 0,transparent 28%,transparent 72%,#000 100%);
+          mask-image:linear-gradient(90deg,#000 0,transparent 28%,transparent 72%,#000 100%);}
+html[data-theme="dark"] .data-stream{opacity:.9;}
+
+/* ---- 資料が組み上がる演出 ---- */
+.asm{animation:asm-in .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i, 0) * 45ms);}
+@keyframes asm-in{
+  from{opacity:0;transform:translateY(8px);clip-path:inset(0 100% 0 0);}
+  60%{opacity:1;}
+  to{opacity:1;transform:none;clip-path:inset(-8px -8px -8px -8px);}
+}
+@media (prefers-reduced-motion:reduce){.asm{animation:none;}.data-stream{display:none;}}

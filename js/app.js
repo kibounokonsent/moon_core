@@ -14,7 +14,8 @@ const ICONS = {
   scale:'<path d="M12 3v18M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
 };
 
-let isAdmin = sessionStorage.getItem('moonCoreAdmin') === 'true';
+let isAdmin = false;
+try { isAdmin = sessionStorage.getItem('moonCoreAdmin') === 'true'; } catch(e){}
 
 function catByKey(key){ return CATEGORIES.find(c => c.key === key); }
 
@@ -104,6 +105,18 @@ function autoRelatedIds(article){
 function articlesInCat(key){ return ARTICLES.filter(a => a.cat === key); }
 function articlesInCollection(name){ return ARTICLES.filter(a => Array.isArray(a.collection) && a.collection.includes(name)); }
 function iconSvg(key, cls){ return `<svg class="${cls||''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[key]||''}</svg>`; }
+
+
+/* ---------------- 読みどころ：記事の厚みが大きい順に代表項目を選ぶ ---------------- */
+function catPeek(c, n){
+  if(!c) return [];
+  if(c.renderMode === 'glossary') return GLOSSARY.slice(0, n).map(g => ({ title: g.term }));
+  return articlesInCat(c.key)
+    .slice()
+    .sort((x, y) => (y.sections ? y.sections.length : 0) - (x.sections ? x.sections.length : 0))
+    .slice(0, n)
+    .map(a => ({ id: a.id, title: a.title, lede: a.lede || '' }));
+}
 
 function navLinkFor(c){
   return `<a href="#/category/${c.key}" style="--nav-color:${c.color};">${c.name}</a>`;
@@ -219,6 +232,8 @@ function renderHome(){
   setBackgroundTheme(null);
 
   document.getElementById('home-hero').style.display = 'block';
+  const _counts = CATEGORIES.map(c => c.renderMode === 'glossary' ? GLOSSARY.length : (c.renderMode === 'timeline' ? TIMELINE.length : articlesInCat(c.key).length));
+  const _max = Math.max(1, ..._counts);
   const grid = CATEGORIES.map(c => {
   const count =
     c.renderMode === 'glossary'
@@ -228,10 +243,11 @@ function renderHome(){
           : articlesInCat(c.key).length);
 
   return `
-    <a class="cat-card theme-${c.key}" href="#/category/${c.key}">
+    <a class="cat-card theme-${c.key}" href="#/category/${c.key}" style="--fill:${(count/_max).toFixed(3)}">
       <div class="cat-icon">${iconSvg(c.icon)}</div>
       <div class="cat-name">${c.name}</div>
       <div class="cat-desc">${c.desc}</div>
+      <ul class="cat-peek">${catPeek(c,3).map(p => `<li>${p.title}</li>`).join('')}</ul>
       <div class="cat-count">${count}項目</div>
     </a>`;
 }).join('');
@@ -346,7 +362,7 @@ function renderCategoryPage(key){
 
             ${arts.map(a=>`
 
-                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
+                <a class="article-card nation-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}" style="--nc:${a.accentColor||'#1F6BFF'}">
 
                     <div class="article-card-title">
                         ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
@@ -671,6 +687,15 @@ function renderCategoryPage(key){
 
     <div class="wrap"
          style="padding-top:8px;padding-bottom:100px;">
+
+      ${(() => {
+        if(c.renderMode === 'glossary') return '';
+        const pk = catPeek(c, 3).filter(p => p.id);
+        if(pk.length < 3) return '';
+        return `<div class="featured"><div class="featured-title">読みどころ</div><div class="featured-row">${
+          pk.map(p => `<a class="featured-card" href="#/article/${p.id}"><span class="featured-name">${p.title}</span><span class="featured-lede">${p.lede}</span></a>`).join('')
+        }</div></div>`;
+      })()}
 
       ${body}
 
@@ -2000,3 +2025,21 @@ function initScrollSpy(){
 renderNav();
 router();
 if(!location.hash) renderHome();
+
+
+/* ---------- 充電バー：読み進めた量を灰→青で表示 ---------- */
+(function(){
+  const root = document.documentElement;
+  function update(){
+    const reading = /^#\/(article|news)\//.test(location.hash);
+    document.body.classList.toggle('is-reading', reading);
+    if(!reading){ root.style.setProperty('--charge', 0); return; }
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const r = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    root.style.setProperty('--charge', r.toFixed(3));
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('hashchange', () => setTimeout(update, 60));
+  window.addEventListener('resize', update);
+  update();
+})();
