@@ -318,7 +318,8 @@ header.site-header::after{box-shadow:0 0 8px color-mix(in oklab, var(--theme-2) 
 @keyframes scan-down{from{transform:translateY(0);opacity:1;}to{transform:translateY(100vh);opacity:0;}}
 
 /* ---- 起動シーケンス ---- */
-#boot{
+#boot{display:none;}
+html.booting #boot,#boot.show{
   position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
   background:var(--bg);cursor:pointer;transition:opacity .55s ease, transform .55s ease;
 }
@@ -361,3 +362,6 @@ html[data-theme="dark"] .data-stream{opacity:.9;}
   to{opacity:1;transform:none;clip-path:inset(-8px -8px -8px -8px);}
 }
 @media (prefers-reduced-motion:reduce){.asm{animation:none;}.data-stream{display:none;}}
+
+/* 入場演出は assemble（explore.js）に一本化：以前のフェードと二重にならないようにする */
+.hero-inner.fade-seq > *:not(.asm),#app .title-block.fade-seq > *:not(.asm){animation:none;opacity:1;}

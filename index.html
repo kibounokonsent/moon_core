@@ -22,16 +22,48 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+/* 起動ゲート：準備が整うまで中身を見せない（描画前に実行） */
+(function(){
+  var r = document.documentElement, saved = null, done = false, reduce = false;
+  try { saved = localStorage.getItem('moonCoreTheme'); } catch(e){}
+  r.setAttribute('data-theme', saved || 'light');
+  try { done = sessionStorage.getItem('moonCoreBooted') === '1'; } catch(e){}
+  try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+  r.classList.add('gate');
+  if(!done && !reduce) r.classList.add('booting');
+  setTimeout(function(){ r.classList.remove('gate'); r.classList.remove('booting'); }, 6000);
+})();
+</script>
 <style>
-/* 読み込み完了前に飾りのSVGが黒く巨大に表示されないための最小CSS */
+/* 読み込み完了前に飾りが見えないようにする最小CSS（本体は style.css / future.css） */
 svg.orbit,.bg-canvas canvas{visibility:hidden}
 .orbit circle,.boot-ring circle,.hero-rings circle{fill:none}
+#boot{display:none}
+html.booting #boot{display:flex;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;background:#F4F7FB}
+html[data-theme="dark"].booting #boot{background:#04070E}
+html.booting body>*:not(#boot){visibility:hidden}
+html.gate #app,html.gate #home-hero{visibility:hidden}
 </style>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/future.css">
 <link rel="icon" href="./assets/mooncore.svg" type="image/svg+xml">
 </head>
 <body>
+
+<div id="boot" aria-hidden="true">
+    <svg class="boot-ring" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="92"/><circle class="b2" cx="100" cy="100" r="70"/><circle class="b3" cx="100" cy="100" r="48"/>
+        <circle class="bsat" cx="100" cy="8" r="3"/>
+    </svg>
+    <div class="boot-text">
+        <div class="boot-title">MOON CORE ARCHIVE</div>
+        <div class="boot-line" id="boot-line">未来世界に接続しています</div>
+        <div class="boot-bar"><i></i></div>
+        <div class="boot-skip">クリックでスキップ</div>
+    </div>
+</div>
+
 
 <!-- 背景 -->
 <div class="bg-canvas" aria-hidden="true">
