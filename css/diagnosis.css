@@ -1,0 +1,72 @@
+/* 企業適性診断 */
+/* 固定ヘッダー（--header-h）に食い込まないよう、上余白にヘッダー高さを加える */
+.diag-page{max-width:var(--content-max,760px);margin:0 auto;padding:calc(var(--header-h) + 44px) 20px 80px;}
+.diag-page__header{margin-bottom:28px;}
+.diag-page__eyebrow{display:block;font-size:12px;letter-spacing:.18em;color:var(--accent-signal);font-weight:700;margin-bottom:6px;}
+.diag-page__header h1{margin:0 0 10px;font-size:30px;color:var(--text-primary);}
+.diag-page__desc{margin:0;color:var(--text-secondary);line-height:1.8;}
+
+.diag-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md,16px);padding:24px;margin-bottom:18px;box-shadow:var(--shadow-sm);}
+.diag-card--main{border-color:var(--accent-signal);box-shadow:var(--shadow-md);}
+.diag-card--links{display:flex;flex-wrap:wrap;gap:10px;}
+
+.diag-progress{height:6px;background:var(--bg-soft);border-radius:999px;overflow:hidden;margin-bottom:14px;}
+.diag-progress__bar{height:100%;background:var(--accent-signal);transition:width .3s;}
+.diag-step{font-size:12px;letter-spacing:.1em;color:var(--text-tertiary);margin-bottom:8px;}
+.diag-question{margin:0 0 18px;font-size:20px;line-height:1.6;color:var(--text-primary);}
+.diag-options{display:grid;gap:10px;}
+.diag-option{text-align:left;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-sm,10px);background:var(--surface-alt);color:var(--text-primary);font:inherit;line-height:1.6;cursor:pointer;transition:border-color .15s,transform .15s,background .15s;}
+.diag-option:hover,.diag-option:focus-visible{border-color:var(--accent-signal);background:var(--surface);transform:translateY(-1px);outline:none;}
+.diag-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+
+.diag-result__eyebrow{font-size:12px;letter-spacing:.18em;color:var(--accent-signal);font-weight:700;}
+.diag-result__label{margin-top:8px;color:var(--text-secondary);font-size:14px;}
+.diag-result__company{margin:4px 0 10px;font-size:28px;color:var(--text-primary);}
+.diag-badge{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--accent);color:var(--surface);font-size:13px;font-weight:700;letter-spacing:.04em;}
+html[data-theme="dark"] .diag-badge{color:var(--bg);}
+.diag-result__type{margin:0 0 20px;}
+.diag-result__lede,.diag-result__relation{line-height:1.9;color:var(--text-primary);margin:0 0 14px;}
+.diag-result__relation{color:var(--text-secondary);margin-bottom:0;}
+.diag-card--main .diag-actions{margin-top:24px;}
+
+.diag-h{margin:0 0 12px;font-size:17px;color:var(--text-primary);}
+.diag-h__sub{margin-left:8px;font-size:13px;font-weight:600;color:var(--accent-signal);}
+.diag-card p{line-height:1.8;color:var(--text-primary);}
+.diag-note{font-size:14px;color:var(--text-secondary)!important;}
+.diag-note a{color:var(--accent-signal);}
+.diag-empty{color:var(--text-secondary)!important;}
+
+.diag-bars{display:grid;gap:8px;margin:14px 0;}
+.diag-bar{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center;}
+.diag-bar__label{font-size:13px;font-weight:700;color:var(--text-secondary);}
+.diag-bar__label span{margin-left:6px;font-weight:400;color:var(--text-tertiary);}
+.diag-bar__track{height:10px;background:var(--bg-soft);border-radius:999px;overflow:hidden;}
+.diag-bar__fill{height:100%;background:var(--silver-mist);border-radius:999px;}
+.diag-bar.is-top .diag-bar__label{color:var(--text-primary);}
+.diag-bar.is-top .diag-bar__fill{background:var(--accent-signal);}
+
+.diag-company-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.diag-company-list a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-sm,10px);background:var(--surface-alt);color:var(--text-primary);text-decoration:none;transition:border-color .15s;}
+.diag-company-list a:hover{border-color:var(--accent-signal);}
+.diag-company-list__type{flex:none;font-size:12px;color:var(--text-tertiary);}
+.diag-disclaimer{font-size:13px;color:var(--text-tertiary);line-height:1.8;}
+
+@media (max-width:560px){
+  .diag-page{padding-top:calc(var(--header-h) + 34px);}
+  .diag-bar{grid-template-columns:90px 1fr;}
+  .diag-result__company{font-size:24px;}
+  .diag-company-list a{flex-direction:column;align-items:flex-start;gap:2px;}
+}
+
+/* 組織・企業カテゴリの入口ボタン（他カテゴリの entry ボタンと同じ：カテゴリーカラーで塗る） */
+.org-entry{margin-bottom:50px;}
+.org-entry .btn{
+  background:#94A3B8;
+  color:#14213D;
+  border-color:#94A3B8;
+  font-weight:700;
+}
+.org-entry .btn:hover{
+  background:#7C8CA3;
+  border-color:#7C8CA3;
+}

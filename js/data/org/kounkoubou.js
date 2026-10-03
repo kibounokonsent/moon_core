@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'機械による大量生産が一般化した現代でも、「職人にしか作れない品質」を追求し続けている。'},
         {t:'info', items:[
           {label:'本部', value:'ユーレツェア'},
+          {label:'企業タイプ', value:'【ENG】技術企業'},
           {label:'分野', value:'金属加工・特殊素材製造'},
           {label:'得意技術', value:'高精度鍛造・特殊合金加工'},
           {label:'関係国家', value:'ユーレツェア'}

@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'極寒地域で培われた独自技術は世界中から高い評価を受けている。'},
         {t:'info', items:[
           {label:'本社', value:'チリルド'},
+          {label:'企業タイプ', value:'【ENG】技術企業'},
           {label:'主要技術', value:'雪氷工学・低温環境技術'},
           {label:'分野', value:'工業・建築・エネルギー'},
           {label:'関係国家', value:'チリルド'}

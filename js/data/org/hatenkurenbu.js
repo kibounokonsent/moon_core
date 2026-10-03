@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'一般には学術団体として知られているが、未知の遺跡へ自ら赴く探査組織としての一面も持つ。'},
         {t:'info', items:[
           {label:'本部', value:'キューマ'},
+          {label:'企業タイプ', value:'【RSH】研究企業'},
           {label:'分野', value:'古代文明研究・考古学・遺跡調査'},
           {label:'設立目的', value:'失われた文明の保存と解明'},
           {label:'関係国家', value:'キューマ'}

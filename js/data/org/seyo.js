@@ -16,6 +16,7 @@ ARTICLES.push({
         {t:'p', text:'ベルネアが誇る生命工学技術を、実際の医療現場へ届ける役割を担っている。'},
         {t:'info', items:[
           {label:'本社', value:'ベルネア'},
+          {label:'企業タイプ', value:'【MED】医療企業'},
           {label:'主要技術', value:'医療機器・生命維持技術'},
           {label:'分野', value:'医療・製造'},
           {label:'関係国家', value:'ベルネア'}

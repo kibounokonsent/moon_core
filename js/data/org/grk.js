@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'世界中から富豪や観光客が集まり、「一夜で人生が変わる街」とも呼ばれている。'},
         {t:'info', items:[
           {label:'本社', value:'サンルド'},
+          {label:'企業タイプ', value:'【COM】商業企業'},
           {label:'正式名称', value:'Gold Rush Kasino'},
           {label:'分野', value:'統合型リゾート・娯楽'},
           {label:'関係国家', value:'サンルド'}

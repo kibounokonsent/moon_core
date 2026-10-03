@@ -13,6 +13,7 @@ ARTICLES.push({
       {t:'p', text:'SVHは軍事組織ではなく、研究・行政・防衛を兼ね備えた総合危機対応機関である。市民からは変異体災害から人々を守る存在として認識されており、通称「対察（たいさつ）」と呼ばれている。'},
       {t:'info', items:[
         {label:'正式名称', value:'世界変異体対策総本部'},
+        {label:'企業タイプ', value:'【WAR】軍事（上位：戦闘・防衛企業）'},
         {label:'略称', value:'SVH（Special Variant Headquarters）'},
         {label:'俗称', value:'対察（たいさつ）'},
         {label:'所在地', value:'ニポラン'},

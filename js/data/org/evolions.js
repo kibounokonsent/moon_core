@@ -14,6 +14,7 @@ ARTICLES.push({
         {t:'p', text:'変異体の生態や能力、発生要因などを科学的に解析し、人類社会への被害軽減を目的とした研究を続けている。'},
         {t:'info', items:[
           {label:'本部', value:'ニポラン'},
+          {label:'企業タイプ', value:'【RSH】研究企業'},
           {label:'分野', value:'変異体研究'},
           {label:'主な研究', value:'変異体の生態・能力・発生要因'},
           {label:'協力機関', value:'SVH・対オルドレンジ機関'}

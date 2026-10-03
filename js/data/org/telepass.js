@@ -16,6 +16,7 @@ ARTICLES.push({
         {t:'p', text:'単なる交通企業ではなく、世界中の都市や国家を接続する基盤企業として扱われている。'},
         {t:'info', items:[
           {label:'本社', value:'ヒューバート'},
+          {label:'企業タイプ', value:'【SYS】文明（上位：技術企業）'},
           {label:'主要技術', value:'テレポート技術'},
           {label:'分野', value:'交通・物流・空間工学'},
           {label:'関係国家', value:'ヒューバート'}

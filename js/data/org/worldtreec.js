@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'個人向けサービスよりも社会インフラ向けのシステム開発を得意とし、その技術は行政機関や企業、研究施設など幅広い分野で利用されている。'},
         {t:'info', items:[
           {label:'本社', value:'セルトシティ'},
+          {label:'企業タイプ', value:'【NEX】情報（上位：情報企業）'},
           {label:'分野', value:'ソフトウェア・情報インフラ'},
           {label:'代表システム', value:'World Tree'},
           {label:'関係国家', value:'セルトシティ'}

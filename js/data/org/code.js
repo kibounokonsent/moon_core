@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'人々が普段意識することなく利用している情報社会の基盤を維持することが、CODEの役割である。'},
                 {t:'info', items:[
           {label:'本社', value:'ニポラン'},
+          {label:'企業タイプ', value:'【NEX】情報（上位：情報企業）'},
           {label:'主要技術', value:'通信・ネットワーク・情報処理'},
           {label:'分野', value:'情報技術・都市管理'},
           {label:'関係国家', value:'ニポラン'}

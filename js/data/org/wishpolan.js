@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'予約は数年待ちになることも珍しくなく、世界中の美食家が憧れる存在となっている。'},
         {t:'info', items:[
           {label:'本店', value:'ヲンヘード'},
+          {label:'企業タイプ', value:'【COM】商業企業'},
           {label:'分野', value:'高級レストラン'},
           {label:'評価', value:'世界最高峰の五つ星レストラン'},
           {label:'関係国家', value:'ヲンヘード'}

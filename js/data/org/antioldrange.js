@@ -14,6 +14,7 @@ ARTICLES.push({
         {t:'p', text:'出現情報の収集から行動分析、対策技術の開発までを担当し、世界でも数少ない専門組織として知られている。'},
         {t:'info', items:[
           {label:'本部', value:'ニポラン'},
+          {label:'企業タイプ', value:'【RSH】研究企業'},
           {label:'分野', value:'オルドレンジ研究・監視'},
           {label:'設立目的', value:'未知存在への対策確立'},
           {label:'協力機関', value:'SVH・エヴォリオンズ研究所'}

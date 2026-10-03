@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'かつてはタスメニオ最大級の食品ブランドだったが、食文化の変化により現在は大きな転換期を迎えている。'},
                 {t:'info', items:[
           {label:'本社', value:'タスメニオ'},
+          {label:'企業タイプ', value:'【COM】商業企業'},
           {label:'主要技術', value:'食品加工・保存技術'},
           {label:'分野', value:'食品製造・販売'},
           {label:'関係国家', value:'タスメニオ'}

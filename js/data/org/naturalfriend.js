@@ -16,6 +16,7 @@ ARTICLES.push({
         {t:'p', text:'衛星観測やAI解析、環境ドローンなどを用いて森林や野生生物の状態を常時監視し、自然保護活動を支援している。'},
         {t:'info', items:[
           {label:'本社', value:'ラリアフルス'},
+          {label:'企業タイプ', value:'【ENG】技術企業'},
           {label:'主要技術', value:'環境AI・ドローン・衛星観測'},
           {label:'分野', value:'環境保護・自然科学'},
           {label:'関係国家', value:'ラリアフルス'}

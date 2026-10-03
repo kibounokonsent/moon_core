@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'しかし、その全貌を知る者はほとんど存在せず、研究施設の所在地や組織構造も公表されていない。'},
         {t:'info', items:[
           {label:'本部', value:'ヒューバート'},
+          {label:'企業タイプ', value:'【ARC】知恵（上位：研究企業）'},
           {label:'分野', value:'総合科学研究'},
           {label:'研究対象', value:'あらゆる科学分野'},
           {label:'関係国家', value:'ヒューバート'}

@@ -15,6 +15,7 @@ ARTICLES.push({
         {t:'p', text:'「誰もがAIと共に暮らす社会」を理念に掲げ、未来世界の日常生活を支える存在として広く利用されている。'},
         {t:'info', items:[
           {label:'本社', value:'セルトシティ'},
+          {label:'企業タイプ', value:'【ENG】技術企業'},
           {label:'分野', value:'AI・生活支援サービス'},
           {label:'主力製品', value:'AI秘書・生活支援システム'},
           {label:'関係国家', value:'セルトシティ'}

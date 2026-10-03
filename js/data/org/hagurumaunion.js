@@ -16,6 +16,7 @@ ARTICLES.push({
         {t:'p', text:'蒸気機関や歯車機構を中心とした設計思想は、キューマ文化の象徴として受け継がれている。'},
         {t:'info', items:[
           {label:'本部', value:'キューマ'},
+          {label:'企業タイプ', value:'【ENG】技術企業'},
           {label:'主要技術', value:'歯車機構・蒸気機関・機械設計'},
           {label:'分野', value:'機械工学・職人技術'},
           {label:'関係国家', value:'キューマ'}

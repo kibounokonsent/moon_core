@@ -623,8 +623,15 @@ function renderCategoryPage(key){
 
     }else{
 
+      const orgActions = key === 'org' ? `
+        <div class="category-actions org-entry">
+          <a class="btn btn-ghost" href="#/diagnosis">企業適性診断</a>
+        </div>` : '';
+
       body = `
         ${note}
+
+        ${orgActions}
 
         <div class="article-grid">
 
@@ -1850,6 +1857,12 @@ function router(){
 if(hash === '#/articles'){
 
   renderAllArticles();
+
+} else if(hash === '#/diagnosis'){
+
+  setBackgroundTheme(null);
+  document.getElementById('home-hero').style.display = 'none';
+  renderDiagnosisPage(document.getElementById('app'));
 
 } else if(hash.startsWith('#/calendar/')){
 
