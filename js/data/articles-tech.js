@@ -271,6 +271,7 @@ ARTICLES.push({
     {id:'sec-android', title:'AI搭載端末・アンドロイド', blocks:[
       {t:'p', text:'AIはソフトウェアとして利用されるだけでなく、ロボットやアンドロイドにも搭載されている。受付、警備、物流、介護、災害救助など、人間の補助を目的として様々な分野で運用されている。'},
       {t:'p', text:'高度な会話能力や状況判断能力を備える個体も存在するが、社会的には「人間を支援する存在」として位置付けられており、人間に代わる存在ではない。'},
+      {t:'p', text:'AIを搭載するロボットは、アンドロイドに限らず世界アンドロイド法の対象であり、製造や安全、利用について共通の基準で管理されている。'},
     ]},
 
     {id:'sec-emotion-mimic', title:'感情模倣AI', blocks:[
@@ -314,7 +315,7 @@ ARTICLES.push({
       {t:'p', text:'AI技術の発展は、単に機械が人間らしくなることだけを意味しない。「人間らしさとは何なのか」という問いそのものを、人間社会へ突きつけることにもなっている。'},
     ]},
   ],
-  related:['android','humanoid','automation','future-work','galtanda-law','world-android-law','world-ethics-revision'],
+  related:['android','humanoid','automation','future-work','galtanda-law','android-law','world-ethics-revision'],
 });
 
 ARTICLES.push({
@@ -381,7 +382,7 @@ ARTICLES.push({
       {t:'p', text:'アンドロイドは人間と共に生活する存在として受け入れられている。一方で、感情保有AIの権利や人格を巡る議論は現在も続いており、「AIは人格を持つ存在と言えるのか」という倫理問題は未来社会における重要な課題の一つとなっている。'},
     ]},
   ],
-  related:['ai-tech','automation','future-work'],
+  related:['ai-tech','automation','future-work','android-law'],
 });
 
 ARTICLES.push({
@@ -431,7 +432,7 @@ ARTICLES.push({
 });
 
 ARTICLES.push({
-  id:'robot', cat:'tech', title:'ロボット', updated:'2026.10.06',
+  id:'robot', cat:'tech', title:'ロボット', updated:'2026.10.07',
 
   lede:'人間の作業を補助・代替するために作られた機械。用途に応じて様々な形態が存在し、社会の幅広い分野で利用されている。',
 
@@ -494,13 +495,18 @@ ARTICLES.push({
       {t:'p', text:'そのため、ロボットの中でも特に人間に近い存在がアンドロイドにあたる。'},
     ]},
 
+    {id:'sec-law', title:'法律上の扱い', blocks:[
+      {t:'p', text:'AIを搭載して自律的に動作するロボットは、アンドロイドと同じく世界アンドロイド法の対象となる。名称にアンドロイドとあるのは制定の発端によるもので、人型かどうかにかかわらず、製造管理、安全基準、利用規制が共通して適用される。'},
+      {t:'p', text:'AIを搭載しない単純な機械は対象外であり、通常の機械の安全基準で扱われる。'},
+    ]},
+
     {id:'sec-society', title:'社会との関わり', blocks:[
       {t:'p', text:'ロボットは未来社会において珍しい技術ではなく、様々な場所で人間の生活や仕事を支えている。'},
       {t:'p', text:'ただし、ロボットが普及していることと、人型ロボットが街中にあふれていることは同じではない。実際には用途に合わせた様々な形のロボットが存在し、人間と機械がそれぞれ得意なことを分担している。'},
     ]},
   ],
 
-  related:['humanoid','android','automation'],
+  related:['humanoid','android','automation','android-law'],
 });
 
 ARTICLES.push({
