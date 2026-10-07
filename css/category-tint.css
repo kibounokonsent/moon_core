@@ -1,0 +1,23 @@
+/* =====================================================================
+   カテゴリーごとの背景色
+   カテゴリー・記事のページでは、ページの地にカテゴリー色（国家記事は国の色）を
+   ごく薄く混ぜる。色は theme.js が設定する --theme から取るので、移動すると滑らかに変わる。
+   ===================================================================== */
+html[data-theme="light"] body[class*="theme-"]{
+  --bg:color-mix(in oklab, var(--theme) 6%, #F4F7FB);
+  --bg-soft:color-mix(in oklab, var(--theme) 9%, #EAF0F7);
+  --surface-alt:color-mix(in oklab, var(--theme) 5%, #EFF3F9);
+}
+html[data-theme="dark"] body[class*="theme-"]{
+  --bg:color-mix(in oklab, var(--theme) 7%, #04070E);
+  --bg-soft:color-mix(in oklab, var(--theme) 9%, #080D18);
+  --surface-alt:color-mix(in oklab, var(--theme) 6%, #0E182C);
+}
+body{ transition:background-color .6s ease; }
+
+/* ページ下側にも、うっすら色の滲みを置いて「その場所にいる」感じを出す */
+html[data-theme] body[class*="theme-"] .bg-color-layer{
+  background:
+    radial-gradient(1000px 520px at 85% -10%, color-mix(in oklab, var(--theme) calc(var(--glow-strength) * 100%), transparent), transparent 72%),
+    radial-gradient(900px 600px at 0% 110%, color-mix(in oklab, var(--theme) calc(var(--glow-strength) * 70%), transparent), transparent 70%) !important;
+}

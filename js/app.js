@@ -175,7 +175,46 @@ function renderNav(){
     `;
 
   document.getElementById('main-nav').innerHTML = nav;
+
+  // スマホ・タブレット用：ヘッダー下段に全カテゴリーを横スクロールで並べる
+  let mnav = document.getElementById('mobile-nav');
+  if(!mnav){
+    mnav = document.createElement('nav');
+    mnav.id = 'mobile-nav';
+    mnav.className = 'mobile-nav';
+    mnav.setAttribute('aria-label', 'カテゴリー');
+    document.querySelector('header.site-header').appendChild(mnav);
+  }
+  mnav.innerHTML =
+    main.concat(others).map(k => {
+      const c = catByKey(k);
+      return `<a href="#/category/${c.key}" data-key="${c.key}" style="--nav-color:${c.color};">${c.name}</a>`;
+    }).join('') +
+    `<a href="#/world-map" data-key="world-map">世界地図</a>` +
+    `<a href="#/articles" data-key="articles">全記事一覧</a>`;
+  syncMobileNav();
 }
+
+// いま見ているカテゴリーをスマホのカテゴリーバーで強調し、見える位置まで送る
+function syncMobileNav(){
+  const mnav = document.getElementById('mobile-nav');
+  if(!mnav) return;
+  const h = location.hash;
+  let key = null, m;
+  if((m = h.match(/^#\/category\/([^/?#]+)/))) key = m[1];
+  else if((m = h.match(/^#\/article\/([^/?#]+)/))){ const a = articleById(m[1]); key = a ? a.cat : null; }
+  else if(h === '#/world-map') key = 'world-map';
+  else if(h === '#/articles') key = 'articles';
+  mnav.querySelectorAll('a').forEach(a => {
+    const on = a.dataset.key === key;
+    a.classList.toggle('is-active', on);
+    if(on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    if(on && mnav.scrollWidth > mnav.clientWidth){
+      mnav.scrollTo({ left:a.offsetLeft - (mnav.clientWidth - a.offsetWidth) / 2, behavior:'smooth' });
+    }
+  });
+}
+window.addEventListener('hashchange', () => setTimeout(syncMobileNav, 0));
 function toggleNavDropdown(event){
   event.stopPropagation();
 
@@ -1015,7 +1054,7 @@ function renderWorldMap(){
         <h1>世界地図</h1>
 
         <p class="lede">
-          未来世界における各国家の位置関係を確認できます。
+          未来世界における各国家の位置関係を確認できます。国をタップすると、その国の資料を開けます。
         </p>
 
       </div>
@@ -1024,34 +1063,16 @@ function renderWorldMap(){
 
     <div class="wrap world-map-wrap">
 
-      <div class="world-map-card">
-
-        <img
-          src="assets/world-map.svg"
-          alt="未来世界 世界地図"
-          class="world-map-image"
-        >
-
-      </div>
-
-      <div class="world-map-note">
-
-        <div class="world-map-note-title">
-          WORLD MAP
-        </div>
-
-        <p>
-          地図上の国家名や地域については、
-          各国家の資料ページから詳しく確認できます。
-        </p>
-
-      </div>
+      <div class="world-map-card" id="world-map-root"></div>
 
       ${climateHtml}
 
     </div>
 
   `;
+
+  mountWorldMap(document.getElementById("world-map-root"));
+
 
 }
 

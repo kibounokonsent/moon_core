@@ -1,0 +1,325 @@
+/* =====================================================================
+   世界地図（インタラクティブ版）
+   白・黒の地に細い線。国は淡い色面で、触れた国だけが発光する。
+   ===================================================================== */
+
+.world-map-card{
+  --sea:#EAF1F9;
+  --sea-line:color-mix(in oklab, var(--theme, #1F6BFF) 22%, #C9D6E6);
+  --sea-ink:#7C8CA6;
+  --land-mix:34%;
+  --land-hover:58%;
+  --land-ink:#07101F;
+  padding:0 !important;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+html[data-theme="dark"] .world-map-card{
+  --sea:#050B18;
+  --sea-line:color-mix(in oklab, var(--theme, #1F6BFF) 35%, #16223A);
+  --sea-ink:#5A6A88;
+  --land-mix:30%;
+  --land-hover:55%;
+  --land-ink:#FFFFFF;
+}
+
+.wm-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  min-height:420px;
+}
+
+/* ---------- 地図 ---------- */
+.wm-stage{
+  position:relative;
+  background:var(--sea);
+  border-right:1px solid var(--border);
+  min-width:0;
+}
+.wm-scroll{ overflow:hidden; }
+.wm-svg{
+  display:block;
+  width:100%;
+  height:auto;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.wm-sea{ fill:var(--sea); }
+.wm-dot{ fill:var(--sea-line); opacity:.9; }
+.wm-grid line{ stroke:var(--sea-line); stroke-width:.35; stroke-dasharray:1.2 2.2; }
+.wm-frame{ fill:none; stroke:var(--sea-line); stroke-width:.8; }
+.wm-ticks text,
+.wm-stamp text,
+.wm-scale text,
+.wm-compass text{
+  font-family:'JetBrains Mono',monospace;
+  fill:var(--sea-ink);
+  font-size:4.2px;
+  letter-spacing:.12em;
+  text-anchor:middle;
+}
+.wm-stamp text{ text-anchor:start; font-size:3.8px; }
+.wm-scale path{ stroke:var(--sea-ink); stroke-width:.5; fill:none; }
+.wm-scale text{ font-size:3.4px; }
+.wm-compass circle{ fill:none; stroke:var(--sea-ink); stroke-width:.45; }
+.wm-compass path{ fill:var(--sea-ink); opacity:.55; }
+.wm-compass .wm-compass-n{ fill:var(--accent-signal); opacity:1; }
+.wm-wrap-hint path{ fill:none; stroke:var(--sea-ink); stroke-width:.6; }
+
+/* ---------- 国 ---------- */
+.wm-nation{
+  cursor:pointer;
+  outline:none;
+  transition:opacity .35s ease;
+}
+.wm-nation > path{
+  fill:color-mix(in oklab, var(--nc) var(--land-mix), var(--sea));
+  stroke:color-mix(in oklab, var(--nc) 80%, var(--land-ink) 20%);
+  stroke-width:.9;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+  transition:fill .25s ease, stroke-width .25s ease;
+}
+html[data-theme="dark"] .wm-nation > path{
+  stroke:color-mix(in oklab, var(--nc) 85%, white 15%);
+}
+.wm-nation:hover > path,
+.wm-nation:focus-visible > path{
+  fill:color-mix(in oklab, var(--nc) var(--land-hover), var(--sea));
+  stroke-width:1.6;
+}
+.wm-nation:focus-visible{ filter:url(#wm-glow); }
+.wm-nation.is-selected > path{
+  fill:color-mix(in oklab, var(--nc) 78%, var(--sea));
+  stroke:var(--land-ink);
+  stroke-width:2;
+}
+html[data-theme="dark"] .wm-nation.is-selected{ filter:url(#wm-glow); }
+.wm-svg.has-selection .wm-nation:not(.is-selected){ --land-mix:13%; }
+.wm-svg.has-selection .wm-nation:not(.is-selected) > path{
+  stroke:color-mix(in oklab, var(--nc) 45%, var(--sea));
+}
+.wm-svg.has-selection .wm-nation:not(.is-selected):hover{ --land-hover:40%; }
+
+/* フーモラ：空に浮かぶ回転都市 */
+.wm-nation.is-sky > path{ stroke-dasharray:3 2; }
+.wm-glyph path{
+  fill:color-mix(in oklab, var(--nc) 70%, var(--land-ink) 30%);
+  opacity:.55;
+  pointer-events:none;
+}
+.wm-orbit{
+  fill:none;
+  stroke:color-mix(in oklab, var(--nc) 70%, var(--sea));
+  stroke-width:.5;
+  stroke-dasharray:2 3;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:wm-spin 40s linear infinite;
+  pointer-events:none;
+}
+@keyframes wm-spin{ to{ transform:rotate(360deg); } }
+
+/* ---------- 国名 ---------- */
+.wm-label{
+  font-family:var(--font-head, 'Zen Kaku Gothic New', sans-serif);
+  font-weight:700;
+  font-size:7.4px;
+  letter-spacing:.06em;
+  fill:var(--text-primary);
+  stroke:var(--sea);
+  stroke-width:2.2px;
+  stroke-linejoin:round;
+  paint-order:stroke;
+  pointer-events:none;
+  transition:opacity .35s ease, fill .2s ease;
+}
+.wm-label.is-small{ font-size:6px; }
+.wm-svg.has-selection .wm-label:not(.is-selected){ opacity:.45; }
+.wm-label.is-hover,
+.wm-label.is-selected{ opacity:1 !important; fill:var(--land-ink); }
+
+
+/* ---------- ツールチップ ---------- */
+.wm-tip{
+  position:absolute;
+  left:0; top:0;
+  transform:translate(14px, -50%);
+  padding:5px 10px 5px 9px;
+  border-left:3px solid var(--nc, var(--theme));
+  background:var(--surface);
+  border-radius:3px;
+  box-shadow:0 6px 18px -8px rgba(0,0,0,.35);
+  font-size:12px;
+  font-weight:700;
+  color:var(--text-primary);
+  white-space:nowrap;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.wm-tip.is-on{ opacity:1; }
+.wm-swipe{ display:none; }
+
+/* ---------- パネル ---------- */
+.wm-panel{
+  --nc:var(--theme);
+  position:relative;
+  padding:22px 22px 24px;
+  background:var(--surface);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:0;
+}
+.wm-panel::before{
+  content:"";
+  position:absolute; left:0; top:0; right:0;
+  height:3px;
+  background:var(--nc);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s ease;
+}
+.wm-panel.is-open::before{ transform:scaleX(1); }
+.wm-panel-head{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  position:relative;
+}
+.wm-panel.is-open .wm-panel-head{ flex-direction:row; align-items:center; justify-content:space-between; }
+.wm-panel-kicker{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--accent-signal);
+}
+.wm-panel-kicker b{ font-weight:500; color:var(--text-tertiary); letter-spacing:.06em; }
+.wm-panel-hint{ font-size:13px; line-height:1.85; color:var(--text-secondary); }
+.wm-close{
+  width:30px; height:30px;
+  border:1px solid var(--border);
+  background:transparent;
+  border-radius:3px;
+  color:var(--text-secondary);
+  font-size:16px;
+  line-height:1;
+  cursor:pointer;
+}
+.wm-close:hover{ color:var(--text-primary); border-color:var(--text-tertiary); }
+
+.wm-chips{ display:flex; flex-wrap:wrap; gap:6px; }
+.wm-chip{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:6px 10px;
+  border:1px solid var(--border);
+  background:var(--surface-alt);
+  border-radius:3px;
+  font:inherit;
+  font-size:12.5px;
+  color:var(--text-primary);
+  cursor:pointer;
+  transition:border-color .2s ease, background .2s ease;
+}
+.wm-chip i{
+  width:8px; height:8px; border-radius:1px;
+  background:var(--nc);
+  flex:none;
+}
+.wm-chip:hover{ border-color:var(--nc); background:color-mix(in oklab, var(--nc) 12%, var(--surface)); }
+.wm-chip.is-explored::after{
+  content:"✓";
+  font-size:10px;
+  color:var(--text-tertiary);
+}
+
+.wm-nation-title{ display:flex; align-items:center; gap:12px; }
+.wm-flag{
+  width:54px; height:auto;
+  border:1px solid var(--border);
+  border-radius:2px;
+  flex:none;
+  background:var(--surface-alt);
+}
+.wm-nation-title h2{
+  font-family:var(--font-head, sans-serif);
+  font-size:22px;
+  font-weight:900;
+  line-height:1.3;
+  color:var(--text-primary);
+}
+.wm-lede{ font-size:13.5px; line-height:1.85; color:var(--text-secondary); }
+.wm-facts{
+  display:grid;
+  border-top:1px solid var(--border);
+}
+.wm-facts > div{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:10px;
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.wm-facts dt{
+  font-family:'JetBrains Mono','Noto Sans JP',monospace;
+  font-size:11.5px;
+  color:var(--text-tertiary);
+  padding-top:1px;
+}
+.wm-facts dd{ color:var(--text-primary); line-height:1.6; }
+.wm-open{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:2px;
+  padding:12px 16px;
+  background:var(--nc);
+  color:#fff;
+  border-radius:3px;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  transition:filter .2s ease, transform .2s ease;
+}
+.wm-open:hover{ filter:brightness(1.08); }
+.wm-open span{ transition:transform .2s ease; }
+.wm-open:hover span{ transform:translateX(4px); }
+/* 明るい国色（フーモラ・サンルドなど）は文字を暗く */
+.wm-panel.is-light .wm-open{ color:#07101F; }
+.wm-panel-foot{ font-size:11.5px; color:var(--text-tertiary); }
+
+/* ---------- タブレット・スマホ ---------- */
+@media (max-width:900px){
+  .wm-layout{ grid-template-columns:1fr; min-height:0; }
+  .wm-stage{ border-right:0; border-bottom:1px solid var(--border); }
+  .wm-panel{ padding:18px 16px 20px; }
+}
+@media (max-width:640px){
+  .wm-scroll{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .wm-scroll::-webkit-scrollbar{ display:none; }
+  .wm-svg{ width:640px; max-width:none; }
+  .wm-swipe{
+    display:block;
+    position:absolute; left:50%; bottom:8px;
+    transform:translateX(-50%);
+    padding:3px 10px;
+    background:color-mix(in oklab, var(--surface) 85%, transparent);
+    border:1px solid var(--border);
+    border-radius:20px;
+    font-size:10.5px;
+    color:var(--text-tertiary);
+    white-space:nowrap;
+    pointer-events:none;
+    transition:opacity .4s ease;
+  }
+  .wm-swipe.is-gone{ opacity:0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .wm-orbit{ animation:none; }
+}
