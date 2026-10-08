@@ -18,7 +18,7 @@ const CLIMATE_DATA = {
     stability: '比較的安定',
     climateStability: '安定化している',
     fourSeasons: '四季がはっきりしている',
-    averageTemperature: '17.0℃',
+    averageTemperature: '15.6℃',
     annualRainfall: '1,360mm程度',
 
     /* 地理 */
@@ -60,18 +60,18 @@ const CLIMATE_DATA = {
 
     /* 月別気候 */
     months: [
-      { month: 1,  temp: 5.2,  rain: 48 },
-      { month: 2,  temp: 6.1,  rain: 60 },
-      { month: 3,  temp: 10.4, rain: 107 },
-      { month: 4,  temp: 16.1, rain: 128 },
-      { month: 5,  temp: 21.3, rain: 158 },
-      { month: 6,  temp: 24.7, rain: 193 },
-      { month: 7,  temp: 28.2, rain: 165 },
-      { month: 8,  temp: 29.6, rain: 145 },
-      { month: 9,  temp: 25.1, rain: 118 },
-      { month: 10, temp: 18.3, rain: 98 },
-      { month: 11, temp: 12.5, rain: 88 },
-      { month: 12, temp: 6.8,  rain: 52 }
+      { month: 1,  temp: 5.2,   rain: 48 },
+      { month: 2,  temp: 5.6,   rain: 60 },
+      { month: 3,  temp: 8.5,   rain: 107 },
+      { month: 4,  temp: 14.1,  rain: 128 },
+      { month: 5,  temp: 18.6,  rain: 158 },
+      { month: 6,  temp: 21.7,  rain: 193 },
+      { month: 7,  temp: 25.2,  rain: 165 },
+      { month: 8,  temp: 27.1,  rain: 145 },
+      { month: 9,  temp: 23.2,  rain: 118 },
+      { month: 10, temp: 17.6,  rain: 98 },
+      { month: 11, temp: 12.6,  rain: 88 },
+      { month: 12, temp: 7.9,   rain: 52 }
     ],
 
     /* 気候の特徴 */
@@ -178,7 +178,7 @@ months: [
 
     /* 基本気候 */
     climateZone: '温帯',
-    climateType: 'ケッペン気候分類 Cfa寄り（大陸性の影響を受けた温暖湿潤気候）',
+    climateType: 'ケッペン気候分類 Dwa〜Dfa（冬の寒さが厳しい大陸性の温暖湿潤気候）',
     stability: '安定',
     climateStability: '安定化している',
     fourSeasons: '四季の寒暖差がニポランより大きい',
@@ -260,12 +260,12 @@ months: [
 
     /* 基本気候 */
     climateZone: '冷帯',
-    climateType: 'ケッペン気候分類 Dfc（亜寒帯湿潤気候、冷涼な夏と極寒の冬）',
+    climateType: 'ケッペン気候分類 Dfc〜Dfd（亜寒帯湿潤気候。北部は冬が −40℃ を下回る極寒冬型）',
     stability: '不安定（未安定化）',
     climateStability: '安定化されていない',
     fourSeasons: '冬が非常に長く厳しい。夏は短く涼しい',
-    averageTemperature: '-0.4℃',
-    annualRainfall: '510mm程度',
+    averageTemperature: '-8.7℃',
+    annualRainfall: '320mm程度（大陸内部のため乾燥。少ない雪が溶けずに積もり続ける）',
 
     /* 地理 */
     geography:
@@ -306,24 +306,25 @@ months: [
 
     /* 月別気候 */
     months: [
-      { month: 1,  temp: -22.0, rain: 25 },
-      { month: 2,  temp: -19.0, rain: 20 },
-      { month: 3,  temp: -10.0, rain: 22 },
-      { month: 4,  temp: 1.0,   rain: 30 },
-      { month: 5,  temp: 9.0,   rain: 45 },
-      { month: 6,  temp: 16.0,  rain: 65 },
-      { month: 7,  temp: 19.0,  rain: 75 },
-      { month: 8,  temp: 17.0,  rain: 68 },
-      { month: 9,  temp: 10.0,  rain: 50 },
-      { month: 10, temp: 1.0,   rain: 40 },
-      { month: 11, temp: -9.0,  rain: 35 },
-      { month: 12, temp: -18.0, rain: 30 }
+      { month: 1,  temp: -34.0, rain: 15 },
+      { month: 2,  temp: -30.0, rain: 12 },
+      { month: 3,  temp: -20.0, rain: 10 },
+      { month: 4,  temp: -7.0,  rain: 14 },
+      { month: 5,  temp: 4.0,   rain: 25 },
+      { month: 6,  temp: 13.0,  rain: 42 },
+      { month: 7,  temp: 17.0,  rain: 50 },
+      { month: 8,  temp: 13.0,  rain: 46 },
+      { month: 9,  temp: 4.0,   rain: 34 },
+      { month: 10, temp: -8.0,  rain: 30 },
+      { month: 11, temp: -24.0, rain: 24 },
+      { month: 12, temp: -32.0, rain: 18 }
     ],
 
     /* 気候の特徴 */
     characteristics: [
       'フーモラによる気候安定化を受けていない数少ない国の一つで、本来の極寒気候がそのまま残っている',
-      '冬季の平均気温は氷点下を大きく下回り、猛吹雪による被害も珍しくない',
+      '冬の月平均気温は −30℃ を下回り、北部では −50℃ 近くまで冷え込む日もある。猛吹雪による被害も珍しくない',
+      '一年のうち半年以上は平均気温が氷点下で、川も大地も凍りついたまま過ぎていく',
       '夏は短く涼しいが、この時期に集中して農業や活動が行われる',
       '電力を子陽炉ではなく輸入に頼っていることも、気候安定化を受けていない国情と関係しているとされる'
     ]
@@ -582,13 +583,13 @@ months: [
     name: 'サンルド',
 
     /* 基本気候 */
-    climateZone: '乾燥帯',
-    climateType: 'ケッペン気候分類 BSh／BWh（ステップ・砂漠気候、地域差が大きい）',
+    climateZone: '乾燥帯（熱帯のステップ）',
+    climateType: 'ケッペン気候分類 BSh（熱帯のステップ気候。内陸の一部は BWh 砂漠気候）',
     stability: '安定',
     climateStability: '安定化している',
-    fourSeasons: '地域による気候差が大きい',
-    averageTemperature: '17.7℃',
-    annualRainfall: '350mm程度',
+    fourSeasons: '一年中暑く、四季よりも雨季（12〜3月）と乾季（6〜9月）の差がはっきりしている',
+    averageTemperature: '26.1℃',
+    annualRainfall: '400mm程度（大半が雨季に集中）',
 
     /* 地理 */
     geography:
@@ -614,6 +615,7 @@ months: [
     climateFactors: [
       '大陸内部の乾燥',
       '沿岸部の海洋性の緩和効果',
+      '南半球低緯度の強い日射と、季節で入れ替わる乾いた風と湿った風',
       '地域差の大きい降水パターン'
     ],
 
@@ -625,23 +627,24 @@ months: [
 
     /* 月別気候 */
     months: [
-      { month: 1,  temp: 24.0, rain: 35 },
-      { month: 2,  temp: 24.0, rain: 30 },
-      { month: 3,  temp: 22.0, rain: 28 },
-      { month: 4,  temp: 18.0, rain: 25 },
-      { month: 5,  temp: 14.0, rain: 30 },
-      { month: 6,  temp: 11.0, rain: 35 },
-      { month: 7,  temp: 10.0, rain: 32 },
-      { month: 8,  temp: 12.0, rain: 28 },
-      { month: 9,  temp: 15.0, rain: 25 },
-      { month: 10, temp: 18.0, rain: 28 },
-      { month: 11, temp: 21.0, rain: 30 },
-      { month: 12, temp: 23.0, rain: 32 }
+      { month: 1,  temp: 28.0,  rain: 70 },
+      { month: 2,  temp: 27.8,  rain: 75 },
+      { month: 3,  temp: 27.3,  rain: 80 },
+      { month: 4,  temp: 26.3,  rain: 45 },
+      { month: 5,  temp: 24.8,  rain: 15 },
+      { month: 6,  temp: 23.4,  rain: 6 },
+      { month: 7,  temp: 22.8,  rain: 4 },
+      { month: 8,  temp: 23.8,  rain: 3 },
+      { month: 9,  temp: 25.6,  rain: 6 },
+      { month: 10, temp: 27.2,  rain: 15 },
+      { month: 11, temp: 28.0,  rain: 30 },
+      { month: 12, temp: 28.2,  rain: 55 }
     ],
 
     /* 気候の特徴 */
     characteristics: [
       '内陸と沿岸で気候が大きく異なり、国全体として一様な気候ではない',
+      '南半球に位置するため、北の国々とは雨季・乾季の時期が逆になる。乾季には数か月ほとんど雨が降らない',
       '金融都市が集中する沿岸部は比較的穏やかで過ごしやすい',
       '内陸部は乾燥した土地が広がり、資源開発などに利用されている',
       '象徴とされる黄金や白金の輝きは、乾燥した強い日射とも関係が深いとされる'
@@ -903,7 +906,7 @@ months: [
 
     /* 基本気候 */
     climateZone: '寒帯',
-    climateType: 'ケッペン気候分類 ET／EF（ツンドラ気候・氷雪気候）',
+    climateType: 'ケッペン気候分類 ET（ツンドラ気候。内陸の高地や氷原は EF 氷雪気候）',
     stability: '寒さは維持されるが安定',
     climateStability: '安定化している（寒冷環境そのものは維持されている）',
     fourSeasons: '一年の大半が氷雪に覆われる',
@@ -982,13 +985,13 @@ months: [
     name: 'タスメニオ',
 
     /* 基本気候 */
-    climateZone: '海洋性気候',
-    climateType: 'ケッペン気候分類 Cfb寄り（海洋の影響を強く受けた温暖湿潤気候）',
+    climateZone: '熱帯（海洋性）',
+    climateType: 'ケッペン気候分類 Af（熱帯雨林気候。海洋の影響で気温の変化が極めて小さい）',
     stability: '非常に安定',
     climateStability: '安定化している',
-    fourSeasons: '年間を通して寒暖差が小さく穏やか',
-    averageTemperature: '21.5℃',
-    annualRainfall: '1,800mm程度',
+    fourSeasons: '一年中暑く、季節による寒暖差がほとんどない',
+    averageTemperature: '27.6℃',
+    annualRainfall: '2,600mm程度',
 
     /* 地理 */
     geography:
@@ -1006,10 +1009,10 @@ months: [
 
     /* 自然環境 */
     environment:
-      '海洋の影響を強く受けた温暖な環境で、サンゴ礁や豊かな海洋生態系が広がる。',
+      '赤道に近い暖かな海に囲まれた熱帯の環境で、サンゴ礁や豊かな海洋生態系が広がる。',
 
     vegetation:
-      '亜熱帯性の島嶼植生、マングローブ',
+      '熱帯性の島嶼植生、マングローブ',
 
     /* 気候要因 */
     climateFactors: [
@@ -1028,24 +1031,24 @@ months: [
 
     /* 月別気候 */
     months: [
-      { month: 1,  temp: 20.0, rain: 160 },
-      { month: 2,  temp: 20.5, rain: 150 },
-      { month: 3,  temp: 21.0, rain: 155 },
-      { month: 4,  temp: 21.5, rain: 145 },
-      { month: 5,  temp: 22.0, rain: 140 },
-      { month: 6,  temp: 22.5, rain: 130 },
-      { month: 7,  temp: 23.0, rain: 125 },
-      { month: 8,  temp: 23.0, rain: 135 },
-      { month: 9,  temp: 22.5, rain: 145 },
-      { month: 10, temp: 22.0, rain: 155 },
-      { month: 11, temp: 21.0, rain: 165 },
-      { month: 12, temp: 20.5, rain: 170 }
+      { month: 1,  temp: 27.2,  rain: 230 },
+      { month: 2,  temp: 27.2,  rain: 190 },
+      { month: 3,  temp: 27.5,  rain: 200 },
+      { month: 4,  temp: 27.8,  rain: 180 },
+      { month: 5,  temp: 28.0,  rain: 240 },
+      { month: 6,  temp: 27.8,  rain: 250 },
+      { month: 7,  temp: 27.6,  rain: 220 },
+      { month: 8,  temp: 27.6,  rain: 210 },
+      { month: 9,  temp: 27.7,  rain: 200 },
+      { month: 10, temp: 27.8,  rain: 230 },
+      { month: 11, temp: 27.7,  rain: 240 },
+      { month: 12, temp: 27.4,  rain: 250 }
     ],
 
     /* 気候の特徴 */
     characteristics: [
       '海洋の影響により年間を通して気温の変動が非常に小さい',
-      '降水量は多いが、年間を通してほぼ均等に分布している',
+      '降水量は多いが、年間を通してほぼ均等に分布している。午後に短いスコールが降ることが多い',
       'サンゴ礁を中心とした豊かな海洋生態系が国の重要な資源となっている',
       'フーモラによる安定化で熱帯低気圧の被害は最小限に抑えられている'
     ]
@@ -1140,17 +1143,17 @@ months: [
     name: 'セルトシティ',
 
     /* 基本気候 */
-    climateZone: '温帯',
-    climateType: 'ケッペン気候分類 Cfa（ニポランと同系統だが、より安定化された都市気候）',
+    climateZone: '亜熱帯',
+    climateType: 'ケッペン気候分類 Cfa（ニポラン南方の亜熱帯湿潤気候。より安定化された都市気候）',
     stability: '極めて安定',
     climateStability: 'ニポランよりさらに安定化されている',
-    fourSeasons: '四季は保たれるが、寒暖差・降水変動はニポランより小さい',
-    averageTemperature: '17.4℃',
-    annualRainfall: '1,140mm程度',
+    fourSeasons: '冬も温暖で、寒暖差・降水変動はニポランより小さい',
+    averageTemperature: '22.6℃',
+    annualRainfall: '1,600mm程度',
 
     /* 地理 */
     geography:
-      'ニポラン周辺に位置する高度に都市化された地域で、計画的に整備された都市構造を持つ。',
+      'ニポランの南方に位置する高度に都市化された地域で、計画的に整備された都市構造を持つ。',
 
     terrain: [
       '都市化平野',
@@ -1183,23 +1186,24 @@ months: [
 
     /* 月別気候 */
     months: [
-      { month: 1,  temp: 6.5,  rain: 42 },
-      { month: 2,  temp: 7.3,  rain: 50 },
-      { month: 3,  temp: 11.2, rain: 90 },
-      { month: 4,  temp: 16.5, rain: 105 },
-      { month: 5,  temp: 21.5, rain: 130 },
-      { month: 6,  temp: 24.5, rain: 160 },
-      { month: 7,  temp: 27.5, rain: 140 },
-      { month: 8,  temp: 28.5, rain: 125 },
-      { month: 9,  temp: 25.0, rain: 100 },
-      { month: 10, temp: 19.0, rain: 80 },
-      { month: 11, temp: 13.5, rain: 70 },
-      { month: 12, temp: 8.2,  rain: 45 }
+      { month: 1,  temp: 17.0,  rain: 85 },
+      { month: 2,  temp: 17.2,  rain: 90 },
+      { month: 3,  temp: 18.8,  rain: 120 },
+      { month: 4,  temp: 21.4,  rain: 135 },
+      { month: 5,  temp: 23.8,  rain: 190 },
+      { month: 6,  temp: 26.2,  rain: 200 },
+      { month: 7,  temp: 27.8,  rain: 140 },
+      { month: 8,  temp: 27.7,  rain: 190 },
+      { month: 9,  temp: 26.8,  rain: 150 },
+      { month: 10, temp: 24.4,  rain: 110 },
+      { month: 11, temp: 21.6,  rain: 95 },
+      { month: 12, temp: 18.6,  rain: 85 }
     ],
 
     /* 気候の特徴 */
     characteristics: [
-      'ニポランと同系統の気候だが、都市構造とフーモラの高度な管理によりさらに安定化されている',
+      'ニポランと同系統の気候だが、より南に位置するため冬も温暖で、月平均気温が15℃を下回ることはない',
+      '都市構造とフーモラの高度な管理により、さらに安定化されている',
       '台風や豪雨の影響もニポランより小さく抑えられている',
       '高度に計画された都市緑地が、気候の緩和と景観の両方に貢献している'
     ]
@@ -1285,9 +1289,12 @@ function renderClimateChart(countryId){
   const chartWidth = right - left;
   const chartHeight = bottom - top;
 
-  const minTemp = -20;
+  // 通常は -20〜40℃。極寒の国（ガルヒューラなど）は下限を10℃刻みで広げ、
+  // 降水量の目盛り（50mm刻み）も同じ段数に合わせて伸ばす
+  const coldest = Math.min(...climate.months.map(m => m.temp));
+  const minTemp = Math.min(-20, Math.floor(coldest / 10) * 10);
   const maxTemp = 40;
-  const maxRain = 300;
+  const maxRain = (maxTemp - minTemp) / 10 * 50;
 
   const monthWidth = chartWidth / 12;
 

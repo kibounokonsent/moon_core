@@ -689,6 +689,7 @@ function tdLS(W, H, L, ph, seed){
   };
   // 建物の列の下を、画面の下まで街並みで埋める（街が浮いて見えないように）
   const ground = (base, color, t) => {
+    if(base >= H + 10) return '';   // 窓の外（下端より下）の地面は描かない
     let g = `<rect x="-30" y="${(base - .5).toFixed(1)}" width="${W + 60}" height="${(H - base + 14).toFixed(1)}" fill="${grad(depth(tdMix(color, '#000', .28), t), depth(tdMix(color, '#000', .4), Math.min(1, t + .1)))}"/>`;
     // 低い屋根の連なりで、ただの帯に見えないようにする
     for(let x = -20; x < W + 20;){ const w = 10 + r() * 18, h = 3 + r() * 7; g += `<rect x="${x.toFixed(1)}" y="${(base + 2 + r() * 6).toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="${depth(tdMix(color, '#000', .18), t)}" opacity=".7"/>`; x += w + 4 + r() * 10; }

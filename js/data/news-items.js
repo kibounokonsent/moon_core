@@ -95,14 +95,3 @@ NEWS_ITEMS.push({
   relatedNationIds: ['niporan'],
   relatedHistoryIds: []
 });
-
-NEWS_ITEMS.push({
-  id: 'news-008',
-  title: 'ヲンヘードでホットドッグの暴発',
-  updated: '2026.10.08',
-  category: 'nation',
-    text: 'ヲンヘードで、ホットドッグの暴発が発生し、多くの観光客が影響を受けた。現在、事故の原因は調査中であり、影響を受けた地域の復旧作業が進められている。政府からは、味の刺激のために爆発物を使用することは避けるよう呼びかけられている。',
-    relatedArticleIds: ['wonhead'],
-  relatedNationIds: ['wonhead'],
-  relatedHistoryIds: []
-});
