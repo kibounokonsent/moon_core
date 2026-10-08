@@ -1540,7 +1540,7 @@ function tdRoomSvg(nation, now, wx, ph, info){
   out.push(tdLampGlow(st, lampOn, L));
   out.push(tdLamp(st, lampOn, lit, dark, L));
   out.push(tdDeskProps(st, id, lit, dark, accent, roomL));
-  out.push(tdTerminal(st, info, lit, roomL));
+  out.push(tdTerminal(st, info, lit, roomL, id, accent));
 
   /* ---------- 床・窓辺 ---------- */
   out.push(tdFloorProps(st, id, lit, dark, accent, roomL, ph.h, G));
@@ -1841,7 +1841,16 @@ function tdLamp(st, on, lit, dark, L){
 }
 
 /* ---------- 机の端末 ---------- */
-function tdTerminal(st, info, lit, L){
+/* 机の端末の画面：国ごとに白地／黒地を切り替える（色は各国の accentColor） */
+const TD_SCREEN_THEME = {
+  'belnea':'light', 'hubert':'light', 'larliafrus':'light', 'niporan':'light', 'orgaron':'light',
+  'sertcity':'light', 'tasumenio':'light', 'wonhead':'light', 'yuretsuea':'light',
+  'chiriludo-ailtsua':'dark', 'fumora-skypill':'dark', 'garhyura':'dark', 'kyuma':'dark',
+  'maimok':'dark', 'sanrudo':'dark'
+};
+function tdLumi(c){ const [r, g, b] = tdHex(c); return (.299 * r + .587 * g + .114 * b) / 255; }
+
+function tdTerminal(st, info, lit, L, id, accent){
   const body = tdMix('#1d2433', '#2c3546', L);
   const headline = info.news[0] ? info.news[0].title : '新しいニュースはありません';
   let screen;
@@ -1851,9 +1860,17 @@ function tdTerminal(st, info, lit, L){
     const r = tdRand('noise');
     let lines = '';
     for(let i = 0; i < 14; i++) lines += `<rect x="${(700 + r() * 140).toFixed(0)}" y="${(364 + r() * 62).toFixed(0)}" width="${(10 + r() * 40).toFixed(0)}" height="2" fill="#ffb3d9" opacity="${(.2 + r() * .5).toFixed(2)}"/>`;
-    screen = `<rect x="700" y="362" width="170" height="66" rx="2" fill="#2a1a26"/>${lines}<text x="708" y="376" class="rm-t rm-t-mono" fill="#ffb3d9">MOON CORE ・ 受信不安定</text><g clip-path="url(#rm-screen)"><text x="868" y="402" class="rm-t rm-t-ticker" fill="#f3d7e5" opacity=".75">${headline}</text></g>`;
+    screen = `<rect x="700" y="362" width="170" height="66" rx="2" fill="#2a1a26"/>${lines}<text x="708" y="376" class="rm-t rm-t-mono" fill="#ffb3d9">WORLD NEWS ・ 受信不安定</text><g clip-path="url(#rm-screen)"><text x="868" y="402" class="rm-t rm-t-ticker" fill="#f3d7e5" opacity=".75">${headline}</text></g>`;
   } else {
-    screen = `<rect x="700" y="362" width="170" height="66" rx="2" fill="${tdMix('#0e1a2e', '#1b2b45', L)}"/><text x="708" y="376" class="rm-t rm-t-mono" fill="#4FDAE0">MOON CORE ・ NEWS</text><g clip-path="url(#rm-screen)"><text x="868" y="398" class="rm-t rm-t-ticker" fill="#e7ecf3">${headline}　　${info.news[1] ? info.news[1].title : ''}</text></g><rect x="708" y="410" width="${info.news.length ? 110 : 60}" height="3" rx="1.5" fill="#4FDAE0" opacity=".45"/><rect x="708" y="417" width="74" height="3" rx="1.5" fill="#9aa7bc" opacity=".35"/>`;
+    const light = (TD_SCREEN_THEME[id] || 'dark') === 'light';
+    let ac = accent || '#1F6BFF';
+    if(!light && tdLumi(ac) < .35) ac = tdMix(ac, '#ffffff', .45);   // 黒地で暗すぎる色は持ち上げる
+    if(light && tdLumi(ac) > .7) ac = tdMix(ac, '#000000', .45);     // 白地で明るすぎる色は沈める
+    const bg = light ? tdMix('#cfd6e0', '#f6f8fb', .55 + .45 * L) : tdMix('#07090d', '#10151d', L);
+    const fg = light ? '#1b2330' : '#e7ecf3';
+    const headFg = tdLumi(ac) > .55 ? '#10151d' : '#ffffff';
+    const sub = light ? '#6b7686' : '#9aa7bc';
+    screen = `<rect x="700" y="362" width="170" height="66" rx="2" fill="${bg}"/><rect x="700" y="362" width="170" height="14" rx="2" fill="${ac}"/><text x="708" y="372" class="rm-t rm-t-mono" fill="${headFg}">WORLD NEWS</text><g clip-path="url(#rm-screen)"><text x="868" y="398" class="rm-t rm-t-ticker" fill="${fg}">${headline}　　${info.news[1] ? info.news[1].title : ''}</text></g><rect x="708" y="410" width="${info.news.length ? 110 : 60}" height="3" rx="1.5" fill="${ac}" opacity=".8"/><rect x="708" y="417" width="74" height="3" rx="1.5" fill="${sub}" opacity=".45"/>`;
   }
   return `<g transform="translate(52 0)"><ellipse cx="785" cy="452" rx="70" ry="4" fill="#000" opacity=".18"/><g class="rm-hot" data-target="rm-card-news" tabindex="0" role="button" aria-label="端末：${st.terminal === 'offline' ? '外部ネットワークなし' : headline}"><rect x="692" y="354" width="186" height="82" rx="5" fill="${body}"/>${screen}<rect x="692" y="354" width="186" height="5" rx="2" fill="#ffffff" opacity=".06"/><rect x="775" y="436" width="20" height="16" fill="${body}"/><rect class="rm-hot-ring" x="692" y="354" width="186" height="82" rx="5"/></g></g>`;
 }

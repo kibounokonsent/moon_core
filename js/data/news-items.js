@@ -20,78 +20,276 @@
 const NEWS_ITEMS = [];
 
 NEWS_ITEMS.push({
-  id: 'news-001',
-  title: 'セルトシティ、SNET中継設備の更新を発表',
-  updated: '2026.09.17',
-  category: 'tech',
-  text: 'セルトシティは、通信基盤SNETの中継設備を順次更新すると発表した。既存の利用者への影響はほとんどなく、通信の安定性向上が見込まれるという。',
-  relatedArticleIds: ['snet'],
-  relatedNationIds: ['sertcity'],
-  relatedHistoryIds: []
-});
-
-NEWS_ITEMS.push({
-  id: 'news-002',
-  title: 'キューマで新たな天翼紋の出土報告',
-  updated: '2026.09.10',
+  id: 'news-008',
+  title: 'ヲンヘード　ホットドッグの暴発',
+  updated: '2026.10.06',
   category: 'nation',
-  text: 'キューマの発掘チームが、天翼紋とみられる新たな刻印を発見したと報告した。詳細な分析はこれから行われる予定。',
-  relatedArticleIds: [],
-  relatedNationIds: ['kyuma'],
+  text: 'ヲンヘード市内の飲食店で、調理中のホットドッグが予想外の勢いで破裂する騒ぎがあった。けが人はなく、店側は原因を調査している。',
+  relatedArticleIds: ['wonhead'],
+  relatedNationIds: ['wonhead'],
   relatedHistoryIds: []
 });
 
 NEWS_ITEMS.push({
-  id: 'news-003',
-  title: 'フーモラ各地で未知の「天翼紋」を確認',
-  updated: '2026.09.17',
-  category: 'science',
-  text: 'フーモラ・スカイピル各地で、未知の紋様「天翼紋」の確認例が相次いでいる。建築物の表面や空路構造物、空間投影など様々な場所で観測されているが、現在もその意味や起源、目的は明らかになっていない。',
+  id: 'news-009',
+  title: 'ヒューバート　猫の日宣言286日目',
+  updated: '2026.10.04',
+  category: 'nation',
+  text: 'ヒューバートで続いている「猫の日宣言」が286日目を迎えた。開始以降、毎日猫に関する話題が発信されており、現在も宣言終了の予定は発表されていない。',
+  relatedArticleIds: ['hubert'],
+  relatedNationIds: ['hubert'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-010',
+  title: '永久凍土から新種の細菌が発見される',
+  updated: '2026.10.02',
+  category: 'tech',
+  text: '極寒地域の永久凍土を調査していた研究チームが、これまで確認されていなかった細菌を発見した。現在は性質や生態への影響について詳しい分析が進められている。',
+  relatedArticleIds: [],
+  relatedNationIds: [],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-011',
+  title: 'タスメニオ　海鳴りが三日連続',
+  updated: '2026.10.01',
+  category: 'nation',
+  text: 'タスメニオ周辺の海域で、通常とは異なる海鳴りが三日連続で観測されている。現在のところ大きな被害は確認されておらず、原因について調査が行われている。',
+  relatedArticleIds: ['tasumenio'],
+  relatedNationIds: ['tasumenio'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-012',
+  title: 'ベルネア　環境ドームで新たな生態系調査を開始',
+  updated: '2026.09.29',
+  category: 'tech',
+  text: 'ベルネアの環境ドームの一部で、新たな生態系調査が始まった。複数の生物種が共存する環境を長期的に観察し、生命の相互関係について研究する。',
+  relatedArticleIds: ['belnea'],
+  relatedNationIds: ['belnea'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-013',
+  title: 'チリルド・アイルツア　雪が止まった地域で調査続く',
+  updated: '2026.09.27',
+  category: 'tech',
+  text: 'チリルド・アイルツアで発生した降雪停止を受け、各地で気象観測が続けられている。長年続いてきた降雪環境の変化について、専門家による調査が進められている。',
+  relatedArticleIds: ['chiriludo-ailtsua'],
+  relatedNationIds: ['chiriludo-ailtsua'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-014',
+  title: 'フーモラ・スカイピル　空中都市の気象観測を強化',
+  updated: '2026.09.25',
+  category: 'tech',
+  text: 'フーモラ・スカイピルでは、各地の気象変化に対応するため観測体制の強化が行われている。世界規模の気象安定システムへの影響についても確認が進められている。',
   relatedArticleIds: ['fumora-skypill'],
   relatedNationIds: ['fumora-skypill'],
   relatedHistoryIds: []
 });
 
 NEWS_ITEMS.push({
-  id: 'news-004',
-  title: 'チリルド・アイルツアで雪が停止、原因は不明',
-  updated: '2026.09.17',
-  category: 'nation',
-  text: 'チリルド・アイルツアで、建国以来続いていた雪が突如として止まる異常事態が発生している。現在のところ原因は明らかになっていない。大規模な混乱には至っていないものの、長く続いてきた白景の変化を受け、国民の間では不安が広がっている。',
-  relatedArticleIds: [],
-  relatedNationIds: ['chiriludo-ailtsua'],
+  id: 'news-016',
+  title: 'キューマ　古代遺物の復元作業が進む',
+  updated: '2026.09.22',
+  category: 'tech',
+  text: 'キューマの研究施設で、発掘された古代遺物の復元作業が進められている。保存だけでなく、当時の状態を再現することを目指した研究が続けられている。',
+  relatedArticleIds: ['kyuma'],
+  relatedNationIds: ['kyuma'],
   relatedHistoryIds: []
 });
 
 NEWS_ITEMS.push({
-  id: 'news-005',
-  title: 'ニポラン、関西封鎖区の監視を継続',
-  updated: '2026.09.17',
-  category: 'mutant',
-  text: 'ニポランでは、12年前の関西変異災害によって封鎖された旧首都周辺の監視が現在も続けられている。S.V.H.を中心に封鎖区の管理が行われており、災害は現在も完全には終息していない。',
-  relatedArticleIds: ['niporan'],
-  relatedNationIds: ['niporan'],
-  relatedHistoryIds: ['kansai-mutant-disaster']
+  id: 'news-017',
+  title: 'ラリアフルス　森林地域で生態調査',
+  updated: '2026.09.21',
+  category: 'tech',
+  text: 'ラリアフルスの森林地域で、自然環境と生物の循環について調査が行われている。長期的な環境変化を記録するための観測も続けられている。',
+  relatedArticleIds: ['larliafrus'],
+  relatedNationIds: ['larliafrus'],
+  relatedHistoryIds: []
 });
 
 NEWS_ITEMS.push({
-  id: 'news-006',
-  title: 'S.V.H.、世界各国の変異体対策を継続',
-  updated: '2026.09.17',
+  id: 'news-018',
+  title: 'オルガロン　新たな芸術祭が開幕',
+  updated: '2026.09.20',
+  category: 'nation',
+  text: 'オルガロンで新たな芸術祭が開幕した。絵画や彫刻、映像など幅広い表現が集まり、国内外から多くの制作者が参加している。',
+  relatedArticleIds: ['orgaron'],
+  relatedNationIds: ['orgaron'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-019',
+  title: 'サンルド　新たな投資市場を公開',
+  updated: '2026.09.19',
+  category: 'nation',
+  text: 'サンルドで新たな投資市場が公開された。複数の分野を対象とした取引が行われる予定で、国内外から注目を集めている。',
+  relatedArticleIds: ['sanrudo'],
+  relatedNationIds: ['sanrudo'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-020',
+  title: 'ユーレツェア　長期稼働を想定した時計を発表',
+  updated: '2026.09.18',
+  category: 'tech',
+  text: 'ユーレツェアの工匠が、長期間の使用を想定した新型時計を発表した。精密さと耐久性を重視した設計となっている。',
+  relatedArticleIds: ['yuretsuea'],
+  relatedNationIds: ['yuretsuea'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-021',
+  title: 'セルトシティ　旧型情報設備の交換が進む',
+  updated: '2026.09.16',
+  category: 'tech',
+  text: 'セルトシティで、旧型の情報設備を新しい設備へ交換する作業が進められている。都市内部のネットワークを維持しながら段階的に更新される予定。',
+  relatedArticleIds: ['sertcity'],
+  relatedNationIds: ['sertcity'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-022',
+  title: 'ニポラン　変異体情報の共有基準を更新',
+  updated: '2026.09.15',
   category: 'mutant',
-  text: 'ニポラン発祥の対変異体組織S.V.H.は、世界各国の支部と連携し、変異体情報の管理や対応基準の策定、作戦指揮などを行っている。現在では国際危機管理機関として各国の変異体対策を支えている。',
+  text: 'ニポランで、変異体に関する情報を各国間で共有するための基準が更新された。S.V.H.を中心に各国との情報連携が進められている。',
   relatedArticleIds: ['niporan'],
   relatedNationIds: ['niporan'],
   relatedHistoryIds: []
 });
 
 NEWS_ITEMS.push({
-  id: 'news-007',
-  title: 'ニポラン、人間による最終判断の方針を維持',
-  updated: '2026.09.17',
+  id: 'news-023',
+  title: 'マイモック　霧の濃度に変化を確認',
+  updated: '2026.09.14',
+  category: 'tech',
+  text: 'マイモックの一部地域で、継続的に発生している霧の濃度に変化が確認された。現在、環境への影響について観測が続けられている。',
+  relatedArticleIds: ['maimok'],
+  relatedNationIds: ['maimok'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-024',
+  title: 'タスメニオ　テレポート中継網の定期点検を実施',
+  updated: '2026.09.12',
+  category: 'tech',
+  text: 'タスメニオで、世界各地を結ぶテレポート中継網の定期点検が行われている。一部の中継施設では短時間の運用変更が予定されている。',
+  relatedArticleIds: ['tasumenio'],
+  relatedNationIds: ['tasumenio'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-025',
+  title: 'ヲンヘード　秋の食文化行事が各地で開催',
+  updated: '2026.09.11',
   category: 'nation',
-  text: 'ニポランでは、人間の人生に関わる最終判断をAIへ委ねない方針が維持されている。過去に試験運用されたAI裁判員制度は、人間性や情状を完全に扱えない問題から廃止されており、現在も最終判断は人間が担っている。',
-  relatedArticleIds: ['niporan'],
-  relatedNationIds: ['niporan'],
+  text: 'ヲンヘード各地で、秋の食文化をテーマとした行事が開催されている。地域ごとの料理や食習慣を紹介する催しが行われ、多くの市民が参加している。',
+  relatedArticleIds: ['wonhead'],
+  relatedNationIds: ['wonhead'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-026',
+  title: 'ベルネア　環境ドームの一部を一般公開',
+  updated: '2026.09.09',
+  category: 'nation',
+  text: 'ベルネアで、研究対象となっている環境ドームの一部が期間限定で一般公開された。来訪者はドーム内の生態環境を観察できる。',
+  relatedArticleIds: ['belnea'],
+  relatedNationIds: ['belnea'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-027',
+  title: 'キューマ　新たな古代文明の資料を公開',
+  updated: '2026.09.08',
+  category: 'tech',
+  text: 'キューマの研究機関が、新たに発見された古代文明の資料の一部を公開した。資料の意味については現在も研究が続けられている。',
+  relatedArticleIds: ['kyuma'],
+  relatedNationIds: ['kyuma'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-028',
+  title: 'フーモラ・スカイピル　空路の一部を変更',
+  updated: '2026.09.06',
+  category: 'nation',
+  text: 'フーモラ・スカイピルで、空中都市周辺の空路の一部が変更された。都市間の交通や気象状況を考慮した調整だという。',
+  relatedArticleIds: ['fumora-skypill'],
+  relatedNationIds: ['fumora-skypill'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-029',
+  title: 'オルガロン　保存されていた作品群を再展示',
+  updated: '2026.09.05',
+  category: 'nation',
+  text: 'オルガロンで、長期間保存されていた芸術作品の再展示が始まった。過去の表現を現在の文化の中で見直す機会として注目されている。',
+  relatedArticleIds: ['orgaron'],
+  relatedNationIds: ['orgaron'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-030',
+  title: 'ユーレツェア　古い工房設備の修復が完了',
+  updated: '2026.09.03',
+  category: 'nation',
+  text: 'ユーレツェアで、歴史的な工房設備の修復が完了した。現在も使用可能な状態まで整備され、技術資料として公開される予定。',
+  relatedArticleIds: ['yuretsuea'],
+  relatedNationIds: ['yuretsuea'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-031',
+  title: 'ヲンヘード　泳ぐホットドッグの開発が進む',
+  updated: '2026.09.03',
+  category: 'nation',
+  text: 'ヲンヘードで、泳ぐホットドッグの開発が進んでいる。今後の展開が注目されている。',
+  relatedArticleIds: ['wonhead'],
+  relatedNationIds: ['wonhead'],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-032',
+  title: 'ゲーミングフルフード　七色に光り輝くゲーミングフルフルフードが発売される',
+  updated: '2026.10.07',
+  category: 'life',
+  text: '七色に光り輝くゲーミングフルフルフードが発売された。かつて発光タイプが姿を消した経緯もあり、今回の商品がどう受け止められるかが注目されている。',
+  relatedArticleIds: ['gaming-full-food'],
+  relatedNationIds: [],
+  relatedHistoryIds: []
+});
+
+NEWS_ITEMS.push({
+  id: 'news-033',
+  title: 'ラリアフルス　オーバーキル串焼きで配信者が噴き出し炎上',
+  updated: '2026.10.08',
+  category: 'culture',
+  text: 'ラリアフルスの激辛料理「オーバーキル串焼き」を食べていた配信者が、配信中に噴き出す場面があり、映像が拡散して批判が集まっている。',
+  relatedArticleIds: ['overkill-skewer', 'larliafrus'],
+  relatedNationIds: ['larliafrus'],
   relatedHistoryIds: []
 });
