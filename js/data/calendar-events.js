@@ -1088,6 +1088,146 @@ const CALENDAR_EVENTS = [
     description: '歯車戦争期に作られた「血の祭壇」と、その地に残る古い伝承に由来するオルガロンの年中行事。現在では祭壇そのものを崇拝するものではなく、歴史や伝承を振り返る文化的な行事として受け継がれている。'
 },
 
+/* ---------- 2026.10 追加：歴史年表・国家記事にある出来事と文化から作った記念日 ---------- */
+
+/* 全世界 */
+{ id:'world-awakening-day', month:1, day:2, name:'目覚めの日', type:'記念日', countries:['全世界'],
+  description:'氷河期を越え、コールドスリープから人類が目覚めた文明再始動を記念する日。新年の翌日に、今ある暮らしが「目覚めた人々」から始まったことを思い起こす。', relatedHistory:'人類文明再始動' },
+{ id:'gear-war-end-day', month:2, day:14, name:'歯車戦争終結記念日', type:'記念日', countries:['全世界'],
+  established:463, relatedHistory:'歯車戦争終結',
+  description:'統合暦463年の歯車戦争終結を記念する日。存命者の記憶にはない遠い戦争だが、各国の資料館で記録が公開され、戦後の世界秩序がどこから始まったかを学ぶ機会となっている。' },
+{ id:'world-peace-accord-day', month:6, day:28, name:'世界平和協定の日', type:'記念日', countries:['全世界'],
+  relatedHistory:'世界平和協定制定',
+  description:'歯車戦争後の復興理念を基盤として制定された世界平和協定を記念する日。1140年の改定で侵略への対応が強化された経緯もあわせて振り返られる。' },
+{ id:'world-environment-day', month:4, day:24, name:'世界環境の日', type:'国際行事', countries:['全世界'],
+  established:820, relatedHistory:'世界環境協定',
+  description:'統合暦820年の世界環境協定を記念する国際行事。各国の環境保全の取り組みが共有され、世界環境機構（WEO）による報告も公開される。' },
+{ id:'world-sports-day', month:10, day:12, name:'世界スポーツの日', type:'国際行事', countries:['全世界'],
+  established:1526, relatedHistory:'世界スポーツの日制定',
+  description:'統合暦1526年に制定された、世界規模でスポーツ文化を共有する日。各地で競技会が開かれ、仮想空間での大会も同時に行われる。' },
+{ id:'world-robot-day', month:11, day:20, name:'世界ロボットの日', type:'国際行事', countries:['全世界'],
+  established:1536, relatedHistory:'世界ロボットの日制定',
+  description:'統合暦1536年に制定された、ロボット技術の発展と人間社会との関わりを考える日。暮らしを支える機械に目を向け、共存のあり方が語られる。' },
+{ id:'world-health-day', month:4, day:7, name:'世界衛生の日', type:'国際行事', countries:['全世界'],
+  established:1370, relatedHistory:'世界衛生機構（WHO）設立',
+  description:'1367年の世界規模感染症をきっかけに設立された世界衛生機構を記念する日。ロリウイルス根絶までの記録が公開され、感染症への備えが確認される。' },
+{ id:'lost-culture-day', month:5, day:20, name:'ロストカルチャーの日', type:'文化記念日', countries:['全世界'],
+  established:1338, relatedHistory:'ロストカルチャー復興運動',
+  description:'過去の文明で失われた文化や芸術を掘り起こし、今に伝えることを考える日。各地で復元された古い文化の展示や体験会が行われる。' },
+{ id:'anazanium-day', month:3, day:9, name:'アナザニウムの日', type:'科学記念日', countries:['全世界'],
+  established:1790, relatedHistory:'アナザニウム発見',
+  description:'統合暦1790年のアナザニウム発見を記念する日。暮らしを支えるエネルギー物質と、そこから生まれた特殊素材工学の歩みが紹介される。' },
+{ id:'teleport-day', month:9, day:30, name:'テレポートの日', type:'技術記念日', countries:['全世界'],
+  established:1998, relatedHistory:'テレポーター世界普及',
+  description:'統合暦1998年にテレポーターが世界へ普及したことを記念する日。距離が暮らしから消えたことで何が変わり、何が残ったのかが語られる。' },
+{ id:'space-day', month:7, day:24, name:'宇宙の日', type:'科学記念日', countries:['全世界'],
+  relatedHistory:'移住可能惑星発見',
+  description:'火星都市開発や移住可能惑星の発見など、人類の宇宙への歩みを振り返る日。各地の観測施設で夜空の公開観測が行われる。' },
+
+/* ニポラン */
+{ id:'niporan-founding-day', month:2, day:11, name:'ニポラン建国記念日', type:'国家行事', countries:['ニポラン'],
+  established:1, relatedHistory:'ニポラン建国',
+  description:'復興した人類によって最初の国家ニポランが成立したことを記念する日。「国家前進」の理念のもと、各地で式典が行われる。' },
+{ id:'niporan-watch-day', month:9, day:12, name:'見守りの日', type:'国民行事', countries:['ニポラン'],
+  description:'平和は自然に存在するものではなく、誰かが監視し、戦い、維持しているという意識を確かめる日。S.V.H.の各支部や封鎖区の監視に携わる人々へ感謝が伝えられる。' },
+
+/* ラリアフルス */
+{ id:'larliafrus-prayer-day', month:6, day:15, name:'祈りの日', type:'宗教行事', countries:['ラリアフルス'],
+  relatedHistory:'リフィネス教成立',
+  description:'森への感謝と共同作業の文化から生まれたリフィネス教にちなむ日。採集の前に祈る習慣を、あらためて家族や地域で行う。統一された教義がないため、祈り方は地域ごとに異なる。' },
+{ id:'larliafrus-quiet-night', month:12, day:21, name:'光を抑える夜', type:'季節行事', countries:['ラリアフルス'],
+  description:'一年で最も夜が長い時期に、明かりを落として過ごす夜。完全な暗闇にはならず、森ではヒカリタケの光だけが道を照らす。' },
+
+/* オルガロン */
+{ id:'orgaron-disarm-day', month:3, day:15, name:'軍事放棄宣言の日', type:'記念日', countries:['オルガロン'],
+  established:481, relatedHistory:'オルガロン軍事放棄宣言',
+  description:'歯車戦争を反省し、オルガロンが軍事の放棄を宣言したことを記念する日。戦争ではなく創造を選んだ国家の出発点として語り継がれている。' },
+{ id:'orgaron-unfinished-day', month:8, day:30, name:'未完の日', type:'文化行事', countries:['オルガロン'],
+  description:'国家のシンボル「未完の創造」にちなみ、完成していない作品をあえて公開する日。完成を急がず、作り続けること自体に価値を置くオルガロンらしい行事。' },
+
+/* ヒューバート */
+{ id:'hubert-renaming-day', month:4, day:10, name:'ヒューバートの日', type:'国家行事', countries:['ヒューバート'],
+  established:1000, relatedHistory:'ヒルロンド改称',
+  description:'統合暦1000年、科学国家ヒルロンドがヒューバートへ改称したことを記念する日。「世界を理解し、未来を構築する」という理念が確認される。' },
+{ id:'hubert-cat-rebirth-day', month:9, day:22, name:'猫の再誕の日', type:'文化行事', countries:['ヒューバート'],
+  description:'ハーネンス家が猫を愛し、未来世界へ猫を再誕させたことにちなむ日。猫文化の始まりを振り返り、猫と暮らす住宅や施設が公開される。' },
+
+/* ヲンヘード（食べる記念日） */
+{ id:'wonhead-kyonabe-day', month:1, day:25, name:'共鍋の日', type:'食文化行事', countries:['ヲンヘード'],
+  relatedHistory:'ヲンヘード共鍋文化成立',
+  description:'イーテスタの共鍋炉に由来する、ヲンヘードを代表する行事。この日だけは光と熱で再現した「見せかけの炎」で鍋を囲み、火を囲んできた食の伝統を確かめる。' },
+{ id:'wonhead-hunger-day', month:2, day:28, name:'空腹の日', type:'食文化記念日', countries:['ヲンヘード'],
+  description:'「空腹は最高のスパイス」という考えにちなみ、夕食まで何も食べずに過ごす日。夜にはその日いちばんの一皿をゆっくり味わう。' },
+{ id:'wonhead-ferment-day', month:5, day:12, name:'発酵の日', type:'食文化記念日', countries:['ヲンヘード'],
+  description:'世界最高水準を誇るヲンヘードの発酵技術と、発酵食品を楽しむ日。家庭ごとの味比べが行われる。' },
+{ id:'wonhead-preserve-day', month:11, day:25, name:'保存食の日', type:'食文化記念日', countries:['ヲンヘード'],
+  description:'寒い季節を前に、保存食を作り、分け合う日。各地の保存技術や伝統的な保存食が紹介される。' },
+{ id:'wonhead-fruit-day', month:7, day:15, name:'果物の日', type:'食文化記念日', countries:['ヲンヘード','ラリアフルス'],
+  description:'ラリアフルスから届く果物と、それを使った料理や菓子を楽しむ日。両国の交流を象徴する記念日でもある。' },
+{ id:'wonhead-roast-day', month:6, day:20, name:'焼き物の日', type:'食文化記念日', countries:['ヲンヘード'],
+  description:'焼く、炙るといった昔ながらの調理法の名前を受け継ぐ料理を楽しむ日。実際の火は使わず、火によって生まれてきた香ばしさを再現技術で味わう。' },
+
+/* ユーレツェア */
+{ id:'yuretsuea-naming-day', month:2, day:3, name:'名付けの日', type:'文化記念日', countries:['ユーレツェア'],
+  description:'新しく迎えた道具や機械に名前を付ける日。物を「共に時間を過ごす存在」として迎え入れる、ユーレツェアの愛着文化を象徴する。' },
+{ id:'yuretsuea-founding-day', month:3, day:18, name:'ユーレツェア建国記念日', type:'国家行事', countries:['ユーレツェア'],
+  established:180, relatedHistory:'ユーレツェア建国',
+  description:'統合暦180年のユーレツェア建国を記念する日。ツェンタル・ネヘタの前で式典が行われる。' },
+
+/* チリルド・アイルツア */
+{ id:'chiriludo-hakkei-day', month:2, day:18, name:'白景の日', type:'国家行事', countries:['チリルド・アイルツア'],
+  relatedHistory:'チリルド白景保存制度',
+  description:'数百年分の氷建築と彫刻を残し続ける白景保存の考え方を確かめる日。「壊す理由がないから残しておく」という国民の気風を象徴する。雪が止まった今年は、白景のこれからを語り合う場にもなっている。' },
+{ id:'chiriludo-dog-day', month:12, day:5, name:'犬の日', type:'文化記念日', countries:['チリルド・アイルツア'],
+  description:'犬ぞり文化の名残として、家族の一員である犬に感謝する日。大型でもふもふとしたチリルド犬と過ごす催しが各地で行われる。' },
+
+/* タスメニオ */
+{ id:'tasumenio-founding-day', month:8, day:1, name:'タスメニオ建国記念日', type:'国家行事', countries:['タスメニオ'],
+  established:780, relatedHistory:'タスメニオ建国',
+  description:'統合暦780年のタスメニオ建国を記念する日。巨大隕石島に暮らしてきた海民の歴史が、首都タハルンを中心に語られる。' },
+{ id:'tasumenio-ogai-day', month:5, day:25, name:'大貝蒸し飯の日', type:'食文化記念日', countries:['タスメニオ'],
+  description:'貝の殻の中で米や魚介を蒸し上げる、タスメニオの伝統料理を楽しむ日。' },
+{ id:'tasumenio-bow-day', month:1, day:28, name:'会釈の日', type:'文化記念日', countries:['タスメニオ'],
+  description:'言葉より態度で敬意を示すタスメニオの挨拶文化にちなむ日。会釈やお辞儀、抱擁で、身近な人に日頃の感謝を伝える。' },
+
+/* キューマ */
+{ id:'kyuma-excavation-day', month:7, day:4, name:'大発掘の日', type:'記念日', countries:['キューマ'],
+  established:2011, relatedHistory:'キューマによる古代文明遺跡の大規模発掘',
+  description:'統合暦2011年の古代文明遺跡の大規模発掘を記念する日。この発掘を機にキューマの国家思想は大きく変わった。発掘現場の一部が公開される。' },
+{ id:'kyuma-restoration-day', month:3, day:27, name:'復元の日', type:'文化記念日', countries:['キューマ'],
+  relatedHistory:'キューマ復元思想の成立',
+  description:'過去を保存するだけでなく、再現し体験するというキューマの復元思想を祝う日。復元住宅や古代料理店、蒸気機関車に乗る人々で街がにぎわう。' },
+
+/* サンルド */
+{ id:'sanrudo-founding-day', month:6, day:2, name:'サンルド建国記念日', type:'国家行事', countries:['サンルド'],
+  established:1050, relatedHistory:'サンルド正式建国',
+  description:'統合暦1050年のサンルド正式建国を記念する日。中央均衡銀行で式典が行われ、天秤の仮面をつけた調律派が均衡を宣言する。' },
+{ id:'sanrudo-contract-day', month:11, day:9, name:'契約の日', type:'文化記念日', countries:['サンルド'],
+  description:'契約と信用を重んじるサンルドの文化を象徴する日。子どもたちは模擬契約や交渉ゲームに参加し、大人は一年の契約を見直す。' },
+
+/* ベルネア */
+{ id:'belnea-great-dome-day', month:11, day:16, name:'大ドームの日', type:'記念日', countries:['ベルネア'],
+  relatedHistory:'ベルネア巨大環境ドーム完成',
+  description:'複数の生態系を統合した巨大環境ドームの完成を記念する日。セントラルドームを中心に、ふだん公開されない区画の観察会が行われる。' },
+
+/* セルトシティ */
+{ id:'sertcity-cyber-day', month:2, day:20, name:'サイバーセルトシティの日', type:'記念日', countries:['セルトシティ'],
+  relatedHistory:'サイバーセルトシティ成立',
+  description:'現実の都市と並ぶもう一つの都市、サイバーセルトシティの成立を記念する日。世界中の利用者が集まる催しが情報空間上で開かれる。' },
+
+/* フーモラ・スカイピル */
+{ id:'fumora-founding-day', month:10, day:18, name:'フーモラ・スカイピル建国記念日', type:'国家行事', countries:['フーモラ・スカイピル'],
+  established:1872, relatedHistory:'フーモラ・スカイピル建国',
+  description:'統合暦1872年、成層圏に浮かぶ都市が国家として成立したことを記念する日。円環状の都市群が一周する時間に合わせて式典が進む。' },
+{ id:'fumora-weather-day', month:3, day:23, name:'気象安定の日', type:'国際行事', countries:['フーモラ・スカイピル','全世界'],
+  relatedHistory:'フーモラ・スカイピル国際気象安定システムへの参加',
+  description:'フーモラ・スカイピルが国際気象安定システムに参加したことを記念する日。各国の空が安定していることの意味と、安定化を受けていない国々のことが語られる。' },
+
+/* ガルヒューラ */
+{ id:'garhyura-founding-day', month:4, day:2, name:'ガルヒューラ成立の日', type:'国家行事', countries:['ガルヒューラ'],
+  established:472, relatedHistory:'ガルヒューラ成立',
+  description:'ラロネイア跡地にガルヒューラが成立した日。王ガーラ・ヒルスの号令のもと、各地で力を示す催しが行われる。' },
+
     // ↓ 新しいイベントはこの下にコピペして追加していってください
     // ,{
     //     id: '',

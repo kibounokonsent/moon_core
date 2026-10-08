@@ -139,17 +139,29 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 
             </button>
 
-            <button
-                class="icon-btn"
-                aria-label="テーマ切替"
-                onclick="toggleTheme()">
+<a class="icon-btn room-btn" href="#/room" aria-label="部屋（今日の世界）" title="部屋（今日の世界）">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="15" rx="1"/><path d="M12 3.5v15M4 11h16M2.5 21h19"/></svg>
+                <span class="room-btn-text">部屋</span>
+            </a>
 
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <circle cx="12" cy="12" r="4.5"/>
-                    <path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/>
-                </svg>
-
-            </button>
+            <div class="more-wrap" id="more-wrap">
+                <button class="icon-btn more-btn" type="button" aria-label="その他のメニュー" aria-haspopup="true" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/></svg>
+                </button>
+                <div class="more-menu" role="menu">
+                    <div class="more-label">今日の世界</div>
+                    <a role="menuitem" data-act="link" href="#/room"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="15" rx="1"/><path d="M12 3.5v15M4 11h16M2.5 21h19"/></svg><span>部屋</span></a>
+                    <a role="menuitem" data-act="link" href="#/calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>世界カレンダー</span></a>
+                    <a role="menuitem" data-act="link" href="#/news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><path d="M7 9h10M7 12.5h10M7 16h6"/></svg><span>世界ニュース</span></a>
+                    <a role="menuitem" data-act="link" href="#/world-map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg><span>世界地図</span></a>
+                    <a role="menuitem" data-act="link" href="#/diagnosis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6M10 4v5.5L5 18.5A1.5 1.5 0 0 0 6.3 20.5h11.4A1.5 1.5 0 0 0 19 18.5L14 9.5V4"/></svg><span>企業適性診断</span></a>
+                    <a role="menuitem" data-act="link" href="#/diagnosis/nation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4.5c4-2 7 2 14 0v9c-7 2-10-2-14 0"/></svg><span>国家適性診断</span></a>
+                    <div class="more-sep"></div>
+                    <div class="more-label">表示</div>
+                    <button type="button" role="menuitem" data-act="theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg><span>ダークモードにする</span></button>
+                    <button type="button" role="menuitem" data-act="sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6"/><path d="M18.2 6.5a8 8 0 0 1 0 11"/></svg><span>サウンド設定</span></button>
+                </div>
+            </div>
 
         </div>
 
@@ -295,10 +307,12 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 <link rel="stylesheet" href="css/calendar.css">
 <link rel="stylesheet" href="css/news.css">
 <link rel="stylesheet" href="css/diagnosis.css">
+<link rel="stylesheet" href="css/nation-diagnosis.css">
 <link rel="stylesheet" href="css/world-map.css">
 <link rel="stylesheet" href="css/sound.css">
 <link rel="stylesheet" href="css/mobile-nav.css">
 <link rel="stylesheet" href="css/category-tint.css">
+<link rel="stylesheet" href="css/today.css">
 <script src="js/data/00-categories.js"></script>
 <script src="js/data/calendar-events.js"></script>
 <script src="js/calendar.js"></script>
@@ -370,7 +384,9 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 <script src="js/data/org/worldtreec.js"></script>
 <script src="js/data/org/yokubounosu.js"></script>
 <script src="js/data/glossary.js"></script>
+<script src="js/today.js"></script>
 <script src="js/diagnosis.js"></script>
+<script src="js/nation-diagnosis.js"></script>
 <script src="js/world-map.js"></script>
 <script src="js/app.js"></script>
 <script src="js/theme.js"></script>

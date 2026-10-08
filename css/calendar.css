@@ -1,562 +1,483 @@
 /* ==========================================================================
    WORLD CALENDAR — スタイル
-   style.css のトークン（--surface, --border, --accent-signal など）と
-   コンポーネント作法（.page-header, .btn-ghost, .cat-card 等）に合わせています。
-   色をハードコードしていないので、data-theme="dark" でも自動的に切り替わります。
+   記事ページと同じ部品（.page-header / .title-block / .cat-badge / .meta-row）を使い、
+   この画面だけの部品は cal- で始まる名前にしている。
+   色は style.css のトークンだけを使うので、data-theme="dark" でも自動で切り替わる。
+   国の色は --cc（国家記事の accentColor）で受け取る。
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   ページ全体
-   固定ヘッダー（.site-header, --header-h）に文字が食い込まないよう、
-   page-header と同じ計算式で上部にオフセットを入れています。
+   ページ
    -------------------------------------------------------------------------- */
-
-.calendar-page{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:calc(var(--header-h) + 44px) 32px 100px;
+.cal-wrap{
+  padding:36px 32px 100px;
 }
+.cal-wrap > *{
+  max-width:var(--max);
+  margin-left:auto;
+  margin-right:auto;
+}
+@media (max-width:640px){
+  .cal-wrap{ padding:28px 16px 80px; }
+}
+
+/* --------------------------------------------------------------------------
+   一年の帯（12か月）
+   -------------------------------------------------------------------------- */
+.cal-year{
+  display:grid;
+  grid-template-columns:repeat(12, minmax(0,1fr));
+  gap:6px;
+  margin-bottom:28px;
+}
+.cal-year__m{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  padding:10px 10px 9px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  background:var(--surface);
+  color:var(--text-secondary);
+  font:inherit;
+  cursor:pointer;
+  transition:border-color .2s ease, color .2s ease, background .2s ease;
+}
+.cal-year__m:hover{ border-color:var(--accent-signal); color:var(--text-primary); }
+.cal-year__m.is-active{
+  border-color:var(--accent-signal);
+  background:color-mix(in oklab, var(--accent-signal) 9%, var(--surface));
+  color:var(--text-primary);
+}
+.cal-year__m.is-now::after{
+  content:"";
+  position:absolute;
+  top:8px; right:8px;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:var(--accent-signal);
+}
+.cal-year__name{ font-size:13.5px; font-weight:700; }
+.cal-year__count{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--text-tertiary); }
+.cal-year__bar{ display:block; width:100%; height:3px; border-radius:2px; background:var(--surface-alt); overflow:hidden; }
+.cal-year__bar i{ display:block; height:100%; background:var(--accent-signal); opacity:.7; }
+
+@media (max-width:860px){
+  .cal-year{ grid-template-columns:repeat(6, minmax(0,1fr)); }
+}
+
+/* --------------------------------------------------------------------------
+   月の切り替え
+   -------------------------------------------------------------------------- */
+.cal-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+.cal-toolbar__month{ display:flex; align-items:center; gap:14px; }
+.cal-nav-btn{
+  width:38px; height:38px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--border);
+  border-radius:4px;
+  background:var(--surface);
+  color:var(--text-secondary);
+  cursor:pointer;
+  transition:border-color .2s ease, color .2s ease;
+}
+.cal-nav-btn svg{ width:18px; height:18px; }
+.cal-nav-btn:hover{ border-color:var(--accent-signal); color:var(--accent-signal); }
+.cal-month-label{ display:flex; align-items:baseline; gap:12px; min-width:220px; }
+.cal-month-label__ja{
+  font-family:'Noto Serif JP', serif;
+  font-size:clamp(26px, 3.4vw, 34px);
+  font-weight:700;
+  color:var(--text-primary);
+  line-height:1;
+}
+.cal-month-label__en{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+  letter-spacing:.12em;
+  color:var(--accent-signal);
+}
+.cal-today-btn{
+  height:36px;
+  padding:0 14px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  background:var(--surface);
+  color:var(--text-secondary);
+  font:inherit;
+  font-size:13px;
+  cursor:pointer;
+}
+.cal-today-btn:hover{ color:var(--accent-signal); border-color:var(--accent-signal); }
 
 @media (max-width:640px){
-  .calendar-page{
-    padding:calc(var(--header-h) + 34px) 20px 80px;
-  }
+  .cal-month-label{ min-width:0; flex-direction:column; gap:4px; }
 }
 
 /* --------------------------------------------------------------------------
-   見出し
+   国の絞り込み
    -------------------------------------------------------------------------- */
-
-.calendar-page__header{
-  text-align:center;
-  padding-bottom:40px;
-  margin-bottom:40px;
-  border-bottom:1px solid var(--border);
-}
-
-.calendar-page__eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-
-  font-family:'JetBrains Mono', monospace;
-  font-size:11.5px;
-  letter-spacing:0.14em;
-
-  color:var(--accent-signal);
-  background:var(--surface-alt);
-
-  padding:6px 14px;
-  border-radius:999px;
-
-  margin-bottom:20px;
-}
-
-.calendar-page__header h1{
-  font-family:'Noto Serif JP', serif;
-  font-weight:700;
-  font-size:clamp(28px, 4vw, 40px);
-  line-height:1.3;
-}
-
-.calendar-page__desc{
-  color:var(--text-secondary);
-  font-size:14.5px;
-  margin-top:14px;
-}
-
-/* --------------------------------------------------------------------------
-   月切り替え
-   -------------------------------------------------------------------------- */
-
-.calendar-nav{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:24px;
-  margin-bottom:24px;
-}
-
-.calendar-nav__btn{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-
-  border:1px solid var(--border);
-  background:var(--surface);
-  color:var(--text-secondary);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  cursor:pointer;
-  font-size:14px;
-
-  transition:all .25s ease;
-}
-
-.calendar-nav__btn:hover{
-  color:var(--accent-signal);
-  border-color:var(--accent-signal);
-  transform:translateY(-1px);
-}
-
-.calendar-nav__label{
-  font-family:'Noto Serif JP', serif;
-  font-size:19px;
-  font-weight:700;
-
-  color:var(--text-primary);
-  min-width:180px;
-  text-align:center;
-}
-
-/* --------------------------------------------------------------------------
-   国別フィルター
-   -------------------------------------------------------------------------- */
-
-.calendar-filter{
+.cal-filter{
   display:flex;
   flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-  margin-bottom:36px;
+  gap:6px;
+  margin-bottom:20px;
 }
-
-.calendar-filter__btn{
+.cal-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  height:32px;
+  padding:0 12px;
   border:1px solid var(--border);
+  border-radius:3px;
   background:var(--surface);
   color:var(--text-secondary);
-
-  border-radius:999px;
-  padding:7px 16px;
+  font:inherit;
   font-size:13px;
-  font-weight:500;
-
+  white-space:nowrap;
   cursor:pointer;
-  transition:all .2s ease;
+  transition:border-color .2s ease, color .2s ease, background .2s ease;
 }
-
-.calendar-filter__btn:hover{
-  border-color:var(--accent-signal);
-  color:var(--accent-signal);
+.cal-chip::before{
+  content:"";
+  width:7px; height:7px;
+  border-radius:1px;
+  background:var(--cc);
+  box-shadow:0 0 0 1px rgba(0,0,0,.12);
 }
-
-.calendar-filter__btn.is-active{
-  background:var(--navy-deep);
-  border-color:var(--navy-deep);
-  color:#fff;
+.cal-chip:hover{ color:var(--text-primary); border-color:var(--cc); }
+.cal-chip.is-active{
+  color:var(--text-primary);
+  border-color:var(--cc);
+  background:color-mix(in oklab, var(--cc) 12%, var(--surface));
 }
-
-html[data-theme="dark"] .calendar-filter__btn.is-active{
-  background:var(--accent-signal);
-  border-color:var(--accent-signal);
-  color:var(--midnight);
+@media (max-width:640px){
+  .cal-filter{ flex-wrap:nowrap; overflow-x:auto; padding-bottom:6px; margin-right:-16px; padding-right:16px; scrollbar-width:none; }
+  .cal-filter::-webkit-scrollbar{ display:none; }
 }
 
 /* --------------------------------------------------------------------------
    カレンダー本体
-   年・曜日は表示しない。行事があるセルには行事名を直接表示する。
    -------------------------------------------------------------------------- */
-
-.calendar-grid{
-  background:var(--surface);
+.cal-grid{
   border:1px solid var(--border);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-sm);
+  border-radius:6px;
   overflow:hidden;
+  background:var(--surface);
 }
-
-.calendar-cells{
+.cal-cells{
   display:grid;
-  grid-template-columns:repeat(7, 1fr);
+  grid-template-columns:repeat(7, minmax(0,1fr));
 }
-
 .calendar-cell{
-  min-height:96px;
-
-  border:none;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:6px;
+  min-height:104px;
+  padding:9px 9px 10px;
+  border:0;
   border-right:1px solid var(--border);
   border-bottom:1px solid var(--border);
-
-  background:var(--surface);
-  color:inherit;
-
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-
-  padding:10px 8px;
-  cursor:default;
+  background:transparent;
+  font:inherit;
   text-align:left;
-
-  transition:background .2s ease;
-}
-
-.calendar-cell.has-event{
-  cursor:pointer;
-}
-
-.calendar-cell.has-event:hover{
-  background:var(--surface-alt);
-}
-
-.calendar-cell__day{
-  font-size:13px;
-  color:var(--text-tertiary);
-  font-family:'JetBrains Mono', monospace;
-  margin-bottom:6px;
-}
-
-.calendar-cell.has-event .calendar-cell__day{
   color:var(--text-primary);
+  cursor:default;
 }
+.cal-cells .calendar-cell:nth-child(7n){ border-right:0; }
+.calendar-cell.has-event{ cursor:pointer; transition:background .2s ease; }
+.calendar-cell.has-event:hover{ background:var(--surface-alt); }
+.calendar-cell:focus-visible{ outline:2px solid var(--accent-signal); outline-offset:-2px; }
 
-.calendar-cell__events{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-  width:100%;
+.calendar-cell__head{ display:flex; align-items:center; justify-content:space-between; gap:6px; }
+.calendar-cell__day{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12.5px;
+  color:var(--text-tertiary);
 }
-
-.calendar-cell__event-name{
-  font-size:11.5px;
-  line-height:1.4;
-
+.calendar-cell.has-event .calendar-cell__day{ color:var(--text-primary); font-weight:500; }
+.calendar-cell__today{
+  font-family:'JetBrains Mono', monospace;
+  font-size:9.5px;
+  letter-spacing:.12em;
   color:var(--accent-signal);
+}
+.calendar-cell.is-today{
+  background:color-mix(in oklab, var(--accent-signal) 7%, var(--surface));
+  box-shadow:inset 0 0 0 1.5px var(--accent-signal);
+}
+.calendar-cell.is-today .calendar-cell__day{
+  color:var(--accent-signal);
+  font-weight:700;
+}
 
+.calendar-cell__events{ display:flex; flex-direction:column; gap:3px; min-width:0; }
+.calendar-cell__event-name{
+  display:block;
+  padding:2px 0 2px 7px;
+  border-left:3px solid var(--cc);
+  font-size:12px;
+  line-height:1.35;
+  color:var(--text-primary);
+  white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  white-space:nowrap;
-  max-width:100%;
 }
-
 .calendar-cell__more{
-  font-size:10.5px;
-  color:var(--text-tertiary);
   font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  color:var(--text-tertiary);
+  padding-left:10px;
 }
+.calendar-cell__dots{ display:none; gap:3px; flex-wrap:wrap; }
+.calendar-cell__dots i{ width:6px; height:6px; border-radius:50%; background:var(--cc); box-shadow:0 0 0 1px rgba(0,0,0,.1); }
 
+@media (max-width:860px){
+  .calendar-cell{ min-height:84px; }
+}
 @media (max-width:640px){
-  .calendar-cell{
-    min-height:64px;
-    padding:6px 5px;
-  }
-
-  .calendar-cell__day{
-    font-size:11px;
-    margin-bottom:4px;
-  }
-
-  .calendar-cell__event-name{
-    font-size:9.5px;
-  }
-
-  .calendar-cell__more{
-    font-size:9px;
-  }
+  .calendar-cell{ min-height:56px; padding:6px 5px; gap:5px; }
+  .calendar-cell__events{ display:none; }
+  .calendar-cell__dots{ display:flex; }
+  .calendar-cell__today{ display:none; }
 }
 
 /* --------------------------------------------------------------------------
-   EVENTS一覧
+   その月の行事（日付ごと）
    -------------------------------------------------------------------------- */
-
-.calendar-events{
-  margin-top:48px;
-}
-
-.calendar-events__title{
-  font-family:'JetBrains Mono', monospace;
-  font-size:12px;
-  letter-spacing:0.16em;
-  color:var(--accent-signal);
-}
-
-.calendar-events__month{
+.cal-events{ margin-top:56px; }
+.cal-events__head{ margin-bottom:18px; }
+.cal-events__title{
   font-family:'Noto Serif JP', serif;
-  font-size:20px;
+  font-size:clamp(22px, 2.6vw, 28px);
   font-weight:700;
-  color:var(--text-primary);
-  margin-top:6px;
-  margin-bottom:20px;
 }
-
-.calendar-events__empty{
+.cal-events__sub{
+  margin-top:8px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:.04em;
   color:var(--text-tertiary);
-  font-size:14px;
-  padding:24px 0;
 }
+.cal-events__list{ border-top:1px solid var(--border); }
+.cal-events__empty{ padding:24px 4px; color:var(--text-secondary); font-size:14px; }
 
-.calendar-events__list{
-  display:flex;
-  flex-direction:column;
-  border-top:1px solid var(--border);
-}
-
-.calendar-event-row{
+.cal-day{
   display:grid;
-  grid-template-columns:90px 1fr auto;
-  align-items:center;
-  gap:16px;
-
-  width:100%;
-  padding:16px 6px;
-
-  border:none;
+  grid-template-columns:84px minmax(0,1fr);
+  gap:18px;
+  padding:14px 4px;
   border-bottom:1px solid var(--border);
-  background:none;
+}
+.cal-day__date{ display:flex; flex-direction:column; align-items:flex-start; padding-top:6px; }
+.cal-day__num{
+  font-family:'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  font-size:28px;
+  font-weight:700;
+  line-height:1;
+  color:var(--text-primary);
+}
+.cal-day__mon{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.12em; color:var(--text-tertiary); margin-top:4px; }
+.cal-day.is-today .cal-day__num,
+.cal-day.is-today .cal-day__mon{ color:var(--accent-signal); }
+.cal-day__items{ display:flex; flex-direction:column; }
 
-  cursor:pointer;
+.cal-row{
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  padding:10px 10px 10px 14px;
+  border:0;
+  border-left:3px solid var(--cc);
+  background:transparent;
+  font:inherit;
   text-align:left;
-
+  color:var(--text-primary);
+  cursor:pointer;
   transition:background .2s ease;
 }
-
-.calendar-event-row:hover{
-  background:var(--surface-alt);
+.cal-row + .cal-row{ margin-top:4px; }
+.cal-row:hover{ background:var(--surface-alt); }
+.cal-row__type{
+  justify-self:start;
+  font-size:11px;
+  padding:3px 7px;
+  border:1px solid var(--border);
+  border-radius:3px;
+  color:var(--text-secondary);
+  white-space:nowrap;
 }
+.cal-row__name{ font-size:15px; font-weight:500; }
+.cal-row__countries{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:4px 10px; }
 
-.calendar-event-row__date{
-  font-family:'JetBrains Mono', monospace;
+.cal-country{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
   font-size:12px;
   color:var(--text-tertiary);
-}
-
-.calendar-event-row__name{
-  font-size:15px;
-  font-weight:500;
-  color:var(--text-primary);
-}
-
-.calendar-event-row__meta{
-  font-size:12px;
-  color:var(--accent-signal);
   white-space:nowrap;
+}
+.cal-country::before{
+  content:"";
+  width:7px; height:7px;
+  border-radius:1px;
+  background:var(--cc);
+  box-shadow:0 0 0 1px rgba(0,0,0,.12);
 }
 
 @media (max-width:640px){
-  .calendar-event-row{
-    grid-template-columns:1fr;
-    gap:4px;
-  }
-
-  .calendar-event-row__meta{
-    color:var(--text-tertiary);
-  }
+  .cal-day{ grid-template-columns:52px minmax(0,1fr); gap:10px; }
+  .cal-day__num{ font-size:22px; }
+  .cal-row{ grid-template-columns:minmax(0,1fr); gap:5px; }
+  .cal-row__countries{ justify-content:flex-start; }
 }
 
 /* --------------------------------------------------------------------------
    モーダル
    -------------------------------------------------------------------------- */
-
-.calendar-modal[hidden]{
-  display:none;
-}
-
 .calendar-modal{
   position:fixed;
   inset:0;
-  z-index:300;
-
+  z-index:200;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  padding:20px;
+  padding:24px;
 }
-
+.calendar-modal[hidden]{ display:none; }
 .calendar-modal__backdrop{
   position:absolute;
   inset:0;
-
-  background:rgba(10,15,28,0.55);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
+  background:rgba(7,12,24,.48);
+  backdrop-filter:blur(3px);
+  animation:cal-fade .2s ease;
 }
-
 .calendar-modal__card{
   position:relative;
-
-  width:100%;
-  max-width:480px;
-  max-height:80vh;
-  overflow-y:auto;
-
+  width:min(560px, 100%);
+  max-height:calc(100vh - 48px);
+  overflow:auto;
+  padding:30px 32px 28px;
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:var(--radius-md);
+  border-top:4px solid var(--cc, var(--accent-signal));
+  border-radius:6px;
   box-shadow:var(--shadow-lift);
-
-  padding:32px 28px;
+  animation:cal-rise .25s ease;
 }
+@keyframes cal-fade{ from{ opacity:0; } }
+@keyframes cal-rise{ from{ opacity:0; transform:translateY(10px); } }
 
 .calendar-modal__close{
   position:absolute;
-  top:16px;
-  right:16px;
-
-  width:32px;
-  height:32px;
-  border-radius:50%;
-
+  top:14px; right:14px;
+  width:34px; height:34px;
+  display:flex; align-items:center; justify-content:center;
   border:1px solid var(--border);
+  border-radius:4px;
   background:var(--surface);
   color:var(--text-secondary);
-
-  font-size:16px;
-  line-height:1;
   cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  transition:all .2s ease;
 }
+.calendar-modal__close svg{ width:16px; height:16px; }
+.calendar-modal__close:hover{ color:var(--accent-signal); border-color:var(--accent-signal); }
 
-.calendar-modal__close:hover{
-  color:var(--accent-signal);
-  border-color:var(--accent-signal);
-}
-
-.calendar-modal__name{
-  font-family:'Noto Serif JP', serif;
-  font-size:20px;
-  font-weight:700;
-  color:var(--text-primary);
-  padding-right:32px;
-}
-
+.calendar-modal__top{ display:flex; align-items:center; gap:12px; margin-bottom:14px; padding-right:40px; }
 .calendar-modal__date{
   font-family:'JetBrains Mono', monospace;
   font-size:13px;
-  color:var(--text-tertiary);
-  margin-top:8px;
+  letter-spacing:.12em;
+  color:var(--accent-signal);
 }
-
+.calendar-modal__type{
+  font-size:11.5px;
+  padding:3px 8px;
+  border:1px solid var(--border);
+  border-radius:3px;
+  color:var(--text-secondary);
+}
+.calendar-modal__name{
+  font-family:'Noto Serif JP', serif;
+  font-size:clamp(22px, 3vw, 28px);
+  font-weight:700;
+  line-height:1.35;
+  color:var(--text-primary);
+}
+.calendar-modal__date-ja{
+  margin-top:8px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:12.5px;
+  color:var(--text-tertiary);
+}
 .calendar-modal__meta{
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
+  gap:6px 14px;
   margin-top:16px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border);
 }
-
-.calendar-modal__type{
-  font-family:'JetBrains Mono', monospace;
-  font-size:11px;
-  letter-spacing:0.06em;
-
-  color:var(--accent-signal);
-  background:var(--surface-alt);
-
-  border-radius:999px;
-  padding:4px 12px;
-}
-
-.calendar-modal__countries{
-  font-size:12px;
-  color:var(--text-tertiary);
-  align-self:center;
-}
-
+.calendar-modal__meta .cal-country{ font-size:13px; color:var(--text-secondary); }
 .calendar-modal__desc{
-  font-size:14px;
-  line-height:1.9;
-  color:var(--text-secondary);
-  margin-top:18px;
-}
-
-.calendar-modal__established{
-  font-size:12.5px;
-  color:var(--text-tertiary);
-  margin-top:12px;
-  font-family:'JetBrains Mono', monospace;
-}
-
-.calendar-modal__history{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid var(--border);
-}
-
-.calendar-modal__history-label{
-  font-family:'JetBrains Mono', monospace;
-  font-size:11px;
-  letter-spacing:0.1em;
-  color:var(--text-tertiary);
-  margin-bottom:6px;
-}
-
-.calendar-modal__history-name{
-  font-size:14px;
-  font-weight:500;
+  margin-top:16px;
+  font-size:15px;
+  line-height:1.95;
   color:var(--text-primary);
-  margin-bottom:10px;
 }
-
-.calendar-modal__link{
-  display:block;
-  text-align:right;
-
-  font-size:13.5px;
-  font-weight:500;
-  color:var(--accent-signal);
-
-  transition:opacity .2s ease;
-}
-
-.calendar-modal__link:hover{
-  opacity:.7;
-  text-decoration:underline;
-}
-
-.calendar-modal__link--article{
-  margin-top:22px;
-  padding-top:18px;
-  border-top:1px solid var(--border);
-
-  font-family:'Noto Serif JP', serif;
-  font-size:14.5px;
-}
-
-/* 同日に複数行事があるときの一覧（モーダル内） */
-
-.calendar-modal__day-list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:20px;
-}
-
-.calendar-modal__day-item{
+.calendar-modal__links{ display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+.calendar-modal__history{
   display:flex;
   flex-direction:column;
   gap:4px;
-
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  background:var(--surface);
-
   padding:12px 14px;
-  cursor:pointer;
-  text-align:left;
-
-  transition:all .2s ease;
-}
-
-.calendar-modal__day-item:hover{
-  border-color:var(--accent-signal);
   background:var(--surface-alt);
+  border-left:3px solid var(--accent-signal);
+  border-radius:0 4px 4px 0;
+  text-decoration:none;
+}
+.calendar-modal__history:hover{ background:color-mix(in oklab, var(--accent-signal) 8%, var(--surface-alt)); }
+.calendar-modal__history-label{ font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--text-tertiary); }
+.calendar-modal__history-name{ font-size:14.5px; color:var(--text-primary); }
+.calendar-modal__link{ font-size:13px; color:var(--accent-signal); text-decoration:none; }
+.calendar-modal__link--article{ align-self:flex-start; }
+.calendar-modal__link:hover{ text-decoration:underline; }
+
+.calendar-modal__day-list{ display:flex; flex-direction:column; gap:6px; margin-top:16px; }
+.calendar-modal__day-item{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  padding:11px 14px;
+  border:1px solid var(--border);
+  border-left:3px solid var(--cc);
+  border-radius:0 4px 4px 0;
+  background:transparent;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+.calendar-modal__day-item:hover{ background:var(--surface-alt); }
+.calendar-modal__day-item-name{ font-size:15px; font-weight:700; color:var(--text-primary); }
+.calendar-modal__day-item-meta{ font-size:12px; color:var(--text-tertiary); }
+
+@media (max-width:640px){
+  .calendar-modal{ padding:12px; align-items:flex-end; }
+  .calendar-modal__card{ padding:24px 20px 22px; }
 }
 
-.calendar-modal__day-item-name{
-  font-size:14.5px;
-  font-weight:500;
-  color:var(--text-primary);
-}
-
-.calendar-modal__day-item-meta{
-  font-size:12px;
-  color:var(--text-tertiary);
+@media (prefers-reduced-motion: reduce){
+  .calendar-modal__backdrop, .calendar-modal__card{ animation:none; }
 }

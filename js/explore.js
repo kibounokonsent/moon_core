@@ -40,6 +40,8 @@
     if(h.startsWith('#/calendar')) return 'カレンダー';
     if(h === '#/articles') return '全記事一覧';
     if(h === '#/world-map') return '世界地図';
+    if(h.startsWith('#/room')) return '部屋';
+    if(h === '#/diagnosis/nation') return '国家適性診断';
     return null;
   }
   function updateHud(){

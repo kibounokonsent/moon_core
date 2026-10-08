@@ -303,6 +303,7 @@ function renderHome(){
   `).join('');
 
   document.getElementById('app').innerHTML = `
+    ${typeof tdHomeSection === 'function' ? tdHomeSection() : ''}
     <section class="section">
       <div class="section-inner">
         <div class="section-head">
@@ -394,6 +395,9 @@ function renderCategoryPage(key){
         <div class="category-actions nation-entry">
     <a class="btn btn-ghost nation-button" href="#/world-map">
         世界地図を見る
+    </a>
+    <a class="btn btn-ghost nation-button" href="#/diagnosis/nation">
+        国家適性診断
     </a>
 </div>
 
@@ -1505,6 +1509,8 @@ ${imageHtml}
   ${sectionsHtml}
   ${adminSectionsHtml}
 
+  ${typeof tdArticleLinks === 'function' ? tdArticleLinks(a) : ''}
+
   ${validRelated.length ? `<h2>関連項目</h2><div class="related-links">${related}</div>` : ''}
 </div>
 
@@ -1879,6 +1885,12 @@ if(hash === '#/articles'){
 
   renderAllArticles();
 
+} else if(hash === '#/diagnosis/nation'){
+
+  setBackgroundTheme(null);
+  document.getElementById('home-hero').style.display = 'none';
+  renderNationDiagnosisPage(document.getElementById('app'));
+
 } else if(hash === '#/diagnosis'){
 
   setBackgroundTheme(null);
@@ -1912,6 +1924,10 @@ if(hash === '#/articles'){
 } else if(hash === '#/culture/food'){
 
   renderCultureFood();
+
+} else if(hash === '#/room' || hash.startsWith('#/room/')){
+
+  renderRoomPage(hash.replace(/^#\/room\/?/, ''));
 
 } else if(hash === '#/world-map'){
 
