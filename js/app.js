@@ -14,8 +14,13 @@ const ICONS = {
   scale:'<path d="M12 3v18M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
 };
 
+/* 管理者情報（裏設定）は js/data/admin-notes.js にだけ入っている。
+   このファイルは .gitignore で公開しないため、公開サイトでは ADMIN_NOTES が存在せず、
+   管理者情報は一切表示されない（データそのものが公開されない）。
+   手元で開いたときだけ表示される。管理画面で一時的に隠して「公開版の見え方」も確認できる。 */
+const ADMIN_AVAILABLE = (typeof ADMIN_NOTES !== 'undefined');
 let isAdmin = false;
-try { isAdmin = sessionStorage.getItem('moonCoreAdmin') === 'true'; } catch(e){}
+try { isAdmin = ADMIN_AVAILABLE && sessionStorage.getItem('moonCoreAdminHidden') !== 'true'; } catch(e){ isAdmin = ADMIN_AVAILABLE; }
 
 function catByKey(key){ return CATEGORIES.find(c => c.key === key); }
 
@@ -1525,43 +1530,20 @@ function renderAdminPage(){
 
   document.getElementById('home-hero').style.display = 'none';
 
-  if(isAdmin){
-    renderAdminDashboard();
+  if(!ADMIN_AVAILABLE){
+    document.getElementById('app').innerHTML = `
+      <div class="article-page">
+        <div class="content-card">
+          <h1>MOON CORE ADMIN</h1>
+          <p>この環境には管理者データ（admin-notes.js）がありません。</p>
+          <p>公開サイトでは、管理者用の設定は表示されません。</p>
+        </div>
+      </div>
+    `;
     return;
   }
 
-  document.getElementById('app').innerHTML = `
-    <div class="article-page">
-
-      <div class="content-card">
-
-        <div class="admin-login">
-
-          <h1>MOON CORE ADMIN</h1>
-
-          <p>管理者認証</p>
-
-          <input
-            type="password"
-            id="admin-password"
-            placeholder="パスワード"
-          >
-
-          <button onclick="adminLogin()">
-            ログイン
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-function renderAdminDashboard(){
+  const count = Object.keys(ADMIN_NOTES).length;
 
   document.getElementById('app').innerHTML = `
     <div class="article-page">
@@ -1570,12 +1552,13 @@ function renderAdminDashboard(){
 
         <h1>MOON CORE ADMIN</h1>
 
-        <p>管理者としてログインしています。</p>
+        <p>管理者データを読み込んでいます（${count}記事）。</p>
+        <p>${isAdmin ? '現在、記事ページに管理者用設定を表示しています。' : '現在、管理者用設定を隠して「公開版の見え方」で表示しています。'}</p>
 
         <a class="btn" href="#/admin/related">RELATED CHECK を開く</a>
 
-        <button onclick="adminLogout()">
-          ログアウト
+        <button onclick="toggleAdminView()">
+          ${isAdmin ? '管理者用設定を隠す（公開版の見え方）' : '管理者用設定を表示する'}
         </button>
 
       </div>
@@ -1586,36 +1569,11 @@ function renderAdminDashboard(){
 }
 
 
-function adminLogin(){
+function toggleAdminView(){
 
-  const password =
-    document.getElementById('admin-password').value;
+  isAdmin = !isAdmin;
 
-  if(password === 'M7!qR2#vL9@tK4'){
-
-    isAdmin = true;
-
-    sessionStorage.setItem(
-      'moonCoreAdmin',
-      'true'
-    );
-
-    renderAdminDashboard();
-
-  } else {
-
-    alert('パスワードが正しくありません。');
-
-  }
-
-}
-
-
-function adminLogout(){
-
-  sessionStorage.removeItem('moonCoreAdmin');
-
-  isAdmin = false;
+  try { sessionStorage.setItem('moonCoreAdminHidden', isAdmin ? 'false' : 'true'); } catch(e){}
 
   renderAdminPage();
 
@@ -1800,7 +1758,7 @@ function exportRelatedDecisions(){
 function renderRelatedAdminPage(){
   document.getElementById('home-hero').style.display = 'none';
 
-  if(!isAdmin){ renderAdminPage(); return; }
+  if(!ADMIN_AVAILABLE){ renderAdminPage(); return; }
 
   const {resolvedFixes, removedRefs, perArticle} = computeRelatedAnalysis();
 

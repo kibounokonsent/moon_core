@@ -21,6 +21,7 @@ ARTICLES.push({
         {label:'スローガン', value:'国家前進'},
         {label:'特性', value:'S.V.H.中央本部を有する世界最大級の対変異体対策国家'},
         {label:'シンボル', value:'龍'},
+        {label:'元首', value:'清作 也一'},
         {label:'首都', value:'東京'},
         {label:'人口', value:'約2億2000万人'},
         {label:'通貨', value:'円'},

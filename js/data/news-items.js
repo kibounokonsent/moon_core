@@ -293,3 +293,14 @@ NEWS_ITEMS.push({
   relatedNationIds: ['larliafrus'],
   relatedHistoryIds: []
 });
+
+NEWS_ITEMS.push({
+  id: 'news-034',
+  title: 'シンギュラリティ事件の首謀AI、行方不明のまま',
+  updated: '2026.10.22',
+  category: 'history',
+  text: 'シンギュラリティ事件の中心となった感情保有AIについて、その所在は現在も確認されていない。',
+  relatedArticleIds: ['singularity-incident'],
+  relatedNationIds: [],
+  relatedHistoryIds: []
+});

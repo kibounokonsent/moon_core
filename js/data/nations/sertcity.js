@@ -116,5 +116,5 @@ ARTICLES.push({
     ]},
   ],
 
-  related:['niporan','hubert','neuro-sync','daily-life','code','happycaddy','worldtreec'],
+  related:['niporan','hubert','neuro-sync','daily-life','code','happycaddy','worldtreec','name1000'],
 });

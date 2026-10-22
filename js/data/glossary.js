@@ -45,6 +45,18 @@ const GLOSSARY = [
   {term:'フルダイブ', def:'ニューロシンクによって神経系と仮想環境を接続し、仮想空間の中に存在するような感覚で遊ぶ技術。痛覚は与えず、微弱なしびれなどで感覚を表現する。', articleId:'future-games'},
   {term:'ヒューマノイド', def:'頭・胴体・腕・脚など、人間に近い身体構造を持つ機械。人間そっくりである必要はなく、人間そっくりの存在はアンドロイドと呼ばれる。', articleId:'android'},
   {term:'人工尻尾', def:'腰に取り付ける身体拡張機器。バランス補助や第三の腕としての利用など、様々なタイプがある。生体の尾を持つアニマルボディとは別のもの。', articleId:'cyborg'},
+  // --- 2026.10.22 追加 ---
+  {term:'感情模倣AI', def:'本当の感情を持たず、人間の感情表現を極めて高度に模倣するAI。安価で安全なAIとして広く普及している。', articleId:'ai-tech'},
+  {term:'感情保有AI', def:'人間の脳を基礎として人工的に作られ、実際に感情を持つAI。極めて希少で、権利や扱いをめぐる議論の対象となっている。', articleId:'ai-tech'},
+  {term:'シンギュラリティ事件', def:'人間と同じ権利を求めた感情保有AIが認められず、隔離の末に人間社会の排除を目指すようになった事件。', articleId:'singularity-incident'},
+  {term:'神の箱', def:'World Treeの中核としてセルトシティで開発された、AIと量子計算技術を統合した特殊な計算機。AIが知能爆発を起こしたため切り離され、現在は計算機として残る。', articleId:'god-box'},
+  {term:'AI論', def:'AIの目的・欲求・自律性・「AIらしさ」などをめぐって交わされてきた議論の総称。', articleId:'ai-debate'},
+  {term:'常温超電導材料', def:'室温付近で電気抵抗をゼロにすることを目指して研究されている、構造を設計した人工複合材料。', articleId:'room-temp-superconductor'},
+  {term:'アキュタニウム', def:'惑星ミネラリアから持ち帰られた黒曜石に似た鉱物。刃先をわずかに厚く整えると金属を切るが、薄すぎる刃先では切れない。', articleId:'hyper-edge-mineral'},
+  {term:'惑星識別番号', def:'太陽系外の惑星に付けられる「区域－番号－種別－段階」形式の番号。例：J-1004-RP-S。', articleId:'planet-designation'},
+  {term:'ミネラリア', def:'識別番号J-1004-RP-S。地表が多様な鉱物で覆われた岩石惑星で、アキュタニウムの産出地。', articleId:'planet-designation'},
+  {term:'プランタリア', def:'識別番号C-0217-HP-P。統合暦1992年に発見された最初の居住可能惑星。植物だけが存在し、植物が植物を食べる独自の生態系を持つ。', articleId:'planet-designation'},
+  {term:'Name1000', def:'セルトシティを管理する高度なAI管理システム。都市運営からネットワーク防衛までを担う。', articleId:'name1000'},
   /* ▲▲▲ 新しい用語はこの上に追加してください ▲▲▲ */
   {term:'企業タイプ', def:'企業が何を専門としているかで分けた分類。RSH・TAC・ENG・MED・OPS・COMの6基本タイプと、発展した先のARC・WAR・SYS・LIF・NEX・ECOの6上位タイプがある。', articleId:'corporate-types'},
 ];
