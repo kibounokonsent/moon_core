@@ -108,7 +108,7 @@ body{
 
   color:var(--text-primary);
 
-  font-family:'Noto Sans JP',sans-serif;
+  font-family:var(--font-body,'IBM Plex Sans JP',sans-serif);
 
   line-height:1.9;
 
@@ -198,7 +198,7 @@ nav.main-nav a:hover::after{transform:scaleX(1);}
 .search-overlay.open .search-panel{transform:translateY(0);}
 .search-input-row{display:flex; align-items:center; gap:12px; padding:18px 22px; border-bottom:1px solid var(--border);}
 .search-input-row svg{width:19px; height:19px; color:var(--text-tertiary); flex-shrink:0;}
-.search-input-row input{flex:1; border:none; outline:none; background:transparent; font-size:16px; color:var(--text-primary); font-family:'Noto Sans JP', sans-serif;}
+.search-input-row input{flex:1; border:none; outline:none; background:transparent; font-size:16px; color:var(--text-primary); font-family:var(--font-body,'IBM Plex Sans JP',sans-serif);}
 .search-input-row .esc{font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--text-tertiary); border:1px solid var(--border); padding:2px 7px; border-radius:6px;}
 .search-results{max-height:340px; overflow-y:auto; padding:8px;}
 .search-result-item{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border-radius:var(--radius-sm); cursor:pointer; transition:background 0.2s ease;}
@@ -1707,7 +1707,7 @@ body.theme-glossary{
   padding:6px 0;
 
   color:var(--text-secondary);
-  font-family:'Noto Sans JP',sans-serif;
+  font-family:var(--font-body,'IBM Plex Sans JP',sans-serif);
   font-size:14.5px;
   font-weight:500;
 
@@ -2044,4 +2044,178 @@ body.theme-glossary{
     margin-top: 0;
     padding-top: 0;
     border-top: none;
+}
+
+/* ---------- 全記事一覧：スマホ幅（2026.10.27） ----------
+   本文とカテゴリ・日付の横並びをやめ、縦に積む。概要は3行まで。 */
+@media (max-width: 640px){
+  .article-index-card{
+    flex-direction:column;
+    gap:10px;
+    padding:16px 16px 14px 18px;
+  }
+  .article-index-card:hover{ transform:none; }
+  .article-index-main{ min-width:0; }
+  .article-index-title{
+    font-size:16px;
+    line-height:1.45;
+    margin-bottom:6px;
+  }
+  .article-index-lede{
+    font-size:13px;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .article-index-meta{
+    min-width:0;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .article-index-card.admin-article .article-index-title{ padding-right:14px; }
+  .article-index-wrap{ padding-left:0; padding-right:0; }
+}
+
+
+/* ---------- 歴史カテゴリ：時代ごとの見出し（2026.10.27） ---------- */
+.history-era{ margin-top:36px; }
+.history-era:first-of-type{ margin-top:24px; }
+.history-era-title{
+  display:flex; align-items:baseline; flex-wrap:wrap; gap:6px 12px;
+  font-size:18px; margin:0 0 14px; padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+  text-wrap:balance;
+}
+.history-era-years{
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500;
+  letter-spacing:.04em; color:var(--text-tertiary);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- 記事ページ：スマホ幅（2026.10.27） ----------
+   本文の前に並んでいた目次・カテゴリー・検索を整理し、本文をすぐ読めるようにする。
+   目次は横にスクロールする1行に、カテゴリーと検索はヘッダーにあるので隠す。 */
+@media (max-width:640px){
+  .body-wrap{ padding:16px 16px 72px; gap:18px; grid-template-columns:minmax(0,1fr); }
+  .sidebar, .article-content, .side-toc{ min-width:0; max-width:100%; }
+  .sidebar{ gap:0; }
+  .sidebar .side-cats, .sidebar .side-search{ display:none; }
+  .side-toc .side-block-title{ margin-bottom:8px; }
+  .toc-list{
+    flex-direction:row; gap:8px; overflow-x:auto; border-left:none;
+    padding-bottom:4px; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .toc-list::-webkit-scrollbar{ display:none; }
+  .toc-list a{
+    white-space:nowrap; flex:0 0 auto; margin-left:0;
+    padding:6px 12px; font-size:12.5px;
+    border:1px solid var(--border); border-radius:999px;
+    background:var(--surface);
+  }
+  .toc-list a.active, .nation-page .toc-list a.active{
+    border-color:var(--theme, var(--accent-signal)); color:var(--accent-signal);
+  }
+  .content-card{ padding:22px 16px; }
+  .info-card-row{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px; margin:20px 0 24px; }
+  .info-card{ padding:12px; min-width:0; }
+  .history-era-title{ font-size:16px; }
+}
+
+
+/* ---------- スマホ：記事内の箱（表・情報カード・都市・引用・管理者ブロック）を本文幅に収める（2026.10.27） ---------- */
+@media (max-width:640px){
+  /* 表は「行ごとのカード」に組み替える（1列目＝見出し、2列目以降＝本文。3列以上は列名を小さく添える） */
+  .content-card .table-wrap{margin:20px 0;}
+  .content-card table.archive-table{display:block; margin:0; width:100%;}
+  .content-card table.archive-table thead{display:none;}
+  .content-card table.archive-table tbody{display:block;}
+  .content-card table.archive-table tr{display:block; padding:12px 14px; border-bottom:1px solid var(--border);}
+  .content-card table.archive-table tr:last-child{border-bottom:none;}
+  .content-card table.archive-table tr:hover{background:none;}
+  .content-card table.archive-table td{display:block; width:auto; padding:0; border:none; font-size:14px; line-height:1.75; white-space:normal; overflow-wrap:anywhere;}
+  .content-card table.archive-table td:first-child{font-weight:700; color:var(--text-primary); margin-bottom:3px;}
+  .content-card table.archive-table td:not(:first-child){color:var(--text-secondary);}
+  .content-card table.archive-table:not(.cols-2) td:not(:first-child){margin-top:4px;}
+  .content-card table.archive-table:not(.cols-2) td:not(:first-child)::before{
+    content:attr(data-label); display:inline-block; margin-right:8px; padding:0 6px;
+    font-size:10.5px; letter-spacing:.04em; line-height:1.7; vertical-align:1px;
+    color:var(--text-tertiary); border:1px solid var(--border); border-radius:3px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .content-card table.archive-table td:empty{display:none;}
+  /* 古いthベースの表が残っていても、見出し列が本文を押しつぶさないように */
+  .content-card th{width:auto; white-space:normal;}
+
+  /* 情報カード：2列のまま小さく・低く */
+  .content-card .info-card-row{gap:6px; margin:18px 0 22px;}
+  .content-card .info-card{padding:8px 11px 9px;}
+  .content-card .info-card-label{font-size:10px; margin-bottom:3px; letter-spacing:.04em;}
+  .content-card .info-card-value{font-size:14px; line-height:1.45; overflow-wrap:anywhere;}
+
+  /* 都市カード・施設 */
+  .city-grid{gap:10px; margin:16px 0 4px;}
+  .city-card{padding:14px 14px 12px;}
+  .facility-item{padding:12px 0;}
+
+  /* 引用・注意の箱 */
+  blockquote{padding:14px 14px; margin:18px 0; font-size:14px; line-height:1.85;}
+
+  /* 管理者用設定ブロック：外側の余白を詰めて、中の箱が細くならないように */
+  .admin-section-block{padding:18px 14px; margin-top:28px; border-radius:var(--radius-sm);}
+  .admin-section-block .info-card-row, .admin-section-block .table-wrap{margin-left:0; margin-right:0;}
+
+  /* 長い英数字（URLや型番）で横にはみ出さない */
+  .content-card p, .content-card li, .city-card-desc, .facility-desc{overflow-wrap:anywhere;}
+}
+
+
+/* ---------- スマホ：カテゴリーページ上部のボタン（カレンダー・ニュース・小説・料理など）（2026.10.27） ---------- */
+@media (max-width:640px){
+  .category-actions, .life-entry, .culture-entry, .history-entry, .nation-entry{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; margin-bottom:28px;
+  }
+  .category-actions .btn, .life-entry .btn, .culture-entry .btn, .history-entry .btn, .nation-entry .btn{
+    flex:1 1 calc(50% - 4px); min-width:0; width:auto; height:auto; min-height:44px;
+    padding:10px 12px; font-size:13.5px; line-height:1.4; white-space:normal;
+    display:flex; align-items:center; justify-content:center; text-align:center; writing-mode:horizontal-tb;
+  }
+}
+
+
+/* ---------- 検索（2026.10.27） ---------- */
+.sr-main{display:flex; flex-direction:column; gap:2px; min-width:0;}
+.sr-via{margin-left:0;}
+.search-result-item .sr-cat{flex-shrink:0; white-space:nowrap;}
+.search-input-row input:focus, .search-input-row input:focus-visible{outline:none; box-shadow:none;}
+.search-input-row .esc{cursor:pointer;}
+.search-input-row .esc-close{display:none;}
+@media (max-width:640px){
+  .search-overlay{padding-top:0; align-items:stretch;}
+  .search-panel{margin:0; max-width:none; border-radius:0 0 var(--radius-md) var(--radius-md); border-left:none; border-right:none; border-top:none; max-height:100dvh; display:flex; flex-direction:column;}
+  .search-input-row{padding:12px 14px; gap:10px;}
+  .search-input-row input{font-size:16px; min-width:0;}
+  .search-input-row .esc{font-family:var(--font-body,'IBM Plex Sans JP',sans-serif); font-size:13px; padding:6px 10px; border-radius:999px;}
+  .search-input-row .esc-key{display:none;}
+  .search-input-row .esc-close{display:inline;}
+  .search-results{max-height:calc(100dvh - 64px); padding:6px;}
+  .search-result-item{padding:11px 10px; align-items:flex-start;}
+  .sr-name{font-size:14px; line-height:1.5;}
+  .sr-via{font-size:11.5px;}
+  .sr-cat{font-size:11px; padding-top:2px;}
+}
+
+
+/* ---------- はじめての人へ（2026.10.27） ---------- */
+.guide-step{font-family:'JetBrains Mono', monospace; font-size:.7em; color:var(--accent-signal); margin-right:12px; letter-spacing:.06em;}
+.guide-desc{color:var(--text-secondary); font-size:14.5px; line-height:1.85; margin:-6px 0 18px; max-width:46em;}
+.guide-extra{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+.guide-random{margin:56px auto 0; text-align:center; padding:32px 20px; border:1px dashed var(--border); border-radius:var(--radius-md);}
+.guide-random p{color:var(--text-secondary); margin-bottom:16px; font-size:14.5px;}
+@media (max-width:640px){
+  .guide-desc{font-size:13.5px;}
+  .guide-extra .btn{flex:1 1 calc(50% - 5px); min-height:42px; padding:9px 10px; font-size:13px; text-align:center; justify-content:center;}
+  .hero-cta{flex-wrap:wrap;}
 }

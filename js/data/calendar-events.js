@@ -467,7 +467,8 @@ const CALENDAR_EVENTS = [
     name: '天翼紋の日',
     type: '文化行事',
     countries: ['フーモラ・スカイピル'],
-    description: 'フーモラ・スカイピルで正体不明の「天翼紋」が見つかった日を記念する行事。都市各地に紋様が掲げられ、その意味について自由に語り合う日。'
+    description: 'フーモラ・スカイピルで正体不明の「天翼紋」が見つかった日を記念する行事。都市各地に紋様が掲げられ、その意味について自由に語り合う日。',
+    articleId: 'tenyoku-mon'
 },
 
 {
@@ -1104,7 +1105,7 @@ const CALENDAR_EVENTS = [
   description:'統合暦820年の世界環境協定を記念する国際行事。各国の環境保全の取り組みが共有され、世界環境機構（WEO）による報告も公開される。' },
 { id:'world-sports-day', month:10, day:12, name:'世界スポーツの日', type:'国際行事', countries:['全世界'],
   established:1526, relatedHistory:'世界スポーツの日制定',
-  description:'統合暦1526年に制定された、世界規模でスポーツ文化を共有する日。各地で競技会が開かれ、仮想空間での大会も同時に行われる。' },
+  description:'統合暦1526年に制定された、世界規模でスポーツ文化を共有する日。各地で競技会が開かれ、仮想空間での大会も同時に行われる。各地の競技場では、同じ時刻に光の「競技の灯」がともされる。', articleId:'sports' },
 { id:'world-robot-day', month:11, day:20, name:'世界ロボットの日', type:'国際行事', countries:['全世界'],
   established:1536, relatedHistory:'世界ロボットの日制定',
   description:'統合暦1536年に制定された、ロボット技術の発展と人間社会との関わりを考える日。暮らしを支える機械に目を向け、共存のあり方が語られる。' },

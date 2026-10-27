@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://kibounokonsent.github.io/moon_core/assets/ogp.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>
 /* 起動ゲート：準備が整うまで中身を見せない（描画前に実行） */
 (function(){
@@ -149,6 +149,10 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
                     <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/></svg>
                 </button>
                 <div class="more-menu" role="menu">
+                    <div class="more-label">読む</div>
+                    <a role="menuitem" data-act="link" href="#/guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg><span>はじめての人へ</span></a>
+                    <a role="menuitem" data-act="link" href="#/random"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.1" fill="currentColor"/><circle cx="15" cy="15" r="1.1" fill="currentColor"/><circle cx="15" cy="9" r="1.1" fill="currentColor"/><circle cx="9" cy="15" r="1.1" fill="currentColor"/></svg><span>ランダムに読む</span></a>
+                    <div class="more-sep"></div>
                     <div class="more-label">今日の世界</div>
                     <a role="menuitem" data-act="link" href="#/room"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="15" rx="1"/><path d="M12 3.5v15M4 11h16M2.5 21h19"/></svg><span>部屋</span></a>
                     <a role="menuitem" data-act="link" href="#/calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>世界カレンダー</span></a>
@@ -191,7 +195,7 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
                 autocomplete="off"
                 oninput="runSearch(this.value)">
 
-            <span class="esc" onclick="closeSearch()">ESC</span>
+            <span class="esc" onclick="closeSearch()"><span class="esc-key">ESC</span><span class="esc-close">閉じる</span></span>
 
         </div>
 
@@ -274,6 +278,13 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 
                 <a
                     class="btn btn-ghost"
+                    href="#/guide"
+                >
+                    はじめての人へ
+                </a>
+
+                <a
+                    class="btn btn-ghost"
                     href="#"
                     onclick="event.preventDefault();openSearch();"
                 >
@@ -285,6 +296,13 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
                     href="#/articles"
                 >
                     全記事一覧
+                </a>
+
+                <a
+                    class="btn btn-ghost"
+                    href="#/random"
+                >
+                    ランダムに読む
                 </a>
 
             </div>
@@ -313,6 +331,7 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 <link rel="stylesheet" href="css/mobile-nav.css">
 <link rel="stylesheet" href="css/category-tint.css">
 <link rel="stylesheet" href="css/today.css">
+<link rel="stylesheet" href="css/autolink.css">
 <script src="js/data/00-categories.js"></script>
 <script src="js/data/calendar-events.js"></script>
 <script src="js/calendar.js"></script>
@@ -383,6 +402,7 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 <script src="js/data/org/worldcreditbank.js"></script>
 <script src="js/data/org/worldtreec.js"></script>
 <script src="js/data/org/yokubounosu.js"></script>
+<script src="js/data/articles-expand.js"></script>
 <script src="js/data/glossary.js"></script>
 <!-- 管理者用設定（公開しないファイル。無い環境では読み込まれず、何も表示されない） -->
 <script src="js/data/admin-notes.js"></script>
@@ -391,6 +411,7 @@ html.gate #app,html.gate #home-hero{visibility:hidden}
 <script src="js/nation-diagnosis.js"></script>
 <script src="js/world-map.js"></script>
 <script src="js/app.js"></script>
+<script src="js/autolink.js"></script>
 <script src="js/theme.js"></script>
 <script src="js/explore.js"></script>
 <script src="js/sound.js"></script>

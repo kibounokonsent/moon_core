@@ -250,7 +250,7 @@ function renderBlocks(blocks){
     if(b.t === 'table')
   return `
     <div class="table-wrap">
-      <table class="archive-table">
+      <table class="archive-table cols-${b.headers.length}">
         <thead>
           <tr>
             ${b.headers.map(h=>`<th>${h}</th>`).join('')}
@@ -259,7 +259,7 @@ function renderBlocks(blocks){
         <tbody>
           ${b.rows.map(r=>`
             <tr>
-              ${r.map(c=>`<td>${c}</td>`).join('')}
+              ${r.map((c,ci)=>`<td data-label="${String(b.headers[ci]||'').replace(/"/g,'&quot;')}">${c}</td>`).join('')}
             </tr>
           `).join('')}
         </tbody>
@@ -429,7 +429,36 @@ function renderCategoryPage(key){
 
 }else if(c.renderMode==="history"){
 
-    const arts = ARTICLES.filter(a=>a.cat==="history");
+    /* 歴史の記事を時代順に並べ、時代ごとに見出しで区切る（2026.10.27）。
+       ここに無い歴史記事は、最後の「時代をまたぐ資料」に自動で入る。 */
+    const HISTORY_ERAS = [
+      { name:'はじめに', years:'', ids:['calendar-eras'] },
+      { name:'統合暦以前', years:'約30万年前〜統合暦000年', ids:['ancient-civilization','tenyoku-mon','modern-civilization','mikaminoyama-incident','modern-strange-records','ice-age','frostan-civilization','modern-excavation'] },
+      { name:'再始動期', years:'000〜199年頃', ids:['human-civilization-restart','laroneia','hillronde','ferres-nigra'] },
+      { name:'スチームパンク時代', years:'200〜463年', ids:['steam-punk-era','gear-war','blood-altar'] },
+      { name:'戦後復興時代', years:'464〜899年頃', ids:['garhyura-foundation','gara-hirusu','orgaron-military-abandonment','wolputas-spinophen-development','orgaron-cultural-shift','orgaron-figures','tasumenio-foundation'] },
+      { name:'世界復興以後', years:'900〜1499年頃', ids:['ship-sinking-incident','sanrudo-triad-balance'] },
+      { name:'宇宙・変異体の時代', years:'1958年〜現在', ids:['space-territory-dispute'] },
+      { name:'時代をまたぐ資料', years:'', ids:[] }
+    ];
+    const histAll = ARTICLES.filter(a=>a.cat==="history");
+    const placed = new Set();
+    HISTORY_ERAS.forEach(e => e.ids.forEach(id => placed.add(id)));
+    const eraGroups = HISTORY_ERAS.map((e, i) => ({
+      name: e.name, years: e.years,
+      list: (i === HISTORY_ERAS.length - 1)
+        ? histAll.filter(a => !placed.has(a.id))
+        : e.ids.map(id => histAll.find(a => a.id === id)).filter(Boolean)
+    })).filter(g => g.list.length);
+    const histCard = a => `
+                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
+                    <div class="article-card-title">
+                        ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
+                    </div>
+                    <div class="article-card-lede">
+                        ${a.lede}
+                    </div>
+                </a>`;
 
     body = `
         ${note}
@@ -441,25 +470,13 @@ function renderCategoryPage(key){
 </div>
 
 
-        <div class="article-grid">
-
-            ${arts.map(a=>`
-
-                <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
-
-                    <div class="article-card-title">
-                        ${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}
-                    </div>
-
-                    <div class="article-card-lede">
-                        ${a.lede}
-                    </div>
-
-                </a>
-
-            `).join("")}
-
-        </div>
+        ${eraGroups.map(g => `
+        <section class="history-era">
+            <h2 class="history-era-title">${g.name}${g.years ? `<span class="history-era-years">${g.years}</span>` : ''}</h2>
+            <div class="article-grid">
+                ${g.list.map(histCard).join("")}
+            </div>
+        </section>`).join("")}
     `;
 
 }else if(c.renderMode==="life"){
@@ -1304,7 +1321,7 @@ if(articleIndexSort === 'updated'){
 }
 
 
-  const rows = list.map(a=>`
+  const rowArr = list.map(a=>`
 
     <a class="article-index-card theme-${a.themeKey}${isAdmin && a.admin ? ' admin-article' : ''}"
    href="${a.href}">
@@ -1336,7 +1353,16 @@ if(articleIndexSort === 'updated'){
 
     </a>
 
-  `).join("");
+  `);
+
+  /* スマホ幅では最初の40件だけ表示し、「もっと見る」で増やす（2026.10.27） */
+  const INDEX_PAGE = 40;
+  const isNarrow = !!(window.matchMedia && window.matchMedia('(max-width: 640px)').matches);
+  let shownCount = isNarrow ? Math.min(INDEX_PAGE, rowArr.length) : rowArr.length;
+  const rows = rowArr.slice(0, shownCount).join("");
+  const moreHtml = shownCount < rowArr.length
+    ? `<button type="button" class="btn btn-ghost article-index-more" id="article-index-more">もっと見る（残り${rowArr.length - shownCount}件）</button>`
+    : '';
 
 
 
@@ -1412,15 +1438,29 @@ if(articleIndexSort === 'updated'){
 
     <div class="wrap article-index-wrap">
 
-      <div class="article-index-list">
+      <div class="article-index-list" id="article-index-list">
 
         ${rows}
 
       </div>
 
+      ${moreHtml}
+
     </div>
 
   `;
+
+  const moreBtn = document.getElementById('article-index-more');
+  if(moreBtn){
+    moreBtn.addEventListener('click', () => {
+      const next = Math.min(shownCount + INDEX_PAGE, rowArr.length);
+      document.getElementById('article-index-list')
+        .insertAdjacentHTML('beforeend', rowArr.slice(shownCount, next).join(""));
+      shownCount = next;
+      if(shownCount >= rowArr.length) moreBtn.remove();
+      else moreBtn.textContent = `もっと見る（残り${rowArr.length - shownCount}件）`;
+    });
+  }
 
 }
 
@@ -1435,6 +1475,45 @@ function setArticleSort(type){
 }
 
 /* ---------------- 記事ページ ---------------- */
+/* ---------------- パンくず：どこから記事を開いたか（2026.10.27） ----------------
+ * 小説・短編／料理記事／全記事一覧から開いた記事は、パンくずにその一覧を挟む。
+ *   小説から   → MOON CORE / 人々の暮らし / 小説・短編 / 記事
+ *   全記事一覧 → MOON CORE / 全記事一覧 / 記事
+ * 記事から記事へ移ったときは、同じ一覧に属する記事なら引き継ぐ（全記事一覧は引き継がない）。 */
+const ARTICLE_ORIGINS = {
+  '#/life/novels':  { cat:'life',    label:'小説・短編', test:a => a.type === 'novel' },
+  '#/culture/food': { cat:'culture', label:'料理記事',   test:a => Array.isArray(a.collection) && a.collection.includes('recipe') },
+  '#/articles':     { all:true,      label:'全記事一覧' }
+};
+let prevRouteHash = '';
+let articleOriginKey = null;
+let lastCrumbKey = null;
+window.addEventListener('hashchange', e => {
+  try{ const h = new URL(e.oldURL).hash; if(h.startsWith('#/')) prevRouteHash = h; }catch(_){}
+});
+function articleCrumbs(a, c){
+  const p = prevRouteHash;
+  const crumbKey = location.hash + '|' + p;
+  if(lastCrumbKey === crumbKey){
+    /* 同じ記事の描き直し（言語・表示の切り替えなど）では、そのまま */
+  } else if(ARTICLE_ORIGINS[p]){
+    const o = ARTICLE_ORIGINS[p];
+    articleOriginKey = (o.all || o.test(a)) ? p : null;
+  } else if(p.startsWith('#/article/') && articleOriginKey){
+    const o = ARTICLE_ORIGINS[articleOriginKey];
+    if(o.all || !o.test(a)) articleOriginKey = null;
+  } else {
+    articleOriginKey = null;
+  }
+  lastCrumbKey = crumbKey;
+  const catLink = `<a href="#/category/${c.key}">${c.name}</a><span>/</span>`;
+  if(!articleOriginKey) return catLink;
+  const o = ARTICLE_ORIGINS[articleOriginKey];
+  if(o.all) return `<a href="${articleOriginKey}">${o.label}</a><span>/</span>`;
+  const oc = catByKey(o.cat) || c;
+  return `<a href="#/category/${oc.key}">${oc.name}</a><span>/</span><a href="${articleOriginKey}">${o.label}</a><span>/</span>`;
+}
+
 function renderArticlePage(id){
 
   const a = articleById(id);
@@ -1484,7 +1563,7 @@ const creatureImageHtml = a.imageUrl ? `<div class="creature-icon-wrap"><img cla
       ${isNation ? '<div class="nation-banner-strip"></div>' : ''}
       <div class="breadcrumb">
         <a href="#/">MOON CORE</a><span>/</span>
-        <a href="#/category/${c.key}">${c.name}</a><span>/</span>
+        ${articleCrumbs(a, c)}
         <span style="color:var(--text-primary)">${a.title}</span>
       </div>
       <div class="title-block fade-seq">
@@ -1500,9 +1579,9 @@ ${imageHtml}
     </div>
     <div class="body-wrap ${isNation?'nation-page':''}"${accentStyle}>
       <aside class="sidebar">
-        <div><div class="side-block-title">目次</div><nav class="toc-list" id="toc-list">${toc}</nav></div>
-        <div><div class="side-block-title">カテゴリー</div><nav class="mini-cat-list">${miniCats}</nav></div>
-        <div><div class="side-block-title">資料集を探す</div>
+        <div class="side-toc"><div class="side-block-title">目次</div><nav class="toc-list" id="toc-list">${toc}</nav></div>
+        <div class="side-cats"><div class="side-block-title">カテゴリー</div><nav class="mini-cat-list">${miniCats}</nav></div>
+        <div class="side-search"><div class="side-block-title">資料集を探す</div>
           <div class="btn btn-ghost" style="width:100%; justify-content:center;" onclick="openSearch()">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.4" y2="16.4"/></svg>
             検索する
@@ -1835,6 +1914,83 @@ function renderRelatedAdminPage(){
 }
 
 
+/* ---------------- はじめての人へ（読み順ガイド）・ランダムに読む（2026.10.27） ----------------
+ * #/guide  … 目的別の読み順。存在しない記事は自動で除く。
+ * #/random … 記事をランダムに1本開く（履歴に残さず置き換える）。 */
+const GUIDE_PATHS = [
+  { title:'まず、この世界の輪郭をつかむ', years:'最初の5本',
+    desc:'未来世界がどんな世界なのか、どこから来て、何を抱えているのか。ここから読むと、ほかの記事がぐっと読みやすくなる。',
+    ids:['world-overview','human-civilization-restart','calendar-eras','fire-taboo','modern-civilization'],
+    extra:[{href:'#/history/timeline', label:'歴史年表を見る'},{href:'#/world-map', label:'世界地図を見る'}] },
+  { title:'人々の暮らしをのぞく', years:'暮らし',
+    desc:'寿命が約200年ある世界で、人は何を食べ、どこに住み、どう働いているのか。',
+    ids:['daily-life','one-day-routine','age-perception','food-culture','future-housing','future-work','travel'] },
+  { title:'国を知る', years:'国家',
+    desc:'15の国は、それぞれまったく違う思想で動いている。まずは性格のはっきりした国から。',
+    ids:['niporan','hubert','belnea','fumora-skypill'],
+    extra:[{href:'#/category/nation', label:'国家の一覧へ'},{href:'#/diagnosis/nation', label:'国家適性診断を受ける'}] },
+  { title:'未来の技術にふれる', years:'科学技術',
+    desc:'スマートフォンの代わりの端末、瞬間移動、人工の太陽。未来世界の当たり前を支える技術。',
+    ids:['neuro-sync','teleporter','solar-core','energy-tech','utility-fog'] },
+  { title:'変異体という脅威', years:'変異体',
+    desc:'未来世界が抱える最大の問題。変異体とは何か、誰がどう立ち向かっているのか。',
+    ids:['variant','mother-colony','svh','kansai-disaster'] },
+  { title:'物語から入る', years:'小説・短編',
+    desc:'設定を読むより先に、そこで生きる人の目から世界を見てみたい人へ。',
+    ids:['one-day-routine','silly-news','rainy-day','svh-hero'],
+    extra:[{href:'#/life/novels', label:'小説・短編の一覧へ'}] },
+  { title:'さらに深いところへ', years:'信仰と古代',
+    desc:'世界のはじまり、神、そして古代文明。読み進めるほど、記事どうしがつながって見えてくる。',
+    ids:['ancient-civilization','dragon-book','dragon-religion','god-and-the-world','emotional-ai','horai'] }
+];
+function renderGuidePage(){
+  setBackgroundTheme(null);
+  document.getElementById('home-hero').style.display = 'none';
+  const card = a => `
+    <a class="article-card${isAdmin && a.admin ? ' admin-article' : ''}" href="#/article/${a.id}">
+      <div class="article-card-title">${isAdmin && a.admin ? '<span class="admin-article-label">ADMIN</span>' : ''}${a.title}</div>
+      <div class="article-card-lede">${a.lede || ''}</div>
+    </a>`;
+  const body = GUIDE_PATHS.map((g, i) => {
+    const arts = g.ids.map(articleById).filter(Boolean);
+    if(!arts.length) return '';
+    return `
+      <section class="history-era guide-path">
+        <h2 class="history-era-title"><span class="guide-step">${String(i+1).padStart(2,'0')}</span>${g.title}<span class="history-era-years">${g.years}</span></h2>
+        <p class="guide-desc">${g.desc}</p>
+        <div class="article-grid">${arts.map(card).join('')}</div>
+        ${g.extra ? `<div class="guide-extra">${g.extra.map(x => `<a class="btn btn-ghost" href="${x.href}">${x.label}</a>`).join('')}</div>` : ''}
+      </section>`;
+  }).join('');
+  document.getElementById('app').innerHTML = `
+    <div class="page-header">
+      <div class="breadcrumb">
+        <a href="#/">MOON CORE</a><span>/</span>
+        <span style="color:var(--text-primary)">はじめての人へ</span>
+      </div>
+      <div class="title-block fade-seq">
+        <span class="cat-badge">GUIDE</span>
+        <h1>はじめての人へ</h1>
+        <p class="lede">${ARTICLES.length}本の記事の中から、目的に合わせた読み順をまとめた案内。どこから読んでもかまわないが、迷ったら上から順に。</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding-top:8px;padding-bottom:100px;">
+      ${body}
+      <div class="guide-random">
+        <p>どれを読むか決められないときは、偶然にまかせてみるのもいい。</p>
+        <a class="btn btn-primary" href="#/random">ランダムに1本読む</a>
+      </div>
+    </div>`;
+}
+function openRandomArticle(){
+  const pool = ARTICLES.filter(a => a.cat && a.sections && a.sections.length);
+  if(!pool.length){ location.replace('#/'); return; }
+  let pick = pool[Math.floor(Math.random() * pool.length)];
+  if(pool.length > 1 && location.hash === '#/random' && window.__lastRandom === pick.id) pick = pool[(pool.indexOf(pick) + 1) % pool.length];
+  window.__lastRandom = pick.id;
+  location.replace('#/article/' + pick.id);
+}
+
 function router(){
 
   const hash = location.hash;
@@ -1874,6 +2030,14 @@ if(hash === '#/articles'){
 } else if(hash === '#/news'){
 
   renderNewsPage();
+
+} else if(hash === '#/guide'){
+
+  renderGuidePage();
+
+} else if(hash === '#/random'){
+
+  openRandomArticle();
 
 } else if(hash === '#/life/novels'){
 
@@ -1944,17 +2108,21 @@ function toastMsg(msg){
 
 /* ---------------- 検索 ---------------- */
 function buildSearchIndex(){
-  // 記事名・関連記事のタイトル・（あれば）明示的なkeywordsを検索対象に含める。
-  // これにより「SNET」で検索しても、関連する「セルトシティ」で引っかかるようになる。
+  // 2026.10.27：記事名に加えて、別名（aliases）・用語集の語・見出し・関連記事名・リード文も検索対象にする。
+  // 「豪快食い」「半ナマ」のように、記事名ではない語からでも記事にたどり着けるようにするため。
   const titleById = {};
   ARTICLES.forEach(a => { titleById[a.id] = a.title; });
+  const termsById = {};
+  GLOSSARY.forEach(g => { if(g.articleId){ (termsById[g.articleId] = termsById[g.articleId] || []).push(g.term); } });
 
   const fromArticles = ARTICLES.map(a => {
     const relatedTitles = (a.related || []).map(id => titleById[id]).filter(Boolean);
-    const keywords = [...new Set([...(a.keywords || []), ...relatedTitles])];
-    return {name:a.title, cat:catByKey(a.cat).name, href:`#/article/${a.id}`, keywords};
+    const strong = [...new Set([...(a.keywords || []), ...(a.aliases || []), ...(termsById[a.id] || [])])];
+    const heads = (a.sections || []).map(s => s.title).filter(t => !/^(概要|歴史|食文化として|食べ方|味・香り・食感|作り方|由来|材料)$/.test(t));
+    const body = () => (a.sections || []).map(s => (s.blocks || []).map(b => [b.text, ...(b.items || []).map(x => typeof x === 'string' ? x : [x.label, x.value, x.name, x.desc].join(' ')), ...(b.rows || []).map(r => r.join(' '))].join(' ')).join(' ')).join(' ').replace(/<[^>]+>/g, '');
+    return {name:a.title, cat:catByKey(a.cat).name, href:`#/article/${a.id}`, strong, heads, keywords:relatedTitles, lede:a.lede || '', body};
   });
-  const fromGlossary = GLOSSARY.filter(g => !ARTICLES.find(a=>a.id===g.articleId)).map(g => ({name:g.term, cat:'用語集', href:null, keywords:[]}));
+  const fromGlossary = GLOSSARY.filter(g => !g.articleId || !titleById[g.articleId]).map(g => ({name:g.term, cat:'用語集', href:null, keywords:[], lede:g.def || ''}));
   const fromNews = (typeof NEWS_ITEMS !== 'undefined' ? NEWS_ITEMS : []).map(n => ({name:n.title, cat:'ニュース', href:`#/news/${n.id}`, keywords:[]}));
   const fromCalendar = (typeof CALENDAR_EVENTS !== 'undefined' ? CALENDAR_EVENTS : []).map(ev => ({name:ev.name, cat:'カレンダー', href:`#/calendar/${ev.id}`, keywords:[]}));
   const fromWorldMap = [{name:'世界地図', cat:'地図', href:'#/world-map', keywords:[]}];
@@ -1972,22 +2140,32 @@ function closeSearch(){ document.getElementById('search-overlay').classList.remo
 function runSearch(q){
   const results = document.getElementById('search-results');
   const query = q.trim();
-  const filtered = query === '' ? SEARCH_INDEX : SEARCH_INDEX
-    .map(i => {
-      const nameHit = i.name.includes(query);
-      const catHit = i.cat.includes(query);
-      const keywordHit = (i.keywords || []).find(k => k.includes(query) && k !== i.name);
-      if(!nameHit && !catHit && !keywordHit) return null;
-      return {...i, via: (!nameHit && !catHit && keywordHit) ? keywordHit : null};
-    })
-    .filter(Boolean);
+  const norm = t => String(t || '').toLowerCase().replace(/[\s・]/g, '');
+  const nq = norm(query);
+  let filtered;
+  if(query === ''){
+    filtered = SEARCH_INDEX;
+  } else {
+    // 一致した場所ごとに点数をつけ、記事名の一致を最優先に並べる
+    filtered = SEARCH_INDEX.map(i => {
+      const has = t => norm(t).includes(nq);
+      if(has(i.name)) return {...i, via:null, score: norm(i.name) === nq ? 0 : (norm(i.name).startsWith(nq) ? 1 : 2)};
+      const s = (i.strong || []).find(has); if(s) return {...i, via:`「${s}」から`, score:3};
+      const h = (i.heads || []).find(has);  if(h) return {...i, via:`見出し「${h}」`, score:4};
+      if(has(i.cat)) return {...i, via:null, score:5};
+      const k = (i.keywords || []).find(t => has(t) && t !== i.name); if(k) return {...i, via:`関連「${k}」`, score:6};
+      if(nq.length >= 2 && has(i.lede)) return {...i, via:'説明文から', score:7};
+      if(nq.length >= 2 && typeof i.body === 'function'){ if(i._body === undefined) i._body = norm(i.body()); if(i._body.includes(nq)) return {...i, via:'本文から', score:8}; }
+      return null;
+    }).filter(Boolean).sort((x, y) => x.score - y.score);
+  }
   if(filtered.length === 0){
     results.innerHTML = `<div class="search-empty">「${q}」に一致する項目が見つかりませんでした</div>`;
     return;
   }
-  results.innerHTML = filtered.map(i => `
+  results.innerHTML = filtered.slice(0, 120).map(i => `
     <div class="search-result-item" onclick="${i.href ? `closeSearch(); location.hash='${i.href}';` : `closeSearch(); toastMsg('「${i.name}」— 詳細ページは準備中です')`}">
-      <span class="sr-name">${i.name}${i.via ? `<span class="sr-via">「${i.via}」から</span>` : ''}</span><span class="sr-cat">${i.cat}</span>
+      <span class="sr-main"><span class="sr-name">${i.name}</span>${i.via ? `<span class="sr-via">${i.via}</span>` : ''}</span><span class="sr-cat">${i.cat}</span>
     </div>`).join('');
 }
 document.addEventListener('keydown', (e) => {

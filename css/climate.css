@@ -330,7 +330,7 @@
 .climate-axis-label{
   fill:var(--text-tertiary);
 
-  font-family:'Noto Sans JP',sans-serif;
+  font-family:var(--font-body,'IBM Plex Sans JP',sans-serif);
   font-size:11px;
 }
 

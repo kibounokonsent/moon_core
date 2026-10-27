@@ -79,7 +79,7 @@ ARTICLES.push({
     },
 
     {
-      id:'sec-culture',
+      id:'sec-neurosync',
       title:'ニューロシンク技術',
       blocks:[
         {t:'p', text:'CODEでは、ニューロシンクの研究、販売、運用も行っている。'},

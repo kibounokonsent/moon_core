@@ -300,7 +300,7 @@
 .rm-hot:focus-visible .rm-hot-ring{ opacity:.85; }
 
 /* 文字 */
-.rm-t{ font-family:'Noto Sans JP', 'IBM Plex Sans JP', sans-serif; }
+.rm-t{ font-family:var(--font-body,'IBM Plex Sans JP',sans-serif); }
 .rm-t-month{ font-size:16px; font-weight:700; }
 .rm-t-day{ font-size:62px; font-weight:700; font-family:'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif; }
 .rm-t-ev{ font-size:15px; font-weight:700; }
@@ -550,4 +550,18 @@
   .rm-cloud, .rm-rain, .rm-snow, .rm-fog, .rm-twinkle, .rm-glow-line, .rm-pulse-dot, .rm-t-ticker,
   .rm-pendulum, .rm-gear, .rm-swim, .rm-steam, .rm-tail, .rm-rotate,
   .rm-fly, .rm-fly-rev, .rm-flap, .rm-blink, .rm-float, .rm-train, .rm-steam2, .rm-sweep, .rm-breathe, .rm-t-ticker-sm, .rm-catwalk, .rm-gear-sm, .rm-gear-rev, .rm-flow, .rm-pulse-ring, .rm-airship, .rm-beam, .rm-smoke, .rm-drift, .rm-roam, .rm-flicker, .rm-waterflow, .rm-bubble{ animation:none; }
+}
+
+/* ---------- 部屋ページ：スマホ幅では演出を控えめに（2026.10.27） ----------
+   天気（雨・雪・雲・霧以外）や暮らしの動き（猫・列車・飛行船など）は残し、
+   光の点滅・湯気・泡・小さな歯車などの細かい常時アニメーションを止める。 */
+@media (max-width:640px){
+  .rm-glow-line, .rm-pulse-dot, .rm-pulse-ring, .rm-beam,
+  .rm-flicker, .rm-blink, .rm-twinkle, .rm-breathe,
+  .rm-steam, .rm-steam2, .rm-smoke, .rm-bubble,
+  .rm-flow, .rm-waterflow, .rm-gear-sm, .rm-gear-rev,
+  .rm-flap, .rm-sweep, .rm-float, .rm-fog{ animation:none; }
+  .rm-rain{ animation-duration:1.2s; }
+  /* モニターのニュースは流さず、見出しの先頭を止めて表示する（流れる文字が最も重いため） */
+  .rm-t-ticker{ animation:none; transform:translateX(-160px); }
 }

@@ -177,24 +177,37 @@
       c.y = offscreen ? -Math.random() * h * .6 : Math.random() * h;
       c.v = .5 + Math.random() * 1.1;
     }
+    /* 軽量化（2026.10.27）：色とフォントは毎フレーム読み直さず、変わったときだけ更新する。
+       スマホ幅では描き直しを1秒10回に減らし、進む距離は経過時間で補って見た目の速さを保つ。 */
+    const narrowMQ = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
+    let interval = (narrowMQ && narrowMQ.matches) ? 100 : 50;
+    if(narrowMQ){ const onMQ = () => { interval = narrowMQ.matches ? 100 : 50; };
+      if(narrowMQ.addEventListener) narrowMQ.addEventListener('change', onMQ); else if(narrowMQ.addListener) narrowMQ.addListener(onMQ); }
+    let color = '#22E4FF', colorAt = -1;
+    function readColor(){ color = getComputedStyle(root).getPropertyValue('--theme-2').trim() || '#22E4FF'; }
     function size(){
       w = cv.width = window.innerWidth; h = cv.height = window.innerHeight;
+      ctx.font = FS + 'px "IBM Plex Sans JP", monospace';
       cols = Array.from({length: Math.ceil(w / GAP)}, (_, i) => { const c = { x: i * GAP + 14 }; fresh(c, true); return c; });
     }
     words = allWords();
     size(); window.addEventListener('resize', size);
+    let hotUntil = 0;   // テーマ色が切り替わる0.5秒のあいだは毎回読み、色の移り変わりをそのまま保つ
+    const markHot = () => { hotUntil = performance.now() + 800; };
+    new MutationObserver(markHot).observe(root, { attributes: true, attributeFilter: ['data-theme', 'style', 'class'] });
+    new MutationObserver(markHot).observe(document.body, { attributes: true, attributeFilter: ['class', 'style'] });
 
     let last = 0;
     function tick(now){
       requestAnimationFrame(tick);
-      if(document.hidden || now - last < 50) return;
+      if(document.hidden || now - last < interval) return;
+      const step = last ? Math.min((now - last) / 50, 4) : 1;
       last = now;
-      const col = getComputedStyle(root).getPropertyValue('--theme-2').trim() || '#22E4FF';
+      if(colorAt < 0 || now < hotUntil || now - colorAt > 1000){ readColor(); colorAt = now; }
       ctx.clearRect(0, 0, w, h);
-      ctx.font = FS + 'px "IBM Plex Sans JP", "Noto Sans JP", monospace';
-      ctx.fillStyle = col;
+      ctx.fillStyle = color;
       for(const c of cols){
-        c.y += c.v * 3;
+        c.y += c.v * 3 * step;
         const n = c.text.length;
         if(c.y - n * FS > h) fresh(c, true);
         for(let k = 0; k < n; k++){
