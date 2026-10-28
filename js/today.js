@@ -949,7 +949,7 @@ TD_VIEWS.kyuma = (W, H, L, ph, wx) => {
   [[W * .34, H * .26, 6], [W * .38, H * .3, 5]].forEach(([x, y, w]) => out.push(`<rect x="${x}" y="${y}" width="${w}" height="${H * .36 - y}" fill="${ruin}"/>`));
   out.push(`<g class="rm-float"><path d="M${W * .3} ${H * .14} l30 -6 l14 8 l-36 6Z" fill="${ruin}"/><path d="M${W * .4} ${H * .1} l18 -3 l8 6 l-22 3Z" fill="${ruin}" opacity=".9"/></g>`);
   // 天翼紋（翼の紋様）
-  out.push(`<path d="M${W * .24} ${H * .2} q-8 -4 -12 2 q6 0 12 4 q6 -4 12 -4 q-4 -6 -12 -2Z" fill="${tdMix(v.depth('#f6e2b0', .3), '#ffe8a0', N)}" opacity="${(.6 + .4 * N).toFixed(2)}"/>`);
+  if(typeof tenyokuGroup === 'function') out.push(tenyokuGroup(W * .24 - 17, H * .232, 34, { stroke: tdMix(v.depth('#e9c77a', .3), '#ffe8a0', N), sw: 2.6, attrs: `opacity="${(.8 + .2 * N).toFixed(2)}"` }));
   out.push(v.mist(H * .44, 60, .55));
   // 中景：エータルの街（砂岩、円形討議場、研究塔）
   for(let x = -10; x < W + 10;){ const w = 22 + r() * 22, h = 22 + r() * 34; out.push(v.building(x, H * .74, w, h, '#e0c49a', .55, { roof: r() < .35 ? 'dome' : null, roofColor: '#c8a070', win: .35, winColor: '#ffd9a0' })); x += w + 2; }
@@ -1884,7 +1884,11 @@ function tdFeature(st, id, lit, dark, accent, L, now){
       // 復元住宅：天翼紋の拓本、発掘品の陳列棚（ガラス）、復元した蒸気機関の模型
       const wood = lit('#6b4f33'), paper = lit('#efe2c4');
       s.push(`<rect x="944" y="44" width="210" height="130" fill="${paper}" stroke="${wood}" stroke-width="5"/><rect x="954" y="54" width="190" height="110" fill="${lit('#2a2420')}" opacity=".85"/>`);
-      s.push(`<path d="M1049 140 C1020 128 990 100 976 70 C1004 84 1030 96 1049 112 C1068 96 1094 84 1122 70 C1108 100 1078 128 1049 140Z" fill="${lit('#e6d2a0')}" opacity=".9"/><path d="M1049 140 L1049 80 M1049 112 C1030 104 1010 90 996 78 M1049 112 C1068 104 1088 90 1102 78" stroke="${lit('#2a2420')}" stroke-width="1.4" fill="none"/><circle cx="1049" cy="74" r="6" fill="none" stroke="${lit('#e6d2a0')}" stroke-width="2"/>`);
+      // 天翼紋の拓本（作者の図案。2026.10.28）
+      if(typeof tenyokuGroup === 'function'){
+        s.push(`<rect x="962" y="60" width="174" height="98" fill="${lit('#3a3128')}" opacity=".55"/>`);
+        s.push(tenyokuGroup(976, 62, 146, { stroke: lit('#eadab0'), sw: .9, attrs: 'opacity=".92"' }));
+      }
       s.push(`<text x="1049" y="186" text-anchor="middle" class="rm-t rm-t-tag" fill="${lit('#5a4632')}">天翼紋 拓本</text>`);
       s.push(`<rect x="930" y="210" width="240" height="310" fill="${wood}"/><rect x="940" y="220" width="220" height="290" fill="${lit('#e9dcc0')}" opacity=".4"/>`);
       [300, 400].forEach(y => s.push(`<rect x="940" y="${y}" width="220" height="6" fill="${wood}"/>`));

@@ -7216,3 +7216,30 @@
   ];
   if(g){ g.related=g.related||[]; if(g.related.indexOf('tensho')<0) g.related.push('tensho'); g.updated=U; }
 })();
+/* ============================================================================
+   ARTICLES-EXPAND — 2026.10.28
+   天翼紋の挿絵（作者の図案）と、図案の各部の説明。
+   ============================================================================ */
+(function(){
+  var U='2026.10.28';
+  var a=ARTICLES.filter(function(x){return x.id==='tenyoku-mon';})[0]; if(!a) return;
+  function sec(id){ return a.sections.filter(function(s){return s.id===id;})[0]; }
+  var ov=sec('sec-overview');
+  if(ov && !ov.blocks.some(function(b){return b.t==='figure';})){
+    ov.blocks.splice(1,0,{ t:'figure', svg:'tenyoku', alt:'天翼紋', caption:'天翼紋。古代文明の遺物に刻まれた紋様を写したもの。左右に広がる翼、その上に浮かぶ輪、中央の菱形と、そこを通る縦と横の線からなる。' });
+  }
+  var nm=sec('sec-name');
+  if(nm && !nm.blocks.some(function(b){return b.text && b.text.indexOf('菱形')>=0;})){
+    nm.blocks.splice(1,0,
+      { t:'p', text:'紋様は、いくつかの部分の組み合わせでできている。名前の由来になったのは左右の翼だけで、ほかの部分が何を表しているのかは、翼以上に分かっていない。' },
+      { t:'table', headers:['部分','見た目','研究者の見方'], rows:[
+        ['翼','左右に大きく広がる、何枚もの羽根を重ねた翼','名前の由来。空や飛ぶことを表すという見方が多い'],
+        ['輪','翼の上に浮かぶ、二重の楕円の輪','天、光、あるいは何かの装置を表すという見方がある'],
+        ['菱形','中央に縦長に置かれた菱形','紋様の中心。何かを収める器、あるいは核を表すという見方がある'],
+        ['縦と横の線','菱形の中を通る、二本ずつの縦と横の線','菱形を支える柱や、方角を示す印だという見方がある']
+      ]},
+      { t:'p', text:'どの遺物に刻まれたものでも、これらの部分の形と配置はほとんど変わらない。刻まれた大きさや素材が違っても、翼の羽根の枚数や、輪と菱形の位置までそろっていることが、この紋様がただの飾りではないと考えられている理由の一つである。' }
+    );
+  }
+  a.updated=U;
+})();

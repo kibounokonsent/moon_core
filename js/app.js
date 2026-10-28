@@ -243,6 +243,10 @@ function renderBlocks(blocks){
     if(b.t === 'p') return `<p>${b.text}</p>`;
     if(b.t === 'h3') return `<h3>${b.text}</h3>`;
     if(b.t === 'quote') return `<blockquote class="${b.warn?'warn':''}">${b.text}</blockquote>`;
+    if(b.t === 'figure'){
+      const art = b.svg === 'tenyoku' && typeof tenyokuSvg === 'function' ? tenyokuSvg({ cls:'article-figure-svg', sw:b.sw || .55, label:b.alt || '' }) : (b.src ? `<img src="${b.src}" alt="${b.alt||''}" loading="lazy">` : '');
+      return `<figure class="article-figure${b.size ? ' is-' + b.size : ''}"><div class="article-figure-art">${art}</div>${b.caption ? `<figcaption>${b.caption}</figcaption>` : ''}</figure>`;
+    }
     if(b.t === 'list') return `<ul>${b.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
     if(b.t === 'info') return `<div class="info-card-row">${b.items.map(i=>`<div class="info-card"><div class="info-card-label">${i.label}</div><div class="info-card-value">${i.value}</div></div>`).join('')}</div>`;
     if(b.t === 'cities') return `<div class="city-grid">${b.items.map(c=>`<div class="city-card"><div class="city-card-name">${c.name}</div><div class="city-card-role">${c.role}</div><div class="city-card-desc">${c.desc}</div></div>`).join('')}</div>`;

@@ -2219,3 +2219,15 @@ body.theme-glossary{
   .guide-extra .btn{flex:1 1 calc(50% - 5px); min-height:42px; padding:9px 10px; font-size:13px; text-align:center; justify-content:center;}
   .hero-cta{flex-wrap:wrap;}
 }
+
+
+/* ---------- 記事の挿絵（2026.10.28） ---------- */
+.article-figure{margin:28px auto 30px; max-width:440px; text-align:center;}
+.article-figure-art{padding:26px 22px 22px; border:1px solid var(--border); background:var(--surface-alt); color:var(--text-primary); position:relative;}
+.article-figure-art::before, .article-figure-art::after{content:''; position:absolute; width:12px; height:12px; border-color:var(--theme, var(--accent-signal)); border-style:solid; opacity:.7;}
+.article-figure-art::before{top:-1px; left:-1px; border-width:2px 0 0 2px;}
+.article-figure-art::after{bottom:-1px; right:-1px; border-width:0 2px 2px 0;}
+.article-figure-svg{display:block; width:100%; height:auto; max-width:340px; margin:0 auto;}
+.article-figure img{display:block; max-width:100%; height:auto; margin:0 auto;}
+.article-figure figcaption{margin-top:10px; font-size:12.5px; line-height:1.7; color:var(--text-tertiary); text-align:left;}
+@media (max-width:640px){ .article-figure{margin:20px auto 22px;} .article-figure-art{padding:18px 14px 14px;} .article-figure figcaption{font-size:12px;} }
