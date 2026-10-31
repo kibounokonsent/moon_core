@@ -578,3 +578,14 @@ figcaption.illustration-caption {
   .sheet-table thead th { white-space: nowrap; }
   .sheet-table { min-width: 0; }
 }
+
+/* 通過シナリオ欄 */
+.scenario-row { display: grid; grid-template-columns: 1.4fr 90px 2fr auto; gap: 8px; margin-bottom: 8px; }
+@media (max-width: 700px) {
+  .scenario-row { grid-template-columns: 1fr; }
+  .scenario-row.relation-head { display: none; }
+}
+
+/* 会社の成長度バー */
+.growth-bar { height: 10px; margin: 14px 18px 0; border-radius: 999px; background: rgba(120,140,170,.25); overflow: hidden; }
+.growth-bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, #3aa0d8, #6ee0c8); transition: width .25s; }

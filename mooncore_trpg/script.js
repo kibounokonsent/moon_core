@@ -50,6 +50,7 @@ function makeDefaultState() {
     contamination: 0,
     passive: {name: "", effect: ""},
     relationships: [],
+    scenarios: [],
     social: {CL:0, RNK:0, INF:0},
     SYN: 0,
     CE: 3,
@@ -102,6 +103,12 @@ function init() {
     update();
   });
   renderRelationships();
+  $("addScenario").addEventListener("click", () => {
+    state.scenarios.push({name: "", type: "sub", note: ""});
+    renderScenarios();
+    update();
+  });
+  renderScenarios();
   $("rollDice").addEventListener("click", rollDice);
   $("save").addEventListener("click", saveData);
   $("load").addEventListener("click", loadData);
@@ -491,6 +498,63 @@ function renderRelationships() {
   });
 }
 
+const SCENARIO_TYPES = {sub:"サブ", main:"メイン", hidden:"隠し", other:"その他"};
+
+function scenarioLines() {
+  return [
+    "【通過シナリオ】",
+    ...state.scenarios
+      .filter(s => s.name.trim() || s.note.trim())
+      .map(s => `${s.name.trim()}（${SCENARIO_TYPES[s.type] || SCENARIO_TYPES.other}）${s.note.trim() ? "：" + s.note.trim() : ""}`)
+  ];
+}
+
+function renderScenarios() {
+  const box = $("scenarioList");
+  box.innerHTML = "";
+  state.scenarios.forEach((sc, i) => {
+    const row = document.createElement("div");
+    row.className = "scenario-row";
+    const name = document.createElement("input");
+    name.placeholder = "シナリオ名";
+    name.value = sc.name;
+    name.addEventListener("input", () => { state.scenarios[i].name = name.value; update(); });
+    const type = document.createElement("select");
+    Object.entries(SCENARIO_TYPES).forEach(([key, label]) => {
+      const opt = document.createElement("option");
+      opt.value = key;
+      opt.textContent = label;
+      type.append(opt);
+    });
+    type.value = sc.type;
+    type.addEventListener("change", () => { state.scenarios[i].type = type.value; update(); });
+    const note = document.createElement("input");
+    note.placeholder = "メモ";
+    note.value = sc.note;
+    note.addEventListener("input", () => { state.scenarios[i].note = note.value; update(); });
+    const del = document.createElement("button");
+    del.type = "button";
+    del.className = "secondary";
+    del.textContent = "削除";
+    del.addEventListener("click", () => {
+      state.scenarios.splice(i, 1);
+      renderScenarios();
+      update();
+    });
+    row.append(name, type, note, del);
+    box.append(row);
+  });
+}
+
+function normalizeScenarios(r) {
+  if (!Array.isArray(r)) return [];
+  return r
+    .map(x => (x && typeof x === "object")
+      ? {name: String(x.name || ""), type: SCENARIO_TYPES[x.type] ? x.type : "other", note: String(x.note || "")}
+      : {name: String(x || ""), type: "other", note: ""})
+    .filter(x => x.name || x.note);
+}
+
 function normalizePassive(p) {
   if (p && typeof p === "object") return {name: String(p.name || ""), effect: String(p.effect || "")};
   const s = String(p || "").trim();
@@ -565,6 +629,8 @@ function buildPreview() {
     "",
     ...relationLines(),
     "",
+    ...scenarioLines(),
+    "",
   ];
   return lines.join("\n");
 }
@@ -606,6 +672,8 @@ function buildCocofoliaMemo() {
     ...passiveLines(),
     "",
     ...relationLines(),
+    "",
+    ...scenarioLines(),
     "",
     "【備考】",
     p.notes
@@ -749,7 +817,8 @@ function applyCharacterData(data) {
     SYN: clampInt(Math.max(Number(src.SYN) || 0, ceil((Number(src.contamination) || 0) / 5)), 0, 20),
     contamination: 0,
     passive: normalizePassive(src.passive),
-    relationships: normalizeRelationships(src.relationships)
+    relationships: normalizeRelationships(src.relationships),
+    scenarios: normalizeScenarios(src.scenarios)
   };
 
   ABILITIES.forEach(([code]) => $(code).value = state.abilities[code] ?? 0);
@@ -767,6 +836,7 @@ function applyCharacterData(data) {
   $("passiveName").value = state.passive.name;
   $("passiveEffect").value = state.passive.effect;
   renderRelationships();
+  renderScenarios();
 
   document.querySelectorAll(".job-card").forEach(c => c.classList.toggle("selected", c.dataset.job === state.job));
   update();

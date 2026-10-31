@@ -23,7 +23,8 @@ let state = {
   financeExpenseDice:0,
   financeScandalDice:0,
   financeScandalLossDice:0,
-  operationStatus:"active"
+  operationStatus:"active",
+  companyGrowth:0
 };
 
 const $ = id => document.getElementById(id);
@@ -94,6 +95,11 @@ function bindInputs(){
       update();
     });
   });
+
+  $("companyGrowth").addEventListener("input", () => {
+    $("companyGrowth").value = Math.max(0, Math.min(999, Math.floor(num("companyGrowth"))));
+    update();
+  });
 }
 
 function rollD(sides,count){
@@ -144,9 +150,18 @@ function FUN(){
   return Math.max(1, Math.min(10, ceil(5 + ((state.REP - state.ETH) / 2))));
 }
 
-function typePoints(){
+function initialTypePoints(){
   // 設立直後の目安は0〜24程度（職業技能が高い社長のみ30前後まで）。0未満にはならない
   return Math.max(0, ceil(state.presidentSkill / 5) + FUN());
+}
+
+function growthValue(){
+  return Math.max(0, Math.min(999, Math.floor(Number(state.companyGrowth) || 0)));
+}
+
+// 現在の企業タイプポイント = 設立時のポイント + 成長度（ゲーム中の活動による加算分）
+function typePoints(){
+  return initialTypePoints() + growthValue();
 }
 
 function INF(){
@@ -244,6 +259,7 @@ function update(){
   state.REP = Math.max(0, Math.floor(num("REP")));
   state.ETH = Math.max(0, Math.floor(num("ETH")));
   state.operationStatus = operationStatus();
+  state.companyGrowth = Math.max(0, Math.min(999, Math.floor(num("companyGrowth"))));
 
   normalizeBasePoints();
 
@@ -261,6 +277,14 @@ function update(){
   $("skillHalf").textContent = ceil(state.presidentSkill/5);
   $("funBonus").textContent = FUN();
   $("typePoints").textContent = tp;
+  const remain = Math.max(0, 100 - tp);
+  const percent = Math.min(100, Math.floor(tp));
+  $("initialTypePoints").textContent = initialTypePoints();
+  $("growthShown").textContent = growthValue();
+  $("growthTotal").textContent = tp;
+  $("growthRemain").textContent = remain === 0 ? "到達済み" : `あと${remain}`;
+  $("growthPercent").textContent = `${percent}%`;
+  $("growthBarFill").style.width = `${percent}%`;
   $("evolution").textContent = data && tp >= 100
     ? `${data.evolution} ${data.evolutionName}`
     : "通常";
@@ -322,7 +346,9 @@ function buildPreview(){
     `基礎ポイント：${total}`,
     "",
     "【企業タイプポイント】",
-    `企業タイプポイント：${tp}`,
+    `設立時の企業タイプポイント：${initialTypePoints()}`,
+    `成長度：${growthValue()}`,
+    `企業タイプポイント（現在）：${tp}`,
     `進化状態：${state.type && tp >= 100 ? data.evolution+" "+data.evolutionName : "通常"}`,
     "",
     "【財務】",
@@ -351,7 +377,7 @@ function loadData(){
     state = Object.assign({
       companyName:"",presidentName:"",presidentSkill:0,presidentCL:1,presidentRNK:1,
       type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,financeScandalDice:0,financeScandalLossDice:0,
-      operationStatus:"active"
+      operationStatus:"active",companyGrowth:0
     },JSON.parse(raw));
 
     // 旧バグで {rolls,total} のまま保存されたデータを数値に直す
@@ -368,6 +394,7 @@ function loadData(){
     $("REP").value = state.REP ?? 0;
     $("ETH").value = state.ETH ?? 0;
     $("operationStatus").value = state.operationStatus || "active";
+    $("companyGrowth").value = state.companyGrowth ?? 0;
     update();
     showStatus("保存データを読み込みました。");
   }catch{
@@ -397,7 +424,9 @@ function buildCocofoliaMemo(){
     `基礎ポイント：${baseTotal()}`,
     "",
     "【企業タイプポイント】",
-    `企業タイプポイント：${typePoints()}`,
+    `設立時の企業タイプポイント：${initialTypePoints()}`,
+    `成長度：${growthValue()}`,
+    `企業タイプポイント（現在）：${typePoints()}`,
     `進化状態：${state.type && typePoints() >= 100 ? data.evolution+" "+data.evolutionName : "通常"}`,
     "",
     "【財務】",
@@ -446,6 +475,7 @@ function makeCocofolia(){
         {label:"ETH",value:String(state.ETH)},
         {label:"企業タイプ",value:String(tp)},
         {label:"企業タイプPt",value:String(tp)},
+        {label:"成長度",value:String(growthValue())},
         {label:"社長技能",value:String(state.presidentSkill)}
       ]
     }
@@ -515,7 +545,7 @@ function applyCompanyData(data){
   const base = {
     companyName:"",presidentName:"",presidentSkill:0,presidentCL:1,presidentRNK:1,
     type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,financeScandalDice:0,financeScandalLossDice:0,
-    operationStatus:"active"
+    operationStatus:"active",companyGrowth:0
   };
   state = {...base, ...(data || {})};
   $("companyName").value = state.companyName || "";
@@ -526,6 +556,7 @@ function applyCompanyData(data){
   $("REP").value = state.REP ?? 0;
   $("ETH").value = state.ETH ?? 0;
   $("operationStatus").value = state.operationStatus || "active";
+  $("companyGrowth").value = state.companyGrowth ?? 0;
   document.querySelectorAll(".job-card").forEach(c => c.classList.toggle("selected", c.dataset.type === state.type));
   update();
 }
@@ -557,7 +588,7 @@ function resetAll(){
   state={
     companyName:"",presidentName:"",presidentSkill:0,presidentCL:1,presidentRNK:1,
     type:"",baseDice:0,REP:0,ETH:0,financeIncomeDice:0,financeExpenseDice:0,financeScandalDice:0,financeScandalLossDice:0,
-    operationStatus:"active"
+    operationStatus:"active",companyGrowth:0
   };
   $("companyName").value="";
   $("presidentName").value="";
@@ -567,6 +598,7 @@ function resetAll(){
   $("REP").value=0;
   $("ETH").value=0;
   $("operationStatus").value="active";
+  $("companyGrowth").value=0;
   update();
   showStatus("新規会社シートを作成しました。");
 }

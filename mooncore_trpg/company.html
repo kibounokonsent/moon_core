@@ -113,6 +113,24 @@
     </section>
 
     <section class="panel">
+      <div class="panel-title">COMPANY GROWTH</div>
+      <div class="grid profile-grid">
+        <label>成長度（ゲーム中に加算した企業タイプポイント）
+          <input id="companyGrowth" type="number" min="0" max="999" value="0">
+        </label>
+      </div>
+      <div class="calculated-grid">
+        <div><span>設立時の企業タイプポイント</span><strong id="initialTypePoints">0</strong></div>
+        <div><span>成長度</span><strong id="growthShown">0</strong></div>
+        <div><span>現在の企業タイプポイント</span><strong id="growthTotal">0</strong></div>
+        <div><span>進化まで</span><strong id="growthRemain">あと100</strong></div>
+        <div><span>進化への進行度</span><strong id="growthPercent">0%</strong></div>
+      </div>
+      <div class="growth-bar" aria-hidden="true"><div id="growthBarFill" class="growth-bar-fill"></div></div>
+      <p class="hint">成長度は、会社が活動で獲得した企業タイプポイントの加算分です。「設立時の企業タイプポイント＋成長度」が現在の企業タイプポイントになり、INF・支出・進化判定（100到達）に反映されます。進化してもリセットされません。</p>
+    </section>
+
+    <section class="panel">
       <div class="panel-title">FINANCE</div>
       <div class="calculated-grid">
         <div><span>収入 D10</span><strong id="incomeDice">未決定</strong></div>
